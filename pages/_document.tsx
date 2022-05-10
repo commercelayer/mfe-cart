@@ -4,38 +4,11 @@ import Document, {
   NextScript,
   Head,
   DocumentContext,
-  DocumentInitialProps,
 } from "next/document"
-import { ReactFragment } from "react"
-import { ServerStyleSheet } from "styled-components"
 
 class AppDocument extends Document {
-  static async getInitialProps(
-    ctx: DocumentContext
-  ): Promise<DocumentInitialProps> {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
-
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
-        })
-
-      const initialProps = await Document.getInitialProps(ctx)
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ) as unknown as ReactFragment,
-      }
-    } finally {
-      sheet.seal()
-    }
+  static async getInitialProps(ctx: DocumentContext) {
+    return await Document.getInitialProps(ctx)
   }
 
   render() {

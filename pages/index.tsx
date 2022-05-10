@@ -1,7 +1,5 @@
 import type { NextPage } from "next"
 import Head from "next/head"
-import styled from "styled-components"
-import tw from "twin.macro"
 
 const Home: NextPage = () => {
   return (
@@ -12,14 +10,12 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main>
-        <Title data-test-id="title">Commerce Layer React Cart</Title>
+        <h1 data-test-id="title" className="text-3xl font-medium">
+          Commerce Layer React Cart
+        </h1>
       </main>
     </div>
   )
 }
 
 export default Home
-
-const Title = styled.h1`
-  ${tw`text-3xl font-medium`}
-`
