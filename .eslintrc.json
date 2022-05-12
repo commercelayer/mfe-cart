@@ -20,7 +20,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "tsconfig.json",
-    "tsconfigRootDir": "./",
+    // "tsconfigRootDir": "./",
     "ecmaFeatures": {
       "jsx": true
     },
@@ -32,7 +32,10 @@
       "version": "detect"
     },
     "import/resolver": {
-      "typescript": {}
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
     }
   },
   "plugins": ["react", "prettier", "import", "@typescript-eslint"],
@@ -43,6 +46,12 @@
     "no-var": "error",
     "no-param-reassign": "error",
     "prefer-const": "error",
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["HostedApp"]
+      }
+    ],
     "import/order": [
       "warn",
       {

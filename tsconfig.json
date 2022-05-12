@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "typeRoots": ["./node_modules/@types", "./@typing"],
     "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,
@@ -17,7 +18,8 @@
     "baseUrl": "./",
     "paths": {
       "#styles/*": ["styles/*"],
-      "#components/*": ["components/*"]
+      "#components/*": ["components/*"],
+      "#utils/*": ["utils/*"]
     },
     "incremental": true
   },
