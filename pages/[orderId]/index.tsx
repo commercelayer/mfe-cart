@@ -1,66 +1,38 @@
-import {
-  OrderContainer,
-  LineItemsContainer,
-  LineItemsCount,
-  LineItem,
-  LineItemImage,
-  LineItemName,
-  LineItemQuantity,
-  LineItemAmount,
-  LineItemRemoveLink,
-  Errors,
-  CommerceLayer,
-} from "@commercelayer/react-components"
 import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import type { NextPage } from "next"
+import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
 
-import { Head } from "#components/Head"
+import { PageHead } from "#components/PageHead"
 import { SettingsProvider } from "#components/SettingsProvider"
+import { Skeleton } from "#components/Skeleton"
 
-const Cart: NextPage = () => {
+const LazyCart = dynamic(() => import("#components/Cart"), {
+  loading: function LoadingSkeleton() {
+    return <Skeleton />
+  },
+})
+
+const CartPage: NextPage = () => {
   const { query } = useRouter()
   const orderId = query.orderId as string | undefined
 
   if (!orderId) {
-    return null
+    // first render
+    return <Skeleton />
   }
 
   return (
     <SettingsProvider orderId={orderId}>
-      {({ settings }) =>
-        !settings ? (
-          <div>Loading</div>
+      {({ settings, isLoading }) =>
+        isLoading ? (
+          <Skeleton />
+        ) : !settings.isValid ? (
+          <div>404?</div>
         ) : (
           <GlobalStylesProvider primaryColor={settings.primaryColor}>
-            <Head faviconUrl={settings.favicon} />
-
-            <CommerceLayer
-              accessToken={settings.accessToken}
-              endpoint={settings.endpoint}
-            >
-              <OrderContainer
-                orderId={orderId}
-                attributes={{ return_url: "https://url.com" }}
-              >
-                <LineItemsContainer>
-                  <div className="bg-primary">
-                    <p>
-                      Your shopping cart contains <LineItemsCount />
-                      items
-                    </p>
-                    <LineItem>
-                      <LineItemImage width={50} />
-                      <LineItemName />
-                      <LineItemQuantity max={10} />
-                      <Errors resource="line_items" field="quantity" />
-                      <LineItemAmount />
-                      <LineItemRemoveLink />
-                    </LineItem>
-                  </div>
-                </LineItemsContainer>
-              </OrderContainer>
-            </CommerceLayer>
+            <PageHead faviconUrl={settings.favicon} />
+            <LazyCart />
           </GlobalStylesProvider>
         )
       }
@@ -68,4 +40,4 @@ const Cart: NextPage = () => {
   )
 }
 
-export default Cart
+export default CartPage

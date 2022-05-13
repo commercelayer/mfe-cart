@@ -79,6 +79,7 @@
     "@typescript-eslint/prefer-readonly": "error",
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/prefer-namespace-keyword": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@next/next/no-img-element": "off"
   }
 }

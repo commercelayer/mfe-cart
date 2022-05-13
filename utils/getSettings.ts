@@ -1,9 +1,19 @@
 import CommerceLayer from "@commercelayer/sdk"
-import { Settings } from "HostedApp"
+import { Settings, InvalidSettings } from "HostedApp"
 
 import { getInfoFromJwt } from "./getInfoFromJwt"
 import { getOrderDetails } from "./getOrderDetails"
 import { getOrganizationsDetails } from "./getOrganizationDetails"
+
+// default settings are by their nature not valid to show a full cart
+// they will be used as fallback for errors or 404 page
+export const defaultSettings: InvalidSettings = {
+  isValid: false,
+  primaryColor: "#000000",
+  language: "en",
+  favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
+  companyName: "Commerce Layer",
+}
 
 export const getSettings = async ({
   accessToken,
@@ -11,11 +21,12 @@ export const getSettings = async ({
 }: {
   accessToken: string
   orderId: string
-}): Promise<Settings | null> => {
+}): Promise<Settings | InvalidSettings> => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
   const { slug, isTest } = getInfoFromJwt(accessToken)
+
   if (!slug) {
-    return null
+    return defaultSettings
   }
 
   const cl = CommerceLayer({
@@ -29,7 +40,7 @@ export const getSettings = async ({
     client: cl,
   })
   if (!order || !organization) {
-    return null
+    return defaultSettings
   }
 
   return {
@@ -38,15 +49,17 @@ export const getSettings = async ({
     domain,
     orderNumber: order.number || 0,
     orderId: order.id,
-    logoUrl: organization.logo_url || "/favicon.png",
-    companyName: organization.name || "Test company",
-    language: order.language_code || "en",
-    primaryColor: organization.primary_color || "",
-    favicon: organization.favicon_url || "/favicon.png",
+    logoUrl: organization.logo_url,
+    companyName: organization.name || defaultSettings.companyName,
+    language: order.language_code || defaultSettings.language,
+    primaryColor: organization.primary_color || defaultSettings.primaryColor,
+    favicon: organization.favicon_url || defaultSettings.favicon,
     gtmId: isTest ? organization.gtm_id_test : organization.gtm_id,
     supportEmail: organization.support_email,
     supportPhone: organization.support_phone,
     termsUrl: order.terms_url,
     privacyUrl: order.privacy_url,
+    returnUrl: order.return_url,
+    isValid: true,
   }
 }

@@ -1,11 +1,18 @@
-import { Settings } from "HostedApp"
-import { createContext, FC, ReactNode, useEffect, useState } from "react"
+import { InvalidSettings, Settings } from "HostedApp"
+import {
+  createContext,
+  FC,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react"
 
 import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
-import { getSettings } from "#utils/getSettings"
+import { defaultSettings, getSettings } from "#utils/getSettings"
 
 type SettingsProviderValue = {
-  settings: Settings | null
+  settings: Settings | InvalidSettings
   isLoading: boolean
 }
 
@@ -15,23 +22,34 @@ interface SettingsProviderProps {
 }
 
 const initialValues: SettingsProviderValue = {
-  settings: null,
+  settings: defaultSettings,
   isLoading: true,
 }
 
 export const SettingsContext =
   createContext<SettingsProviderValue>(initialValues)
 
+export const useSettings = (): SettingsProviderValue => {
+  const ctx = useContext(SettingsContext)
+  return {
+    settings: ctx.settings,
+    isLoading: !!ctx.isLoading,
+  }
+}
+
 export const SettingsProvider: FC<SettingsProviderProps> = ({
   orderId,
   children,
 }) => {
-  const [settings, setSettings] = useState<Settings | null>(null)
+  const [settings, setSettings] = useState<Settings | InvalidSettings>(
+    defaultSettings
+  )
   const [isLoading, setIsLoading] = useState(true)
   const accessToken = getAccessTokenFromUrl()
 
   useEffect(() => {
-    setIsLoading(true)
+    setIsLoading(!!accessToken)
+
     if (accessToken) {
       getSettings({ orderId, accessToken })
         .then(setSettings)
