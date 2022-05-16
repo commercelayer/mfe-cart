@@ -1,4 +1,5 @@
 import { InvalidSettings, Settings } from "HostedApp"
+import { changeLanguage } from "i18next"
 import {
   createContext,
   FC,
@@ -7,6 +8,8 @@ import {
   useEffect,
   useState,
 } from "react"
+
+import { parseLanguageCode } from "./i18n/parseLanguageCode"
 
 import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
 import { defaultSettings, getSettings } from "#utils/getSettings"
@@ -58,6 +61,13 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({
         })
     }
   }, [accessToken])
+
+  // keep i18n in sync
+  useEffect(() => {
+    if (settings.language) {
+      changeLanguage(parseLanguageCode("settings.language"))
+    }
+  }, [settings.language])
 
   const value = { settings, isLoading }
   return (

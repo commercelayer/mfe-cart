@@ -13,7 +13,7 @@ type Props = {
 }
 
 export const Totals: FC<Props> = ({ className }) => {
-  const { t } = useTranslation("common")
+  const { t } = useTranslation()
   return (
     <div className={className}>
       <div className="bg-gray-100 py-10 px-7 rounded-md w-full">

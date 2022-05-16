@@ -19,7 +19,7 @@ type Props = {
 }
 
 export const Summary: FC<Props> = ({ className }) => {
-  const { t } = useTranslation("common")
+  const { t } = useTranslation()
 
   return (
     <div className={className}>

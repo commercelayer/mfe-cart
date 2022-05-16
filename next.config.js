@@ -1,5 +1,3 @@
-const { i18n } = require('./next-i18next.config');
-
 const shouldAnalyzeBundles = process.env.ANALYZE_BUNDLE === "true"
 
 const securityHeaders = [
@@ -28,10 +26,6 @@ let nextConfig = {
   poweredByHeader: false,
   webpack: (config) => {
     return config
-  },
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'it'],
   }
 }
 
