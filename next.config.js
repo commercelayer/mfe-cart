@@ -12,7 +12,7 @@ const securityHeaders = [
 ]
 
 let nextConfig = {
-   async headers() {
+  async headers() {
     return [
       {
         // Apply these headers to all routes in your application.
@@ -26,7 +26,7 @@ let nextConfig = {
   poweredByHeader: false,
   webpack: (config) => {
     return config
-  }
+  },
 }
 
 if (shouldAnalyzeBundles) {
