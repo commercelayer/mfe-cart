@@ -1,8 +1,9 @@
+import { appWithTranslation } from "next-i18next"
 import type { AppProps } from "next/app"
 import "../styles/globals.css"
 
-function CartApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
 }
 
-export default CartApp
+export default appWithTranslation(App)

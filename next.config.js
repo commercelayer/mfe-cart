@@ -1,3 +1,5 @@
+const { i18n } = require('./next-i18next.config');
+
 const shouldAnalyzeBundles = process.env.ANALYZE_BUNDLE === "true"
 
 const securityHeaders = [
@@ -12,7 +14,7 @@ const securityHeaders = [
 ]
 
 let nextConfig = {
-  async headers() {
+   async headers() {
     return [
       {
         // Apply these headers to all routes in your application.
@@ -27,6 +29,10 @@ let nextConfig = {
   webpack: (config) => {
     return config
   },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'it'],
+  }
 }
 
 if (shouldAnalyzeBundles) {

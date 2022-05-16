@@ -1,7 +1,9 @@
 import { GlobalStylesProvider } from "@commercelayer/react-utils"
-import type { NextPage } from "next"
+import type { GetServerSidePropsContext, NextPage } from "next"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import dynamic from "next/dynamic"
-import { useRouter } from "next/router"
+
+import nextI18NextConfig from "../../next-i18next.config.js"
 
 import { PageHead } from "#components/PageHead"
 import { SettingsProvider } from "#components/SettingsProvider"
@@ -13,15 +15,7 @@ const LazyCart = dynamic(() => import("#components/Cart"), {
   },
 })
 
-const CartPage: NextPage = () => {
-  const { query } = useRouter()
-  const orderId = query.orderId as string | undefined
-
-  if (!orderId) {
-    // first render
-    return <Skeleton />
-  }
-
+const CartPage: NextPage<{ orderId: string }> = ({ orderId }) => {
   return (
     <SettingsProvider orderId={orderId}>
       {({ settings, isLoading }) =>
@@ -41,3 +35,15 @@ const CartPage: NextPage = () => {
 }
 
 export default CartPage
+
+export const getServerSideProps = async ({
+  locale = "en",
+  params,
+}: GetServerSidePropsContext) => {
+  return {
+    props: {
+      orderId: params?.orderId,
+      ...(await serverSideTranslations(locale, ["common"], nextI18NextConfig)),
+    },
+  }
+}
