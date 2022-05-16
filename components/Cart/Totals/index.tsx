@@ -17,7 +17,7 @@ export const Totals: FC<Props> = ({ className }) => {
   const { t } = useTranslation()
   return (
     <div className={className}>
-      <div className="bg-gray-50 py-10 px-7 rounded-md w-full">
+      <div className="md:bg-gray-50 pb-8 md:py-10 md:px-7 rounded-md w-full">
         <CouponForm />
         <div className="border-t border-t-gray-100 border-b border-b-gray-400">
           <div className="text-black  py-8 flex justify-between">

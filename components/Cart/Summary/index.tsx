@@ -1,11 +1,8 @@
 import {
   LineItemImage,
   LineItemName,
-  LineItemCode,
-  LineItemOptions,
   LineItemAmount,
   LineItem,
-  LineItemOption,
   LineItemsEmpty,
 } from "@commercelayer/react-components"
 import { useTranslation } from "next-i18next"
@@ -26,7 +23,10 @@ export const Summary: FC<Props> = ({ className }) => {
       <LineItemsEmpty text={t("general.emptyCart")} />
       <LineItem>
         <div className="flex gap-5 pb-8 mb-8 border-b border-b-gray-300">
-          <LineItemImage width={170} className="self-center" />
+          <LineItemImage
+            width={170}
+            className="w-1/4 self-start md:self-center"
+          />
 
           <div className="flex-1 flex flex-col min-h-[150px]">
             <div className="flex justify-between items-center gap-1">

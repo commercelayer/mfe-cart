@@ -24,7 +24,7 @@ export const CouponForm: FC = () => {
                 Applied Coupon
               </p>
               <div className="flex w-full pt-1">
-                <div className="flex-1 px-4 py-2 text-sm rounded-md rounded-tr-none rounded-br-none bg-white text-primary-dark font-bold">
+                <div className="flex-1 px-4 py-2 text-sm rounded-md rounded-tr-none rounded-br-none bg-white text-primary-dark border border-gray-500 font-bold">
                   {code}
                 </div>
                 <GiftCardOrCouponRemoveButton
