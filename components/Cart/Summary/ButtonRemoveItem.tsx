@@ -1,11 +1,17 @@
 import { LineItemRemoveLink } from "@commercelayer/react-components"
+import { useTranslation } from "next-i18next"
 import { FC } from "react"
 
 export const ButtonRemoveItem: FC = () => {
+  const { t } = useTranslation()
   return (
     <LineItemRemoveLink>
       {({ handleRemove }) => (
-        <a onClick={handleRemove} className="cursor-pointer hover:text-red-500">
+        <a
+          onClick={handleRemove}
+          className="cursor-pointer hover:text-red-500"
+          title={t("general.remove")}
+        >
           <svg
             width="16"
             height="16"

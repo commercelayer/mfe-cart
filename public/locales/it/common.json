@@ -4,7 +4,8 @@
         "item": "prodotto",
         "item_other": "prodotti",
         "emptyCart": "Il tuo carrello è vuoto",
-        "remove": "Rimuovi", 
+        "remove": "Rimuovi",
+        "price": "Prezzo",
         "finalPriceInCheckoutText": "Il totale incluse tasse e costi di spedizione sarà calcolato nella schermata successiva",
         "coupon": {
             "label": "Hai un codice promozionale?",

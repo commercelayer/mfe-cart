@@ -4,7 +4,8 @@
         "item": "item",
         "item_other": "items",
         "emptyCart": "Your cart is empty",
-        "remove": "Remove", 
+        "remove": "Remove",
+        "price": "Price",
         "finalPriceInCheckoutText": "Tax included and shipping calculated at checkout",
         "coupon": {
             "label": "Have a promo code?",

@@ -34,11 +34,14 @@ export const Summary: FC<Props> = ({ className }) => {
               <ButtonRemoveItem />
             </div>
 
-            <div>
-              <LineItemCode className="text-sm text-gray-400 mb-3" />
-              <LineItemOptions showName showAll>
-                <LineItemOption />
-              </LineItemOptions>
+            <div className="pt-2">
+              {/* <LineItemCode className="text-sm text-gray-400 mb-3" /> */}
+              <div className="flex gap-1 text-sm">
+                <div className="text-gray-400 font-semibold">
+                  {t("general.price")}:
+                </div>
+                <LineItemAmount type="unit" />
+              </div>
             </div>
 
             <div className="flex justify-between items-center mt-auto">
