@@ -17,6 +17,7 @@ declare module "HostedApp" {
     privacyUrl?: string
     returnUrl?: string
     isValid: true
+    itemsCount: number
   }
 
   export type InvalidSettings = Pick<

@@ -3,7 +3,6 @@ import {
   LineItemName,
   LineItemAmount,
   LineItem,
-  LineItemsEmpty,
 } from "@commercelayer/react-components"
 import { useTranslation } from "next-i18next"
 import { FC } from "react"
@@ -20,7 +19,6 @@ export const Summary: FC<Props> = ({ className }) => {
 
   return (
     <div className={className}>
-      <LineItemsEmpty text={t("general.emptyCart")} />
       <LineItem>
         <div className="flex gap-5 pb-8 mb-8 border-b border-b-gray-300">
           <LineItemImage

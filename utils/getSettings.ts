@@ -49,6 +49,7 @@ export const getSettings = async ({
     domain,
     orderNumber: order.number || 0,
     orderId: order.id,
+    itemsCount: (order.line_items || []).length,
     logoUrl: organization.logo_url,
     companyName: organization.name || defaultSettings.companyName,
     language: order.language_code || defaultSettings.language,
