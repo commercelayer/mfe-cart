@@ -65,7 +65,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({
   // keep i18n in sync
   useEffect(() => {
     if (settings.language) {
-      changeLanguage(parseLanguageCode("settings.language"))
+      changeLanguage(parseLanguageCode(settings.language))
     }
   }, [settings.language])
 

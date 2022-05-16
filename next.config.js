@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const shouldAnalyzeBundles = process.env.ANALYZE_BUNDLE === "true"
 
 const securityHeaders = [

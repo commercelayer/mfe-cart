@@ -5,9 +5,14 @@
         "item_other": "prodotti",
         "emptyCart": "Il tuo carrello è vuoto",
         "remove": "Rimuovi", 
-        "finalPriceinCheckoutText": "Il totale incluse tasse e costi di spedizione sarà calcolato nella schermata successiva",
-        "couponLabel": "Hai un codice promozionale?",
+        "finalPriceInCheckoutText": "Il totale incluse tasse e costi di spedizione sarà calcolato nella schermata successiva",
+        "coupon": {
+            "label": "Hai un codice promozionale?",
+            "placeholder": "Inserisci codice...",
+            "submit": "Applica"
+        },
         "subtotal": "Totale parziale",
+        "discount": "Sconti",
         "total": "Totale",
         "gotToCheckoutCta": "Checkout"
     }  

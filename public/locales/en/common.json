@@ -5,9 +5,14 @@
         "item_other": "items",
         "emptyCart": "Your cart is empty",
         "remove": "Remove", 
-        "finalPriceinCheckoutText": "Tax included and shipping calculated at checkout",
-        "couponLabel": "Have a promo code?",
+        "finalPriceInCheckoutText": "Tax included and shipping calculated at checkout",
+        "coupon": {
+            "label": "Have a promo code?",
+            "placeholder": "Type code here...",
+            "submit": "Apply"
+        },
         "subtotal": "Subtotal",
+        "discount": "Discount",
         "total": "Total",
         "gotToCheckoutCta": "Checkout"
     }  
