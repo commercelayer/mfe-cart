@@ -52,6 +52,7 @@
         "ignore": ["HostedApp"]
       }
     ],
+    "import/no-named-as-default": "off",
     "import/order": [
       "warn",
       {

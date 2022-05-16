@@ -4,6 +4,7 @@ import {
   LineItemsCount,
   OrderContainer,
 } from "@commercelayer/react-components"
+import { useTranslation } from "next-i18next"
 import { FC } from "react"
 
 import { Totals } from "./Totals"
@@ -15,6 +16,7 @@ import { useSettings } from "#components/SettingsProvider"
 
 const Cart: FC = () => {
   const { settings } = useSettings()
+  const { t } = useTranslation()
 
   if (!settings || !settings.isValid) {
     return null
@@ -33,11 +35,18 @@ const Cart: FC = () => {
           <LineItemsContainer>
             <PageHeader>
               <h1 className="text-black font-semibold text-xl md:text-3xl">
-                Cart
+                {t("general.title")}
               </h1>
-              <div className="text-sm text-gray-500 font-semibold">
-                <LineItemsCount /> items
-              </div>
+
+              <LineItemsCount>
+                {({ quantity }) =>
+                  quantity ? (
+                    <div className="text-sm text-gray-500 font-semibold">
+                      {quantity} {t("general.item", { count: quantity })}
+                    </div>
+                  ) : null
+                }
+              </LineItemsCount>
             </PageHeader>
 
             <div className="flex gap-8 pt-8 items-start">

@@ -1,0 +1,14 @@
+{
+    "general": {
+        "title": "Your Cart",
+        "item": "item",
+        "item_other": "items",
+        "emptyCart": "Your cart is empty",
+        "remove": "Remove", 
+        "finalPriceinCheckoutText": "Tax included and shipping calculated at checkout",
+        "couponLabel": "Have a promo code?",
+        "subtotal": "Subtotal",
+        "total": "Total",
+        "gotToCheckoutCta": "Checkout"
+    }  
+}

@@ -1,0 +1,14 @@
+{
+    "general": {
+        "title": "Il tuo carrello",
+        "item": "prodotto",
+        "item_other": "prodotti",
+        "emptyCart": "Il tuo carrello è vuoto",
+        "remove": "Rimuovi", 
+        "finalPriceinCheckoutText": "Il totale incluse tasse e costi di spedizione sarà calcolato nella schermata successiva",
+        "couponLabel": "Hai un codice promozionale?",
+        "subtotal": "Totale parziale",
+        "total": "Totale",
+        "gotToCheckoutCta": "Checkout"
+    }  
+}

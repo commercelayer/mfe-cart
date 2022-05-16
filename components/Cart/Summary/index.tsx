@@ -8,6 +8,7 @@ import {
   LineItemOption,
   LineItemsEmpty,
 } from "@commercelayer/react-components"
+import { useTranslation } from "next-i18next"
 import { FC } from "react"
 
 import { ButtonRemoveItem } from "./ButtonRemoveItem"
@@ -18,9 +19,11 @@ type Props = {
 }
 
 export const Summary: FC<Props> = ({ className }) => {
+  const { t } = useTranslation()
+
   return (
     <div className={className}>
-      <LineItemsEmpty />
+      <LineItemsEmpty text={t("general.emptyCart")} />
       <LineItem>
         <div className="flex gap-5 pb-8 mb-8 border-b border-b-gray-300">
           <LineItemImage width={170} className="self-center" />
