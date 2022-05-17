@@ -4,6 +4,7 @@ import { Settings, InvalidSettings } from "HostedApp"
 import { getInfoFromJwt } from "./getInfoFromJwt"
 import { getOrderDetails } from "./getOrderDetails"
 import { getOrganizationsDetails } from "./getOrganizationDetails"
+import { isValidHost } from "./isValidHost"
 
 // default settings are by their nature not valid to show a full cart
 // they will be used as fallback for errors or 404 page
@@ -40,6 +41,11 @@ export const getSettings = async ({
     client: cl,
   })
   if (!order || !organization) {
+    return defaultSettings
+  }
+
+  const hostname = typeof window && window.location.hostname
+  if (!isValidHost(hostname, accessToken)) {
     return defaultSettings
   }
 
