@@ -21,7 +21,6 @@ export const getInfoFromJwt = (accessToken: string) => {
 
     return { slug, kind, isTest: test }
   } catch (e) {
-    console.log(`error decoding access token: ${e}`)
     return {}
   }
 }
