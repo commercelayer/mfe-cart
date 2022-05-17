@@ -32,10 +32,9 @@ export const CodeForm: FC = () => {
           <div className="flex w-full pt-1">
             <GiftCardOrCouponInput
               className={cn(
-                "flex-1 px-4 py-2 text-sm rounded-md rounded-tr-none rounded-br-none border outline-none",
+                "input-base flex-1 rounded-md rounded-tr-none rounded-br-none",
                 {
-                  "border-red-400 placeholder-red-400 focus:ring-red-500 focus:border-red-500":
-                    couponError,
+                  "-error ": couponError,
                 }
               )}
               placeholderTranslation={(codeType) =>
@@ -43,7 +42,7 @@ export const CodeForm: FC = () => {
               }
             />
             <GiftCardOrCouponSubmit
-              className="bg-primary px-4 text-contrast text-sm font-sm font-semibold rounded-md rounded-tl-none rounded-bl-none"
+              className="button-base bg-primary text-contrast px-4 rounded-md rounded-tl-none rounded-bl-none"
               label={t("couponOrGift.submit")}
             />
           </div>

@@ -7,7 +7,7 @@ export const QuantitySelector: FC = () => {
       <div className="inline-block relative w-20">
         <LineItemQuantity
           max={10}
-          className="appearance-none w-full bg-white border border-gray-600 px-4 py-2 pr-7 rounded"
+          className="appearance-none w-full input-base bg-white border border-gray-600 px-4 py-2 pr-7 rounded"
         />
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
           <svg

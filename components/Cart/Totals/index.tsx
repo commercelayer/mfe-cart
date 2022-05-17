@@ -57,7 +57,7 @@ export const Totals: FC<Props> = ({ className }) => {
         </p>
         <CheckoutLink
           hostedCheckout
-          className="block py-3 px-3 rounded-md bg-primary text-contrast text-center text-sm font-semibold hover:bg-primary-dark transition-bg"
+          className="button-base bg-primary text-contrast block rounded-md py-3 px-3"
         />
       </div>
     </div>
