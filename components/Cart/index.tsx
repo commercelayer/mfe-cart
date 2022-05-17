@@ -50,7 +50,10 @@ const Cart: FC = () => {
             </PageHeader>
 
             <div className="flex flex-col md:flex-row md:gap-8 pt-8 items-start">
-              <Summary className="w-full md:w-7/12" />
+              <Summary
+                className="w-full md:w-7/12"
+                listTypes={["skus", "gift_cards"]}
+              />
               <Totals className="w-full md:w-5/12" />
             </div>
           </LineItemsContainer>
