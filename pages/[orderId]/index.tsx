@@ -4,6 +4,7 @@ import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
 
 import { PageHead } from "#components/PageHead"
+import { Redirect } from "#components/Redirect"
 import { SettingsProvider } from "#components/SettingsProvider"
 import { Skeleton } from "#components/Skeleton"
 
@@ -28,7 +29,7 @@ const CartPage: NextPage = () => {
         isLoading ? (
           <Skeleton />
         ) : !settings.isValid ? (
-          <div>404?</div>
+          <Redirect to="/404" />
         ) : (
           <GlobalStylesProvider primaryColor={settings.primaryColor}>
             <PageHead faviconUrl={settings.favicon} />

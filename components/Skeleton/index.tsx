@@ -12,7 +12,7 @@ export const Skeleton: FC = () => {
       <PageHead title="Loading..." />
       <PageHeader isLoading />
 
-      <div className="flex flex-col md:flex-row md:gap-8 pt-8 items-start">
+      <div className="flex flex-col md:flex-row md:gap-8 xl:gap-36 pt-8 items-start">
         {/* Summary */}
         <div className="w-full md:w-7/12">
           <div className="animate-pulse">
