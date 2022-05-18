@@ -25,39 +25,50 @@ export const Summary: FC<Props> = ({ className, listTypes }) => {
     <div className={className}>
       {listTypes.map((type) => (
         <LineItem key={type} type={type}>
-          <div className="flex gap-5 pb-8 mb-8 border-b border-b-gray-300">
-            <LineItemImage
-              width={170}
-              className="w-1/4 self-start md:self-center"
-            />
+          <LineItemAmount format="cents">
+            {({ price }) =>
+              isAppliedGiftCard(type, price) ? null : (
+                <div className="flex gap-5 pb-8 mb-8 border-b border-b-gray-300">
+                  <LineItemImage
+                    width={170}
+                    className="w-1/4 self-start md:self-center"
+                  />
 
-            <div className="flex-1 flex flex-col min-h-[150px]">
-              <div className="flex justify-between items-center gap-1">
-                <LineItemName className="font-bold" />
-                <ButtonRemoveItem />
-              </div>
+                  <div className="flex-1 flex flex-col min-h-[150px]">
+                    <div className="flex justify-between items-center gap-1">
+                      <LineItemName className="font-bold" />
+                      <ButtonRemoveItem />
+                    </div>
 
-              <LineItemOptions showAll showName={true} className="pt-2">
-                <LineItemOption />
-              </LineItemOptions>
+                    <LineItemOptions showAll showName={true} className="pt-2">
+                      <LineItemOption />
+                    </LineItemOptions>
 
-              <div className="pt-2">
-                <div className="flex gap-1 text-sm">
-                  <div className="text-gray-400 font-semibold">
-                    {t("general.price")}:
+                    <div className="pt-2">
+                      <div className="flex gap-1 text-sm">
+                        <div className="text-gray-400 font-semibold">
+                          {t("general.price")}:
+                        </div>
+                        <LineItemAmount type="unit" />
+                      </div>
+                    </div>
+
+                    <div className="flex justify-between items-center mt-auto">
+                      <QuantitySelector />
+                      <LineItemAmount className="text-lg font-semibold" />
+                    </div>
                   </div>
-                  <LineItemAmount type="unit" />
                 </div>
-              </div>
-
-              <div className="flex justify-between items-center mt-auto">
-                <QuantitySelector />
-                <LineItemAmount className="text-lg font-semibold" />
-              </div>
-            </div>
-          </div>
+              )
+            }
+          </LineItemAmount>
         </LineItem>
       ))}
     </div>
   )
 }
+
+// prevent rendering within the product list a gift card applied to current
+// we will display the applied gift card in the cart/order totals
+const isAppliedGiftCard = (type: LineItemType, price?: string) =>
+  type === "gift_cards" && price && parseInt(`${price}`, 10) <= 0
