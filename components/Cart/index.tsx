@@ -52,7 +52,7 @@ const Cart: FC = () => {
             <div className="flex flex-col md:flex-row md:gap-8 xl:gap-36 pt-8 items-start">
               <Summary
                 className="w-full md:w-7/12"
-                listTypes={["skus", "gift_cards"]}
+                listTypes={["bundles", "skus", "gift_cards"]}
               />
               <Totals className="w-full md:w-5/12" />
             </div>
