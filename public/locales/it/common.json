@@ -7,14 +7,24 @@
         "remove": "Rimuovi",
         "price": "Prezzo",
         "finalPriceInCheckoutText": "Il totale incluse tasse e costi di spedizione sarà calcolato nella schermata successiva",
-        "coupon": {
-            "label": "Hai un codice promozionale?",
-            "placeholder": "Inserisci codice...",
-            "submit": "Applica"
-        },
         "subtotal": "Totale parziale",
         "discount": "Sconti",
+        "giftCard": "Carta regalo",
         "total": "Totale",
         "gotToCheckoutCta": "Checkout"
-    }  
+    },
+    "couponOrGift": {
+        "label": "Hai un codice da usare?",
+        "submit": "Applica",
+        "placeholder": {
+            "gift_card_or_coupon_code": "Codice gift card o coupon",
+            "gift_card_code": "Codice gift card",
+            "coupon_code": "Codice coupon"
+        },
+         "error": {
+            "gift_card_or_coupon_code": "Non corrisponde ad alcuna carta regalo o coupon attivo",
+            "gift_card_code": "Non corrisponde ad una carta regalo attiva",
+            "coupon_code": "Non corrisponde ad un coupon attivo"
+        }
+    }
 }

@@ -7,14 +7,24 @@
         "remove": "Remove",
         "price": "Price",
         "finalPriceInCheckoutText": "Tax included and shipping calculated at checkout",
-        "coupon": {
-            "label": "Have a promo code?",
-            "placeholder": "Type code here...",
-            "submit": "Apply"
-        },
         "subtotal": "Subtotal",
         "discount": "Discount",
+        "giftCard": "Gift Card",
         "total": "Total",
         "gotToCheckoutCta": "Checkout"
-    }  
+    },
+    "couponOrGift": {
+        "label": "Have a promo code?",
+        "submit": "Apply",
+        "placeholder": {
+            "gift_card_or_coupon_code": "Gift card or coupon code",
+            "gift_card_code": "Gift card",
+            "coupon_code": "Coupon code"
+        },
+         "error": {
+            "gift_card_or_coupon_code": "Please enter a valid gift card or coupon",
+            "gift_card_code": "Please enter a valid gift card",
+            "coupon_code": "Please enter a valid coupon"
+        }
+    }
 }
