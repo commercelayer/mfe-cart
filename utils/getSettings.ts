@@ -5,6 +5,7 @@ import { getInfoFromJwt } from "./getInfoFromJwt"
 import { getOrderDetails } from "./getOrderDetails"
 import { getOrganizationsDetails } from "./getOrganizationDetails"
 import { isValidHost } from "./isValidHost"
+import { isValidStatus } from "./isValidStatus"
 
 // default settings are by their nature not valid to show a full cart
 // they will be used as fallback for errors or 404 page
@@ -41,6 +42,10 @@ export const getSettings = async ({
     client: cl,
   })
   if (!order || !organization) {
+    return defaultSettings
+  }
+
+  if (!isValidStatus(order.status)) {
     return defaultSettings
   }
 
