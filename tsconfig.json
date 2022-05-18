@@ -19,7 +19,8 @@
     "paths": {
       "#styles/*": ["styles/*"],
       "#components/*": ["components/*"],
-      "#utils/*": ["utils/*"]
+      "#utils/*": ["utils/*"],
+      "#specs/*": ["specs/*"]
     },
     "incremental": true
   },

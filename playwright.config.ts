@@ -1,17 +1,20 @@
 import type { PlaywrightTestConfig } from "@playwright/test"
 import { devices } from "@playwright/test"
+import dotenv from "dotenv"
+
+import path from "path"
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
+dotenv.config({ path: path.resolve(__dirname, ".env.local") })
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: "./tests",
+  testDir: "./specs",
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
