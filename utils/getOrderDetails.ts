@@ -21,6 +21,7 @@ export const getOrderDetails = async ({
           "language_code",
           "terms_url",
           "privacy_url",
+          "return_url",
           "line_items",
         ],
         line_items: ["item_type"],

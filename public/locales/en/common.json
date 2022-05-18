@@ -11,7 +11,8 @@
         "discount": "Discount",
         "giftCard": "Gift Card",
         "total": "Total",
-        "gotToCheckoutCta": "Checkout"
+        "gotToCheckoutCta": "Checkout",
+        "returnUrlLabel": "Continue shopping"
     },
     "couponOrGift": {
         "label": "Have a promo code?",

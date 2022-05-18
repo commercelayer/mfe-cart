@@ -24,3 +24,7 @@
 .button-base {
   @apply text-center text-sm font-semibold transition-bg duration-500 hover:opacity-80 focus:outline-none
 }
+
+.link-base {
+  @apply border-b transition ease-in duration-200 hover:text-primary-dark
+}

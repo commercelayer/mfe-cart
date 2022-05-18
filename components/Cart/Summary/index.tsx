@@ -13,6 +13,8 @@ import { FC } from "react"
 import { ButtonRemoveItem } from "./ButtonRemoveItem"
 import { QuantitySelector } from "./QuantitySelector"
 
+import { useSettings } from "#components/SettingsProvider"
+
 type Props = {
   className: string
   listTypes: LineItemType[]
@@ -20,6 +22,7 @@ type Props = {
 
 export const Summary: FC<Props> = ({ className, listTypes }) => {
   const { t } = useTranslation()
+  const { settings } = useSettings()
 
   return (
     <div className={className}>
@@ -64,6 +67,14 @@ export const Summary: FC<Props> = ({ className, listTypes }) => {
           </LineItemAmount>
         </LineItem>
       ))}
+
+      {settings.isValid && settings.returnUrl ? (
+        <div className="pt-2 pb-8">
+          <a href={settings.returnUrl} className="link-base text-xs font-bold">
+            &lt; {t("general.returnUrlLabel")}
+          </a>
+        </div>
+      ) : null}
     </div>
   )
 }

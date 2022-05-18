@@ -40,6 +40,7 @@ export const CodeForm: FC = () => {
               placeholderTranslation={(codeType) =>
                 t(`couponOrGift.placeholder.${codeType}`)
               }
+              required={false}
             />
             <GiftCardOrCouponSubmit
               className="button-base bg-primary text-contrast px-4 rounded-md rounded-tl-none rounded-bl-none"
