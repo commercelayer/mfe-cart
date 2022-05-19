@@ -1,4 +1,5 @@
 export type OrderType =
+  | "empty"
   | "plain"
   | "no_line_items"
   | "bundle"

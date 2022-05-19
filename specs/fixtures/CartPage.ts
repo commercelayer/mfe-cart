@@ -28,7 +28,26 @@ export class CartPage {
   }
 
   async expectAppTitle() {
-    await expect(this.page.locator("text=Your Cart")).toBeVisible()
+    const el = this.page.locator("[data-test-id=page-title]")
+    await expect(el).toBeVisible()
+  }
+
+  async checkItemQuantity(total: number | string) {
+    const el = this.page.locator("[data-test-id=item-quantity]")
+    if (total) {
+      await expect(el).toHaveText(`${total}`)
+    } else {
+      await expect(el).toBeHidden()
+    }
+  }
+
+  async checkButtonCheckout({ toBeActive }: { toBeActive: boolean }) {
+    const el = this.page.locator("[data-test-id=button-checkout]")
+    if (toBeActive) {
+      await expect(el).toBeEnabled()
+    } else {
+      await expect(el).toBeDisabled()
+    }
   }
 
   async expectErrorPage() {

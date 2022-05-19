@@ -1,18 +1,25 @@
-import { test, expect } from "../fixtures/tokenizedPage"
+import { CartPage } from "../fixtures/CartPage"
+import { test } from "../fixtures/tokenizedPage"
 
-test("should navigate to the 404 page with wrong orderId, no token", async ({
-  page,
-}) => {
-  await page.goto("/cart/abc12345")
-  await expect(page.locator("text=This order is not accessible.")).toBeVisible()
+test.describe("Check not valid entry points", () => {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "/"
+
+  test("should navigate to the 404 page with wrong orderId, no token", async ({
+    page,
+  }) => {
+    await page.goto(`${basePath}/abc12345`)
+    const cartPage = new CartPage(page)
+    await cartPage.expectErrorPage()
+  })
+
+  test("should navigate to the 404 page with no params", async ({ page }) => {
+    await page.goto(basePath)
+    const cartPage = new CartPage(page)
+    await cartPage.expectErrorPage()
+  })
 })
 
-test("should navigate to the 404 page with no params", async ({ page }) => {
-  await page.goto("/cart")
-  await expect(page.locator("text=This order is not accessible.")).toBeVisible()
-})
-
-test.describe("add default params to page", () => {
+test.describe("Enter the page with valid URL and params", () => {
   test.use({
     options: {
       orderType: "plain",
@@ -21,7 +28,25 @@ test.describe("add default params to page", () => {
     },
   })
 
-  test("Valid order", async ({ CartPage }) => {
+  test("should open a valid cart page", async ({ CartPage }) => {
     await CartPage.expectAppTitle()
+    await CartPage.checkItemQuantity(1)
+    await CartPage.checkButtonCheckout({ toBeActive: true })
+  })
+})
+
+test.describe("Enter a valid URL but empty cart", () => {
+  test.use({
+    options: {
+      orderType: "empty",
+      attributes: {},
+      organization: {},
+    },
+  })
+
+  test("should open a valid cart page", async ({ CartPage }) => {
+    await CartPage.expectAppTitle()
+    await CartPage.checkItemQuantity(0)
+    await CartPage.checkButtonCheckout({ toBeActive: false })
   })
 })

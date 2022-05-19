@@ -21,6 +21,9 @@ export const createOrder = async (
   let giftCardCode
 
   switch (orderType) {
+    case "empty":
+      break
+
     case "plain":
       await createSingleLineItem(cl, order.id)
       break
