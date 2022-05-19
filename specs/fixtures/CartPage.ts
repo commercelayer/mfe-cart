@@ -22,6 +22,11 @@ export class CartPage {
   async goto({ orderId, accessToken }: GoToProps) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_PATH || ""
     const url = `${baseUrl}/${orderId}?accessToken=${accessToken}`
+
+    if (process.env.E2E_DEBUG === "true") {
+      console.log("tested url: ", `http://localhost:3000${url}`)
+    }
+
     await this.page.goto(url, {
       waitUntil: "networkidle",
     })
@@ -48,6 +53,16 @@ export class CartPage {
     } else {
       await expect(el).toBeDisabled()
     }
+  }
+
+  async checkReturnUrlLink(href: string) {
+    await expect(
+      this.page.locator(`[data-test-id=return-url][href='${href}']`)
+    ).toBeVisible()
+  }
+
+  async checkCartTotal(amount: string) {
+    await expect(this.page.locator("[data-test-id=total]")).toHaveText(amount)
   }
 
   async expectErrorPage() {

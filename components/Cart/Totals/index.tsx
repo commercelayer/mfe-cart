@@ -52,7 +52,7 @@ export const Totals: FC<Props> = ({ className }) => {
         </div>
         <div className="text-black py-8 flex justify-between items-center border-b border-b-gray-100 border-dashed">
           <div className="">{t("general.total")}</div>
-          <TotalAmount className="font-semibold text-xl" />
+          <TotalAmount data-test-id="total" className="font-semibold text-xl" />
         </div>
         <p className="py-7 text-xs font-semibold text-gray-500">
           {t("general.finalPriceInCheckoutText")}

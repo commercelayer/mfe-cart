@@ -73,7 +73,11 @@ export const Summary: FC<Props> = ({ className, listTypes }) => {
 
       {settings.isValid && settings.returnUrl ? (
         <div className="pt-2 pb-8">
-          <a href={settings.returnUrl} className="link-base text-xs font-bold">
+          <a
+            data-test-id="return-url"
+            href={settings.returnUrl}
+            className="link-base text-xs font-bold"
+          >
             &lt; {t("general.returnUrlLabel")}
           </a>
         </div>

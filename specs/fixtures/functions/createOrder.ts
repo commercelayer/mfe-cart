@@ -114,11 +114,11 @@ export const createOrder = async (
       break
     }
     case "gift-card": {
-      const activeCard = await createAndPurchaseGiftCard(cl, giftCard)
+      const createdCard = await createAndPurchaseGiftCard(superCl, giftCard)
       const lineItem = {
         quantity: 1,
         order: cl.orders.relationship(order),
-        item: cl.gift_cards.relationship(activeCard),
+        item: cl.gift_cards.relationship(createdCard),
       }
       await cl.line_items.create(lineItem)
 
