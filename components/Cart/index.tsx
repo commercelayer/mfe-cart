@@ -34,7 +34,10 @@ const Cart: FC = () => {
         >
           <LineItemsContainer>
             <PageHeader>
-              <h1 className="text-black font-semibold text-xl md:text-3xl">
+              <h1
+                data-test-id="page-title"
+                className="text-black font-semibold text-xl md:text-3xl"
+              >
                 {t("general.title")}
               </h1>
 
@@ -42,7 +45,8 @@ const Cart: FC = () => {
                 {({ quantity }) =>
                   quantity ? (
                     <div className="text-sm text-gray-500 font-semibold">
-                      {quantity} {t("general.item", { count: quantity })}
+                      <span data-test-id="item-quantity">{quantity}</span>{" "}
+                      {t("general.item", { count: quantity })}
                     </div>
                   ) : null
                 }

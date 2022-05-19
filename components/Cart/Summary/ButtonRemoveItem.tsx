@@ -11,6 +11,7 @@ export const ButtonRemoveItem: FC = () => {
           onClick={handleRemove}
           className="cursor-pointer hover:text-red-500"
           title={t("general.remove")}
+          data-test-id="button-remove-item"
         >
           <svg
             width="16"
