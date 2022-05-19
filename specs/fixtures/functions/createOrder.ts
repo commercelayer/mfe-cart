@@ -77,7 +77,7 @@ export const createOrder = async (
         orderId: order.id,
         items: [
           {
-            bundle_code: "SHIRTSETSINGLE",
+            bundle_code: "KIT001",
             quantity: 1,
           },
         ],
@@ -89,11 +89,11 @@ export const createOrder = async (
         orderId: order.id,
         items: [
           {
-            bundle_code: "SHIRTSETSINGLE",
+            bundle_code: "KIT001",
             quantity: 1,
           },
           {
-            sku_code: "TESLA5",
+            sku_code: "TSHIRTMM000000FFFFF222",
             quantity: 2,
           },
         ],

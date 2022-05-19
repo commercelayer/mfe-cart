@@ -46,6 +46,18 @@ export class CartPage {
     }
   }
 
+  async checkForBundle() {
+    await expect(
+      this.page.locator("[data-test-id=line-item-bundles]").first()
+    ).toBeVisible()
+  }
+
+  async checkForSku() {
+    await expect(
+      this.page.locator("[data-test-id=line-item-skus]").first()
+    ).toBeVisible()
+  }
+
   async checkButtonCheckout({ toBeActive }: { toBeActive: boolean }) {
     const el = this.page.locator("[data-test-id=button-checkout]")
     if (toBeActive) {

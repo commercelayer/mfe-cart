@@ -32,7 +32,10 @@ export const Summary: FC<Props> = ({ className, listTypes }) => {
           <LineItemAmount format="cents">
             {({ price }) =>
               isAppliedGiftCard(type, price) ? null : (
-                <div className="flex gap-5 pb-8 mb-8 border-b border-b-gray-300">
+                <div
+                  className="flex gap-5 pb-8 mb-8 border-b border-b-gray-300"
+                  data-test-id={`line-item-${type}`}
+                >
                   <LineItemImage
                     width={170}
                     className="w-1/4 self-start md:self-center"
