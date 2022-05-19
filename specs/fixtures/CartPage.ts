@@ -20,10 +20,9 @@ export class CartPage {
   }
 
   async goto({ orderId, accessToken }: GoToProps) {
-    const url = `${
-      process.env.NEXT_PUBLIC_BASE_PATH || ""
-    }/${orderId}?accessToken=${accessToken}`
-    await this.page.goto(`${url}`, {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_PATH || ""
+    const url = `${baseUrl}/${orderId}?accessToken=${accessToken}`
+    await this.page.goto(url, {
       waitUntil: "networkidle",
     })
   }

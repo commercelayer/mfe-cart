@@ -3,7 +3,7 @@ import { test, expect } from "../fixtures/tokenizedPage"
 test("should navigate to the 404 page with wrong orderId, no token", async ({
   page,
 }) => {
-  await page.goto("/cart/Asdakfrsf")
+  await page.goto("/cart/abc12345")
   await expect(page.locator("text=This order is not accessible.")).toBeVisible()
 })
 
@@ -22,6 +22,6 @@ test.describe("add default params to page", () => {
   })
 
   test("Valid order", async ({ CartPage }) => {
-    await expect(CartPage.page.locator("text=Your Cart")).toBeVisible()
+    await CartPage.expectAppTitle()
   })
 })
