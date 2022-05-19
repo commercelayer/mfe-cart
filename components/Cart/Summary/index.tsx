@@ -11,6 +11,7 @@ import { useTranslation } from "next-i18next"
 import { FC } from "react"
 
 import { ButtonRemoveItem } from "./ButtonRemoveItem"
+import { EmptyCart } from "./EmptyCart"
 import { QuantitySelector } from "./QuantitySelector"
 
 import { useSettings } from "#components/SettingsProvider"
@@ -67,6 +68,8 @@ export const Summary: FC<Props> = ({ className, listTypes }) => {
           </LineItemAmount>
         </LineItem>
       ))}
+
+      <EmptyCart />
 
       {settings.isValid && settings.returnUrl ? (
         <div className="pt-2 pb-8">

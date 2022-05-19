@@ -1,5 +1,4 @@
 import {
-  CheckoutLink,
   DiscountAmount,
   GiftCardAmount,
   SubTotalAmount,
@@ -7,6 +6,8 @@ import {
 } from "@commercelayer/react-components"
 import { useTranslation } from "next-i18next"
 import { FC } from "react"
+
+import { ButtonCheckout } from "./ButtonCheckout"
 
 import { CouponOrGiftCard } from "#components/Cart/CouponOrGiftCard"
 
@@ -16,6 +17,7 @@ type Props = {
 
 export const Totals: FC<Props> = ({ className }) => {
   const { t } = useTranslation()
+
   return (
     <div className={className}>
       <div className="md:bg-gray-50 pb-8 md:py-10 md:px-7 rounded-md w-full">
@@ -55,10 +57,8 @@ export const Totals: FC<Props> = ({ className }) => {
         <p className="py-7 text-xs font-semibold text-gray-500">
           {t("general.finalPriceInCheckoutText")}
         </p>
-        <CheckoutLink
-          hostedCheckout
-          className="button-base bg-primary text-contrast block rounded-md py-3 px-3"
-        />
+
+        <ButtonCheckout />
       </div>
     </div>
   )
