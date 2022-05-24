@@ -1,0 +1,20 @@
+.skuOptions h6 {
+  @apply font-bold text-xs text-gray-600 mt-2 bg-no-repeat bg-16 pl-5;
+  background-image: url("data:image/svg+xml;utf8;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJoLTUgdy01IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9ImN1cnJlbnRDb2xvciI+CiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTAuMjkzIDUuMjkzYTEgMSAwIDAxMS40MTQgMGw0IDRhMSAxIDAgMDEwIDEuNDE0bC00IDRhMSAxIDAgMDEtMS40MTQtMS40MTRMMTIuNTg2IDExSDVhMSAxIDAgMTEwLTJoNy41ODZsLTIuMjkzLTIuMjkzYTEgMSAwIDAxMC0xLjQxNHoiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz4KPC9zdmc+");
+}
+
+.skuOptions li {
+  @apply text-gray-400 text-xs flex font-medium capitalize pl-5 pt-1 bg-16;
+}
+
+.skuOptions li span {
+  @apply font-bold text-gray-500 ml-1 line-clamp-3 md:line-clamp-6;
+}
+
+.skuOptions li:not(span) {
+  @apply font-medium
+}
+
+.skuOptions li:last-of-type {
+  @apply mb-4
+}

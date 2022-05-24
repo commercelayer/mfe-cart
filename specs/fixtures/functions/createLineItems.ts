@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommerceLayerClient } from "@commercelayer/sdk"
 
@@ -13,38 +14,40 @@ export const createLineItems = async ({
   items: Array<LineItemObject>
 }) => {
   const lineItems = items.map((item) => {
-    delete item.sku_options
-    delete item.inventory
+    const { sku_options, inventory, ...cleanItem } = item
 
-    const lineItem = {
-      ...item,
+    return cl.line_items.create({
+      ...cleanItem,
       order: cl.orders.relationship(orderId),
-    }
-
-    return cl.line_items.create(lineItem)
+    })
   })
 
   try {
     const lineItemsCreated = await Promise.all(lineItems)
+    const allAvailableSkuOptions = await cl.sku_options.list()
 
-    const skuOptions = await cl.sku_options.list()
-    if (skuOptions && skuOptions.length === 0) return
-    const lineItemsOptions = items.map((item, index) => {
-      if (item.sku_options && item.sku_options.length) {
-        return item.sku_options.map(({ name, value }) => {
-          const matchedOption = skuOptions.find((so) => so.name === name)
-          if (matchedOption) {
-            return cl.line_item_options.create({
+    if (!allAvailableSkuOptions || allAvailableSkuOptions.length === 0) {
+      return
+    }
+
+    const lineItemsOptions = items.map(({ sku_options }, index) => {
+      if (!sku_options || !sku_options.length) {
+        return undefined
+      }
+
+      return sku_options.map(({ name, value }) => {
+        const matchedOption = allAvailableSkuOptions.find(
+          (so) => so.name === name
+        )
+        return matchedOption
+          ? cl.line_item_options.create({
               line_item: cl.line_items.relationship(lineItemsCreated[index].id),
               quantity: 1,
               options: value as object,
               sku_option: cl.sku_options.relationship(matchedOption),
             })
-          }
-          return undefined
-        })
-      }
-      return undefined
+          : undefined
+      })
     })
 
     await Promise.all(

@@ -58,6 +58,17 @@ export class CartPage {
     ).toBeVisible()
   }
 
+  async checkForSkuOptions(options: string[]) {
+    await expect(
+      this.page.locator("[data-test-id=line-item-options]")
+    ).toHaveCount(options.length)
+    await Promise.all(
+      options.map((opt) =>
+        expect(this.page.locator(`text=${opt}`)).toBeVisible()
+      )
+    )
+  }
+
   async checkButtonCheckout({ toBeActive }: { toBeActive: boolean }) {
     const el = this.page.locator("[data-test-id=button-checkout]")
     if (toBeActive) {

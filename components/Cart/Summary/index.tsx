@@ -4,14 +4,13 @@ import {
   LineItemAmount,
   LineItem,
   LineItemType,
-  LineItemOptions,
-  LineItemOption,
 } from "@commercelayer/react-components"
 import { useTranslation } from "next-i18next"
 import { FC } from "react"
 
 import { ButtonRemoveItem } from "./ButtonRemoveItem"
 import { EmptyCart } from "./EmptyCart"
+import { LineItemOptions } from "./LineItemOptions"
 import { QuantitySelector } from "./QuantitySelector"
 
 import { useSettings } from "#components/SettingsProvider"
@@ -47,9 +46,7 @@ export const Summary: FC<Props> = ({ className, listTypes }) => {
                       <ButtonRemoveItem />
                     </div>
 
-                    <LineItemOptions showAll showName={true} className="pt-2">
-                      <LineItemOption />
-                    </LineItemOptions>
+                    <LineItemOptions />
 
                     <div className="pt-2">
                       <div className="flex gap-1 text-sm">

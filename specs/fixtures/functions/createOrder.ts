@@ -44,24 +44,12 @@ export const createOrder = async (
       await createSingleLineItem(cl, order.id)
       break
 
-    case "with-items": {
-      const outOfStockSkuItems = (lineItemsAttributes || []).filter(
-        ({ inventory }) => inventory && inventory >= 0
-      ) as SkuItem[]
-
-      if (outOfStockSkuItems.length > 0) {
-        await updateInventory(superCl, outOfStockSkuItems, "quantity")
-      }
-
+    case "with-items":
       await createLineItems({
         cl,
         orderId: order.id,
         items: lineItemsAttributes || [],
       })
-
-      if (outOfStockSkuItems.length > 0) {
-        await updateInventory(superCl, outOfStockSkuItems, "quantity")
-      }
 
       if (giftCard) {
         const card = await createAndPurchaseGiftCard(cl, giftCard)
@@ -82,15 +70,15 @@ export const createOrder = async (
           })
         }
       }
+
       if (couponCode) {
         await cl.orders.update({
           id: order.id,
           coupon_code: couponCode,
         })
       }
-
       break
-    }
+
     case "bundle":
       await createLineItems({
         cl,
