@@ -24,24 +24,3 @@ test.describe("Check basic cart features", () => {
     await CartPage.checkItemQuantity(2)
   })
 })
-
-test.describe("Check for ability to purchase gift cards", () => {
-  test.use({
-    options: {
-      orderType: "gift-card",
-      giftCard: {
-        balance_cents: 1000,
-        currency_code: "USD",
-      },
-      attributes: {},
-      organization: {},
-    },
-  })
-
-  test("Should see a gift card to be purchased", async ({ CartPage }) => {
-    await CartPage.expectAppTitle()
-    await CartPage.checkItemQuantity(1)
-    await CartPage.checkCartTotal("$10.00")
-    await CartPage.checkButtonCheckout({ toBeActive: true })
-  })
-})

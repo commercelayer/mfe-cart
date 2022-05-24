@@ -44,13 +44,15 @@ const config: PlaywrightTestConfig = {
   },
 
   use: {
-    /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    actionTimeout: 0,
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://localhost:3000',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
+    // Retry a test if its failing with enabled tracing. This allows you to analyse the DOM, console logs, network traffic etc.
+    // More information: https://playwright.dev/docs/trace-viewer
+    trace: "retry-with-trace",
+    headless: false,
+    viewport: { width: 1280, height: 900 },
+    ignoreHTTPSErrors: true,
+    // Artifacts
+    screenshot: "only-on-failure",
+    video: "retry-with-video",
   },
 
   /* Configure projects for major browsers */
@@ -63,9 +65,9 @@ const config: PlaywrightTestConfig = {
     },
 
     // {
-    //   name: 'firefox',
+    //   name: "firefox",
     //   use: {
-    //     ...devices['Desktop Firefox'],
+    //     ...devices["Desktop Firefox"],
     //   },
     // },
 

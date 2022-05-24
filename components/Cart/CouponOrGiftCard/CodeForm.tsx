@@ -22,8 +22,14 @@ export const CodeForm: FC = () => {
       >
         <button
           type="button"
-          className="py-1 text-gray-500 text-sm font-bold"
-          onClick={() => setShowInput((p) => !p)}
+          className={cn(
+            {
+              "cursor-default": showInput,
+            },
+            "py-1 text-gray-500 text-sm font-bold"
+          )}
+          onClick={() => setShowInput(true)}
+          data-test-id="show-coupon-input"
         >
           {t("couponOrGift.label")}
         </button>
@@ -41,10 +47,12 @@ export const CodeForm: FC = () => {
                 t(`couponOrGift.placeholder.${codeType}`)
               }
               required={false}
+              data-test-id="coupon-input"
             />
             <GiftCardOrCouponSubmit
               className="button-base bg-primary text-contrast px-4 rounded-md rounded-tl-none rounded-bl-none"
               label={t("couponOrGift.submit")}
+              data-test-id="coupon-submit"
             />
           </div>
         )}

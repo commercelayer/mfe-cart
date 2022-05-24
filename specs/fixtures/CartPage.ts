@@ -69,6 +69,27 @@ export class CartPage {
     )
   }
 
+  async addCouponOrGiftCard(code: string) {
+    await this.page.locator("data-test-id=coupon-input").fill(code)
+    await this.page.locator("data-test-id=coupon-submit").click()
+  }
+
+  async removeCouponOrGiftCard(what: "gift_card" | "coupon") {
+    await this.page.locator(`data-test-id=button-remove-${what}`).click()
+  }
+
+  async checkForAppliedGiftCard() {
+    await expect(
+      this.page.locator("[data-test-id=applied-gift_card]")
+    ).toBeVisible()
+  }
+
+  async checkForAppliedCoupon() {
+    await expect(
+      this.page.locator("[data-test-id=applied-coupon]")
+    ).toBeVisible()
+  }
+
   async checkButtonCheckout({ toBeActive }: { toBeActive: boolean }) {
     const el = this.page.locator("[data-test-id=button-checkout]")
     if (toBeActive) {
