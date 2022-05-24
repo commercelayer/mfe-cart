@@ -5,18 +5,11 @@ interface GoToProps {
   accessToken?: string
 }
 
-interface AttributesProps {
-  giftCard?: string
-  organization?: unknown
-}
-
 export class CartPage {
   readonly page: Page
-  readonly attributes?: AttributesProps
 
-  constructor(page: Page, attributes?: AttributesProps) {
+  constructor(page: Page) {
     this.page = page
-    this.attributes = attributes || {}
   }
 
   async goto({ orderId, accessToken }: GoToProps) {
@@ -34,6 +27,13 @@ export class CartPage {
 
   async expectAppTitle() {
     const el = this.page.locator("[data-test-id=page-title]")
+    await expect(el).toBeVisible()
+  }
+
+  async checkCartId(id: string) {
+    const el = this.page.locator(
+      `[data-test-id=page-title][data-cart-id=${id}]`
+    )
     await expect(el).toBeVisible()
   }
 

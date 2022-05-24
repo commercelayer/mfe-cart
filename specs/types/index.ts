@@ -1,7 +1,6 @@
 export type OrderType =
   | "empty"
   | "plain"
-  | "no_line_items"
   | "bundle"
   | "bundle+skus"
   | "digital"
@@ -40,11 +39,11 @@ export type TestOrderOptions = {
     email: string
     password: string
   }
-  attributes: {
+  attributes?: {
     language_code?: "en" | "it"
     return_url?: string
   }
-  organization: Record<string, unknown>
+  organization?: Record<string, unknown>
   lineItemsAttributes?: LineItemObject[]
   giftCard?: GiftCardOptions
   couponCode?: string

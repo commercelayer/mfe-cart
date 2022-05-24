@@ -20,10 +20,10 @@ export const test = base.extend<FixtureType>({
       : getSalesChannelToken(options.market))
 
     const cl = await getClient(token)
-    const { orderId, attributes } = await createOrder(cl, options)
+    const { orderId } = await createOrder(cl, options)
 
-    const cartPage = new CartPage(page, attributes)
-    const accessToken = options.token === undefined ? token : options.token
+    const cartPage = new CartPage(page)
+    const accessToken = options.token || token
 
     await cartPage.goto({
       orderId: options.orderId || orderId,

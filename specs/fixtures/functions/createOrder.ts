@@ -13,12 +13,28 @@ export const createOrder = async (
   cl: CommerceLayerClient,
   options: TestOrderOptions
 ) => {
-  const { attributes, giftCard, orderType, lineItemsAttributes, couponCode } =
-    options
-  const order = await cl.orders.create(attributes)
-  const superCl = await getClient(await getSuperToken())
+  const {
+    attributes,
+    giftCard,
+    orderType,
+    lineItemsAttributes,
+    couponCode,
+    orderId,
+  } = options
 
-  let giftCardCode
+  if (orderId) {
+    if (attributes)
+      cl.orders.update({
+        id: orderId,
+        ...attributes,
+      })
+    return {
+      orderId,
+    }
+  }
+
+  const order = await cl.orders.create(attributes || {})
+  const superCl = await getClient(await getSuperToken())
 
   switch (orderType) {
     case "empty":
@@ -29,12 +45,12 @@ export const createOrder = async (
       break
 
     case "with-items": {
-      const noStockSkuItems = (lineItemsAttributes || []).filter(
+      const outOfStockSkuItems = (lineItemsAttributes || []).filter(
         ({ inventory }) => inventory && inventory >= 0
       ) as SkuItem[]
 
-      if (noStockSkuItems.length > 0) {
-        await updateInventory(superCl, noStockSkuItems, "quantity")
+      if (outOfStockSkuItems.length > 0) {
+        await updateInventory(superCl, outOfStockSkuItems, "quantity")
       }
 
       await createLineItems({
@@ -43,23 +59,27 @@ export const createOrder = async (
         items: lineItemsAttributes || [],
       })
 
-      if (noStockSkuItems.length > 0) {
-        await updateInventory(superCl, noStockSkuItems, "quantity")
+      if (outOfStockSkuItems.length > 0) {
+        await updateInventory(superCl, outOfStockSkuItems, "quantity")
       }
 
       if (giftCard) {
         const card = await createAndPurchaseGiftCard(cl, giftCard)
-        const activeCard = await superCl.gift_cards.update({
-          id: card.id,
-          _activate: true,
-        })
         if (giftCard.apply) {
+          const activeCard = await superCl.gift_cards.update({
+            id: card.id,
+            _activate: true,
+          })
           await cl.orders.update({
             id: order.id,
             gift_card_code: activeCard.code,
           })
         } else {
-          giftCardCode = activeCard.code
+          await cl.line_items.create({
+            quantity: 1,
+            order: cl.orders.relationship(order),
+            item: cl.gift_cards.relationship(card),
+          })
         }
       }
       if (couponCode) {
@@ -115,22 +135,17 @@ export const createOrder = async (
     }
     case "gift-card": {
       const createdCard = await createAndPurchaseGiftCard(superCl, giftCard)
-      const lineItem = {
+      await cl.line_items.create({
         quantity: 1,
         order: cl.orders.relationship(order),
         item: cl.gift_cards.relationship(createdCard),
-      }
-      await cl.line_items.create(lineItem)
-
+      })
       break
     }
   }
 
   return {
     orderId: order.id,
-    attributes: {
-      giftCard: giftCardCode,
-      organization: {},
-    },
+    // attributes: {},
   }
 }

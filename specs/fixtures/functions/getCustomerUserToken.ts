@@ -13,7 +13,7 @@ export const getCustomerUserToken = async ({
   password,
 }: GetUserTokenParams) => {
   const {
-    E2E_INTEGRATION_CLIENT_ID: clientId,
+    E2E_SALES_CHANNEL_CLIENT_ID: clientId,
     E2E_ENDPOINT: endpoint,
     E2E_MARKET_ID: scope,
   } = process.env as Record<string, string>
@@ -41,5 +41,6 @@ export const getCustomerUserToken = async ({
       password,
     }
   )
+
   return authResponse?.accessToken || ""
 }

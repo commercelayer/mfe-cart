@@ -36,6 +36,7 @@ const Cart: FC = () => {
             <PageHeader>
               <h1
                 data-test-id="page-title"
+                data-cart-id={settings.orderId}
                 className="text-black font-semibold text-xl md:text-3xl"
               >
                 {t("general.title")}
