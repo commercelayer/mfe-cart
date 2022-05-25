@@ -1,9 +1,12 @@
 import { Errors, LineItemQuantity } from "@commercelayer/react-components"
+import { useTranslation } from "next-i18next"
 import { FC } from "react"
 
 export const QuantitySelector: FC = () => {
+  const { t } = useTranslation()
+
   return (
-    <div>
+    <div className="relative w-full">
       <div className="inline-block relative w-20">
         <LineItemQuantity
           max={10}
@@ -20,7 +23,19 @@ export const QuantitySelector: FC = () => {
           </svg>
         </div>
       </div>
-      <Errors resource="line_items" field="quantity" className="text-red-500" />
+
+      <Errors
+        resource="line_items"
+        className="absolute top-[100%] block text-xs text-red-400"
+        messages={[
+          {
+            code: "VALIDATION_ERROR",
+            resource: "line_items",
+            field: "quantity",
+            message: t("general.quantityNotAvailable"),
+          },
+        ]}
+      />
     </div>
   )
 }

@@ -12,7 +12,8 @@
         "giftCard": "Gift Card",
         "total": "Total",
         "gotToCheckoutCta": "Checkout",
-        "returnUrlLabel": "Continue shopping"
+        "returnUrlLabel": "Continue shopping",
+        "quantityNotAvailable": "The selected quantity is not available"
     },
     "couponOrGift": {
         "label": "Have a promo code?",

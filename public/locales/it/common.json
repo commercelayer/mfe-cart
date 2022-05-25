@@ -12,7 +12,8 @@
         "giftCard": "Carta regalo",
         "total": "Totale",
         "gotToCheckoutCta": "Checkout",
-        "returnUrlLabel": "Continua ad acquistare"
+        "returnUrlLabel": "Continua ad acquistare",
+        "quantityNotAvailable": "La quantità selezionata non è disponibile"
     },
     "couponOrGift": {
         "label": "Hai un codice da usare?",
