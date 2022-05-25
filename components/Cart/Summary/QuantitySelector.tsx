@@ -6,7 +6,7 @@ export const QuantitySelector: FC = () => {
   const { t } = useTranslation()
 
   return (
-    <div>
+    <div className="relative w-full">
       <div className="inline-block relative w-20">
         <LineItemQuantity
           max={10}
@@ -23,9 +23,10 @@ export const QuantitySelector: FC = () => {
           </svg>
         </div>
       </div>
+
       <Errors
         resource="line_items"
-        className="block text-xs text-red-400"
+        className="absolute top-[100%] block text-xs text-red-400"
         messages={[
           {
             code: "VALIDATION_ERROR",
