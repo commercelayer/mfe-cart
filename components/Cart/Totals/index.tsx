@@ -29,14 +29,30 @@ export const Totals: FC<Props> = ({ className }) => {
             <div className="text-gray-500" data-test-id="label-subtotal">
               {t("general.subtotal")}
             </div>
-            <SubTotalAmount className="font-semibold" />
+            <SubTotalAmount>
+              {({ priceCents, price }) => (
+                <div
+                  data-amount={priceCents}
+                  data-test-id="subtotal-amount"
+                  className="font-semibold"
+                >
+                  {price}
+                </div>
+              )}
+            </SubTotalAmount>
           </div>
           <DiscountAmount>
             {({ priceCents, price }) =>
               priceCents ? (
                 <div className="text-black mb-2 flex justify-between">
                   <div className="text-gray-500">{t("general.discount")}</div>
-                  <div className="font-semibold">{price}</div>
+                  <div
+                    className="font-semibold"
+                    data-test-id="discount-amount"
+                    data-amount={priceCents}
+                  >
+                    {price}
+                  </div>
                 </div>
               ) : null
             }
@@ -46,7 +62,13 @@ export const Totals: FC<Props> = ({ className }) => {
               priceCents ? (
                 <div className="text-black mb-2 flex justify-between">
                   <div className="text-gray-500">{t("general.giftCard")}</div>
-                  <div className="font-semibold">{price}</div>
+                  <div
+                    className="font-semibold"
+                    data-test-id="gift-card-amount"
+                    data-amount={priceCents}
+                  >
+                    {price}
+                  </div>
                 </div>
               ) : null
             }
@@ -54,7 +76,17 @@ export const Totals: FC<Props> = ({ className }) => {
         </div>
         <div className="text-black py-8 flex justify-between items-center border-b border-b-gray-100 border-dashed">
           <div data-test-id="label-total">{t("general.total")}</div>
-          <TotalAmount data-test-id="total" className="font-semibold text-xl" />
+          <TotalAmount>
+            {({ priceCents, price }) => (
+              <div
+                data-test-id="total-amount"
+                data-amount={priceCents}
+                className="font-semibold text-xl"
+              >
+                {price}
+              </div>
+            )}
+          </TotalAmount>
         </div>
         <p className="py-7 text-xs font-semibold text-gray-500">
           {t("general.finalPriceInCheckoutText")}

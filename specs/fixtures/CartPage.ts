@@ -134,7 +134,29 @@ export class CartPage {
   }
 
   async checkCartTotal(amount: string) {
-    await expect(this.page.locator("[data-test-id=total]")).toHaveText(amount)
+    await expect(this.page.locator("[data-test-id=total-amount]")).toHaveText(
+      amount
+    )
+  }
+
+  async checkForTotalsToBeProperlyCalculated({
+    couponApplied,
+    giftCardApplied,
+  }: {
+    couponApplied: boolean
+    giftCardApplied: boolean
+  }) {
+    const subtotal = await getAttributeAmount(this.page, "subtotal-amount")
+    const total = await getAttributeAmount(this.page, "total-amount")
+    const discount = couponApplied
+      ? await getAttributeAmount(this.page, "discount-amount")
+      : 0
+    const giftcard = giftCardApplied
+      ? await getAttributeAmount(this.page, "gift-card-amount")
+      : 0
+
+    const computedTotal = subtotal + discount + giftcard
+    expect(computedTotal).toBe(total)
   }
 
   async expectErrorPage() {
@@ -142,4 +164,10 @@ export class CartPage {
       this.page.locator("text=This order is not accessible")
     ).toBeVisible()
   }
+}
+
+const getAttributeAmount = async (page: Page, attributeName: string) => {
+  const element = await page.locator(`[data-test-id=${attributeName}]`)
+  const value = (await element.getAttribute("data-amount")) || "0"
+  return parseInt(value, 10)
 }

@@ -46,6 +46,40 @@ test.describe("Apply a new gift card with some line items", () => {
   test("should see a gift card applied to the cart", async ({ CartPage }) => {
     await CartPage.expectAppTitle()
     await CartPage.checkForAppliedGiftCard()
+    await CartPage.checkForTotalsToBeProperlyCalculated({
+      couponApplied: false,
+      giftCardApplied: true,
+    })
+  })
+})
+
+test.describe("Cart with coupon code", () => {
+  test.use({
+    options: {
+      orderType: "with-items",
+      couponCode: "PROMOTEST10",
+      lineItemsAttributes: [
+        {
+          sku_code: "TSHIRTMS000000FFFFFFLXXX",
+          quantity: 2,
+        },
+        {
+          sku_code: "PLAINTSHIRT001",
+          quantity: 1,
+        },
+      ],
+    },
+  })
+
+  test("should see a discount already applied to the cart", async ({
+    CartPage,
+  }) => {
+    await CartPage.expectAppTitle()
+    await CartPage.checkForAppliedCoupon()
+    await CartPage.checkForTotalsToBeProperlyCalculated({
+      couponApplied: true,
+      giftCardApplied: false,
+    })
   })
 })
 
@@ -113,5 +147,11 @@ test.describe("Manually applying and removing gift card and coupon", () => {
       CartPage.page.locator("text=Please enter a valid gift card")
     ).not.toBeVisible()
     await CartPage.checkForAppliedCoupon()
+
+    // check final totals
+    await CartPage.checkForTotalsToBeProperlyCalculated({
+      couponApplied: true,
+      giftCardApplied: true,
+    })
   })
 })
