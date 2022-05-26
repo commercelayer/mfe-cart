@@ -1,5 +1,6 @@
 import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import type { NextPage } from "next"
+import { useTranslation } from "next-i18next"
 import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
 
@@ -16,6 +17,7 @@ const LazyCart = dynamic(() => import("#components/Cart"), {
 
 const CartPage: NextPage = () => {
   const { query } = useRouter()
+  const { t } = useTranslation()
   const orderId = query.orderId as string | undefined
 
   if (!orderId) {
@@ -32,7 +34,10 @@ const CartPage: NextPage = () => {
           <Redirect to="/404" />
         ) : (
           <GlobalStylesProvider primaryColor={settings.primaryColor}>
-            <PageHead faviconUrl={settings.favicon} />
+            <PageHead
+              title={`${settings.companyName} - ${t("general.title")}`}
+              faviconUrl={settings.favicon}
+            />
             <LazyCart />
           </GlobalStylesProvider>
         )
