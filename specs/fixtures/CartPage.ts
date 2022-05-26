@@ -1,5 +1,8 @@
 import { Page, expect } from "@playwright/test"
 
+import commonEn from "../../public/locales/en/common.json"
+import commonIt from "../../public/locales/it/common.json"
+
 interface GoToProps {
   orderId: string
   accessToken?: string
@@ -28,6 +31,31 @@ export class CartPage {
   async expectAppTitle() {
     const el = this.page.locator("[data-test-id=page-title]")
     await expect(el).toBeVisible()
+  }
+
+  async checkOrderLanguage(language: "en" | "it") {
+    const translations = {
+      it: commonIt,
+      en: commonEn,
+    }
+    const currentLang = translations[language]
+    await expect(
+      this.page.locator(
+        `[data-test-id=page-title] >> text=${currentLang.general.title}`
+      )
+    ).toBeVisible()
+
+    await expect(
+      this.page.locator(
+        `[data-test-id=label-subtotal] >> text=${currentLang.general.subtotal}`
+      )
+    ).toBeVisible()
+
+    await expect(
+      this.page.locator(
+        `[data-test-id=label-total] >> text=${currentLang.general.total}`
+      )
+    ).toBeVisible()
   }
 
   async checkCartId(id: string) {

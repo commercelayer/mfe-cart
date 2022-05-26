@@ -26,7 +26,9 @@ export const Totals: FC<Props> = ({ className }) => {
         </div>
         <div className="border-t border-t-gray-100 border-b border-b-gray-400 py-6">
           <div className="text-black mb-2 flex justify-between">
-            <div className="text-gray-500">{t("general.subtotal")}</div>
+            <div className="text-gray-500" data-test-id="label-subtotal">
+              {t("general.subtotal")}
+            </div>
             <SubTotalAmount className="font-semibold" />
           </div>
           <DiscountAmount>
@@ -51,7 +53,7 @@ export const Totals: FC<Props> = ({ className }) => {
           </GiftCardAmount>
         </div>
         <div className="text-black py-8 flex justify-between items-center border-b border-b-gray-100 border-dashed">
-          <div className="">{t("general.total")}</div>
+          <div data-test-id="label-total">{t("general.total")}</div>
           <TotalAmount data-test-id="total" className="font-semibold text-xl" />
         </div>
         <p className="py-7 text-xs font-semibold text-gray-500">
