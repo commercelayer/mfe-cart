@@ -17,10 +17,7 @@ test.describe("Check basic cart features", () => {
 
   test("Should be able to update quantity", async ({ CartPage }) => {
     await CartPage.checkItemQuantity(1)
-    await CartPage.page
-      .locator("data-test-id=quantity-selector")
-      .first()
-      .selectOption("2")
+    await CartPage.quantitySelector.selectOption("2")
     await CartPage.checkItemQuantity(2)
   })
 })

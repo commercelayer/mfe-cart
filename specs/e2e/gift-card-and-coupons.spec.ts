@@ -1,6 +1,6 @@
 import { test, expect } from "../fixtures/tokenizedPage"
 
-test.describe("Check for ability to purchase gift cards", () => {
+test.describe("Check for ability to purchase only one gift card", () => {
   test.use({
     options: {
       orderType: "gift-card",
@@ -15,8 +15,9 @@ test.describe("Check for ability to purchase gift cards", () => {
 
   test("Should see a gift card to be purchased", async ({ CartPage }) => {
     await CartPage.expectAppTitle()
-    await CartPage.checkItemQuantity(1)
     await CartPage.checkCartTotal("$10.00")
+    await CartPage.checkItemQuantity(1)
+    await expect(CartPage.quantitySelector).toBeHidden()
     await CartPage.checkButtonCheckout({ toBeActive: true })
   })
 })

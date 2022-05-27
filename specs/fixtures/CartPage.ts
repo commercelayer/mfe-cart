@@ -1,4 +1,4 @@
-import { Page, expect } from "@playwright/test"
+import { Page, expect, Locator } from "@playwright/test"
 
 import commonEn from "../../public/locales/en/common.json"
 import commonIt from "../../public/locales/it/common.json"
@@ -10,9 +10,15 @@ interface GoToProps {
 
 export class CartPage {
   readonly page: Page
+  readonly quantitySelector: Locator
+  readonly itemsCount: Locator
 
   constructor(page: Page) {
     this.page = page
+    this.quantitySelector = this.page
+      .locator("[data-test-id=quantity-selector]")
+      .first()
+    this.itemsCount = this.page.locator("[data-test-id=items-count]").first()
   }
 
   async goto({ orderId, accessToken }: GoToProps) {
@@ -66,11 +72,10 @@ export class CartPage {
   }
 
   async checkItemQuantity(total: number | string) {
-    const el = this.page.locator("[data-test-id=item-quantity]")
     if (total) {
-      await expect(el).toHaveText(`${total}`)
+      await expect(this.itemsCount).toHaveText(`${total}`)
     } else {
-      await expect(el).toBeHidden()
+      await expect(this.itemsCount).toBeHidden()
     }
   }
 

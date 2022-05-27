@@ -55,7 +55,7 @@ export const Summary: FC<Props> = ({ className, listTypes }) => {
               </div>
 
               <div className="flex justify-between items-center mt-auto">
-                <QuantitySelector />
+                {type === "gift_cards" ? <div /> : <QuantitySelector />}
                 <LineItemAmount className="text-lg font-semibold" />
               </div>
             </div>
