@@ -46,7 +46,7 @@ const Cart: FC = () => {
                 {({ quantity }) =>
                   quantity ? (
                     <div className="text-sm text-gray-500 font-semibold">
-                      <span data-test-id="items-count">{quantity}</span>
+                      <span data-test-id="items-count">{quantity}</span>{" "}
                       {t("general.item", { count: quantity })}
                     </div>
                   ) : null
