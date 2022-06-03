@@ -659,8 +659,10 @@
     lodash-es "^4.17.21"
     rapid-form "^1.6.2"
 
-"@commercelayer/react-utils@file:.yalc/@commercelayer/react-utils":
-  version "0.1.0"
+"@commercelayer/react-utils@^1.0.0-beta.1":
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@commercelayer/react-utils/-/react-utils-1.0.0-beta.1.tgz#e654ce58f3008fa2226586d56e67defd4e43d91a"
+  integrity sha512-07WYHz0ic7tUN1CpWsgM6Ut8yKVzFJyZdggbPTA3gXqXn+t8eoej7yKul/RtiJuddSnAOcIbdyiY6CmCe6xF8Q==
   dependencies:
     "@tailwindcss/forms" "^0.5.1"
     "@tailwindcss/line-clamp" "^0.4.0"
