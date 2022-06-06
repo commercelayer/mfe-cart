@@ -10,7 +10,7 @@ export const EmptyCart: FC = () => {
   return (
     <LineItemsEmpty>
       {({ quantity }) => {
-        if (quantity === 0) {
+        if (quantity === undefined) {
           return <LineItemsSkeleton />
         }
 
