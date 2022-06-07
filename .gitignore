@@ -43,4 +43,5 @@ yarn-error.log*
 *.tsbuildinfo
 /test-results/
 /playwright-report/
+/playwright/.cache/
 /dist-pw/
