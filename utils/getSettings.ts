@@ -15,7 +15,13 @@ export const defaultSettings: InvalidSettings = {
   language: "en",
   favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
   companyName: "Commerce Layer",
+  retryable: false,
 }
+
+const makeInvalidSettings = (retryable?: boolean): InvalidSettings => ({
+  ...defaultSettings,
+  retryable: !!retryable,
+})
 
 export const getSettings = async ({
   accessToken,
@@ -28,7 +34,7 @@ export const getSettings = async ({
   const { slug, isTest } = getInfoFromJwt(accessToken)
 
   if (!slug) {
-    return defaultSettings
+    return makeInvalidSettings()
   }
 
   const cl = CommerceLayer({
@@ -42,16 +48,16 @@ export const getSettings = async ({
     client: cl,
   })
   if (!order || !organization) {
-    return defaultSettings
+    return makeInvalidSettings(true)
   }
 
   if (!isValidStatus(order.status)) {
-    return defaultSettings
+    return makeInvalidSettings()
   }
 
   const hostname = typeof window && window.location.hostname
   if (!isValidHost(hostname, accessToken)) {
-    return defaultSettings
+    return makeInvalidSettings()
   }
 
   return {
