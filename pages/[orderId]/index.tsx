@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next"
 import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
 
+import { GoogleTagManager } from "#components/GoogleTagManager"
 import { PageHead } from "#components/PageHead"
 import { Redirect } from "#components/Redirect"
 import { SettingsProvider } from "#components/SettingsProvider"
@@ -38,6 +39,7 @@ const CartPage: NextPage = () => {
               title={`${settings.companyName} - ${t("general.title")}`}
               faviconUrl={settings.favicon}
             />
+            <GoogleTagManager gtmId={settings.gtmId} />
             <LazyCart />
           </GlobalStylesProvider>
         )
