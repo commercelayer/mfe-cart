@@ -25,5 +25,6 @@ declare module "HostedApp" {
     "primaryColor" | "language" | "favicon" | "companyName" | "logoUrl"
   > & {
     isValid: false
+    retryable: boolean
   }
 }
