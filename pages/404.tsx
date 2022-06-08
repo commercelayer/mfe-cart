@@ -1,10 +1,10 @@
 import { NextPage } from "next"
 
-import { PageErrorLayour } from "#components/PageErrorLayout"
+import { PageErrorLayout } from "#components/PageErrorLayout"
 
 const Page404: NextPage = () => {
   return (
-    <PageErrorLayour statusCode={404} message="This order is not accessible." />
+    <PageErrorLayout statusCode={404} message="This order is not accessible." />
   )
 }
 

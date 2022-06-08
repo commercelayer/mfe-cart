@@ -10,7 +10,7 @@ interface Props {
   message: string
 }
 
-export const PageErrorLayour: FC<Props> = ({ statusCode, message, title }) => {
+export const PageErrorLayout: FC<Props> = ({ statusCode, message, title }) => {
   return (
     <>
       <PageHead title={title} />
