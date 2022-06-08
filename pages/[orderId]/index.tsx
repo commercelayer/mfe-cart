@@ -5,7 +5,6 @@ import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
 
 import { PageHead } from "#components/PageHead"
-import { Redirect } from "#components/Redirect"
 import { SettingsError } from "#components/SettingsError"
 import { SettingsProvider } from "#components/SettingsProvider"
 import { Skeleton } from "#components/Skeleton"
