@@ -6,6 +6,7 @@ import { useRouter } from "next/router"
 
 import { PageHead } from "#components/PageHead"
 import { Redirect } from "#components/Redirect"
+import { SettingsError } from "#components/SettingsError"
 import { SettingsProvider } from "#components/SettingsProvider"
 import { Skeleton } from "#components/Skeleton"
 
@@ -31,7 +32,7 @@ const CartPage: NextPage = () => {
         isLoading ? (
           <Skeleton />
         ) : !settings.isValid ? (
-          <Redirect to="/404" />
+          <SettingsError retryable={settings.retryable} />
         ) : (
           <GlobalStylesProvider primaryColor={settings.primaryColor}>
             <PageHead

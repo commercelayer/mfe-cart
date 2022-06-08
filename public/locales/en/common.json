@@ -13,7 +13,9 @@
         "total": "Total",
         "gotToCheckoutCta": "Checkout",
         "returnUrlLabel": "Continue shopping",
-        "quantityNotAvailable": "The selected quantity is not available"
+        "quantityNotAvailable": "The selected quantity is not available",
+        "retryableErrorCode": "Connectivity issues",
+        "retryableErrorDescription": "Try to reload the page"
     },
     "couponOrGift": {
         "label": "Have a promo code?",
