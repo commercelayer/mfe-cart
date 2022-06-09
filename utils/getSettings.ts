@@ -44,32 +44,36 @@ export const getSettings = async ({
     return makeInvalidSettings()
   }
 
-  const cl = CommerceLayer({
+  const client = CommerceLayer({
     organization: slug,
     accessToken,
     domain,
   })
 
-  // retrive order
-  const orderResponse = await getOrderDetails({ orderId, client: cl })
-  const order = orderResponse?.object
-  if (!order) {
-    return makeInvalidSettings(!orderResponse?.bailed)
-  }
-  if (!isValidStatus(order.status)) {
-    return makeInvalidSettings()
-  }
+  const [organizationResponse, orderResponse] = await Promise.all([
+    getOrganizationsDetails({
+      client,
+    }),
+    getOrderDetails({ orderId, client }),
+  ])
 
-  await forceOrderAutorefresh({ client: cl, order })
-
-  // retrieve organization
-  const organizationResponse = await getOrganizationsDetails({
-    client: cl,
-  })
+  // validating organization
   const organization = organizationResponse?.object
   if (!organization) {
     return makeInvalidSettings(!organizationResponse?.bailed)
   }
+
+  // validating order
+  const order = orderResponse?.object
+  if (!order) {
+    return makeInvalidSettings(!orderResponse?.bailed)
+  }
+
+  if (!isValidStatus(order.status)) {
+    return makeInvalidSettings()
+  }
+
+  await forceOrderAutorefresh({ client, order })
 
   return {
     accessToken,
