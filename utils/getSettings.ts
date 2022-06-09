@@ -1,6 +1,7 @@
 import CommerceLayer from "@commercelayer/sdk"
 import { Settings, InvalidSettings } from "HostedApp"
 
+import { forceOrderAutorefresh } from "./forceOrderAutorefresh"
 import { getInfoFromJwt } from "./getInfoFromJwt"
 import { getOrderDetails } from "./getOrderDetails"
 import { getOrganizationsDetails } from "./getOrganizationDetails"
@@ -37,11 +38,16 @@ export const getSettings = async ({
     return makeInvalidSettings()
   }
 
+  // checking cart consistency
+  const hostname = typeof window && window.location.hostname
+  if (!isValidHost(hostname, accessToken)) {
+    return makeInvalidSettings()
+  }
+
   const cl = CommerceLayer({
     organization: slug,
     accessToken,
     domain,
-    timeout: 180,
   })
 
   // retrive order
@@ -50,6 +56,11 @@ export const getSettings = async ({
   if (!order) {
     return makeInvalidSettings(!orderResponse?.bailed)
   }
+  if (!isValidStatus(order.status)) {
+    return makeInvalidSettings()
+  }
+
+  await forceOrderAutorefresh({ client: cl, order })
 
   // retrieve organization
   const organizationResponse = await getOrganizationsDetails({
@@ -58,15 +69,6 @@ export const getSettings = async ({
   const organization = organizationResponse?.object
   if (!organization) {
     return makeInvalidSettings(!organizationResponse?.bailed)
-  }
-
-  // checking cart consistency
-  if (!isValidStatus(order.status)) {
-    return makeInvalidSettings()
-  }
-  const hostname = typeof window && window.location.hostname
-  if (!isValidHost(hostname, accessToken)) {
-    return makeInvalidSettings()
   }
 
   return {
