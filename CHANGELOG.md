@@ -1,3 +1,13 @@
+## [1.0.3](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.2...v1.0.3) (2022-06-09)
+
+
+### Bug Fixes
+
+* improve client-side logic for async requests retry ([79375ed](https://github.com/commercelayer/commercelayer-cart/commit/79375ed8f77022d3eb8da98ececac739ccbcd6f1))
+* init GTM if found in settings ([#7](https://github.com/commercelayer/commercelayer-cart/issues/7)) ([d276a9a](https://github.com/commercelayer/commercelayer-cart/commit/d276a9ae4141889a24c914abc923f0ef11a7179c))
+* set order autorefresh when needed ([e545b8e](https://github.com/commercelayer/commercelayer-cart/commit/e545b8efeed5fcb09520f9e5bc4aae9ab4d11c76))
+* show error message in case of connectivity error ([#6](https://github.com/commercelayer/commercelayer-cart/issues/6)) ([edb3b5d](https://github.com/commercelayer/commercelayer-cart/commit/edb3b5d975af943da9941d5f6c7ade1eca452815))
+
 ## [1.0.2](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.1...v1.0.2) (2022-06-07)
 
 
