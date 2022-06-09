@@ -41,20 +41,29 @@ export const getSettings = async ({
     organization: slug,
     accessToken,
     domain,
+    timeout: 180,
   })
 
-  const order = await getOrderDetails({ orderId, client: cl })
-  const organization = await getOrganizationsDetails({
-    client: cl,
-  })
-  if (!order || !organization) {
-    return makeInvalidSettings(true)
+  // retrive order
+  const orderResponse = await getOrderDetails({ orderId, client: cl })
+  const order = orderResponse?.object
+  if (!order) {
+    return makeInvalidSettings(!orderResponse?.bailed)
   }
 
+  // retrieve organization
+  const organizationResponse = await getOrganizationsDetails({
+    client: cl,
+  })
+  const organization = organizationResponse?.object
+  if (!organization) {
+    return makeInvalidSettings(!organizationResponse?.bailed)
+  }
+
+  // checking cart consistency
   if (!isValidStatus(order.status)) {
     return makeInvalidSettings()
   }
-
   const hostname = typeof window && window.location.hostname
   if (!isValidHost(hostname, accessToken)) {
     return makeInvalidSettings()

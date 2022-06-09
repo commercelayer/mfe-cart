@@ -1,38 +1,41 @@
-import { CommerceLayerStatic } from "@commercelayer/sdk"
 import retry from "async-retry"
 
 interface FetchResource<T> {
   object: T | undefined
   success: boolean
+  bailed?: boolean
 }
 
-const DEFAULT_RETRIES = 2
+const retries = 3
 
 export const retryCall = async <T>(
-  f: Promise<T>,
-  retries = DEFAULT_RETRIES
+  f: () => Promise<T>
 ): Promise<FetchResource<T> | undefined> => {
   return await retry(
-    async (bail, number) => {
+    async (_, attempt) => {
       try {
-        const object = await f
         return {
-          object: object as unknown as T,
+          object: await f(),
           success: true,
         }
-      } catch (e: unknown) {
-        if (CommerceLayerStatic.isApiError(e) && e.status === 401) {
+      } catch (error: any) {
+        if (error.status === 401) {
           console.log("Not authorized")
-          bail(e)
-          return
+          return {
+            object: undefined,
+            success: false,
+            bailed: true,
+          }
         }
-        if (number === retries + 1) {
+
+        if (attempt === retries + 1) {
           return {
             object: undefined,
             success: false,
           }
         }
-        throw e
+
+        throw error
       }
     },
     {
