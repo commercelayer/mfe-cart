@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.3...v1.0.4) (2022-06-15)
+
+
+### Bug Fixes
+
+* move promo code input below subtotal ([#9](https://github.com/commercelayer/commercelayer-cart/issues/9)) ([41f44ad](https://github.com/commercelayer/commercelayer-cart/commit/41f44ad3fdc9a0bed47520d39926b0b83825db05))
+
 ## [1.0.3](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.2...v1.0.3) (2022-06-09)
 
 
