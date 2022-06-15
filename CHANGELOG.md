@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.4...v1.0.5) (2022-06-15)
+
+
+### Bug Fixes
+
+* make promo and gift card input always visibile ([01868b8](https://github.com/commercelayer/commercelayer-cart/commit/01868b83adda08a5b6e636cfae8e90b71156e46d))
+
 ## [1.0.4](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.3...v1.0.4) (2022-06-15)
 
 
