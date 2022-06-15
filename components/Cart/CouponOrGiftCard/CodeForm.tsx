@@ -9,7 +9,6 @@ import { useTranslation } from "next-i18next"
 import { FC, useState } from "react"
 
 export const CodeForm: FC = () => {
-  const [showInput, setShowInput] = useState(false)
   const [couponError, setCouponError] = useState(false)
   const { t } = useTranslation()
 
@@ -20,42 +19,34 @@ export const CodeForm: FC = () => {
           setCouponError(!success)
         }}
       >
-        <button
-          type="button"
-          className={cn(
-            {
-              "cursor-default": showInput,
-            },
-            "py-1 text-gray-500 text-sm font-bold"
-          )}
-          onClick={() => setShowInput(true)}
-          data-test-id="show-coupon-input"
+        <label
+          htmlFor="code-input"
+          className="py-1 text-gray-500 text-sm font-bold"
         >
           {t("couponOrGift.label")}
-        </button>
+        </label>
 
-        {showInput && (
-          <div className="flex w-full pt-1">
-            <GiftCardOrCouponInput
-              className={cn(
-                "input-base flex-1 rounded-md rounded-tr-none rounded-br-none",
-                {
-                  "-error ": couponError,
-                }
-              )}
-              placeholderTranslation={(codeType) =>
-                t(`couponOrGift.placeholder.${codeType}`)
+        <div className="flex w-full pt-1 pb-4">
+          <GiftCardOrCouponInput
+            id="code-input"
+            className={cn(
+              "input-base flex-1 rounded-md rounded-tr-none rounded-br-none",
+              {
+                "-error ": couponError,
               }
-              required={false}
-              data-test-id="coupon-input"
-            />
-            <GiftCardOrCouponSubmit
-              className="button-base bg-primary text-contrast px-4 rounded-md rounded-tl-none rounded-bl-none"
-              label={t("couponOrGift.submit")}
-              data-test-id="coupon-submit"
-            />
-          </div>
-        )}
+            )}
+            placeholderTranslation={(codeType) =>
+              t(`couponOrGift.placeholder.${codeType}`)
+            }
+            required={false}
+            data-test-id="coupon-input"
+          />
+          <GiftCardOrCouponSubmit
+            className="button-base bg-primary text-contrast px-4 rounded-md rounded-tl-none rounded-bl-none"
+            label={t("couponOrGift.submit")}
+            data-test-id="coupon-submit"
+          />
+        </div>
       </GiftCardOrCouponForm>
       <Errors
         resource="orders"
@@ -81,7 +72,6 @@ export const CodeForm: FC = () => {
           },
         ]}
       />
-      <div className={cn({ "pb-4": showInput })} />
     </div>
   )
 }

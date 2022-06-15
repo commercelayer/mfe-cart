@@ -95,7 +95,6 @@ test.describe("Manually applying and removing gift card and coupon", () => {
     CartPage,
   }) => {
     await CartPage.expectAppTitle()
-    await CartPage.page.locator("data-test-id=show-coupon-input").click()
     // add coupon
     await CartPage.addCouponOrGiftCard("PROMOTEST10")
     await CartPage.checkForAppliedCoupon()

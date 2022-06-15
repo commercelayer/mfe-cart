@@ -30,8 +30,9 @@ export const Skeleton: FC = () => {
                 </div>
               </div>
               <div className="border-t border-t-gray-100 border-b border-b-gray-400">
-                <div className="text-black py-8">
-                  <SkeletonItem className="h-5 w-20" />
+                <div className="text-black py-7">
+                  <SkeletonItem className="h-5 w-20 mb-2" />
+                  <SkeletonItem className="h-11 w-full" />
                 </div>
               </div>
 
