@@ -20,61 +20,61 @@ export const Totals: FC<Props> = ({ className }) => {
 
   return (
     <div className={className}>
-      <div className="md:bg-gray-50 pb-8 md:py-10 md:px-7 rounded-md w-full">
-        <div className="mb-8">
+      <div className="md:bg-gray-50 pb-5 md:py-10 md:px-7 rounded-md w-full">
+        <div className="text-black mb-6 flex justify-between">
+          <div className="text-gray-500" data-test-id="label-subtotal">
+            {t("general.subtotal")}
+          </div>
+          <SubTotalAmount>
+            {({ priceCents, price }) => (
+              <div
+                data-amount={priceCents}
+                data-test-id="subtotal-amount"
+                className="font-semibold"
+              >
+                {price}
+              </div>
+            )}
+          </SubTotalAmount>
+        </div>
+        <div className="border-t border-t-gray-100 border-b border-b-gray-400 py-6 mb-6">
           <CouponOrGiftCard />
         </div>
-        <div className="border-t border-t-gray-100 border-b border-b-gray-400 py-6">
-          <div className="text-black mb-2 flex justify-between">
-            <div className="text-gray-500" data-test-id="label-subtotal">
-              {t("general.subtotal")}
-            </div>
-            <SubTotalAmount>
-              {({ priceCents, price }) => (
+
+        <DiscountAmount>
+          {({ priceCents, price }) =>
+            priceCents ? (
+              <div className="text-black mb-2 flex justify-between">
+                <div className="text-gray-500">{t("general.discount")}</div>
                 <div
-                  data-amount={priceCents}
-                  data-test-id="subtotal-amount"
                   className="font-semibold"
+                  data-test-id="discount-amount"
+                  data-amount={priceCents}
                 >
                   {price}
                 </div>
-              )}
-            </SubTotalAmount>
-          </div>
-          <DiscountAmount>
-            {({ priceCents, price }) =>
-              priceCents ? (
-                <div className="text-black mb-2 flex justify-between">
-                  <div className="text-gray-500">{t("general.discount")}</div>
-                  <div
-                    className="font-semibold"
-                    data-test-id="discount-amount"
-                    data-amount={priceCents}
-                  >
-                    {price}
-                  </div>
+              </div>
+            ) : null
+          }
+        </DiscountAmount>
+        <GiftCardAmount>
+          {({ priceCents, price }) =>
+            priceCents ? (
+              <div className="text-black mb-2 flex justify-between">
+                <div className="text-gray-500">{t("general.giftCard")}</div>
+                <div
+                  className="font-semibold"
+                  data-test-id="gift-card-amount"
+                  data-amount={priceCents}
+                >
+                  {price}
                 </div>
-              ) : null
-            }
-          </DiscountAmount>
-          <GiftCardAmount>
-            {({ priceCents, price }) =>
-              priceCents ? (
-                <div className="text-black mb-2 flex justify-between">
-                  <div className="text-gray-500">{t("general.giftCard")}</div>
-                  <div
-                    className="font-semibold"
-                    data-test-id="gift-card-amount"
-                    data-amount={priceCents}
-                  >
-                    {price}
-                  </div>
-                </div>
-              ) : null
-            }
-          </GiftCardAmount>
-        </div>
-        <div className="text-black py-8 flex justify-between items-center border-b border-b-gray-100 border-dashed">
+              </div>
+            ) : null
+          }
+        </GiftCardAmount>
+
+        <div className="text-black pt-2 pb-8 flex justify-between items-center border-b border-b-gray-100 border-dashed">
           <div data-test-id="label-total">{t("general.total")}</div>
           <TotalAmount>
             {({ priceCents, price }) => (
