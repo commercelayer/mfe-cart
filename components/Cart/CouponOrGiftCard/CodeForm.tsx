@@ -14,7 +14,7 @@ export const CodeForm: FC = () => {
   const { t } = useTranslation()
 
   return (
-    <div className="mb-4">
+    <div>
       <GiftCardOrCouponForm
         onSubmit={({ success }) => {
           setCouponError(!success)
@@ -81,6 +81,7 @@ export const CodeForm: FC = () => {
           },
         ]}
       />
+      <div className={cn({ "pb-4": showInput })} />
     </div>
   )
 }

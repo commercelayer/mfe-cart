@@ -24,12 +24,14 @@ export const Skeleton: FC = () => {
           <div className="bg-gray-50 pb-8 md:py-10 md:px-7 rounded-md w-full h-[400px]">
             <div className="animate-pulse">
               <div className="py-1 mb-8">
-                <SkeletonItem className="h-5 w-20" />
+                <div className="flex justify-between">
+                  <SkeletonItem className="w-20 h-6" />
+                  <SkeletonItem className="w-20 h-6" />
+                </div>
               </div>
               <div className="border-t border-t-gray-100 border-b border-b-gray-400">
-                <div className="text-black py-8 flex justify-between">
-                  <SkeletonItem className="w-20 h-6" />
-                  <SkeletonItem className="w-20 h-6" />
+                <div className="text-black py-8">
+                  <SkeletonItem className="h-5 w-20" />
                 </div>
               </div>
 
