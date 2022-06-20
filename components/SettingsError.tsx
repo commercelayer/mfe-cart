@@ -14,7 +14,8 @@ export const SettingsError: FC<Props> = ({ retryable }) => {
 
   useEffect(() => {
     if (!retryable) {
-      router.push("/404")
+      // router.push won't work here since we need a genuine 404 status code
+      window.location.href = `${router.basePath}/404`
     }
   }, [retryable])
 
