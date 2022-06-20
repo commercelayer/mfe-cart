@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.5...v1.0.6) (2022-06-20)
+
+
+### Bug Fixes
+
+* enforce 404 status code on invalid :orderId ([8104cdb](https://github.com/commercelayer/commercelayer-cart/commit/8104cdb8e9df47092a0df2702653b39fc5dbf9c4))
+
 ## [1.0.5](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.4...v1.0.5) (2022-06-15)
 
 
