@@ -30,7 +30,9 @@ const Cart: FC = () => {
       >
         <OrderContainer
           orderId={settings.orderId}
-          attributes={{ return_url: settings.returnUrl }}
+          attributes={{
+            cart_url: window.location.href,
+          }}
         >
           <LineItemsContainer>
             <PageHeader>
