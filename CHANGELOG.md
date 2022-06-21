@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.6...v1.0.7) (2022-06-21)
+
+
+### Bug Fixes
+
+* always set cart_url to current url ([eebe7d5](https://github.com/commercelayer/commercelayer-cart/commit/eebe7d51b041a170650814300e51262275772ba0))
+
 ## [1.0.6](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.5...v1.0.6) (2022-06-20)
 
 
