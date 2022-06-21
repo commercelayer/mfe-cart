@@ -136,6 +136,9 @@ export class CartPage {
     await expect(
       this.page.locator(`[data-test-id=return-url][href='${href}']`)
     ).toBeVisible()
+    await expect(
+      this.page.locator(`[data-test-id=return-url-logo][href='${href}']`)
+    ).toBeVisible()
   }
 
   async checkCartTotal(amount: string) {
