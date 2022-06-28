@@ -1,5 +1,4 @@
 import { useTranslation } from "next-i18next"
-import { useRouter } from "next/router"
 import { FC, useEffect } from "react"
 
 import { PageErrorLayout } from "./PageErrorLayout"
@@ -9,13 +8,12 @@ type Props = {
 }
 
 export const SettingsError: FC<Props> = ({ retryable }) => {
-  const router = useRouter()
   const { t } = useTranslation()
 
   useEffect(() => {
     if (!retryable) {
-      // router.push won't work here since we need a genuine 404 status code
-      window.location.href = `${router.basePath}/404`
+      // forcing page refresh hoping we can hit a proper 404 on the hosting side
+      window.location.href = `${process.env.NEXT_PUBLIC_BASE_PATH}/404`
     }
   }, [retryable])
 

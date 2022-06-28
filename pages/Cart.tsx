@@ -2,7 +2,7 @@ import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import type { NextPage } from "next"
 import { useTranslation } from "next-i18next"
 import dynamic from "next/dynamic"
-import { useRouter } from "next/router"
+import { useParams } from "react-router-dom"
 
 import { GoogleTagManager } from "#components/GoogleTagManager"
 import { PageHead } from "#components/PageHead"
@@ -17,9 +17,8 @@ const LazyCart = dynamic(() => import("#components/Cart"), {
 })
 
 const CartPage: NextPage = () => {
-  const { query } = useRouter()
+  const { orderId } = useParams()
   const { t } = useTranslation()
-  const orderId = query.orderId as string | undefined
 
   if (!orderId) {
     // first render

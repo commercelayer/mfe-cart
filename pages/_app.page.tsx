@@ -4,7 +4,11 @@ import "../styles/globals.css"
 import "components/i18n"
 
 function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <div suppressHydrationWarning>
+      {typeof window === "undefined" ? null : <Component {...pageProps} />}
+    </div>
+  )
 }
 
 export default appWithTranslation(App)
