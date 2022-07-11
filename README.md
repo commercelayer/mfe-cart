@@ -1,6 +1,6 @@
 # Commerce Layer Cart
 
-The Commerce Layer Cart application (React) provides you with a PCI-compliant, PSD2-compliant, and production-ready shopping cart powered by Commerce Layer APIs. You can fork this repository and deploy it to any hosting service or use it as a reference application to build your own.
+The Commerce Layer Cart application (React) provides you with a production-ready shopping cart powered by Commerce Layer APIs. You can fork this repository and deploy it to any hosting service or use it as a reference application to build your own.
 
 ![Commerce Layer Cart demo](./public/cart.png)
 
@@ -36,7 +36,7 @@ The Commerce Layer Cart application (React) provides you with a PCI-compliant, P
 
 ## Hosted version
 
-There is a hosted version of the cart application that is automatically enabled in your Commerce Layer account. You can customize it by adding your organization logo, favicon, primary color, and Google Tag Manager ID.
+Any Commerce Layer account comes with a hosted version of the cart application that is automatically enabled in your Commerce Layer account. You can customize it by adding your organization logo, favicon, primary color, and Google Tag Manager ID.
 
 You can use the hosted cart with the following URL format: `https://<your-organization-subdomain>.commercelayer.app/cart/:order_id?accessToken=<your-access-token>`.
 
