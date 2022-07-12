@@ -34,7 +34,7 @@ export const Summary: FC<Props> = ({ className, listTypes }) => {
           >
             <LineItemImage
               width={170}
-              className="w-1/4 self-start md:self-center max-h-44 object-contain"
+              className="w-1/4 self-start md:self-center max-h-32 object-contain"
             />
 
             <div className="flex-1 flex flex-col min-h-[150px]">
