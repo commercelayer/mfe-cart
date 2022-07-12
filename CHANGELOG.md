@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.7...v1.0.8) (2022-07-12)
+
+
+### Bug Fixes
+
+* prevent to show oversized product images when they have portrait ratio ([a3832c5](https://github.com/commercelayer/commercelayer-cart/commit/a3832c53fc38ef66f324633d8c6e418c0ccf1cef))
+
 ## [1.0.7](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.6...v1.0.7) (2022-06-21)
 
 
