@@ -9,7 +9,6 @@ import { PageHead } from "#components/PageHead"
 import { SettingsError } from "#components/SettingsError"
 import { SettingsProvider } from "#components/SettingsProvider"
 import { Skeleton } from "#components/Skeleton"
-import { isEmbedded } from "#utils/isEmbedded"
 
 const LazyCart = dynamic(() => import("#components/Cart"), {
   loading: function LoadingSkeleton() {
@@ -36,12 +35,10 @@ const CartPage: NextPage = () => {
           <SettingsError retryable={settings.retryable} />
         ) : (
           <GlobalStylesProvider primaryColor={settings.primaryColor}>
-            {!isEmbedded() ? (
-              <PageHead
-                title={`${settings.companyName} - ${t("general.title")}`}
-                faviconUrl={settings.favicon}
-              />
-            ) : null}
+            <PageHead
+              title={`${settings.companyName} - ${t("general.title")}`}
+              faviconUrl={settings.favicon}
+            />
             <GoogleTagManager gtmId={settings.gtmId} />
             <LazyCart />
           </GlobalStylesProvider>
