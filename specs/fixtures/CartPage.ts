@@ -149,7 +149,7 @@ export class CartPage {
     )
   }
 
-  async checkHeaderAndFooter(embedded: boolean) {
+  async checkHeaderAndFooter({ embedded }: { embedded: boolean }) {
     if (embedded) {
       await expect(this.page.locator("[data-test-id=cart-header]")).toBeHidden()
       await expect(this.page.locator("[data-test-id=cart-footer]")).toBeHidden()

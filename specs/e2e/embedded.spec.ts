@@ -11,6 +11,6 @@ test.describe("Enter the page as embedded", () => {
   })
 
   test("should not see header and footer", async ({ CartPage }) => {
-    await CartPage.checkHeaderAndFooter(true)
+    await CartPage.checkHeaderAndFooter({ embedded: true })
   })
 })

@@ -29,7 +29,7 @@ test.describe("Enter the page with valid URL and params", () => {
   })
 
   test("should open a valid cart page", async ({ CartPage }) => {
-    await CartPage.checkHeaderAndFooter(false)
+    await CartPage.checkHeaderAndFooter({ embedded: false })
     await CartPage.expectAppTitle()
     await CartPage.checkItemQuantity(1)
     await CartPage.checkButtonCheckout({ toBeActive: true })
