@@ -21,6 +21,7 @@ export const PageHeader: FC<Props> = ({ isLoading, children }) => {
       className={cn({
         "animate-pulse": isLoading,
       })}
+      data-test-id="cart-header"
     >
       <div className="py-8 border-b border-b-gray-200">
         <CompanyLogo />

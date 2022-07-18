@@ -28,6 +28,7 @@ export const test = base.extend<FixtureType>({
     await cartPage.goto({
       orderId: options.orderId || orderId,
       accessToken,
+      embed: options.embed,
     })
     await use(cartPage)
   },

@@ -47,4 +47,5 @@ export type TestOrderOptions = {
   lineItemsAttributes?: LineItemObject[]
   giftCard?: GiftCardOptions
   couponCode?: string
+  embed?: boolean
 }

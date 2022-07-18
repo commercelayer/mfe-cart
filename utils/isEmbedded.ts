@@ -14,7 +14,7 @@ export const isEmbedded = () => {
     return window.self !== window.top
   } catch {
     // when this fails it means the browser blocked `window.top` for security reason
-    // it means this content has been loaded inside an iframe :)
+    // and we know that this content has been loaded inside an iframe
     return true
   }
 }
