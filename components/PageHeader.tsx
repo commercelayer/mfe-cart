@@ -3,6 +3,7 @@ import { FC, ReactNode } from "react"
 
 import { CompanyLogo } from "#components/CompanyLogo"
 import { SkeletonItem } from "#components/Skeleton/Item"
+import { isEmbedded } from "#utils/isEmbedded"
 
 type Props = {
   children?: ReactNode
@@ -10,6 +11,11 @@ type Props = {
 }
 
 export const PageHeader: FC<Props> = ({ isLoading, children }) => {
+  if (isEmbedded()) {
+    // we don't need page header when app is working in embedded mode
+    return null
+  }
+
   return (
     <div
       className={cn({
