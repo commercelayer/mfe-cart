@@ -16,6 +16,7 @@ declare module "HostedApp" {
     termsUrl?: string
     privacyUrl?: string
     returnUrl?: string
+    cartUrl?: string
     isValid: true
     itemsCount: number
   }

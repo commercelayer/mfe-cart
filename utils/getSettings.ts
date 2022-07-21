@@ -93,6 +93,7 @@ export const getSettings = async ({
     termsUrl: order.terms_url,
     privacyUrl: order.privacy_url,
     returnUrl: order.return_url,
+    cartUrl: order.cart_url,
     isValid: true,
   }
 }
