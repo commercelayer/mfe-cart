@@ -16,6 +16,7 @@ function App({ Component, pageProps }: AppProps) {
               <Script
                 src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"
                 strategy="afterInteractive"
+                data-test-id="iframe-resizer-script"
               />
             ) : null // disabling ssr
           }
