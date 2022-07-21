@@ -476,6 +476,13 @@
   dependencies:
     axios "^0.27.2"
 
+"@commercelayer/sdk@^4.15.0":
+  version "4.15.0"
+  resolved "https://registry.yarnpkg.com/@commercelayer/sdk/-/sdk-4.15.0.tgz#c68762be0165fb9245713da8a41ec8f3bdb6ab3c"
+  integrity sha512-MiJzO5qYiokReP/lRaycfeA/CuQXfY2zmVt+rbNRQPwJNBYFMSWAVhnJMlAiYCRIiLRcjgwcpqQV90jKBHF26w==
+  dependencies:
+    axios "^0.27.2"
+
 "@emotion/is-prop-valid@^1.1.0":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-1.1.2.tgz#34ad6e98e871aa6f7a20469b602911b8b11b3a95"
