@@ -1,6 +1,6 @@
 # Commerce Layer Cart
 
-The Commerce Layer Cart application (React) provides you with a production-ready shopping cart powered by Commerce Layer APIs. You can fork this repository and deploy it to any hosting service or use it as a reference application to build your own.
+The Commerce Layer Cart application (React) provides you with a production-ready shopping cart powered by Commerce Layer APIs. You can fork this repository and deploy it to any hosting service or use it as a reference application to build your own. A hosted version is also available.
 
 ![Commerce Layer Cart demo](./public/cart.png)
 
@@ -24,23 +24,29 @@ The Commerce Layer Cart application (React) provides you with a production-ready
 
 [<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" height="35">](https://app.netlify.com/start/deploy?repository=https://github.com/commercelayer/commercelayer-cart) [<img src="https://vercel.com/button" alt="Deploy to Vercel" height="35">](https://vercel.com/new/clone?repository-url=https://github.com/commercelayer/commercelayer-cart) [<img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" height="35">](https://heroku.com/deploy?template=https://github.com/commercelayer/commercelayer-cart) [<img src="https://www.deploytodo.com/do-btn-blue.svg" alt="Deploy to Digital Ocean" height="35">](https://cloud.digitalocean.com/apps/new?repo=https://github.com/commercelayer/commercelayer-cart/tree/master)
 
-2. Create your organization and get your credentials by following this [credentials guide](https://docs.commercelayer.io/developers/credentials).
+2. Create your organization and get your credentials by following one of our [onboarding tutorials](https://docs.commercelayer.io/developers/welcome).
 
 3. Build your sales channel with your favorite technologies and frameworks by leveraging our [developer resources](https://commercelayer.io/developers) and [documentation](https://docs.commercelayer.io/api).
 
 4. Get an [access token](https://docs.commercelayer.io/api/authentication) for your application. You should generate this in your sales channel or use our Javascript [authentication library](https://github.com/commercelayer/commercelayer-js-auth).
 
-5. Create an [order](https://docs.commercelayer.io/developers/v/api-reference/orders) associated with some line items.
+5. Create an [order](https://docs.commercelayer.io/developers/v/api-reference/orders) associated with some [line items](https://docs.commercelayer.io/developers/v/api-reference/line_items).
 
-6. View the previously created order using the URL format: `<your-deployed-cart-url>/:order_id?accessToken=<your-access-token>`. For example: `https://cart.yourbrand.com/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9`.
+6. View the cart associated with the previously created order using the URL format: `<your-deployed-cart-url>/:order_id?accessToken=<your-access-token>`.
+
+### Example
+
+`https://cart.yourbrand.com/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9`.
 
 ## Hosted version
 
-Any Commerce Layer account comes with a hosted version of the cart application that is automatically enabled in your Commerce Layer account. You can customize it by adding your organization logo, favicon, primary color, and Google Tag Manager ID.
+Any Commerce Layer account comes with a hosted version of the Cart application that is automatically enabled in your Commerce Layer account. You can customize it by adding your organization logo, favicon, primary color, and Google Tag Manager ID.
 
-You can use the hosted cart with the following URL format: `https://<your-organization-subdomain>.commercelayer.app/cart/:order_id?accessToken=<your-access-token>`.
+You can use the hosted version of the Cart application with the following URL format: `https://<your-organization-subdomain>.commercelayer.app/cart/:order_id?accessToken=<your-access-token>`.
 
-For example: `https://yourbrand.commercelayer.app/cart/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9`
+### Example
+
+`https://yourbrand.commercelayer.app/cart/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9`
 
 ## Contributors guide
 
