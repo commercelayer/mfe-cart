@@ -1,3 +1,12 @@
+## [1.0.9](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.8...v1.0.9) (2022-07-25)
+
+
+### Bug Fixes
+
+* add iframe resizer lib ([2f2f207](https://github.com/commercelayer/commercelayer-cart/commit/2f2f207e6a60ee85da4caa1d016a894833cd99af))
+* add support for embedded mode ([e96e5fd](https://github.com/commercelayer/commercelayer-cart/commit/e96e5fd49ec4a8f89ec9b6925219a782794e3d21))
+* avoid overwriting of existing cart_url ([3cfb01f](https://github.com/commercelayer/commercelayer-cart/commit/3cfb01f07c0bdb006e4f42245722ca6e3eea0943))
+
 ## [1.0.8](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.7...v1.0.8) (2022-07-12)
 
 
