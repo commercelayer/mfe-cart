@@ -2,6 +2,8 @@ import { CheckoutLink, LineItemsCount } from "@commercelayer/react-components"
 import { useTranslation } from "next-i18next"
 import { FC } from "react"
 
+import { isEmbedded } from "#utils/isEmbedded"
+
 export const ButtonCheckout: FC = () => {
   const { t } = useTranslation()
 
@@ -18,6 +20,7 @@ export const ButtonCheckout: FC = () => {
                 "button-base bg-primary text-contrast block rounded-md py-3 px-3"
               }
               label={t("general.gotToCheckoutCta")}
+              target={isEmbedded() ? "_top" : undefined}
             />
           ) : (
             <button

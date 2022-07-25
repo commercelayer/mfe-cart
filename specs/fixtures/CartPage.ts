@@ -6,6 +6,7 @@ import commonIt from "../../public/locales/it/common.json"
 interface GoToProps {
   orderId: string
   accessToken?: string
+  embed?: boolean
 }
 
 export class CartPage {
@@ -21,9 +22,10 @@ export class CartPage {
     this.itemsCount = this.page.locator("[data-test-id=items-count]").first()
   }
 
-  async goto({ orderId, accessToken }: GoToProps) {
+  async goto({ orderId, accessToken, embed }: GoToProps) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_PATH || ""
-    const url = `${baseUrl}/${orderId}?accessToken=${accessToken}`
+    const embedQuery = embed ? "&embed=true" : ""
+    const url = `${baseUrl}/${orderId}?accessToken=${accessToken}${embedQuery}`
 
     if (process.env.E2E_DEBUG === "true") {
       console.log("tested url: ", `http://localhost:3000${url}`)
@@ -145,6 +147,20 @@ export class CartPage {
     await expect(this.page.locator("[data-test-id=total-amount]")).toHaveText(
       amount
     )
+  }
+
+  async checkHeaderAndFooter({ embedded }: { embedded: boolean }) {
+    if (embedded) {
+      await expect(this.page.locator("[data-test-id=cart-header]")).toBeHidden()
+      await expect(this.page.locator("[data-test-id=cart-footer]")).toBeHidden()
+    } else {
+      await expect(
+        this.page.locator("[data-test-id=cart-header]")
+      ).toBeVisible()
+      await expect(
+        this.page.locator("[data-test-id=cart-footer]")
+      ).toBeVisible()
+    }
   }
 
   async checkForTotalsToBeProperlyCalculated({

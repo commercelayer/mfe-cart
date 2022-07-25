@@ -31,7 +31,7 @@ const Cart: FC = () => {
         <OrderContainer
           orderId={settings.orderId}
           attributes={{
-            cart_url: window.location.href,
+            cart_url: settings.cartUrl || window.location.href,
           }}
         >
           <LineItemsContainer>

@@ -14,6 +14,7 @@ import { LineItemOptions } from "./LineItemOptions"
 import { QuantitySelector } from "./QuantitySelector"
 
 import { useSettings } from "#components/SettingsProvider"
+import { isEmbedded } from "#utils/isEmbedded"
 
 type Props = {
   className: string
@@ -71,6 +72,7 @@ export const Summary: FC<Props> = ({ className, listTypes }) => {
             data-test-id="return-url"
             href={settings.returnUrl}
             className="link-base text-xs font-bold"
+            target={isEmbedded() ? "_top" : undefined}
           >
             &lt; {t("general.returnUrlLabel")}
           </a>
