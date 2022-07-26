@@ -1,3 +1,11 @@
+## [1.0.11](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.10...v1.0.11) (2022-07-26)
+
+
+### Bug Fixes
+
+* early invalidate settings if order id in url has wrong format ([18af88b](https://github.com/commercelayer/commercelayer-cart/commit/18af88b35dd901f5159564784a3c92a73ca1251c))
+* prevent retry when catching not-api specific error like 404 ([3b3c7a5](https://github.com/commercelayer/commercelayer-cart/commit/3b3c7a501a4ae3490bf03416d0ef36322c11feb8))
+
 ## [1.0.10](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.9...v1.0.10) (2022-07-26)
 
 
