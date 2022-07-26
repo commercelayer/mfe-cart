@@ -20,19 +20,21 @@ The Commerce Layer Cart application (React) provides you with a production-ready
 
 ## Getting started
 
-1. Deploy the forked repository to your preferred hosting service or host it yourself. You can deploy with one click below:
+1. Create your organization and get your credentials by following one of our [onboarding tutorials](https://docs.commercelayer.io/developers/welcome).
+
+2. Set the environment variable `NEXT_PUBLIC_SLUG` on your hosting provider to your organization slug (subdomain) and be sure to build the forked repository using the node environment (`NODE_ENV`) as production.
+
+3. Deploy the forked repository to your preferred hosting service or host it yourself. You can deploy with one click below:
 
 [<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" height="35">](https://app.netlify.com/start/deploy?repository=https://github.com/commercelayer/commercelayer-cart) [<img src="https://vercel.com/button" alt="Deploy to Vercel" height="35">](https://vercel.com/new/clone?repository-url=https://github.com/commercelayer/commercelayer-cart) [<img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" height="35">](https://heroku.com/deploy?template=https://github.com/commercelayer/commercelayer-cart) [<img src="https://www.deploytodo.com/do-btn-blue.svg" alt="Deploy to Digital Ocean" height="35">](https://cloud.digitalocean.com/apps/new?repo=https://github.com/commercelayer/commercelayer-cart/tree/master)
 
-2. Create your organization and get your credentials by following one of our [onboarding tutorials](https://docs.commercelayer.io/developers/welcome).
+4. Build your sales channel with your favorite technologies and frameworks by leveraging our [developer resources](https://commercelayer.io/developers) and [documentation](https://docs.commercelayer.io/api).
 
-3. Build your sales channel with your favorite technologies and frameworks by leveraging our [developer resources](https://commercelayer.io/developers) and [documentation](https://docs.commercelayer.io/api).
+5. Get an [access token](https://docs.commercelayer.io/api/authentication) for your application. You should generate this in your sales channel or use our Javascript [authentication library](https://github.com/commercelayer/commercelayer-js-auth).
 
-4. Get an [access token](https://docs.commercelayer.io/api/authentication) for your application. You should generate this in your sales channel or use our Javascript [authentication library](https://github.com/commercelayer/commercelayer-js-auth).
+6. Create an [order](https://docs.commercelayer.io/developers/v/api-reference/orders) associated with some [line items](https://docs.commercelayer.io/developers/v/api-reference/line_items).
 
-5. Create an [order](https://docs.commercelayer.io/developers/v/api-reference/orders) associated with some [line items](https://docs.commercelayer.io/developers/v/api-reference/line_items).
-
-6. View the cart associated with the previously created order using the URL format: `<your-deployed-cart-url>/:order_id?accessToken=<your-access-token>`.
+7. View the cart associated with the previously created order using the URL format: `<your-deployed-cart-url>/:order_id?accessToken=<your-access-token>`.
 
 ### Example
 
@@ -40,7 +42,7 @@ The Commerce Layer Cart application (React) provides you with a production-ready
 
 ## Hosted version
 
-Any Commerce Layer account comes with a hosted version of the Cart application that is automatically enabled in your Commerce Layer account. You can customize it by adding your organization logo, favicon, primary color, and Google Tag Manager ID.
+Any Commerce Layer account comes with a hosted version of the Cart application that is automatically enabled. You can customize it by adding your organization logo, favicon, primary color, and Google Tag Manager ID.
 
 You can use the hosted version of the Cart application with the following URL format: `https://<your-organization-subdomain>.commercelayer.app/cart/:order_id?accessToken=<your-access-token>`
 
