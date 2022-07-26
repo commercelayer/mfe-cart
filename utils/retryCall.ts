@@ -1,3 +1,4 @@
+import { CommerceLayerStatic } from "@commercelayer/sdk"
 import retry from "async-retry"
 
 interface FetchResource<T> {
@@ -19,8 +20,11 @@ export const retryCall = async <T>(
           success: true,
         }
       } catch (error: any) {
-        if (error.status === 401) {
-          console.log("Not authorized")
+        // sdk return sa structured object in case of api error
+        // we assume we hit a not-retriable error when the error object returned has no keys
+        const isNotRetryiable =
+          error.status === 401 || !Object.keys(error).length
+        if (isNotRetryiable) {
           return {
             object: undefined,
             success: false,
