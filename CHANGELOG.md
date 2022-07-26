@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.9...v1.0.10) (2022-07-26)
+
+
+### Bug Fixes
+
+* add slug as env to enforce security when app is not running in cl-hosted mode ([62d6e0e](https://github.com/commercelayer/commercelayer-cart/commit/62d6e0e3fceeaeae7dd6aa73b4380084db79e892))
+
 ## [1.0.9](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.8...v1.0.9) (2022-07-25)
 
 
