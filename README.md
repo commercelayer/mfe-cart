@@ -42,7 +42,7 @@ The Commerce Layer Cart application (React) provides you with a production-ready
 
 ## Hosted version
 
-Any Commerce Layer account comes with a hosted version of the Cart application that is automatically enabled in your Commerce Layer account. You can customize it by adding your organization logo, favicon, primary color, and Google Tag Manager ID.
+Any Commerce Layer account comes with a hosted version of the Cart application that is automatically enabled. You can customize it by adding your organization logo, favicon, primary color, and Google Tag Manager ID.
 
 You can use the hosted version of the Cart application with the following URL format: `https://<your-organization-subdomain>.commercelayer.app/cart/:order_id?accessToken=<your-access-token>`
 
