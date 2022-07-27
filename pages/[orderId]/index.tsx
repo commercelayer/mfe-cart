@@ -9,6 +9,7 @@ import { PageHead } from "#components/PageHead"
 import { SettingsError } from "#components/SettingsError"
 import { SettingsProvider } from "#components/SettingsProvider"
 import { Skeleton } from "#components/Skeleton"
+import { isEmbedded } from "#utils/isEmbedded"
 
 const LazyCart = dynamic(() => import("#components/Cart"), {
   loading: function LoadingSkeleton() {
@@ -33,7 +34,10 @@ const CartPage: NextPage = () => {
           {isLoading ? (
             <Skeleton />
           ) : !settings.isValid ? (
-            <SettingsError retryable={settings.retryable} />
+            <SettingsError
+              retryable={settings.retryable}
+              isEmbedded={isEmbedded()}
+            />
           ) : (
             <>
               <PageHead
