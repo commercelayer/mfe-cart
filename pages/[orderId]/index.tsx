@@ -28,22 +28,24 @@ const CartPage: NextPage = () => {
 
   return (
     <SettingsProvider orderId={orderId}>
-      {({ settings, isLoading }) =>
-        isLoading ? (
-          <Skeleton />
-        ) : !settings.isValid ? (
-          <SettingsError retryable={settings.retryable} />
-        ) : (
-          <GlobalStylesProvider primaryColor={settings.primaryColor}>
-            <PageHead
-              title={`${settings.companyName} - ${t("general.title")}`}
-              faviconUrl={settings.favicon}
-            />
-            <GoogleTagManager gtmId={settings.gtmId} />
-            <LazyCart />
-          </GlobalStylesProvider>
-        )
-      }
+      {({ settings, isLoading }) => (
+        <GlobalStylesProvider primaryColor={settings.primaryColor}>
+          {isLoading ? (
+            <Skeleton />
+          ) : !settings.isValid ? (
+            <SettingsError retryable={settings.retryable} />
+          ) : (
+            <>
+              <PageHead
+                title={`${settings.companyName} - ${t("general.title")}`}
+                faviconUrl={settings.favicon}
+              />
+              <GoogleTagManager gtmId={settings.gtmId} />
+              <LazyCart />
+            </>
+          )}
+        </GlobalStylesProvider>
+      )}
     </SettingsProvider>
   )
 }
