@@ -5,7 +5,13 @@ import { FC } from "react"
 import { defaultSettings } from "#utils/getSettings"
 
 interface Props {
+  /**
+   * Page title, if `undefined` default app title will be used.
+   */
   title?: string
+  /**
+   * URL to be used to render the favicon, if `undefined` default CL logo will be used.
+   */
   faviconUrl?: string
 }
 

@@ -7,6 +7,11 @@ import { PageErrorLayout } from "./PageErrorLayout"
 import { EmptyCartEmbedded } from "#components/EmptyCartEmbedded"
 
 type Props = {
+  /**
+   * When this is `true` we skip redirection to a static 404 page and we keep
+   * the current URL (along with query string params), so user can manually
+   * retry by refreshing the page.
+   */
   retryable?: boolean
   isEmbedded?: boolean
 }
@@ -17,7 +22,7 @@ export const SettingsError: FC<Props> = ({ retryable, isEmbedded }) => {
 
   useEffect(() => {
     if (!retryable && !isEmbedded) {
-      // router.push won't work here since we need a genuine 404 status code
+      // router.push won't work here since we need a genuine 404 HTTP response status code
       window.location.href = `${router.basePath}/404`
     }
   }, [retryable])

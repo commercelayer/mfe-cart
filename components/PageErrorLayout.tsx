@@ -6,8 +6,17 @@ import { PageHead } from "#components/PageHead"
 import { isEmbedded } from "#utils/isEmbedded"
 
 interface Props {
+  /**
+   * Page title, if `undefined` default app title will be used.
+   */
   title?: string
+  /**
+   * Short identifier to be shown as error code. This is meant to be for displaying only, it does not affect HTTP response status.
+   */
   statusCode: string | number
+  /**
+   * A brief description of the encounted error.
+   */
   message: string
 }
 

@@ -2,6 +2,10 @@ import { FC, useEffect } from "react"
 import TagManager from "react-gtm-module"
 
 type Props = {
+  /**
+   * Google Tag Manager ID (GTM-XXXXXX).
+   * When `undefined` the script will not be initialized.
+   */
   gtmId?: string
 }
 
