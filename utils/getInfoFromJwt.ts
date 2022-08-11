@@ -1,16 +1,33 @@
 import jwtDecode from "jwt-decode"
 
 interface JWTProps {
+  /**
+   * The Organization `slug` and `id` the token belongs to.
+   */
   organization: {
     slug: string
     id: string
   }
+  /**
+   * The API client `kind`, for example "sales_channel".
+   * Read more at {@link https://docs.commercelayer.io/developers/api-clients}
+   */
   application: {
     kind: string
   }
+  /**
+   * If `true` it means the  Organization is working in test mode and live mode is not enabled.
+   */
   test: boolean
 }
 
+/**
+ * Decodes a JWT in order to retrive some organization info.
+ *
+ * @param accessToken - The Bearer JWT token used to authenticate Commerce Layer API request.
+ * @returns an object of type `JWTProps` or an empy object in case of failure.
+ *
+ */
 export const getInfoFromJwt = (accessToken: string) => {
   try {
     const {

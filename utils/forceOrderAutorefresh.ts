@@ -1,14 +1,27 @@
 import { CommerceLayerClient, Order } from "@commercelayer/sdk"
 
-export const forceOrderAutorefresh = async ({
-  client,
-  order,
-}: {
+type ForceOrderAutorefreshConfig = {
+  /**
+   *  The signed Commerce Layer SDK client
+   */
   client: CommerceLayerClient
+  /**
+   *  The fetched `Order` object
+   */
   order: Order
-}) => {
+}
+
+/**
+ * Updates the order by enabling `autorefresh`, if it was disabled.
+ * @param config - `ForceOrderAutorefreshConfig` configuration object containing both sdk `client` and fetched `order`
+ * @returns a Promise that resolves with updated `Order` object.
+ */
+export const forceOrderAutorefresh = async (
+  config: ForceOrderAutorefreshConfig
+) => {
+  const { client, order } = config
   if (order.autorefresh) {
-    return
+    return order
   }
 
   try {
@@ -19,5 +32,6 @@ export const forceOrderAutorefresh = async ({
     })
   } catch {
     console.log("error refreshing order. Autorefresh is ", order.autorefresh)
+    return order
   }
 }
