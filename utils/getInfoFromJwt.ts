@@ -2,7 +2,7 @@ import jwtDecode from "jwt-decode"
 
 interface JWTProps {
   /**
-   * The Organization `slug` and `id` the token belongs to.
+   * The Organization `slug` and `id` present in the provided access token.
    */
   organization: {
     slug: string
@@ -22,7 +22,7 @@ interface JWTProps {
 }
 
 /**
- * Decodes a JWT in order to retrive some organization info.
+ * Decodes a JWT string in order to retrive some required organization info.
  *
  * @param accessToken - The Bearer JWT token used to authenticate Commerce Layer API request.
  * @returns an object of type `JWTProps` or an empy object in case of failure.

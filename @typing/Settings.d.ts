@@ -74,8 +74,8 @@ declare module "HostedApp" {
      */
     isValid: false
     /**
-     * When this is returned as `true` it means there was a connectivity error and user can manually refresh
-     * the browser tab to retry.
+     * When `true`, it indicates the encountered error might be temporary (eg. connectivity error)
+     * and the user can manually retry by refreshing browser tab.
      */
     retryable: boolean
   }

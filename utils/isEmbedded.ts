@@ -1,5 +1,5 @@
 /**
- * Checks if the app is open within an iframe tag or if `embed=true` is found in URL query string.
+ * Checks if the app is loaded within an iframe tag or if `embed=true` is found in URL query string.
  * @returns a boolean flag that will be `true` in case app is embedded.
  */
 export const isEmbedded = () => {

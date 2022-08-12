@@ -8,9 +8,8 @@ import { EmptyCartEmbedded } from "#components/EmptyCartEmbedded"
 
 type Props = {
   /**
-   * When this is `true` we skip redirection to a static 404 page and we keep
-   * the current URL (along with query string params), so user can manually
-   * retry by refreshing the page.
+   * When this is `false`, the component will redirect user to a static 404 page and will remove all URL params.
+   * If `true`, the current URL will be mantained (along with query string params), so user can manually retry by refreshing the page.
    */
   retryable?: boolean
   isEmbedded?: boolean

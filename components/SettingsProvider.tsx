@@ -16,13 +16,13 @@ import { defaultSettings, getSettings } from "#utils/getSettings"
 
 type SettingsProviderValue = {
   /**
-   * Can contains either a valid `Settings` object or `InvalidSettings`.
-   * Invalid settings will be returned when some initial API data fetching fails
-   * and we are unable to show full cart page.
+   * Can contains either a valid `Settings` or `InvalidSettings` object.
+   * Invalid settings will be returned when part of initial API data fetching fails
+   * and it's not possibile to show a full cart page.
    */
   settings: Settings | InvalidSettings
   /**
-   * When `true` it means that app is fetching content from API and is not ready to return the Settings object.
+   * When `true` it means that app is fetching content from API and is not ready to return the `Settings` object.
    * It can be used to control the UI state.
    */
   isLoading: boolean
@@ -31,7 +31,7 @@ type SettingsProviderValue = {
 type SettingsProviderProps = {
   /**
    * The required Order ID to be used to get cart information and to fill the `Settings` object.
-   * Order status must be `draft` or an `InvalidSettings` object will be returned instead.
+   * Order status must be either `draft` or `pending`, otherwise an `InvalidSettings` object will be returned instead.
    *
    * Read more at {@link https://docs.commercelayer.io/developers/v/how-tos/shopping-cart/create-a-shopping-cart}
    */
