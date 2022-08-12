@@ -41,7 +41,7 @@ declare module "HostedApp" {
      * Favicon URL found, if set, in current organization
      * Read more at {@link https://docs.commercelayer.io/developers/v/api-reference/organization/object}.
      */
-    favicon: string
+    faviconUrl: string
     /**
      * The organization's Google Tag Manager ID.
      * Read more at {@link https://docs.commercelayer.io/developers/v/api-reference/organization/object}.
@@ -67,7 +67,7 @@ declare module "HostedApp" {
 
   export type InvalidSettings = Pick<
     Settings,
-    "primaryColor" | "language" | "favicon" | "companyName" | "logoUrl"
+    "primaryColor" | "language" | "faviconUrl" | "companyName" | "logoUrl"
   > & {
     /**
      * This flag allows TypeScript to discriminate between `Settings` and `InvalidSettings` union type.

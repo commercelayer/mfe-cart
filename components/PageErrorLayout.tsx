@@ -5,7 +5,7 @@ import { Footer } from "#components/Footer"
 import { PageHead } from "#components/PageHead"
 import { isEmbedded } from "#utils/isEmbedded"
 
-interface Props {
+type Props = {
   /**
    * Page title, if `undefined` default app title will be used.
    */

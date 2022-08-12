@@ -1,6 +1,6 @@
 import retry from "async-retry"
 
-interface FetchResource<T> {
+type FetchResource<T> = {
   /**
    * Data returned from the promise once it has been fulfilled.
    */

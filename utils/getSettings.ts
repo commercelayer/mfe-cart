@@ -16,7 +16,7 @@ export const defaultSettings: InvalidSettings = {
   isValid: false,
   primaryColor: "#000000",
   language: "en",
-  favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
+  faviconUrl: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
   companyName: "Commerce Layer",
   retryable: false,
 }
@@ -120,7 +120,7 @@ export const getSettings = async ({
     companyName: organization.name || defaultSettings.companyName,
     language: order.language_code || defaultSettings.language,
     primaryColor: organization.primary_color || defaultSettings.primaryColor,
-    favicon: organization.favicon_url || defaultSettings.favicon,
+    faviconUrl: organization.favicon_url || defaultSettings.faviconUrl,
     gtmId: isTest ? organization.gtm_id_test : organization.gtm_id,
     returnUrl: order.return_url,
     cartUrl: order.cart_url,
