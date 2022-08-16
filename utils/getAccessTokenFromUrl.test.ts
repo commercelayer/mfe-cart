@@ -21,11 +21,11 @@ describe("Read JWT from URL", () => {
 
   test("accessToken is not part of URL query string", () => {
     window.location.search = "?someOtherParam=foobar"
-    expect(getAccessTokenFromUrl()).toBe(null)
+    expect(getAccessTokenFromUrl()).toBe(undefined)
   })
 
   test("Query string is empty", () => {
     window.location.search = ""
-    expect(getAccessTokenFromUrl()).toBe(null)
+    expect(getAccessTokenFromUrl()).toBe(undefined)
   })
 })
