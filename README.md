@@ -50,6 +50,20 @@ You can use the hosted version of the Cart application with the following URL fo
 
 `https://yourbrand.commercelayer.app/cart/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9`
 
+## Embedded version
+
+The cart can be embedded in your application or website by loading the hosted URL as `<iframe>`.
+Example:
+
+```
+<iframe src="https://cart.yourbrand.com/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9" width="100%" />
+```
+
+This will automatically render a compact version of the app without showing the header and footer.
+You can either set your iframe to a fixed height or keep it responsive using the following library:
+`https://github.com/davidjbradshaw/iframe-resizer`
+The hosted Cart already includes the contentWindow scripts used by `iframe-resizer` to work, so you only need to add it to your parent app.
+
 ## Contributors guide
 
 1. Fork [this repository](https://github.com/commercelayer/commercelayer-cart) (you can learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
