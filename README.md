@@ -12,6 +12,7 @@ The Commerce Layer Cart application (React) provides you with a production-ready
 
 - [Getting started](#getting-started)
 - [Hosted version](#hosted-version)
+- [Embedding the cart](#embedding-the-cart)
 - [Contributors guide](#contributors-guide)
 - [Help and support](#need-help)
 - [License](#license)
@@ -50,19 +51,21 @@ You can use the hosted version of the Cart application with the following URL fo
 
 `https://yourbrand.commercelayer.app/cart/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9`
 
-## Embedded version
+## Embedding the cart
 
-The cart can be embedded in your application or website by loading the hosted URL as `<iframe>`.
-Example:
+The cart can be embedded in your application or website by loading the hosted URL in an inline frame. This way a compact version of the Cart app that doesn't show the header and the footer will be automatically rendered.
+
+### Example
 
 ```
+// hosted
 <iframe src="https://cart.yourbrand.com/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9" width="100%" />
+
+// forked
+<iframe src="https://yourbrand.commercelayer.app/cart/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9" width="100%" />
 ```
 
-This will automatically render a compact version of the app without showing the header and footer.
-You can either set your iframe to a fixed height or keep it responsive using the following library:
-`https://github.com/davidjbradshaw/iframe-resizer`
-The hosted Cart already includes the contentWindow scripts used by `iframe-resizer` to work, so you only need to add it to your parent app.
+> You can either set your iFrame to a fixed height or keep it responsive using the [iFrame Resizer](https://github.com/davidjbradshaw/iframe-resizer) library — the Cart app already includes the `iframeResizer.contentWindow` scripts, so you only need to add it to your parent app.
 
 ## Contributors guide
 
