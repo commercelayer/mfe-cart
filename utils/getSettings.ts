@@ -1,4 +1,4 @@
-import CommerceLayer from "@commercelayer/sdk"
+import CommerceLayer, { Organization } from "@commercelayer/sdk"
 import { Settings, InvalidSettings } from "HostedApp"
 
 import { forceOrderAutorefresh } from "./forceOrderAutorefresh"
@@ -21,9 +21,19 @@ export const defaultSettings: InvalidSettings = {
   retryable: false,
 }
 
-const makeInvalidSettings = (retryable?: boolean): InvalidSettings => ({
+const makeInvalidSettings = ({
+  retryable,
+  organization,
+}: {
+  retryable?: boolean
+  organization?: Organization
+}): InvalidSettings => ({
   ...defaultSettings,
   retryable: !!retryable,
+  logoUrl: organization?.logo_url,
+  companyName: organization?.name || defaultSettings.companyName,
+  primaryColor: organization?.primary_color || defaultSettings.primaryColor,
+  favicon: organization?.favicon_url || defaultSettings.favicon,
 })
 
 export const getSettings = async ({
@@ -37,18 +47,13 @@ export const getSettings = async ({
   const { slug, isTest } = getInfoFromJwt(accessToken)
 
   if (!slug) {
-    return makeInvalidSettings()
+    return makeInvalidSettings({})
   }
 
   // checking cart consistency
   const hostname = typeof window && window.location.hostname
   if (!isValidHost(hostname, accessToken)) {
-    return makeInvalidSettings()
-  }
-
-  // check order id format, to avoid calling api with a wrong id in url
-  if (!isValidOrderIdFormat(orderId)) {
-    return makeInvalidSettings()
+    return makeInvalidSettings({})
   }
 
   const client = CommerceLayer({
@@ -56,6 +61,16 @@ export const getSettings = async ({
     accessToken,
     domain,
   })
+
+  // check order id format, to avoid calling api with a wrong id in url
+  // we can still try to get organization info to display proper branding
+  if (!isValidOrderIdFormat(orderId)) {
+    const organizationResponse = await getOrganizationsDetails({
+      client,
+    })
+    const organization = organizationResponse?.object
+    return makeInvalidSettings({ organization })
+  }
 
   const [organizationResponse, orderResponse] = await Promise.all([
     getOrganizationsDetails({
@@ -67,17 +82,21 @@ export const getSettings = async ({
   // validating organization
   const organization = organizationResponse?.object
   if (!organization) {
-    return makeInvalidSettings(!organizationResponse?.bailed)
+    return makeInvalidSettings({
+      retryable: !organizationResponse?.bailed,
+    })
   }
 
   // validating order
   const order = orderResponse?.object
   if (!order) {
-    return makeInvalidSettings(!orderResponse?.bailed)
+    return makeInvalidSettings({ retryable: !orderResponse?.bailed })
   }
 
   if (!isValidStatus(order.status)) {
-    return makeInvalidSettings()
+    return makeInvalidSettings({
+      organization,
+    })
   }
 
   await forceOrderAutorefresh({ client, order })

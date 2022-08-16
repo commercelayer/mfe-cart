@@ -4,29 +4,30 @@ import {
   LineItemAmount,
   LineItem,
   LineItemType,
+  LineItemsEmpty,
 } from "@commercelayer/react-components"
 import { useTranslation } from "next-i18next"
 import { FC } from "react"
 
 import { ButtonRemoveItem } from "./ButtonRemoveItem"
-import { EmptyCart } from "./EmptyCart"
 import { LineItemOptions } from "./LineItemOptions"
 import { QuantitySelector } from "./QuantitySelector"
 
+import { EmptyCartMessage } from "#components/atoms/EmptyCartMessage"
 import { useSettings } from "#components/SettingsProvider"
+import { LineItemsSkeleton } from "#components/Skeleton/LineItems"
 import { isEmbedded } from "#utils/isEmbedded"
 
 type Props = {
-  className: string
   listTypes: LineItemType[]
 }
 
-export const Summary: FC<Props> = ({ className, listTypes }) => {
+export const Summary: FC<Props> = ({ listTypes }) => {
   const { t } = useTranslation()
   const { settings } = useSettings()
 
   return (
-    <div className={className}>
+    <>
       {listTypes.map((type) => (
         <LineItem key={type} type={type}>
           <div
@@ -64,8 +65,22 @@ export const Summary: FC<Props> = ({ className, listTypes }) => {
         </LineItem>
       ))}
 
-      <EmptyCart />
+      {/* Empty cart */}
+      <LineItemsEmpty>
+        {({ quantity }) => {
+          if (quantity === undefined) {
+            return <LineItemsSkeleton />
+          }
 
+          if (quantity === 0) {
+            return <EmptyCartMessage />
+          }
+
+          return null
+        }}
+      </LineItemsEmpty>
+
+      {/* Return Url */}
       {settings.isValid && settings.returnUrl ? (
         <div className="pt-2 pb-8">
           <a
@@ -78,6 +93,6 @@ export const Summary: FC<Props> = ({ className, listTypes }) => {
           </a>
         </div>
       ) : null}
-    </div>
+    </>
   )
 }
