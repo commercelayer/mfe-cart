@@ -33,7 +33,7 @@ const makeInvalidSettings = ({
   logoUrl: organization?.logo_url,
   companyName: organization?.name || defaultSettings.companyName,
   primaryColor: organization?.primary_color || defaultSettings.primaryColor,
-  favicon: organization?.favicon_url || defaultSettings.favicon,
+  faviconUrl: organization?.favicon_url || defaultSettings.faviconUrl,
 })
 
 /**
