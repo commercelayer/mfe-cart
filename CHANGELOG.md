@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.11...v1.0.12) (2022-08-16)
+
+
+### Bug Fixes
+
+* show empty cart when there is no order and cart is embedded ([#18](https://github.com/commercelayer/commercelayer-cart/issues/18)) ([11ef2f2](https://github.com/commercelayer/commercelayer-cart/commit/11ef2f2e84a720fd7358cc9e828a7d18e3ec40d7))
+
 ## [1.0.11](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.10...v1.0.11) (2022-07-26)
 
 
