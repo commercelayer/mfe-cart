@@ -3,7 +3,7 @@ import cn from "classnames"
 import { useTranslation } from "next-i18next"
 import { FC } from "react"
 
-interface Props {
+type Props = {
   readonly?: boolean
 }
 

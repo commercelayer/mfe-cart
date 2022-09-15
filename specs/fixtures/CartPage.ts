@@ -3,7 +3,7 @@ import { Page, expect, Locator } from "@playwright/test"
 import commonEn from "../../public/locales/en/common.json"
 import commonIt from "../../public/locales/it/common.json"
 
-interface GoToProps {
+type GoToProps = {
   orderId: string
   accessToken?: string
   embed?: boolean

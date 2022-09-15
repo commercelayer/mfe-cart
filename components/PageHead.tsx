@@ -1,12 +1,15 @@
+import { Settings } from "HostedApp"
 import { useTranslation } from "next-i18next"
 import NextHead from "next/head"
 import { FC } from "react"
 
 import { defaultSettings } from "#utils/getSettings"
 
-interface Props {
+type Props = Partial<Pick<Settings, "faviconUrl">> & {
+  /**
+   * Page title, if `undefined` default app title will be used.
+   */
   title?: string
-  faviconUrl?: string
 }
 
 export const PageHead: FC<Props> = ({ faviconUrl, title }) => {
@@ -15,7 +18,7 @@ export const PageHead: FC<Props> = ({ faviconUrl, title }) => {
   return (
     <NextHead>
       <title>{title || t("general.title")}</title>
-      <link rel="icon" href={faviconUrl || defaultSettings.favicon} />
+      <link rel="icon" href={faviconUrl || defaultSettings.faviconUrl} />
     </NextHead>
   )
 }

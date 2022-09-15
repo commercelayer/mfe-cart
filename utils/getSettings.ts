@@ -16,7 +16,7 @@ export const defaultSettings: InvalidSettings = {
   isValid: false,
   primaryColor: "#000000",
   language: "en",
-  favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
+  faviconUrl: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
   companyName: "Commerce Layer",
   retryable: false,
 }
@@ -33,9 +33,19 @@ const makeInvalidSettings = ({
   logoUrl: organization?.logo_url,
   companyName: organization?.name || defaultSettings.companyName,
   primaryColor: organization?.primary_color || defaultSettings.primaryColor,
-  favicon: organization?.favicon_url || defaultSettings.favicon,
+  faviconUrl: organization?.favicon_url || defaultSettings.faviconUrl,
 })
 
+/**
+ * Retrieves a list of `Settings` required to show the cart page
+ *
+ * @param accessToken - Access Token for a sales channel API credentials to be used to authenticate all Commerce Layer API requests.
+ * Read more at {@link https://docs.commercelayer.io/developers/authentication/client-credentials#sales-channel}
+ * @param orderId - Order Id used to show cart info details.
+ * Read more at {@link https://docs.commercelayer.io/developers/api-specification#base-endpoint}.
+ *
+ * @returns an union type of `Settings` or `InvalidSettings`
+ */
 export const getSettings = async ({
   accessToken,
   orderId,
@@ -104,20 +114,14 @@ export const getSettings = async ({
   return {
     accessToken,
     endpoint: `https://${slug}.${domain}`,
-    domain,
-    orderNumber: order.number || 0,
     orderId: order.id,
     itemsCount: (order.line_items || []).length,
     logoUrl: organization.logo_url,
     companyName: organization.name || defaultSettings.companyName,
     language: order.language_code || defaultSettings.language,
     primaryColor: organization.primary_color || defaultSettings.primaryColor,
-    favicon: organization.favicon_url || defaultSettings.favicon,
+    faviconUrl: organization.favicon_url || defaultSettings.faviconUrl,
     gtmId: isTest ? organization.gtm_id_test : organization.gtm_id,
-    supportEmail: organization.support_email,
-    supportPhone: organization.support_phone,
-    termsUrl: order.terms_url,
-    privacyUrl: order.privacy_url,
     returnUrl: order.return_url,
     cartUrl: order.cart_url,
     isValid: true,

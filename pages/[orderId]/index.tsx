@@ -42,7 +42,7 @@ const CartPage: NextPage = () => {
             <>
               <PageHead
                 title={`${settings.companyName} - ${t("general.title")}`}
-                faviconUrl={settings.favicon}
+                faviconUrl={settings.faviconUrl}
               />
               <GoogleTagManager gtmId={settings.gtmId} />
               <LazyCart />

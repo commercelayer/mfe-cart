@@ -6,7 +6,13 @@ import { SkeletonItem } from "#components/Skeleton/Item"
 import { isEmbedded } from "#utils/isEmbedded"
 
 type Props = {
+  /**
+   * Content to be displayed as page header, underneath the company logo.
+   */
   children?: ReactNode
+  /**
+   * When this is `true` a Skeleton UI will be displayed instead of `children`
+   */
   isLoading?: boolean
 }
 
