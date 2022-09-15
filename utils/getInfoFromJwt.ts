@@ -9,7 +9,7 @@ type JWTProps = {
     id: string
   }
   /**
-   * The API client `kind`, for example "sales_channel".
+   * The API credentials `kind`, for example "sales_channel".
    * Read more at {@link https://docs.commercelayer.io/developers/api-clients}
    */
   application: {

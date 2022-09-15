@@ -1,7 +1,7 @@
 declare module "HostedApp" {
   export type Settings = {
     /**
-     * Access Token for a sales channel API client to be used to authenticate all Commerce Layer API requests.
+     * Access Token for a sales channel API credentials to be used to authenticate all Commerce Layer API requests.
      * Read more at {@link https://docs.commercelayer.io/developers/authentication/client-credentials#sales-channel}
      */
     accessToken: string

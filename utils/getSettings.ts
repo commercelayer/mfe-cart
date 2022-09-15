@@ -39,7 +39,7 @@ const makeInvalidSettings = ({
 /**
  * Retrieves a list of `Settings` required to show the cart page
  *
- * @param accessToken - Access Token for a sales channel API client to be used to authenticate all Commerce Layer API requests.
+ * @param accessToken - Access Token for a sales channel API credentials to be used to authenticate all Commerce Layer API requests.
  * Read more at {@link https://docs.commercelayer.io/developers/authentication/client-credentials#sales-channel}
  * @param orderId - Order Id used to show cart info details.
  * Read more at {@link https://docs.commercelayer.io/developers/api-specification#base-endpoint}.
