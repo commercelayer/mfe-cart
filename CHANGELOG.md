@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.12...v1.0.13) (2022-10-12)
+
+
+### Bug Fixes
+
+* send `updateCart` event to parent window when app is loaded as iframe content ([#23](https://github.com/commercelayer/commercelayer-cart/issues/23)) ([7da4dfb](https://github.com/commercelayer/commercelayer-cart/commit/7da4dfb831f30351b592e970309fb1829af4e93c))
+
 ## [1.0.12](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.11...v1.0.12) (2022-08-16)
 
 
