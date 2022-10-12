@@ -1413,6 +1413,11 @@
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
 
+"@types/iframe-resizer@^3.5.9":
+  version "3.5.9"
+  resolved "https://registry.yarnpkg.com/@types/iframe-resizer/-/iframe-resizer-3.5.9.tgz#75c4cda33cee5f4da4c7693a0d9ad1ccb0c5ee98"
+  integrity sha512-RQUBI75F+uXruB95BFpC/8V8lPgJg4MQ6HxOCtAZYBB/h0FNCfrFfb4I+u2pZJIV7sKeszZbFqy1UnGeBMrvsA==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.4"
   resolved "https://registry.npmjs.org/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.4.tgz"

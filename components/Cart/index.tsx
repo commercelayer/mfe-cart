@@ -32,6 +32,10 @@ const Cart: FC = () => {
         attributes={{
           cart_url: settings.cartUrl || window.location.href,
         }}
+        fetchOrder={() => {
+          // send update event to parent iframe if iframe-resizer is enabled
+          window.parentIFrame?.sendMessage({ type: "updateCart" }, "*")
+        }}
       >
         <LineItemsContainer>
           <PageLayout
