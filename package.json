@@ -1,7 +1,7 @@
 {
   "name": "commercelayer-cart",
   "version": "1.0.13",
-  "private": true,
+  "private": false,
   "author": {
     "name": "Giuseppe Ciotola",
     "email": "giuseppe@commercelayer.io"
