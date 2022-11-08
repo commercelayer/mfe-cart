@@ -1,7 +1,7 @@
 import { Page, expect, Locator } from "@playwright/test"
 
-import commonEn from "../../public/locales/en/common.json"
-import commonIt from "../../public/locales/it/common.json"
+import commonEn from "#assets/locales/en/common.json"
+import commonIt from "#assets/locales/it/common.json"
 
 type GoToProps = {
   orderId: string
@@ -23,7 +23,7 @@ export class CartPage {
   }
 
   async goto({ orderId, accessToken, embed }: GoToProps) {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_PATH || ""
+    const baseUrl = process.env.PUBLIC_BASE_PATH || ""
     const embedQuery = embed ? "&embed=true" : ""
     const url = `${baseUrl}/${orderId}?accessToken=${accessToken}${embedQuery}`
 
