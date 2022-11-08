@@ -13,10 +13,12 @@ import { Summary } from "#components/Cart/Summary"
 import { PageHeader } from "#components/PageHeader"
 import { PageLayout } from "#components/PageLayout"
 import { useSettings } from "#components/SettingsProvider"
+import { useSendEmbeddedEvents } from "hooks/embedded"
 
 const Cart: FC = () => {
   const { settings } = useSettings()
   const { t } = useTranslation()
+  useSendEmbeddedEvents()
 
   if (!settings || !settings.isValid) {
     return null
