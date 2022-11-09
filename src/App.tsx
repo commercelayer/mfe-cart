@@ -7,6 +7,9 @@ function App(): JSX.Element {
   return (
     <Router base={import.meta.env.PUBLIC_BASE_PATH}>
       <Switch>
+        <Route path={"/404"}>
+          <ErrorPage />
+        </Route>
         <Route path={"/:orderId"}>
           <CartPage />
         </Route>
