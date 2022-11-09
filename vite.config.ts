@@ -36,6 +36,7 @@ export default defineConfig(({ mode }) => {
       alias: {
         "#styles": path.resolve(__dirname, "./src/styles"),
         "#components": path.resolve(__dirname, "./src/components"),
+        "#hooks": path.resolve(__dirname, "./src/hooks"),
         "#assets": path.resolve(__dirname, "./src/assets"),
         "#utils": path.resolve(__dirname, "./src/utils"),
         "#specs": path.resolve(__dirname, "./specs"),
