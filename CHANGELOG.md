@@ -1,3 +1,10 @@
+## [1.0.14](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.13...v1.0.14) (2022-11-09)
+
+
+### Bug Fixes
+
+* add new hook to propagate `keydown` (escape) and `blur` event to parent iframe, when embedded ([36f29f7](https://github.com/commercelayer/commercelayer-cart/commit/36f29f78e2c9af7a8ba5bc8709022a17c59fbd7b))
+
 ## [1.0.13](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.12...v1.0.13) (2022-10-12)
 
 
