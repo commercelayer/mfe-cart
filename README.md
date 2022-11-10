@@ -80,8 +80,8 @@ git clone https://github.com/<your username>/commercelayer-cart.git && cd commer
 3. First, install dependencies and run the development server:
 
 ```
-yarn install
-yarn dev
+pnpm install
+pnpm dev
 ```
 
 4. (Optional) Set your environment with `.env.local` starting from `.env.local.sample`.
