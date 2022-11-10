@@ -28,6 +28,9 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: makePlugins(mode),
     envPrefix: "PUBLIC_",
+    server: {
+      port: 3000,
+    },
     build: {
       target: "esnext",
       outDir: "build",
