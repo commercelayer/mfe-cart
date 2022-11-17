@@ -3,30 +3,15 @@ import { visualizer } from "rollup-plugin-visualizer"
 import { loadEnv, PluginOption } from "vite"
 import { defineConfig } from "vitest/config"
 
-import path from "path"
-
-const makePlugins = (mode: string) => {
-  // Access .env variables in vite.config
-  Object.assign(process.env, loadEnv(mode, process.cwd(), ""))
-  const plugins: PluginOption[] = [
-    // Allow Vite to work with React
-    react(),
-    // Visualize and analyze bundle
-    process.env.ANALYZE_BUNDLE === "true" &&
-      visualizer({
-        filename: path.resolve(__dirname, "./build/stats.html"),
-        open: true,
-        title: "Bundle Stats",
-      }),
-  ].filter(Boolean)
-
-  return plugins
-}
+import { resolve } from "path"
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "")
+  const analyzeBundle = env.ANALYZE_BUNDLE === "true"
+
   return {
-    plugins: makePlugins(mode),
+    plugins: preparePlugins({ analyzeBundle }),
     envPrefix: "PUBLIC_",
     server: {
       port: 3000,
@@ -37,12 +22,12 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
-        "#styles": path.resolve(__dirname, "./src/styles"),
-        "#components": path.resolve(__dirname, "./src/components"),
-        "#hooks": path.resolve(__dirname, "./src/hooks"),
-        "#assets": path.resolve(__dirname, "./src/assets"),
-        "#utils": path.resolve(__dirname, "./src/utils"),
-        "#specs": path.resolve(__dirname, "./specs"),
+        "#styles": resolve(__dirname, "./src/styles"),
+        "#components": resolve(__dirname, "./src/components"),
+        "#hooks": resolve(__dirname, "./src/hooks"),
+        "#assets": resolve(__dirname, "./src/assets"),
+        "#utils": resolve(__dirname, "./src/utils"),
+        "#specs": resolve(__dirname, "./specs"),
       },
     },
     test: {
@@ -52,3 +37,17 @@ export default defineConfig(({ mode }) => {
     },
   }
 })
+
+function preparePlugins({ analyzeBundle }: { analyzeBundle: boolean }) {
+  const plugins: PluginOption[] = [
+    react(),
+    analyzeBundle &&
+      visualizer({
+        filename: resolve(__dirname, "./build/stats.html"),
+        open: true,
+        title: "Bundle Stats",
+      }),
+  ].filter(Boolean)
+
+  return plugins
+}
