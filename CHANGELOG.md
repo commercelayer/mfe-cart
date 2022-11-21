@@ -1,3 +1,10 @@
+# [2.0.0-beta.2](https://github.com/commercelayer/commercelayer-cart/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2022-11-21)
+
+
+### Features
+
+* update to React 18 (bump @commercelayer/react-components to latest version) ([49613de](https://github.com/commercelayer/commercelayer-cart/commit/49613dec1fc3e77bd1bed1ad9a68ec8c382dc02b))
+
 # [2.0.0-beta.1](https://github.com/commercelayer/commercelayer-cart/compare/v1.1.0-beta.1...v2.0.0-beta.1) (2022-11-21)
 
 
