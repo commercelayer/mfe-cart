@@ -42,7 +42,9 @@ export const Totals: FC = () => {
                 {price}
               </div>
             </div>
-          ) : null
+          ) : (
+            <div />
+          )
         }
       </DiscountAmount>
 
@@ -59,7 +61,9 @@ export const Totals: FC = () => {
                 {price}
               </div>
             </div>
-          ) : null
+          ) : (
+            <div />
+          )
         }
       </GiftCardAmount>
 

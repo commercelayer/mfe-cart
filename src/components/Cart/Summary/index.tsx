@@ -76,7 +76,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
             return <EmptyCartMessage />
           }
 
-          return null
+          return <div />
         }}
       </LineItemsEmpty>
 

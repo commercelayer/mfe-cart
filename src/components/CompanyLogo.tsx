@@ -1,5 +1,5 @@
 import { LogoCL } from "@commercelayer/react-utils"
-import { FC } from "react"
+import { FC, ReactNode } from "react"
 
 import { useSettings } from "./SettingsProvider"
 import { SkeletonItem } from "./Skeleton/Item"
@@ -35,7 +35,10 @@ export const CompanyLogo: FC = () => {
   )
 }
 
-const ReturnLink: FC<{ url?: string }> = ({ url, children }) => {
+const ReturnLink: FC<{ url?: string; children: ReactNode }> = ({
+  url,
+  children,
+}) => {
   return url ? (
     <a href={url} data-test-id="return-url-logo">
       {children}

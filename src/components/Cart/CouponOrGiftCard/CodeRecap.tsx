@@ -2,7 +2,7 @@ import {
   GiftCardOrCouponCode,
   GiftCardOrCouponRemoveButton,
 } from "@commercelayer/react-components"
-import { CodeType } from "@commercelayer/react-components/lib/reducers/OrderReducer"
+import { CodeType } from "@commercelayer/react-components/lib/esm/reducers/OrderReducer"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
 
@@ -28,7 +28,9 @@ export const CodeRecap: FC = () => {
                   data-test-id={`button-remove-${type}`}
                 />
               </div>
-            ) : null
+            ) : (
+              <div />
+            )
           }
         </GiftCardOrCouponCode>
       ))}

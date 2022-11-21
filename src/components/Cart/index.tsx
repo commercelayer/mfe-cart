@@ -58,7 +58,9 @@ const Cart: FC = () => {
                         <span data-test-id="items-count">{quantity}</span>{" "}
                         {t("general.item", { count: quantity })}
                       </div>
-                    ) : null
+                    ) : (
+                      <div />
+                    )
                   }
                 </LineItemsCount>
               </PageHeader>
