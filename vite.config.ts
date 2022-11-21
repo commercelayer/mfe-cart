@@ -9,6 +9,7 @@ import { resolve } from "path"
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "")
   const analyzeBundle = env.ANALYZE_BUNDLE === "true"
+  const basePath = env.PUBLIC_BASE_PATH || ""
 
   return {
     plugins: preparePlugins({ analyzeBundle }),
@@ -16,6 +17,7 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3000,
     },
+    base: `${basePath}/`,
     build: {
       target: "esnext",
       outDir: "build",
