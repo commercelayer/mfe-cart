@@ -1,8 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "typeRoots": ["./node_modules/@types", "./@typing"],
+    "target": "ESNext",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "types": [
+      "vitest/globals",
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@typing"
+    ],
     "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,
@@ -10,21 +20,49 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
-      "#styles/*": ["styles/*"],
-      "#components/*": ["components/*"],
-      "#utils/*": ["utils/*"],
-      "#specs/*": ["specs/*"]
+      "#styles/*": [
+        "src/styles/*"
+      ],
+      "#components/*": [
+        "src/components/*"
+      ],
+      "#hooks/*": [
+        "src/hooks/*"
+      ],
+      "#assets/*": [
+        "src/assets/*"
+      ],
+      "#utils/*": [
+        "src/utils/*"
+      ],
+      "#specs/*": [
+        "specs/*"
+      ]
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "*.config.js"],
-  "exclude": ["node_modules", "public", ".next"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "*.config.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "public",
+    ".next"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
   "compileOnSave": false
 }

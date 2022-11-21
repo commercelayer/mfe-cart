@@ -2,7 +2,7 @@
 
 The Commerce Layer Cart application (React) provides you with a production-ready shopping cart powered by Commerce Layer APIs. You can fork this repository and deploy it to any hosting service or use it as a reference application to build your own. A hosted version is also available.
 
-![Commerce Layer Cart demo](./public/cart.png)
+![Commerce Layer Cart demo](./docs/cart.png)
 
 ## What is Commerce Layer?
 
@@ -23,7 +23,7 @@ The Commerce Layer Cart application (React) provides you with a production-ready
 
 1. Create your organization and get your credentials by following one of our [onboarding tutorials](https://docs.commercelayer.io/developers/welcome).
 
-2. Set the environment variable `NEXT_PUBLIC_SLUG` on your hosting provider to your organization slug (subdomain) and be sure to build the forked repository using the node environment (`NODE_ENV`) as production.
+2. Set the environment variable `PUBLIC_SLUG` on your hosting provider to your organization slug (subdomain) and be sure to build the forked repository using the node environment (`NODE_ENV`) as production.
 
 3. Deploy the forked repository to your preferred hosting service or host it yourself. You can deploy with one click below:
 
@@ -80,8 +80,8 @@ git clone https://github.com/<your username>/commercelayer-cart.git && cd commer
 3. First, install dependencies and run the development server:
 
 ```
-yarn install
-yarn dev
+pnpm install
+pnpm dev
 ```
 
 4. (Optional) Set your environment with `.env.local` starting from `.env.local.sample`.

@@ -11,6 +11,8 @@ type IFrameObject = Omit<IframeResizerObject, "sendMessage"> & {
 }
 
 export declare global {
+  declare module "*.module.css"
+
   interface Window {
     parentIFrame?: IFrameObject
   }
