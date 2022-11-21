@@ -2,12 +2,12 @@ import { CartPage } from "../fixtures/CartPage"
 import { test } from "../fixtures/tokenizedPage"
 
 test.describe("Check not valid entry points", () => {
-  const basePath = process.env.PUBLIC_BASE_PATH || "/"
+  const basePath = `${process.env.PUBLIC_BASE_PATH || ""}/`
 
   test("should navigate to the 404 page with wrong orderId, no token", async ({
     page,
   }) => {
-    await page.goto(`${basePath}/abc12345`)
+    await page.goto(`${basePath}abc12345`)
     const cartPage = new CartPage(page)
     await cartPage.expectErrorPage()
   })
