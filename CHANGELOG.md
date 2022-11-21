@@ -1,3 +1,18 @@
+# [2.0.0-beta.1](https://github.com/commercelayer/commercelayer-cart/compare/v1.1.0-beta.1...v2.0.0-beta.1) (2022-11-21)
+
+
+### Features
+
+* switch to `Vite` + `pnpm` ([145ece1](https://github.com/commercelayer/commercelayer-cart/commit/145ece125b0af14e8666b87d3169c39957102802))
+
+
+### BREAKING CHANGES
+
+* starting from this release we entirely dropped NextJS framework. ViteJS is used now as main bundler and dev server and only `pnpm` can be used as package manager.
+Source files have been moved into `src/` folder (dropped default Next.js folder structure).
+variables in .env files exposed in client-side code are now prefixed with `PUBLIC_` instead of `NEXT_PUBLIC_`.
+`vitest` is now being used for unit tests.
+
 # [1.1.0-beta.1](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.14...v1.1.0-beta.1) (2022-11-21)
 
 
