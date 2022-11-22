@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.14...v2.0.0) (2022-11-22)
+
+
+### Features
+
+* switch to `Vite` + `pnpm` ([145ece1](https://github.com/commercelayer/commercelayer-cart/commit/145ece125b0af14e8666b87d3169c39957102802))
+* switch to `Vite` + `pnpm`  Switch to `Vite` and `pnpm` from `NextJS` and `yarn`  BREAKING CHANGE: starting from this release we entirely dropped NextJS framework. ViteJS is used now as main bundler and dev server and only `pnpm` can be used as package manager. Source files have been moved into `src/` folder (dropped default Next.js folder structure). variables in .env files exposed in client-side code are now prefixed with `PUBLIC_` instead of `NEXT_PUBLIC_`. `vitest` is now being used for unit tests. ([e03ccd0](https://github.com/commercelayer/commercelayer-cart/commit/e03ccd027915daeaa4270a87333c771d10b3cd44))
+* update to React 18 (bump @commercelayer/react-components to latest version) ([49613de](https://github.com/commercelayer/commercelayer-cart/commit/49613dec1fc3e77bd1bed1ad9a68ec8c382dc02b))
+
+
+### BREAKING CHANGES
+
+* starting from this release we entirely dropped NextJS framework. ViteJS is used now as main bundler and dev server and only `pnpm` can be used as package manager.
+Source files have been moved into `src/` folder (dropped default Next.js folder structure).
+variables in .env files exposed in client-side code are now prefixed with `PUBLIC_` instead of `NEXT_PUBLIC_`.
+`vitest` is now being used for unit tests.
+
 # [2.0.0-beta.2](https://github.com/commercelayer/commercelayer-cart/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2022-11-21)
 
 
