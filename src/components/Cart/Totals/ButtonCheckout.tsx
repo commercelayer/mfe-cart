@@ -3,10 +3,30 @@ import { FC } from "react"
 import { useTranslation } from "react-i18next"
 
 import { ButtonCheckoutDisabled } from "#components/atoms/ButtonCheckoutDisabled"
+import { useSettings } from "#components/SettingsProvider"
 import { isEmbedded } from "#utils/isEmbedded"
+import { makeSubdomain } from "#utils/isValidHost"
 
 export const ButtonCheckout: FC = () => {
   const { t } = useTranslation()
+  const { settings } = useSettings()
+
+  const accessToken = settings.isValid && settings.accessToken
+  const orderId = settings.isValid && settings.orderId
+  const slug = makeSubdomain(window.location.hostname)
+  const isTestFlow = Boolean(
+    window.location.hostname.includes(".tst.commercelayer.app") &&
+      accessToken &&
+      orderId &&
+      slug
+  )
+  const checkoutUrlForTestFlow = isTestFlow
+    ? `https://${slug}.commercelayer.app/checkout/${orderId}/?accessToken=${accessToken}`
+    : undefined
+
+  const hrefProp = checkoutUrlForTestFlow
+    ? { href: checkoutUrlForTestFlow }
+    : {}
 
   return (
     <>
@@ -14,7 +34,8 @@ export const ButtonCheckout: FC = () => {
         {({ quantity }) =>
           quantity ? (
             <CheckoutLink
-              hostedCheckout
+              hostedCheckout={!isTestFlow}
+              {...hrefProp}
               data-test-id="button-checkout"
               aria-disabled="false"
               className={
