@@ -10,15 +10,14 @@ import { useTranslation } from "react-i18next"
 import { Totals } from "./Totals"
 
 import { Summary } from "#components/Cart/Summary"
+import { EmbeddedCapabilities } from "#components/EmbeddedCapabilities"
 import { PageHeader } from "#components/PageHeader"
 import { PageLayout } from "#components/PageLayout"
 import { useSettings } from "#components/SettingsProvider"
-import { useSendEmbeddedEvents } from "#hooks/embedded"
 
 const Cart: FC = () => {
   const { settings } = useSettings()
   const { t } = useTranslation()
-  useSendEmbeddedEvents()
 
   if (!settings || !settings.isValid) {
     return null
@@ -39,6 +38,7 @@ const Cart: FC = () => {
           window.parentIFrame?.sendMessage({ type: "updateCart" }, "*")
         }}
       >
+        <EmbeddedCapabilities.OrderRefresher />
         <LineItemsContainer>
           <PageLayout
             top={
