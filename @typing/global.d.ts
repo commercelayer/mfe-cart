@@ -1,7 +1,7 @@
 import { IFrameObject as IframeResizerObject } from "iframe-resizer"
 
-type IframeEvent = "updateCart" | "close" | "blur"
-type IframeReceivedEvent = "updateCart"
+type IframeEvent = "update" | "close" | "blur"
+type IframeReceivedEvent = "update"
 
 type IframeMessagePayload = {
   type: IframeEvent

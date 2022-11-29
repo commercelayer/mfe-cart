@@ -41,7 +41,7 @@ const IframeResizerInit: FC = () => {
 
       window.iFrameResizer = {
         onMessage: ({ type }) => {
-          if (type === "updateCart") {
+          if (type === "update") {
             // `reloadOrderCallback` will be create insider `<OrderRefresher>` component
             // since we need to access order context that will be available later
             window.reloadOrderCallback && window.reloadOrderCallback()
