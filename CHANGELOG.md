@@ -1,3 +1,10 @@
+# [2.1.0-beta.2](https://github.com/commercelayer/commercelayer-cart/compare/v2.1.0-beta.1...v2.1.0-beta.2) (2022-11-29)
+
+
+### Bug Fixes
+
+* rename iframe event `updateCart` to `update` ([bb35cc1](https://github.com/commercelayer/commercelayer-cart/commit/bb35cc1149f1b9b942f866e2fb49af86de0c3f54))
+
 # [2.1.0-beta.1](https://github.com/commercelayer/commercelayer-cart/compare/v2.0.1-beta.1...v2.1.0-beta.1) (2022-11-29)
 
 
