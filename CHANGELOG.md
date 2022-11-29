@@ -1,3 +1,10 @@
+## [2.0.1-beta.1](https://github.com/commercelayer/commercelayer-cart/compare/v2.0.0...v2.0.1-beta.1) (2022-11-29)
+
+
+### Bug Fixes
+
+* switch from `react-helmet` to `react-helmet-async` ([578d167](https://github.com/commercelayer/commercelayer-cart/commit/578d1677cad0e7a2a49a9ca6b07ba084efe5e588))
+
 # [2.0.0](https://github.com/commercelayer/commercelayer-cart/compare/v1.0.14...v2.0.0) (2022-11-22)
 
 
