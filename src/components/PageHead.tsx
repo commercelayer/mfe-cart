@@ -1,6 +1,6 @@
 import { Settings } from "HostedApp"
 import { FC } from "react"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import { useTranslation } from "react-i18next"
 
 import { defaultSettings } from "#utils/getSettings"
