@@ -21,6 +21,24 @@ export default defineConfig(({ mode }) => {
     build: {
       target: "esnext",
       outDir: "build",
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: [
+              "react",
+              "react-dom",
+              "react-helmet-async",
+              "wouter",
+              "react-gtm-module",
+              "react-i18next",
+            ],
+            commercelayer: [
+              "@commercelayer/sdk",
+              "@commercelayer/react-components",
+            ],
+          },
+        },
+      },
     },
     resolve: {
       alias: {

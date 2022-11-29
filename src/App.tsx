@@ -1,23 +1,15 @@
-import { Helmet, HelmetProvider } from "react-helmet-async"
+import { HelmetProvider } from "react-helmet-async"
 import { Router, Route, Switch } from "wouter"
 
 import CartPage from "./pages/CartPage"
 import ErrorPage from "./pages/ErrorPage"
 
-import { isEmbedded } from "#utils/isEmbedded"
+import { EmbeddedCapabilities } from "#components/EmbeddedCapabilities"
 
 function App(): JSX.Element {
   return (
     <HelmetProvider>
-      <Helmet>
-        {isEmbedded() && (
-          <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"
-            data-test-id="iframe-resizer-script"
-            type="text/javascript"
-          />
-        )}
-      </Helmet>
+      <EmbeddedCapabilities.IframeResizerInit />
       <Router base={import.meta.env.PUBLIC_BASE_PATH}>
         <Switch>
           <Route path={"/404"}>
