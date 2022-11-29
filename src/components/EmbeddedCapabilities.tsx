@@ -17,48 +17,58 @@ function sendEventBlur() {
 const IframeResizerInit: FC = () => {
   const embedded = isEmbedded()
 
-  useEffect(() => {
-    if (!embedded) {
-      return
-    }
+  useEffect(
+    function setEventListeners() {
+      if (!embedded) {
+        return
+      }
 
-    window.addEventListener("keydown", sendEventClose)
-    window.addEventListener("blur", sendEventBlur)
-    return () => {
-      window.removeEventListener("keydown", sendEventClose)
-      window.removeEventListener("blur", sendEventBlur)
-    }
-  }, [embedded])
+      window.addEventListener("keydown", sendEventClose)
+      window.addEventListener("blur", sendEventBlur)
+      return () => {
+        window.removeEventListener("keydown", sendEventClose)
+        window.removeEventListener("blur", sendEventBlur)
+      }
+    },
+    [embedded]
+  )
 
-  useLayoutEffect(() => {
-    if (!embedded) {
-      return
-    }
+  useLayoutEffect(
+    function initIFrameResizerSettings() {
+      if (!embedded) {
+        return
+      }
 
-    window.iFrameResizer = {
-      onMessage: ({ type }) => {
-        if (type === "updateCart") {
-          window.reloadOrderCallback && window.reloadOrderCallback()
-        }
-      },
-    }
-  }, [embedded])
+      window.iFrameResizer = {
+        onMessage: ({ type }) => {
+          if (type === "updateCart") {
+            // `reloadOrderCallback` will be create insider `<OrderRefresher>` component
+            // since we need to access order context that will be available later
+            window.reloadOrderCallback && window.reloadOrderCallback()
+          }
+        },
+      }
+    },
+    [embedded]
+  )
+
+  if (!embedded) {
+    return null
+  }
 
   return (
-    <>
-      <Helmet>
-        {isEmbedded() && (
-          <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"
-            data-test-id="iframe-resizer-script"
-            type="text/javascript"
-          />
-        )}
-      </Helmet>
-    </>
+    <Helmet>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"
+        data-test-id="iframe-resizer-script"
+        type="text/javascript"
+      />
+    </Helmet>
   )
 }
 
+// This component is only responsible to inject in globalWindow the `reloadOrderCallback` function
+// that will be used in the `onMessage` method initialized from iFrameResizer
 const OrderRefresher: FC = () => {
   const { order, reloadOrder } = useOrderContainer()
 
