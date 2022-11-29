@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet"
+import { Helmet, HelmetProvider } from "react-helmet-async"
 import { Router, Route, Switch } from "wouter"
 
 import CartPage from "./pages/CartPage"
@@ -8,7 +8,7 @@ import { isEmbedded } from "#utils/isEmbedded"
 
 function App(): JSX.Element {
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         {isEmbedded() && (
           <script
@@ -31,7 +31,7 @@ function App(): JSX.Element {
           </Route>
         </Switch>
       </Router>
-    </>
+    </HelmetProvider>
   )
 }
 

@@ -1,5 +1,5 @@
 interface ImportMeta {
-  env: {
+  env: ImportMetaEnv & {
     PUBLIC_BASE_PATH?: string
     PUBLIC_DOMAIN?: string
     PUBLIC_SLUG?: string
