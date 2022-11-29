@@ -1,3 +1,15 @@
+# [2.1.0-beta.1](https://github.com/commercelayer/commercelayer-cart/compare/v2.0.1-beta.1...v2.1.0-beta.1) (2022-11-29)
+
+
+### Features
+
+* use new `<EmbeddedCapabilities />` component to wrap all iframe logics and embeddable behaviours ([f925cf4](https://github.com/commercelayer/commercelayer-cart/commit/f925cf456b36f6b61bf584888dc63a38c0fb61d2))
+
+
+### Performance Improvements
+
+* add manual chunk names to vite build config to improve code splitting ([4d5032e](https://github.com/commercelayer/commercelayer-cart/commit/4d5032e48b065f45c6f4197c031506a6f6992910))
+
 ## [2.0.1-beta.1](https://github.com/commercelayer/commercelayer-cart/compare/v2.0.0...v2.0.1-beta.1) (2022-11-29)
 
 
