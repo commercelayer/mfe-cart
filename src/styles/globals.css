@@ -6,9 +6,16 @@
 .input-base {
   @apply 
     text-black text-sm
-    border 
-    p-3 outline-none
+    border outline-none
     transition duration-500 ease-in-out 
+}
+
+.input-base:not(.-small) {
+  @apply p-3
+}
+
+.input-base.-small {
+  @apply p-1
 }
 
 .input-base:not(.-error) {
