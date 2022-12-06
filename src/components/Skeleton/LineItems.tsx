@@ -15,7 +15,7 @@ export const LineItemsSkeleton: FC = () => {
             <SkeletonItem className="w-3/4 h-6" />
             <SkeletonItem className="w-40 h-5 mt-2" />
             <div className="flex justify-between items-center mt-auto">
-              <SkeletonItem className="w-20 h-10" />
+              <SkeletonItem className="w-24 h-10" />
               <SkeletonItem className="w-20  h-7" />
             </div>
           </div>
