@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import css from "./InputSpinner.module.css"
 
 import { useDebounce } from "#hooks/debounce"
+import { useCheckFirstMount } from "#hooks/mount"
 
 interface Props {
   /*
@@ -29,6 +30,7 @@ export function InputSpinner({
   const [internalValue, setInternalValue] = useState<number>(quantity)
   const { debouncedValue } = useDebounce(internalValue, debounceMs)
   const inputEl = useRef<HTMLInputElement | null>(null)
+  const { isFirstMount } = useCheckFirstMount()
 
   const handleButtonClick = useCallback((action: "increment" | "decrement") => {
     setInternalValue((state) => {
@@ -38,7 +40,7 @@ export function InputSpinner({
   }, [])
 
   useEffect(() => {
-    if (debouncedValue !== quantity) {
+    if (!isFirstMount) {
       const event = makeSyntheticChangeEvent({
         element: inputEl?.current,
         newQuantity: debouncedValue,
