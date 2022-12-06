@@ -12,6 +12,9 @@ type GoToProps = {
 export class CartPage {
   readonly page: Page
   readonly quantitySelector: Locator
+  readonly quantitySelectorInput: Locator
+  readonly quantitySelectorBtnIncrement: Locator
+  readonly quantitySelectorBtnDecrement: Locator
   readonly itemsCount: Locator
 
   constructor(page: Page) {
@@ -19,6 +22,15 @@ export class CartPage {
     this.quantitySelector = this.page
       .locator("[data-test-id=quantity-selector]")
       .first()
+    this.quantitySelectorInput = this.quantitySelector.locator(
+      "[data-test-id=input-spinner-element]"
+    )
+    this.quantitySelectorBtnDecrement = this.quantitySelector.locator(
+      "[data-test-id=input-spinner-btn-decrement]"
+    )
+    this.quantitySelectorBtnIncrement = this.quantitySelector.locator(
+      "[data-test-id=input-spinner-btn-increment]"
+    )
     this.itemsCount = this.page.locator("[data-test-id=items-count]").first()
   }
 

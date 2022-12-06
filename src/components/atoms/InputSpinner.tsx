@@ -24,6 +24,7 @@ export function InputSpinner({
   quantity,
   handleChange,
   debounceMs = 0,
+  ...rest
 }: Props): JSX.Element {
   const [internalValue, setInternalValue] = useState<number>(quantity)
   const { debouncedValue } = useDebounce(internalValue, debounceMs)
@@ -48,9 +49,11 @@ export function InputSpinner({
 
   return (
     <div
+      {...rest}
       className={cn("inline-flex  rounded overflow-hidden", css.inputSpinner)}
     >
       <button
+        data-test-id="input-spinner-btn-decrement"
         className="button-base bg-primary text-contrast px-3"
         onClick={() => {
           handleButtonClick("decrement")
@@ -60,6 +63,7 @@ export function InputSpinner({
       </button>
       <input
         ref={inputEl}
+        data-test-id="input-spinner-element"
         className="input-base -small border-gray-200 w-12 text-center"
         type="number"
         min="0"
@@ -73,6 +77,7 @@ export function InputSpinner({
         }}
       />
       <button
+        data-test-id="input-spinner-btn-increment"
         className="button-base bg-primary text-contrast px-3"
         onClick={() => {
           handleButtonClick("increment")
