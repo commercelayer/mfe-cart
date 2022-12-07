@@ -17,7 +17,7 @@ test.describe("Quantity not available", () => {
     CartPage,
   }) => {
     await CartPage.checkItemQuantity(2)
-    await CartPage.quantitySelector.selectOption("10")
+    await CartPage.quantitySelectorInput.fill("10")
     await CartPage.checkItemQuantity(2)
     await expect(
       CartPage.page.locator("text=The selected quantity is not available")

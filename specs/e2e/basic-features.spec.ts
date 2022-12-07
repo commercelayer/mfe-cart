@@ -17,7 +17,25 @@ test.describe("Check basic cart features", () => {
 
   test("Should be able to update quantity", async ({ CartPage }) => {
     await CartPage.checkItemQuantity(1)
-    await CartPage.quantitySelector.selectOption("2")
+    await CartPage.quantitySelectorInput.fill("2")
+    await CartPage.checkItemQuantity(2)
+  })
+
+  test("Should be able to increment quantity with button", async ({
+    CartPage,
+  }) => {
+    await CartPage.checkItemQuantity(1)
+    await CartPage.quantitySelectorBtnIncrement.click()
+    await CartPage.quantitySelectorBtnIncrement.click()
+    await CartPage.checkItemQuantity(3)
+  })
+
+  test("Should be able to decrement quantity with button", async ({
+    CartPage,
+  }) => {
+    await CartPage.checkItemQuantity(1)
+    await CartPage.quantitySelectorInput.fill("3")
+    await CartPage.quantitySelectorBtnDecrement.click()
     await CartPage.checkItemQuantity(2)
   })
 })
