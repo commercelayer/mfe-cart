@@ -39,15 +39,27 @@ export function InputSpinner({
     })
   }, [])
 
-  useEffect(() => {
-    if (!isFirstMount) {
-      const event = makeSyntheticChangeEvent({
-        element: inputEl?.current,
-        newQuantity: debouncedValue,
-      })
-      event && handleChange(event)
-    }
-  }, [debouncedValue])
+  useEffect(
+    function dispatchDebouncedHandleChange() {
+      if (!isFirstMount) {
+        const event = makeSyntheticChangeEvent({
+          element: inputEl?.current,
+          newQuantity: debouncedValue,
+        })
+        event && handleChange(event)
+      }
+    },
+    [debouncedValue]
+  )
+
+  useEffect(
+    function syncInternalStateWithOrderQuantity() {
+      if (internalValue !== quantity) {
+        setInternalValue(quantity)
+      }
+    },
+    [quantity]
+  )
 
   return (
     <div
