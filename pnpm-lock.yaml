@@ -6,7 +6,7 @@ overrides:
 
 specifiers:
   '@commercelayer/js-auth': ^2.3.0
-  '@commercelayer/react-components': 4.1.0-beta.7
+  '@commercelayer/react-components': 4.1.0
   '@commercelayer/react-utils': 1.0.0-beta.3
   '@commercelayer/sdk': ^4.15.0
   '@playwright/test': ^1.22.2
@@ -52,7 +52,7 @@ specifiers:
 
 dependencies:
   '@commercelayer/js-auth': 2.3.0
-  '@commercelayer/react-components': 4.1.0-beta.7_biqbaboplfbrettd7655fr4n2y
+  '@commercelayer/react-components': 4.1.0_biqbaboplfbrettd7655fr4n2y
   '@commercelayer/react-utils': 1.0.0-beta.3_bo4vbfjw665tadamc2m57ahjv4
   '@commercelayer/sdk': 4.15.0
   '@playwright/test': 1.22.2
@@ -474,8 +474,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@commercelayer/react-components/4.1.0-beta.7_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-8lzAaKkUy7rFOntoyGY/uIzXNM3yKToTgcavEw3IFpX0g+r5Sq3EyBOvvxEnwjc9i9xM6lXwO1xvfo6EictUiA==}
+  /@commercelayer/react-components/4.1.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-CDq/57QeSWFfSK13BRc/J8bXdLlpocso9hmRMwS+GN6Uj4M0J4ag5YVDPVENJ160V3I9wKNUKbqEkQim/Z/L9w==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
