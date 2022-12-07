@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/commercelayer/commercelayer-cart/compare/v2.1.0...v2.1.1) (2022-12-07)
+
+
+### Bug Fixes
+
+* keep sync between InputSpinner internal state and order quantity ([0a7bd55](https://github.com/commercelayer/commercelayer-cart/commit/0a7bd5545aa88b30fd1b0bfa1fa2d15f72f0abe0))
+
 # [2.1.0](https://github.com/commercelayer/commercelayer-cart/compare/v2.0.0...v2.1.0) (2022-12-07)
 
 
