@@ -1,3 +1,12 @@
+# [2.1.0-beta.3](https://github.com/commercelayer/commercelayer-cart/compare/v2.1.0-beta.2...v2.1.0-beta.3) (2022-12-07)
+
+
+### Bug Fixes
+
+* add InputSpinner component to be used as quantity selector with debounced value ([19797ef](https://github.com/commercelayer/commercelayer-cart/commit/19797effbdd121cbeaa98bdf2e28919ca970f874))
+* loading skeleton to match new quantity selector width ([c7c5086](https://github.com/commercelayer/commercelayer-cart/commit/c7c50865a72d2659492426b23ba4f68a62f81cf8))
+* set initial quantity after out of stock error message ([58208ed](https://github.com/commercelayer/commercelayer-cart/commit/58208ed79a1440d29e8cd570f7e0729dbb9ff2ad))
+
 # [2.1.0-beta.2](https://github.com/commercelayer/commercelayer-cart/compare/v2.1.0-beta.1...v2.1.0-beta.2) (2022-11-29)
 
 
