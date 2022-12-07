@@ -1,3 +1,24 @@
+# [2.1.0](https://github.com/commercelayer/commercelayer-cart/compare/v2.0.0...v2.1.0) (2022-12-07)
+
+
+### Bug Fixes
+
+* add InputSpinner component to be used as quantity selector with debounced value ([19797ef](https://github.com/commercelayer/commercelayer-cart/commit/19797effbdd121cbeaa98bdf2e28919ca970f874))
+* loading skeleton to match new quantity selector width ([c7c5086](https://github.com/commercelayer/commercelayer-cart/commit/c7c50865a72d2659492426b23ba4f68a62f81cf8))
+* rename iframe event `updateCart` to `update` ([bb35cc1](https://github.com/commercelayer/commercelayer-cart/commit/bb35cc1149f1b9b942f866e2fb49af86de0c3f54))
+* set initial quantity after out of stock error message ([58208ed](https://github.com/commercelayer/commercelayer-cart/commit/58208ed79a1440d29e8cd570f7e0729dbb9ff2ad))
+* switch from `react-helmet` to `react-helmet-async` ([578d167](https://github.com/commercelayer/commercelayer-cart/commit/578d1677cad0e7a2a49a9ca6b07ba084efe5e588))
+
+
+### Features
+
+* use new `<EmbeddedCapabilities />` component to wrap all iframe logics and embeddable behaviours ([f925cf4](https://github.com/commercelayer/commercelayer-cart/commit/f925cf456b36f6b61bf584888dc63a38c0fb61d2))
+
+
+### Performance Improvements
+
+* add manual chunk names to vite build config to improve code splitting ([4d5032e](https://github.com/commercelayer/commercelayer-cart/commit/4d5032e48b065f45c6f4197c031506a6f6992910))
+
 # [2.1.0-beta.3](https://github.com/commercelayer/commercelayer-cart/compare/v2.1.0-beta.2...v2.1.0-beta.3) (2022-12-07)
 
 
