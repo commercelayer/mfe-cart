@@ -37,6 +37,7 @@ export function InputSpinner({
   const { debouncedValue } = useDebounce(internalValue, debounceMs)
   const inputEl = useRef<HTMLInputElement | null>(null)
   const { isFirstMount } = useCheckFirstMount()
+  const isDisabled = disabled || internalDisabled
 
   const handleButtonClick = useCallback((action: "increment" | "decrement") => {
     setInternalValue((state) => {
@@ -73,11 +74,23 @@ export function InputSpinner({
     [quantity]
   )
 
+  useEffect(
+    function preventOutOfStockToPermanentlyDisableUi() {
+      if (internalDisabled) {
+        setTimeout(() => {
+          // when out of stock, we won't receive a new `quantity`
+          setInternalDisabled(false)
+        }, debounceMs + 10)
+      }
+    },
+    [internalDisabled]
+  )
+
   return (
     <div
       {...rest}
       className={cn("inline-flex  rounded overflow-hidden", css.inputSpinner, {
-        "opacity-50 pointer-events-none": internalDisabled,
+        "opacity-50 pointer-events-none": isDisabled,
       })}
     >
       <button
@@ -86,7 +99,7 @@ export function InputSpinner({
         onClick={() => {
           handleButtonClick("decrement")
         }}
-        disabled={internalDisabled}
+        disabled={isDisabled}
       >
         -
       </button>
@@ -104,7 +117,7 @@ export function InputSpinner({
             setInternalValue(value)
           }
         }}
-        disabled={internalDisabled}
+        disabled={isDisabled}
       />
       <button
         data-test-id="input-spinner-btn-increment"
@@ -112,7 +125,7 @@ export function InputSpinner({
         onClick={() => {
           handleButtonClick("increment")
         }}
-        disabled={internalDisabled}
+        disabled={isDisabled}
       >
         +
       </button>
