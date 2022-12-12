@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import css from "./InputSpinner.module.css"
 
 import { useDebounce } from "#hooks/debounce"
-import { useCheckFirstMount } from "#hooks/mount"
 
 interface Props {
   /*
@@ -36,8 +35,8 @@ export function InputSpinner({
   const [internalDisabled, setInternalDisabled] = useState(disabled)
   const { debouncedValue } = useDebounce(internalValue, debounceMs)
   const inputEl = useRef<HTMLInputElement | null>(null)
-  const { isFirstMount } = useCheckFirstMount()
   const isDisabled = disabled || internalDisabled
+  const isInternalValueSynched = quantity === internalValue
 
   const handleButtonClick = useCallback((action: "increment" | "decrement") => {
     setInternalValue((state) => {
@@ -48,7 +47,7 @@ export function InputSpinner({
 
   useEffect(
     function dispatchDebouncedHandleChange() {
-      if (isFirstMount) {
+      if (isInternalValueSynched) {
         return
       }
       const event = makeSyntheticChangeEvent({
@@ -67,7 +66,7 @@ export function InputSpinner({
   useEffect(
     function syncInternalStateWithOrderQuantity() {
       setInternalDisabled(false)
-      if (internalValue !== quantity) {
+      if (!isInternalValueSynched) {
         setInternalValue(quantity)
       }
     },
