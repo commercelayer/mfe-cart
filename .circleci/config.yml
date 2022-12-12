@@ -1,9 +1,10 @@
 version: 2.1
 
 orbs:
-  aws-s3: circleci/aws-s3@3.0.1
+  aws-s3: circleci/aws-s3@3.0.0
 
 image: &image
+  docker:
     - image: cimg/node:18.7.0
   resource_class: medium+
 
@@ -16,7 +17,6 @@ setup: &setup
 
 jobs:
   test:
-    docker:
     <<: *image
     steps:
       - checkout
@@ -25,7 +25,6 @@ jobs:
           name: Test 
           command: pnpm test
   build:
-    docker:
     <<: *image
     environment:
       PUBLIC_PROJECT_PATH: cart
