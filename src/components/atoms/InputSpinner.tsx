@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import css from "./InputSpinner.module.css"
 
 import { useDebounce } from "#hooks/debounce"
-import { useCheckFirstMount } from "#hooks/mount"
 
 interface Props {
   /*
@@ -19,18 +18,25 @@ interface Props {
    * handleChange callback can be debounced by setting a delay in milliseconds
    */
   debounceMs?: number
+  /*
+   * input is disabled
+   */
+  disabled?: boolean
 }
 
 export function InputSpinner({
   quantity,
   handleChange,
   debounceMs = 0,
+  disabled = false,
   ...rest
 }: Props): JSX.Element {
   const [internalValue, setInternalValue] = useState<number>(quantity)
+  const [internalDisabled, setInternalDisabled] = useState(disabled)
   const { debouncedValue } = useDebounce(internalValue, debounceMs)
   const inputEl = useRef<HTMLInputElement | null>(null)
-  const { isFirstMount } = useCheckFirstMount()
+  const isDisabled = disabled || internalDisabled
+  const isInternalValueSynched = quantity === internalValue
 
   const handleButtonClick = useCallback((action: "increment" | "decrement") => {
     setInternalValue((state) => {
@@ -41,12 +47,17 @@ export function InputSpinner({
 
   useEffect(
     function dispatchDebouncedHandleChange() {
-      if (!isFirstMount) {
-        const event = makeSyntheticChangeEvent({
-          element: inputEl?.current,
-          newQuantity: debouncedValue,
-        })
-        event && handleChange(event)
+      if (isInternalValueSynched) {
+        return
+      }
+      const event = makeSyntheticChangeEvent({
+        element: inputEl?.current,
+        newQuantity: debouncedValue,
+      })
+      if (event) {
+        handleChange(event)
+        // expecting to receive a new `quantity`, in the meantime we need to disable UI
+        setInternalDisabled(true)
       }
     },
     [debouncedValue]
@@ -54,17 +65,32 @@ export function InputSpinner({
 
   useEffect(
     function syncInternalStateWithOrderQuantity() {
-      if (internalValue !== quantity) {
+      setInternalDisabled(false)
+      if (!isInternalValueSynched) {
         setInternalValue(quantity)
       }
     },
     [quantity]
   )
 
+  useEffect(
+    function preventOutOfStockToPermanentlyDisableUi() {
+      if (internalDisabled) {
+        setTimeout(() => {
+          // when out of stock, we won't receive a new `quantity`
+          setInternalDisabled(false)
+        }, debounceMs + 10)
+      }
+    },
+    [internalDisabled]
+  )
+
   return (
     <div
       {...rest}
-      className={cn("inline-flex  rounded overflow-hidden", css.inputSpinner)}
+      className={cn("inline-flex  rounded overflow-hidden", css.inputSpinner, {
+        "opacity-50 pointer-events-none": isDisabled,
+      })}
     >
       <button
         data-test-id="input-spinner-btn-decrement"
@@ -72,6 +98,7 @@ export function InputSpinner({
         onClick={() => {
           handleButtonClick("decrement")
         }}
+        disabled={isDisabled}
       >
         -
       </button>
@@ -89,6 +116,7 @@ export function InputSpinner({
             setInternalValue(value)
           }
         }}
+        disabled={isDisabled}
       />
       <button
         data-test-id="input-spinner-btn-increment"
@@ -96,6 +124,7 @@ export function InputSpinner({
         onClick={() => {
           handleButtonClick("increment")
         }}
+        disabled={isDisabled}
       >
         +
       </button>
