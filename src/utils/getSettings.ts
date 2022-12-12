@@ -50,11 +50,13 @@ const makeInvalidSettings = ({
 export const getSettings = async ({
   accessToken,
   orderId,
+  config,
 }: {
   accessToken: string
   orderId: string
+  config: RuntimeConfig
 }): Promise<Settings | InvalidSettings> => {
-  const domain = import.meta.env.PUBLIC_DOMAIN || "commercelayer.io"
+  const domain = config.domain || "commercelayer.io"
   const { slug, isTest } = getInfoFromJwt(accessToken)
 
   if (!slug) {
@@ -63,7 +65,13 @@ export const getSettings = async ({
 
   // checking cart consistency
   const hostname = typeof window && window.location.hostname
-  if (!isValidHost(hostname, accessToken)) {
+  if (
+    !isValidHost({
+      hostname,
+      accessToken,
+      isCommerceLayerHosted: Boolean(config.isHosted),
+    })
+  ) {
     return makeInvalidSettings({})
   }
 

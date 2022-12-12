@@ -49,6 +49,7 @@ specifiers:
   vite: ^3.2.3
   vitest: ^0.25.0
   wouter: ^2.8.1
+  zod: ^3.20.0
 
 dependencies:
   '@commercelayer/js-auth': 2.3.0
@@ -81,6 +82,7 @@ dependencies:
   vite: 3.2.3_@types+node@17.0.31
   vitest: 0.25.0_jsdom@20.0.2
   wouter: 2.8.1_react@18.2.0
+  zod: 3.20.0
 
 devDependencies:
   '@typescript-eslint/eslint-plugin': 5.22.0_tal4xlmvnofklupd3hwjtzfb4q
@@ -5483,4 +5485,8 @@ packages:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 21.1.1
+    dev: false
+
+  /zod/3.20.0:
+    resolution: {integrity: sha512-ZWxs7oM5ixoo1BMoxTNeDMYSih/F/FUnExsnRtHT04rG6q0Bd74TKS45RGXw07TOalOZyyzdKaYH38k8yTEv9A==}
     dev: false

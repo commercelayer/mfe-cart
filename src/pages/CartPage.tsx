@@ -5,6 +5,7 @@ import { useRoute } from "wouter"
 
 import { GoogleTagManager } from "#components/GoogleTagManager"
 import { PageHead } from "#components/PageHead"
+import { RuntimeConfigProvider } from "#components/RuntimeConfigProvider"
 import { SettingsError } from "#components/SettingsError"
 import { SettingsProvider } from "#components/SettingsProvider"
 import { Skeleton } from "#components/Skeleton"
@@ -25,31 +26,35 @@ function CartPage(): JSX.Element {
   }
 
   return (
-    <SettingsProvider orderId={orderId}>
-      {({ settings, isLoading }) => (
-        <GlobalStylesProvider primaryColor={settings.primaryColor}>
-          {isLoading ? (
-            <Skeleton />
-          ) : !settings.isValid ? (
-            <SettingsError
-              retryable={settings.retryable}
-              isEmbedded={isEmbedded()}
-            />
-          ) : (
-            <>
-              <PageHead
-                title={`${settings.companyName} - ${t("general.title")}`}
-                faviconUrl={settings.faviconUrl}
-              />
-              <GoogleTagManager gtmId={settings.gtmId} />
-              <Suspense fallback={<Skeleton />}>
-                <LazyCart />
-              </Suspense>
-            </>
+    <RuntimeConfigProvider>
+      {(config) => (
+        <SettingsProvider orderId={orderId} config={config}>
+          {({ settings, isLoading }) => (
+            <GlobalStylesProvider primaryColor={settings.primaryColor}>
+              {isLoading ? (
+                <Skeleton />
+              ) : !settings.isValid ? (
+                <SettingsError
+                  retryable={settings.retryable}
+                  isEmbedded={isEmbedded()}
+                />
+              ) : (
+                <>
+                  <PageHead
+                    title={`${settings.companyName} - ${t("general.title")}`}
+                    faviconUrl={settings.faviconUrl}
+                  />
+                  <GoogleTagManager gtmId={settings.gtmId} />
+                  <Suspense fallback={<Skeleton />}>
+                    <LazyCart />
+                  </Suspense>
+                </>
+              )}
+            </GlobalStylesProvider>
           )}
-        </GlobalStylesProvider>
+        </SettingsProvider>
       )}
-    </SettingsProvider>
+    </RuntimeConfigProvider>
   )
 }
 

@@ -37,6 +37,10 @@ type SettingsProviderProps = {
    */
   orderId: string
   /**
+   * App config served locally from public/config.json
+   */
+  config: RuntimeConfig
+  /**
    * If needed, context value can be also accessed using a function as a child.
    *
    * Example:
@@ -68,6 +72,7 @@ export const useSettings = (): SettingsProviderValue => {
 export const SettingsProvider: FC<SettingsProviderProps> = ({
   orderId,
   children,
+  config,
 }) => {
   const [settings, setSettings] = useState<Settings | InvalidSettings>(
     defaultSettings
@@ -79,7 +84,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({
     setIsLoading(!!accessToken)
 
     if (accessToken) {
-      getSettings({ orderId, accessToken })
+      getSettings({ orderId, accessToken, config })
         .then(setSettings)
         .finally(() => {
           setIsLoading(false)

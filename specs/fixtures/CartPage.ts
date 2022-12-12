@@ -35,7 +35,9 @@ export class CartPage {
   }
 
   async goto({ orderId, accessToken, embed }: GoToProps) {
-    const baseUrl = process.env.PUBLIC_BASE_PATH || ""
+    const baseUrl = process.env.PUBLIC_PROJECT_PATH
+      ? `/${process.env.PUBLIC_PROJECT_PATH}`
+      : ""
     const embedQuery = embed ? "&embed=true" : ""
     const url = `${baseUrl}/${orderId}?accessToken=${accessToken}${embedQuery}`
 

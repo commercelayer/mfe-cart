@@ -65,7 +65,8 @@
     "typescript": "4.6.4",
     "vite": "^3.2.3",
     "vitest": "^0.25.0",
-    "wouter": "^2.8.1"
+    "wouter": "^2.8.1",
+    "zod": "^3.20.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.22.0",

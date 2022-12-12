@@ -11,9 +11,7 @@ export const makeSubdomain = (hostname: string) => {
 }
 
 const isProduction = (forceProductionEnv?: boolean) =>
-  forceProductionEnv ? true : import.meta.env.NODE_ENV === "production"
-
-const isCommerceLayerHosted = () => Boolean(import.meta.env.PUBLIC_HOSTED)
+  forceProductionEnv ? true : import.meta.env.PROD
 
 /**
  * Checks if app is loaded from a valid URL and the `slug` found in JWT belongs
@@ -25,11 +23,17 @@ const isCommerceLayerHosted = () => Boolean(import.meta.env.PUBLIC_HOSTED)
  *
  * @returns a boolean flag set as `true` in case app is loaded from a valid URL.
  */
-export const isValidHost = (
-  hostname: string,
-  accessToken: string,
+export const isValidHost = ({
+  hostname,
+  accessToken,
+  forceProductionEnv,
+  isCommerceLayerHosted,
+}: {
+  hostname: string
+  accessToken: string
   forceProductionEnv?: boolean
-) => {
+  isCommerceLayerHosted: boolean
+}) => {
   const { slug, kind } = getInfoFromJwt(accessToken)
 
   const isInvalidChannel = kind !== "sales_channel"
@@ -39,7 +43,7 @@ export const isValidHost = (
 
   // when app is not hosted by CL we can't rely on subdomain to match organization slug
   // so we require to fill `NEXT_PUBLIC_SLUG` env
-  const subdomain = isCommerceLayerHosted()
+  const subdomain = isCommerceLayerHosted
     ? makeSubdomain(hostname)
     : import.meta.env.PUBLIC_SLUG
 
