@@ -1,3 +1,12 @@
+## [2.1.2](https://github.com/commercelayer/commercelayer-cart/compare/v2.1.1...v2.1.2) (2022-12-12)
+
+
+### Bug Fixes
+
+* disable quantity selector when quantity is updating ([37c390d](https://github.com/commercelayer/commercelayer-cart/commit/37c390d60a80363607faeb5e26a2364307b94c2c))
+* prevent out of stock to permanently disable UI ([b3858de](https://github.com/commercelayer/commercelayer-cart/commit/b3858de02bda9c666aaa3147b9634dab538d1ed0))
+* quantity sync when multiple hosted carts are embedded in iframes ([fb8c40d](https://github.com/commercelayer/commercelayer-cart/commit/fb8c40d5b81bfd989a3fbbc4abbd9c473dc22f75))
+
 ## [2.1.1](https://github.com/commercelayer/commercelayer-cart/compare/v2.1.0...v2.1.1) (2022-12-07)
 
 
