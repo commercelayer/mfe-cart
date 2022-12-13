@@ -6,7 +6,7 @@
   "useWorkspaces": true,
   "command": {
     "version": {
-      "preid": "beta"
+      "preid": "stg"
     }
   }
 }

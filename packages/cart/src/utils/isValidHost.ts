@@ -27,12 +27,12 @@ export const isValidHost = ({
   hostname,
   accessToken,
   forceProductionEnv,
-  isCommerceLayerHosted,
+  selfHostedSlug,
 }: {
   hostname: string
   accessToken: string
   forceProductionEnv?: boolean
-  isCommerceLayerHosted: boolean
+  selfHostedSlug?: string | null
 }) => {
   const { slug, kind } = getInfoFromJwt(accessToken)
 
@@ -42,10 +42,11 @@ export const isValidHost = ({
   }
 
   // when app is not hosted by CL we can't rely on subdomain to match organization slug
-  // so we require to fill `NEXT_PUBLIC_SLUG` env
+  // so we require to fill `selfHostedSlug` prop in `public/config.json`
+  const isCommerceLayerHosted = selfHostedSlug == null
   const subdomain = isCommerceLayerHosted
     ? makeSubdomain(hostname)
-    : import.meta.env.PUBLIC_SLUG
+    : selfHostedSlug
 
   const isInvalidSubdomain = subdomain !== slug
   if (isProduction(forceProductionEnv) && isInvalidSubdomain) {

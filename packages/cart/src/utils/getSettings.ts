@@ -69,7 +69,7 @@ export const getSettings = async ({
     !isValidHost({
       hostname,
       accessToken,
-      isCommerceLayerHosted: config.selfHostedSlug == null,
+      selfHostedSlug: config.selfHostedSlug,
     })
   ) {
     return makeInvalidSettings({})
