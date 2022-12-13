@@ -23,7 +23,7 @@ The Commerce Layer Cart application (React) provides you with a production-ready
 
 1. Create your organization and get your credentials by following one of our [onboarding tutorials](https://docs.commercelayer.io/developers/welcome).
 
-2. Set the environment variable `PUBLIC_SLUG` on your hosting provider to your organization slug (subdomain) and be sure to build the forked repository using the node environment (`NODE_ENV`) as production.
+2. Configure the `selfHostedSlug` property in `/public/config.json` to match your organization slug (subdomain).
 
 3. Deploy the forked repository to your preferred hosting service or host it yourself. You can deploy with one click below:
 
