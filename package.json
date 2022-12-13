@@ -7,7 +7,8 @@
     "preview": "pnpm --filter '*' preview",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "test": "pnpm --filter '*' test"
+    "test": "pnpm --filter '*' test",
+    "test:e2e": "pnpm --filter '*' test:e2e"
   },
   "keywords": [],
   "author": {

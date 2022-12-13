@@ -37,7 +37,7 @@ jobs:
       - aws-s3/sync:
           aws-access-key-id: AWS_ACCESS_KEY
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          from: build
+          from: packages/cart/build
           to: "s3://$S3_ASSETS_BUCKET/team/fe-static-apps/$PUBLIC_PROJECT_PATH/<<pipeline.git.tag>>"
 
 workflows:
