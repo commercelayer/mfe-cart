@@ -7,6 +7,7 @@ import { isEmbedded } from "#utils/isEmbedded"
 
 export const ButtonCheckout: FC = () => {
   const { t } = useTranslation()
+  const label = t("general.gotToCheckoutCta")
 
   return (
     <>
@@ -20,7 +21,7 @@ export const ButtonCheckout: FC = () => {
               className={
                 "button-base bg-primary text-contrast block rounded-md py-3 px-3"
               }
-              label={t("general.gotToCheckoutCta")}
+              label={label}
               target={isEmbedded() ? "_top" : undefined}
             />
           ) : (

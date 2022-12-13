@@ -4,13 +4,15 @@ import { useTranslation } from "react-i18next"
 
 export const ButtonRemoveItem: FC = () => {
   const { t } = useTranslation()
+  const title = t("general.remove")
+
   return (
     <LineItemRemoveLink>
       {({ handleRemove }) => (
         <a
           onClick={handleRemove}
           className="cursor-pointer hover:text-red-500"
-          title={t("general.remove")}
+          title={title}
           data-test-id="button-remove-item"
         >
           <svg
