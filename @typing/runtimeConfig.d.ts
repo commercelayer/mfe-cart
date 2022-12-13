@@ -1,14 +1,12 @@
 interface RuntimeConfig {
   /**
-   * Specific custom domain to use for commerce layer api requests
+   * Specific domain to use for Commerce Layer API requests.
+   * It must be set as `commercelayer.io`.
    */
   domain: string
   /**
-   * Enable check for organization slug that should matches current subdomain
-   */
-  isHosted?: boolean
-  /**
-   * When `isCommerceLayerHosted` is false this is required
+   * The organization slug that generates the accessToken.
+   * When null it means the app is hosted by Commerce Layer.
    */
   selfHostedSlug?: string | null
 }
