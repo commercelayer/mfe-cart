@@ -1,0 +1,70 @@
+version: 2.1
+
+orbs:
+  aws-s3: circleci/aws-s3@3.1.1
+
+image: &image
+  docker:
+    - image: cimg/node:18.7.0
+  resource_class: medium+
+
+setup: &setup
+  - run:
+      name: Setup
+      command: |
+        sudo npm install -g pnpm
+        pnpm install
+
+jobs:
+  test:
+    <<: *image
+    steps:
+      - checkout
+      - <<: *setup
+      - run:
+          name: Test 
+          command: pnpm test
+  build:
+    <<: *image
+    environment:
+      PUBLIC_PROJECT_PATH: cart
+    steps:
+      - checkout
+      - <<: *setup
+      - run:
+          name: Build
+          command: pnpm build
+      - aws-s3/sync:
+          aws-access-key-id: AWS_ACCESS_KEY
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          from: packages/cart/build
+          to: "s3://$S3_ASSETS_BUCKET/team/fe-static-apps/$PUBLIC_PROJECT_PATH/<<pipeline.git.tag>>"
+
+workflows:
+
+  run-tests:
+    jobs:
+      - test:
+          context: commercelayer
+          filters:
+            tags:
+              ignore: /v.*/
+  
+  test-build-and-push:
+    jobs:
+      - test:
+          context: commercelayer
+          filters:
+            tags:
+              only: /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*).*/
+            branches:
+              ignore: /.*/
+      - build:
+          requires:
+            - test
+          context: commercelayer
+          filters:
+            tags:
+              only: /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*).*/
+            branches:
+              ignore: /.*/

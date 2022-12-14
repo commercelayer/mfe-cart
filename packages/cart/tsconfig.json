@@ -1,0 +1,65 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "types": [
+      "vitest/globals",
+      "vite/client",
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@typing"
+    ],
+    "downlevelIteration": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "#styles/*": [
+        "src/styles/*"
+      ],
+      "#components/*": [
+        "src/components/*"
+      ],
+      "#hooks/*": [
+        "src/hooks/*"
+      ],
+      "#assets/*": [
+        "src/assets/*"
+      ],
+      "#utils/*": [
+        "src/utils/*"
+      ],
+      "#specs/*": [
+        "specs/*"
+      ]
+    },
+    "incremental": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "*.config.js",
+    ".eslintrc.cjs",
+    "@typing/**/*.d.ts"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compileOnSave": false
+}
