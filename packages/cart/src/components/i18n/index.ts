@@ -5,6 +5,7 @@ import {
   AppResources,
 } from "react-i18next"
 
+import commonDe from "#assets/locales/de/common.json"
 import commonEn from "#assets/locales/en/common.json"
 import commonIt from "#assets/locales/it/common.json"
 
@@ -14,6 +15,9 @@ const resources: Record<AllowedLocaleKeys, AppResources> = {
   },
   it: {
     common: commonIt,
+  },
+  de: {
+    common: commonDe,
   },
 }
 
