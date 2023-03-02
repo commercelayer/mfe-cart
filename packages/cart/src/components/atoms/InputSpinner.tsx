@@ -94,7 +94,7 @@ export function InputSpinner({
     >
       <button
         data-test-id="input-spinner-btn-decrement"
-        className="button-base bg-primary text-contrast px-3"
+        className="bg-white-300 border text-black hover:text-gray-700 hover:bg-gray-400 h-full w-8 rounded-l cursor-pointer outline-none"
         onClick={() => {
           handleButtonClick("decrement")
         }}
@@ -105,7 +105,7 @@ export function InputSpinner({
       <input
         ref={inputEl}
         data-test-id="input-spinner-element"
-        className="input-base -small border-gray-200 w-12 text-center"
+        className=" text-black border w-8  focus:outline-none text-center  bg-white-300 hover:text-black focus:text-black  md:text-basecursor-default flex items-center outline-none"
         type="number"
         min="0"
         step="1"
@@ -120,7 +120,7 @@ export function InputSpinner({
       />
       <button
         data-test-id="input-spinner-btn-increment"
-        className="button-base bg-primary text-contrast px-3"
+        className="border bg-white-300 text-black hover:text-gray-700 hover:bg-gray-400 h-full w-8 rounded-r cursor-pointer"
         onClick={() => {
           handleButtonClick("increment")
         }}

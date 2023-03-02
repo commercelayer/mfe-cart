@@ -43,26 +43,23 @@ const Cart: FC = () => {
           <PageLayout
             top={
               <PageHeader>
-                <h1
-                  data-test-id="page-title"
-                  data-cart-id={settings.orderId}
-                  className="text-black font-semibold text-xl md:text-3xl"
-                >
-                  {t("general.title")}
-                </h1>
-
-                <LineItemsCount>
-                  {({ quantity }) =>
-                    quantity ? (
-                      <div className="text-sm text-gray-500 font-semibold">
-                        <span data-test-id="items-count">{quantity}</span>{" "}
-                        {t("general.item", { count: quantity })}
-                      </div>
-                    ) : (
-                      <div />
-                    )
-                  }
-                </LineItemsCount>
+                <div className="text-lg leading-6 text-gray-700">
+                  Shopping Cart{" "}
+                  <span>
+                    {" "}
+                    {
+                      <LineItemsCount>
+                        {({ quantity }) =>
+                          quantity ? (
+                            <span data-test-id="items-count">{quantity}</span>
+                          ) : (
+                            <div />
+                          )
+                        }
+                      </LineItemsCount>
+                    }
+                  </span>
+                </div>
               </PageHeader>
             }
             main={<Summary listTypes={["bundles", "skus", "gift_cards"]} />}

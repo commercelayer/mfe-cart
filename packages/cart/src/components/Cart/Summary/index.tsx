@@ -31,17 +31,15 @@ export const Summary: FC<Props> = ({ listTypes }) => {
       {listTypes.map((type) => (
         <LineItem key={type} type={type}>
           <div
-            className="flex gap-5 pb-8 mb-8 border-b border-b-gray-300"
+            className="flex gap-5 pb-8 mb-8 border-b border-b-gray-100"
             data-test-id={`line-item-${type}`}
           >
-            <LineItemImage
-              width={170}
-              className="w-1/4 self-start md:self-center max-h-32 object-contain"
-            />
-
+            <div className="card-image-container">
+              <LineItemImage className="w-1/2 self-start md:self-center object-contain" />
+            </div>
             <div className="flex-1 flex flex-col min-h-[150px]">
               <div className="flex justify-between items-center gap-1">
-                <LineItemName className="font-bold" />
+                <LineItemName className="box-border border-0 border-solid border-gray-200 text-sm  not-italic leading-5 text-[rgba(77,77,77,1)]" />
                 <ButtonRemoveItem />
               </div>
 
@@ -56,9 +54,17 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                 </div>
               </div>
 
-              <div className="flex justify-between items-center mt-auto">
+              {/* <div className="flex justify-between items-center mt-auto">
                 {type === "gift_cards" ? <div /> : <QuantitySelector />}
-                <LineItemAmount className="text-lg font-semibold" />
+                <LineItemAmount className="font-normal text-sm text-right text-gray-700" />
+              </div> */}
+              <div className="flex pt-2 items-center justify-end space-x-5 mt-auto" >
+                <div>
+                  {type === "gift_cards" ? <div /> : <QuantitySelector />}
+                </div>
+                <div>
+                  <LineItemAmount className="font-normal text-sm text-right text-gray-700" />
+                </div>
               </div>
             </div>
           </div>

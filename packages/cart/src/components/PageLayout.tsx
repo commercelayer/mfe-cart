@@ -30,7 +30,7 @@ const Inner: VFC<InnerProps> = ({ main, aside }) => {
     <div className="flex flex-col md:flex-row md:gap-8 xl:gap-36 pt-8 items-start">
       <main className="w-full md:w-7/12">{main}</main>
       <aside className="w-full md:w-5/12">
-        <div className="md:bg-gray-50 pb-5 md:py-10 md:px-7 rounded-md w-full">
+        <div className="md:totalcard pb-5 md:py-10 md:px-7 rounded-md w-full">
           {aside}
         </div>
       </aside>
