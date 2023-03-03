@@ -18,7 +18,7 @@ export const ButtonCheckout: FC = () => {
 
   const onProceedCheckout = () => {
     window.open(
-      `http://localhost:3001/${settings.orderId }?accessToken=${settings.accessToken}`
+      `https://ezcontacts-stage-checkout.netlify.app/${settings.orderId }?accessToken=${settings.accessToken}`
     );
   }
 
