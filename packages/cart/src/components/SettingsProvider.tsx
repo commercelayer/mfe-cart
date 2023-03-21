@@ -29,7 +29,7 @@ type SettingsProviderValue = {
   isLoading: boolean
 }
 
-type SettingsProviderProps = CommerceLayerAppConfig & {
+type SettingsProviderProps = {
   /**
    * The required Order ID to be used to get cart information and to fill the `Settings` object.
    * Order status must be either `draft` or `pending`, otherwise an `InvalidSettings` object will be returned instead.
@@ -37,7 +37,10 @@ type SettingsProviderProps = CommerceLayerAppConfig & {
    * Read more at {@link https://docs.commercelayer.io/developers/v/how-tos/shopping-cart/create-a-shopping-cart}
    */
   orderId: string
-
+  /**
+   * App config served locally from public/config.js
+   */
+  config: CommerceLayerAppConfig
   /**
    * If needed, context value can be also accessed using a function as a child.
    *
@@ -49,7 +52,7 @@ type SettingsProviderProps = CommerceLayerAppConfig & {
    * ```
    */
   children: ((props: SettingsProviderValue) => ReactNode) | ReactNode
-} & CommerceLayerAppConfig
+}
 
 const initialValues: SettingsProviderValue = {
   settings: defaultSettings,
@@ -70,7 +73,7 @@ export const useSettings = (): SettingsProviderValue => {
 export const SettingsProvider: FC<SettingsProviderProps> = ({
   orderId,
   children,
-  clAppConfig,
+  config,
 }) => {
   const [settings, setSettings] = useState<Settings | InvalidSettings>(
     defaultSettings
@@ -82,7 +85,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({
     setIsLoading(!!accessToken)
 
     if (accessToken) {
-      getSettings({ orderId, accessToken, clAppConfig })
+      getSettings({ orderId, accessToken, config })
         .then(setSettings)
         .finally(() => {
           setIsLoading(false)

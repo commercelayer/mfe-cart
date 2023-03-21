@@ -25,7 +25,7 @@ function CartPage(): JSX.Element {
   }
 
   return (
-    <SettingsProvider orderId={orderId} clAppConfig={window.clAppConfig}>
+    <SettingsProvider orderId={orderId} config={window.clAppConfig}>
       {({ settings, isLoading }) => (
         <GlobalStylesProvider primaryColor={settings.primaryColor}>
           {isLoading ? (

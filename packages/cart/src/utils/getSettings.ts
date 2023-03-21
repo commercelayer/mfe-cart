@@ -51,13 +51,13 @@ const makeInvalidSettings = ({
 export const getSettings = async ({
   accessToken,
   orderId,
-  clAppConfig,
+  config,
 }: {
   accessToken: string
   orderId: string
-  clAppConfig: CommerceLayerAppConfig["clAppConfig"]
+  config: CommerceLayerAppConfig
 }): Promise<Settings | InvalidSettings> => {
-  const domain = clAppConfig.domain || "commercelayer.io"
+  const domain = config.domain || "commercelayer.io"
   const { slug, isTest } = getInfoFromJwt(accessToken)
 
   if (!slug) {
@@ -70,7 +70,7 @@ export const getSettings = async ({
     !isValidHost({
       hostname,
       accessToken,
-      selfHostedSlug: clAppConfig.selfHostedSlug,
+      selfHostedSlug: config.selfHostedSlug,
     })
   ) {
     return makeInvalidSettings({})
