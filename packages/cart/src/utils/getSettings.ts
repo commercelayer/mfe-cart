@@ -9,6 +9,7 @@ import { isValidHost } from "./isValidHost"
 import { isValidStatus } from "./isValidStatus"
 
 import { isValidOrderIdFormat } from "#utils/isValidOrderIdFormat"
+import { CommerceLayerAppConfig } from "@typing/global"
 
 // default settings are by their nature not valid to show a full cart
 // they will be used as fallback for errors or 404 page
@@ -50,13 +51,13 @@ const makeInvalidSettings = ({
 export const getSettings = async ({
   accessToken,
   orderId,
-  config,
+  clAppConfig,
 }: {
   accessToken: string
   orderId: string
-  config: RuntimeConfig
+  clAppConfig: CommerceLayerAppConfig["clAppConfig"]
 }): Promise<Settings | InvalidSettings> => {
-  const domain = config.domain || "commercelayer.io"
+  const domain = clAppConfig.domain || "commercelayer.io"
   const { slug, isTest } = getInfoFromJwt(accessToken)
 
   if (!slug) {
@@ -69,7 +70,7 @@ export const getSettings = async ({
     !isValidHost({
       hostname,
       accessToken,
-      selfHostedSlug: config.selfHostedSlug,
+      selfHostedSlug: clAppConfig.selfHostedSlug,
     })
   ) {
     return makeInvalidSettings({})

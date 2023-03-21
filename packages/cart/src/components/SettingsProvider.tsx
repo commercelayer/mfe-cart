@@ -13,12 +13,13 @@ import { parseLanguageCode } from "./i18n/parseLanguageCode"
 
 import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
 import { defaultSettings, getSettings } from "#utils/getSettings"
+import { CommerceLayerAppConfig } from "@typing/global"
 
 type SettingsProviderValue = {
   /**
    * Can contains either a valid `Settings` or `InvalidSettings` object.
    * Invalid settings will be returned when part of initial API data fetching fails
-   * and it's not possibile to show a full cart page.
+   * and it's not possible to show a full cart page.
    */
   settings: Settings | InvalidSettings
   /**
@@ -28,7 +29,7 @@ type SettingsProviderValue = {
   isLoading: boolean
 }
 
-type SettingsProviderProps = {
+type SettingsProviderProps = CommerceLayerAppConfig & {
   /**
    * The required Order ID to be used to get cart information and to fill the `Settings` object.
    * Order status must be either `draft` or `pending`, otherwise an `InvalidSettings` object will be returned instead.
@@ -36,10 +37,7 @@ type SettingsProviderProps = {
    * Read more at {@link https://docs.commercelayer.io/developers/v/how-tos/shopping-cart/create-a-shopping-cart}
    */
   orderId: string
-  /**
-   * App config served locally from public/config.json
-   */
-  config: RuntimeConfig
+
   /**
    * If needed, context value can be also accessed using a function as a child.
    *
@@ -51,7 +49,7 @@ type SettingsProviderProps = {
    * ```
    */
   children: ((props: SettingsProviderValue) => ReactNode) | ReactNode
-}
+} & CommerceLayerAppConfig
 
 const initialValues: SettingsProviderValue = {
   settings: defaultSettings,
@@ -72,7 +70,7 @@ export const useSettings = (): SettingsProviderValue => {
 export const SettingsProvider: FC<SettingsProviderProps> = ({
   orderId,
   children,
-  config,
+  clAppConfig,
 }) => {
   const [settings, setSettings] = useState<Settings | InvalidSettings>(
     defaultSettings
@@ -84,7 +82,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({
     setIsLoading(!!accessToken)
 
     if (accessToken) {
-      getSettings({ orderId, accessToken, config })
+      getSettings({ orderId, accessToken, clAppConfig })
         .then(setSettings)
         .finally(() => {
           setIsLoading(false)

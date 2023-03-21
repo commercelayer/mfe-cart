@@ -52,6 +52,7 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    "public/*.js",
     "*.config.js",
     ".eslintrc.cjs",
     "@typing/**/*.d.ts"
