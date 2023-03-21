@@ -1,4 +1,4 @@
-import { VFC } from "react"
+import { FC } from "react"
 import { useTranslation } from "react-i18next"
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
   price?: string
 }
 
-export const SubTotal: VFC<Props> = ({ price, priceCents }) => {
+export const SubTotal: FC<Props> = ({ price, priceCents }) => {
   const { t } = useTranslation()
 
   return (

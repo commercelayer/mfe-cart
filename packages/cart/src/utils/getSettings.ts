@@ -54,7 +54,7 @@ export const getSettings = async ({
 }: {
   accessToken: string
   orderId: string
-  config: RuntimeConfig
+  config: CommerceLayerAppConfig
 }): Promise<Settings | InvalidSettings> => {
   const domain = config.domain || "commercelayer.io"
   const { slug, isTest } = getInfoFromJwt(accessToken)

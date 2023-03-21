@@ -1,4 +1,4 @@
-import { VFC } from "react"
+import { FC } from "react"
 
 import { ButtonCheckoutDisabled } from "./atoms/ButtonCheckoutDisabled"
 import { PageLayout } from "./PageLayout"
@@ -8,7 +8,7 @@ import { FinalPriceDisclaimer } from "#components/atoms/FinalPriceDisclaimer"
 import { SubTotal } from "#components/atoms/SubTotal"
 import { Total } from "#components/atoms/Total"
 
-export const EmptyCartEmbedded: VFC = () => {
+export const EmptyCartEmbedded: FC = () => {
   return (
     <PageLayout
       main={<EmptyCartMessage />}

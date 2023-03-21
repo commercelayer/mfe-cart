@@ -23,7 +23,14 @@ The Commerce Layer Cart application (React) provides you with a production-ready
 
 1. Create your organization and get your credentials by following one of our [onboarding tutorials](https://docs.commercelayer.io/developers/welcome).
 
-2. Configure the `selfHostedSlug` property in `/public/config.json` to match your organization slug (subdomain).
+2. Configure the `selfHostedSlug` property in `/public/config.local.js` to match your organization slug (subdomain). If this file does not exist, create it using the following content:
+
+```
+window.clAppConfig = {
+  domain: "commercelayer.io",
+  selfHostedSlug: "<your-org-slug>",
+}
+```
 
 3. Deploy the forked repository to your preferred hosting service or host it yourself. You can deploy with one click below:
 
@@ -59,10 +66,10 @@ The cart can be embedded in your application or website by loading the hosted UR
 
 ```
 // hosted
-<iframe src="https://cart.yourbrand.com/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9" width="100%" />
+<iframe src="https://yourbrand.commercelayer.app/cart/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9" width="100%" />
 
 // forked
-<iframe src="https://yourbrand.commercelayer.app/cart/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9" width="100%" />
+<iframe src="https://cart.yourbrand.com/PrnYhoVeza?accessToken=eyJhbGciOiJIUzUxMiJ9" width="100%" />
 ```
 
 > You can either set your iFrame to a fixed height or keep it responsive using the [iFrame Resizer](https://github.com/davidjbradshaw/iframe-resizer) library — the Cart app already includes the `iframeResizer.contentWindow` scripts, so you only need to add it to your parent app.

@@ -18,7 +18,7 @@ type SettingsProviderValue = {
   /**
    * Can contains either a valid `Settings` or `InvalidSettings` object.
    * Invalid settings will be returned when part of initial API data fetching fails
-   * and it's not possibile to show a full cart page.
+   * and it's not possible to show a full cart page.
    */
   settings: Settings | InvalidSettings
   /**
@@ -37,9 +37,9 @@ type SettingsProviderProps = {
    */
   orderId: string
   /**
-   * App config served locally from public/config.json
+   * App config served locally from public/config.js
    */
-  config: RuntimeConfig
+  config: CommerceLayerAppConfig
   /**
    * If needed, context value can be also accessed using a function as a child.
    *
