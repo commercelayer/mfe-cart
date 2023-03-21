@@ -10,10 +10,6 @@
       "vitest/globals",
       "vite/client",
     ],
-    "typeRoots": [
-      "./node_modules/@types",
-      "./@typing"
-    ],
     "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,

@@ -5,9 +5,8 @@ import { createLineItems } from "./createLineItems"
 import { createSingleLineItem } from "./createSingleLineItem"
 import { getClient } from "./getClient"
 import { getSuperToken } from "./getSuperToken"
-import { updateInventory } from "./updateInventory"
 
-import { TestOrderOptions, SkuItem } from "#specs/types"
+import { TestOrderOptions } from "#specs/types"
 
 export const createOrder = async (
   cl: CommerceLayerClient,

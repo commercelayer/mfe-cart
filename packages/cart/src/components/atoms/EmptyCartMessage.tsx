@@ -1,7 +1,7 @@
-import { VFC } from "react"
+import { FC } from "react"
 import { useTranslation } from "react-i18next"
 
-export const EmptyCartMessage: VFC = () => {
+export const EmptyCartMessage: FC = () => {
   const { t } = useTranslation()
 
   return (

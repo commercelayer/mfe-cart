@@ -9,7 +9,6 @@ import { isValidHost } from "./isValidHost"
 import { isValidStatus } from "./isValidStatus"
 
 import { isValidOrderIdFormat } from "#utils/isValidOrderIdFormat"
-import { CommerceLayerAppConfig } from "@typing/global"
 
 // default settings are by their nature not valid to show a full cart
 // they will be used as fallback for errors or 404 page
