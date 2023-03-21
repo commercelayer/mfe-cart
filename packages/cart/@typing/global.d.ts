@@ -14,7 +14,7 @@ type IFrameObject = Omit<IframeResizerObject, "sendMessage"> & {
 export declare global {
   declare module "*.module.css"
 
-  interface Window extends CommerceLayerAppConfig {
+  interface Window {
     parentIFrame?: IFrameObject
     iFrameResizer?: {
       onMessage?: (message: { type?: IframeReceivedEvent }) => void
