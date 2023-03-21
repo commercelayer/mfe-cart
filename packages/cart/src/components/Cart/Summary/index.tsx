@@ -3,7 +3,7 @@ import {
   LineItemName,
   LineItemAmount,
   LineItem,
-  LineItemType,
+  TLineItem,
   LineItemsEmpty,
 } from "@commercelayer/react-components"
 import { FC } from "react"
@@ -19,7 +19,7 @@ import { LineItemsSkeleton } from "#components/Skeleton/LineItems"
 import { isEmbedded } from "#utils/isEmbedded"
 
 type Props = {
-  listTypes: LineItemType[]
+  listTypes: TLineItem[]
 }
 
 export const Summary: FC<Props> = ({ listTypes }) => {
