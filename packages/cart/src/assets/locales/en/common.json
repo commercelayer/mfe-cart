@@ -1,34 +1,36 @@
 {
-    "general": {
-        "title": "Your Cart",
-        "item": "item",
-        "item_other": "items",
-        "emptyCart": "Your cart is empty",
-        "remove": "Remove",
-        "price": "Price",
-        "finalPriceInCheckoutText": "Tax included and shipping calculated at checkout",
-        "subtotal": "Subtotal",
-        "discount": "Discount",
-        "giftCard": "Gift Card",
-        "total": "Total",
-        "gotToCheckoutCta": "Checkout",
-        "returnUrlLabel": "Continue shopping",
-        "quantityNotAvailable": "The selected quantity is not available",
-        "retryableErrorCode": "Connectivity issues",
-        "retryableErrorDescription": "Try to reload the page"
+  "general": {
+    "title": "Your Cart",
+    "item": "item",
+    "item_other": "items",
+    "emptyCart": "Your cart is empty",
+    "remove": "Remove",
+    "price": "Price",
+    "finalPriceInCheckoutText": "Tax included and shipping calculated at checkout",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "giftCard": "Gift Card",
+    "total": "Total",
+    "gotToCheckoutCta": "Checkout",
+    "returnUrlLabel": "Continue shopping",
+    "quantityNotAvailable": "The selected quantity is not available",
+    "retryableErrorCode": "Connectivity issues",
+    "retryableErrorDescription": "Try to reload the page",
+    "size": "Size",
+    "color": "Color"
+  },
+  "couponOrGift": {
+    "label": "Have a promo code?",
+    "submit": "Apply",
+    "placeholder": {
+      "gift_card_or_coupon_code": "Gift card or coupon code",
+      "gift_card_code": "Gift card",
+      "coupon_code": "Coupon code"
     },
-    "couponOrGift": {
-        "label": "Have a promo code?",
-        "submit": "Apply",
-        "placeholder": {
-            "gift_card_or_coupon_code": "Gift card or coupon code",
-            "gift_card_code": "Gift card",
-            "coupon_code": "Coupon code"
-        },
-         "error": {
-            "gift_card_or_coupon_code": "Please enter a valid gift card or coupon",
-            "gift_card_code": "Please enter a valid gift card",
-            "coupon_code": "Please enter a valid coupon"
-        }
+    "error": {
+      "gift_card_or_coupon_code": "Please enter a valid gift card or coupon",
+      "gift_card_code": "Please enter a valid gift card",
+      "coupon_code": "Please enter a valid coupon"
     }
+  }
 }

@@ -1,34 +1,36 @@
 {
-    "general": {
-        "title": "Il tuo carrello",
-        "item": "prodotto",
-        "item_other": "prodotti",
-        "emptyCart": "Il tuo carrello è vuoto",
-        "remove": "Rimuovi",
-        "price": "Prezzo",
-        "finalPriceInCheckoutText": "Il totale incluse tasse e costi di spedizione sarà calcolato nella schermata successiva",
-        "subtotal": "Totale parziale",
-        "discount": "Sconti",
-        "giftCard": "Carta regalo",
-        "total": "Totale",
-        "gotToCheckoutCta": "Checkout",
-        "returnUrlLabel": "Continua ad acquistare",
-        "quantityNotAvailable": "La quantità selezionata non è disponibile",
-        "retryableErrorCode": "Problemi di connessione",
-        "retryableErrorDescription": "Prova a ricaricare la pagina"
+  "general": {
+    "title": "Il tuo carrello",
+    "item": "prodotto",
+    "item_other": "prodotti",
+    "emptyCart": "Il tuo carrello è vuoto",
+    "remove": "Rimuovi",
+    "price": "Prezzo",
+    "finalPriceInCheckoutText": "Il totale incluse tasse e costi di spedizione sarà calcolato nella schermata successiva",
+    "subtotal": "Totale parziale",
+    "discount": "Sconti",
+    "giftCard": "Carta regalo",
+    "total": "Totale",
+    "gotToCheckoutCta": "Checkout",
+    "returnUrlLabel": "Continua ad acquistare",
+    "quantityNotAvailable": "La quantità selezionata non è disponibile",
+    "retryableErrorCode": "Problemi di connessione",
+    "retryableErrorDescription": "Prova a ricaricare la pagina",
+    "size": "Size",
+    "color": "Color"
+  },
+  "couponOrGift": {
+    "label": "Hai un codice da usare?",
+    "submit": "Applica",
+    "placeholder": {
+      "gift_card_or_coupon_code": "Codice gift card o coupon",
+      "gift_card_code": "Codice gift card",
+      "coupon_code": "Codice coupon"
     },
-    "couponOrGift": {
-        "label": "Hai un codice da usare?",
-        "submit": "Applica",
-        "placeholder": {
-            "gift_card_or_coupon_code": "Codice gift card o coupon",
-            "gift_card_code": "Codice gift card",
-            "coupon_code": "Codice coupon"
-        },
-         "error": {
-            "gift_card_or_coupon_code": "Non corrisponde ad alcuna carta regalo o coupon attivo",
-            "gift_card_code": "Non corrisponde ad una carta regalo attiva",
-            "coupon_code": "Non corrisponde ad un coupon attivo"
-        }
+    "error": {
+      "gift_card_or_coupon_code": "Non corrisponde ad alcuna carta regalo o coupon attivo",
+      "gift_card_code": "Non corrisponde ad una carta regalo attiva",
+      "coupon_code": "Non corrisponde ad un coupon attivo"
     }
+  }
 }

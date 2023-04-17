@@ -15,7 +15,9 @@
     "returnUrlLabel": "Weiter einkaufen",
     "quantityNotAvailable": "Die ausgewählte Menge ist nicht verfügbar",
     "retryableErrorCode": "Verbindungsprobleme",
-    "retryableErrorDescription": "Bitte lade die Seite einmal neu"
+    "retryableErrorDescription": "Bitte lade die Seite einmal neu",
+    "size": "Size",
+    "color": "Color"
   },
   "couponOrGift": {
     "label": "Rabattcode vorhanden?",

@@ -1,10 +1,10 @@
 import {
   LineItemImage,
-  LineItemName,
   LineItemAmount,
   LineItem,
   LineItemType,
   LineItemsEmpty,
+  LineItemField,
 } from "@commercelayer/react-components"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
@@ -39,26 +39,57 @@ export const Summary: FC<Props> = ({ listTypes }) => {
             </div>
             <div className="flex-1 flex flex-col min-h-[150px]">
               <div className="flex justify-between items-center gap-1">
-                <LineItemName className="box-border border-0 border-solid border-gray-200 text-sm  not-italic leading-5 text-[rgba(77,77,77,1)]" />
+                <LineItemField attribute="metadata" tagElement="div">
+                  {({ attributeValue }: any) => {
+                    return (
+                      <div className="flex-col">
+                        <div className="font-normal text-sm leading-5 text-gray-700">
+                          {attributeValue?.skuDisplayName}
+                        </div>
+                        <div className="pt-2">
+                          <div className="flex gap-1 text-sm">
+                            <div className="font-semibold text-xs leading-5 text-gray-700">
+                              {t("general.size")}:
+                            </div>
+                           <div className="font-normal text-xs leading-5 text-gray-400">
+                           {attributeValue?.frame_size}
+                           </div>
+                          </div>
+                        </div>
+                        <div className="pt-2">
+                          <div className="flex gap-1 text-sm">
+                            <div className="font-semibold text-xs leading-5 text-gray-700">
+                              {t("general.color")}:
+                            </div>
+                            <div className="font-normal text-xs leading-5 text-gray-400">
+                           {attributeValue?.color}
+                           </div>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  }}
+                </LineItemField>
+
                 <ButtonRemoveItem />
               </div>
 
               <LineItemOptions />
 
-              <div className="pt-2">
+              {/* <div className="pt-2">
                 <div className="flex gap-1 text-sm">
                   <div className="text-gray-400 font-semibold">
                     {t("general.price")}:
                   </div>
                   <LineItemAmount type="unit" />
                 </div>
-              </div>
+              </div> */}
 
               {/* <div className="flex justify-between items-center mt-auto">
                 {type === "gift_cards" ? <div /> : <QuantitySelector />}
                 <LineItemAmount className="font-normal text-sm text-right text-gray-700" />
               </div> */}
-              <div className="flex pt-2 items-center justify-end space-x-5 mt-auto" >
+              <div className="flex pt-2 items-center justify-end space-x-5 mt-auto">
                 <div>
                   {type === "gift_cards" ? <div /> : <QuantitySelector />}
                 </div>
