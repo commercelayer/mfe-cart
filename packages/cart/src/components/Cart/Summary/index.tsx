@@ -27,84 +27,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
   const { t } = useTranslation()
   const { settings } = useSettings()
 
-  const GetPowerLenseProperties = () => {
-    return (
-      <div className="pt-2">
-        <div className="flex items-center space-x-8">
-          <div>
-            <span className="font-normal text-xs leading-5 text-gray-400">
-              {"Right Eye (OD)"}
-            </span>
-          </div>
-          <div>
-            <div className="flex items-center space-x-2">
-              <div>
-                <span className="font-normal text-xs leading-5 text-gray-700">
-                  {"Power:"}
-                </span>
-                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                  {"-5.00"}
-                </span>
-              </div>
-              <div>
-                <span className="font-normal text-xs leading-5 text-gray-700">
-                  {"BC:"}
-                </span>
-                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                  {"8.7"}
-                </span>
-              </div>
-              <div>
-                <span className="font-normal text-xs leading-5 text-gray-700">
-                  {" "}
-                  {" DIAMETER"}
-                </span>
-                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                  {"14.0"}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center space-x-8">
-          <div>
-            <span className="font-normal text-xs leading-5 text-gray-400">
-              {"Left Eye (OD)"}
-            </span>
-          </div>
-          <div>
-            <div className="flex items-center space-x-2">
-              <div>
-                <span className="font-normal text-xs leading-5 text-gray-700">
-                  {"Power:"}
-                </span>
-                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                  {"-5.00"}
-                </span>
-              </div>
-              <div>
-                <span className="font-normal text-xs leading-5 text-gray-700">
-                  {"BC:"}
-                </span>
-                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                  {"8.7"}
-                </span>
-              </div>
-              <div>
-                <span className="font-normal text-xs leading-5 text-gray-700">
-                  {" "}
-                  {" DIAMETER"}
-                </span>
-                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                  {"14.0"}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+
 
   return (
     <>
@@ -141,7 +64,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                         <div className="font-normal text-sm leading-5 text-gray-700">
                           {attributeValue?.skuDisplayName}
                         </div>
-                        <div className="pt-2">
+                       { attributeValue?.frame_size && <div className="pt-2">
                           <div className="flex gap-1 text-sm">
                             <div className="font-semibold text-xs leading-5 text-gray-700">
                               {t("general.size")}:
@@ -150,8 +73,8 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                               {attributeValue?.frame_size}
                             </div>
                           </div>
-                        </div>
-                        <div className="pt-2">
+                        </div>}
+                        {attributeValue?.color && <div className="pt-2">
                           <div className="flex gap-1 text-sm">
                             <div className="font-semibold text-xs leading-5 text-gray-700">
                               {t("general.color")}:
@@ -160,7 +83,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                               {attributeValue?.color}
                             </div>
                           </div>
-                        </div>
+                        </div>}
                       </div>
                     )
                   }}
