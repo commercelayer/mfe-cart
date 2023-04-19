@@ -5,6 +5,7 @@ import {
   LineItemType,
   LineItemsEmpty,
   LineItemField,
+  LineItemsCount,
 } from "@commercelayer/react-components"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
@@ -26,15 +27,109 @@ export const Summary: FC<Props> = ({ listTypes }) => {
   const { t } = useTranslation()
   const { settings } = useSettings()
 
+  const GetPowerLenseProperties = () => {
+    return (
+      <div className="pt-2">
+        <div className="flex items-center space-x-8">
+          <div>
+            <span className="font-normal text-xs leading-5 text-gray-400">
+              {"Right Eye (OD)"}
+            </span>
+          </div>
+          <div>
+            <div className="flex items-center space-x-2">
+              <div>
+                <span className="font-normal text-xs leading-5 text-gray-700">
+                  {"Power:"}
+                </span>
+                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+                  {"-5.00"}
+                </span>
+              </div>
+              <div>
+                <span className="font-normal text-xs leading-5 text-gray-700">
+                  {"BC:"}
+                </span>
+                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+                  {"8.7"}
+                </span>
+              </div>
+              <div>
+                <span className="font-normal text-xs leading-5 text-gray-700">
+                  {" "}
+                  {" DIAMETER"}
+                </span>
+                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+                  {"14.0"}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center space-x-8">
+          <div>
+            <span className="font-normal text-xs leading-5 text-gray-400">
+              {"Left Eye (OD)"}
+            </span>
+          </div>
+          <div>
+            <div className="flex items-center space-x-2">
+              <div>
+                <span className="font-normal text-xs leading-5 text-gray-700">
+                  {"Power:"}
+                </span>
+                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+                  {"-5.00"}
+                </span>
+              </div>
+              <div>
+                <span className="font-normal text-xs leading-5 text-gray-700">
+                  {"BC:"}
+                </span>
+                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+                  {"8.7"}
+                </span>
+              </div>
+              <div>
+                <span className="font-normal text-xs leading-5 text-gray-700">
+                  {" "}
+                  {" DIAMETER"}
+                </span>
+                <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+                  {"14.0"}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <>
+      <div className="text-lg pb-6 leading-6 text-gray-700">
+        <LineItemsCount>
+          {({ quantity }) =>
+            quantity ? (
+              <span data-test-id="items-count">
+                {" "}
+                Shopping Cart( {quantity} )
+              </span>
+            ) : (
+              <div />
+            )
+          }
+        </LineItemsCount>
+      </div>
+
       {listTypes.map((type) => (
         <LineItem key={type} type={type}>
           <div
             className="flex gap-5 pb-8 mb-8 border-b border-b-gray-100"
             data-test-id={`line-item-${type}`}
           >
-            <div className="card-image-container">
+            <div className="w-1/4 card-image-container">
               <LineItemImage className="w-1/2 self-start md:self-center object-contain" />
             </div>
             <div className="flex-1 flex flex-col min-h-[150px]">
@@ -51,9 +146,9 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                             <div className="font-semibold text-xs leading-5 text-gray-700">
                               {t("general.size")}:
                             </div>
-                           <div className="font-normal text-xs leading-5 text-gray-400">
-                           {attributeValue?.frame_size}
-                           </div>
+                            <div className="font-normal text-xs leading-5 text-gray-400">
+                              {attributeValue?.frame_size}
+                            </div>
                           </div>
                         </div>
                         <div className="pt-2">
@@ -62,8 +157,8 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                               {t("general.color")}:
                             </div>
                             <div className="font-normal text-xs leading-5 text-gray-400">
-                           {attributeValue?.color}
-                           </div>
+                              {attributeValue?.color}
+                            </div>
                           </div>
                         </div>
                       </div>

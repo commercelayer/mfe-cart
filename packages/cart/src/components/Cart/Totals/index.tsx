@@ -3,15 +3,11 @@ import {
   GiftCardAmount,
   SubTotalAmount,
   TotalAmount,
+  LineItemsCount,
 } from "@commercelayer/react-components"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
-
 import { ButtonCheckout } from "./ButtonCheckout"
-
-import { FinalPriceDisclaimer } from "#components/atoms/FinalPriceDisclaimer"
-import { SubTotal } from "#components/atoms/SubTotal"
-import { Total } from "#components/atoms/Total"
 import { CouponOrGiftCard } from "#components/Cart/CouponOrGiftCard"
 
 export const Totals: FC = () => {
@@ -30,10 +26,19 @@ export const Totals: FC = () => {
         <span className="font-normal text-sm leading-5 text-gray-700">
           {"Price Details"}
         </span>
-        <span className="pl-1">
+        <span className="pl-1 font-normal text-xs leading-5 text-gray-400">
           {"("}
-          <span className="font-normal text-sm leading-5 text-gray-700">
-            {"3"} <span>{"items"}</span>
+          <span>
+            <LineItemsCount>
+              {({ quantity }) =>
+                quantity ? (
+                  <span data-test-id="items-count">{quantity}</span>
+                ) : (
+                  <div />
+                )
+              }
+            </LineItemsCount>{" "}
+            <span>{"items"}</span>
           </span>
           {")"}
         </span>
@@ -92,7 +97,7 @@ export const Totals: FC = () => {
                   </div>
                 </div>
               ) : (
-                <div>{"0.00"} </div>
+                <div>{"$0.00"} </div>
               )
             }
           </DiscountAmount>
@@ -114,10 +119,10 @@ export const Totals: FC = () => {
 
       <ButtonCheckout />
       <div className="text-center pt-2 pb-5">
-          <span className="font-normal text-xs leading-5 text-center text-gray-600">
-            {"if applicable, shipping costs will be calculated at checkout"}
-          </span>
-        </div>
+        <span className="font-normal text-xs leading-5 text-center text-gray-600">
+          {"if applicable, shipping costs will be calculated at checkout"}
+        </span>
+      </div>
     </div>
   )
 }

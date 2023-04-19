@@ -40,20 +40,7 @@ const Cart: FC = () => {
           <PageLayout
             top={
               <PageHeader>
-                <div className="text-lg leading-6 text-gray-700">
-                  <LineItemsCount>
-                    {({ quantity }) =>
-                      quantity ? (
-                        <span data-test-id="items-count">
-                          {" "}
-                          Shopping Cart( {quantity} )
-                        </span>
-                      ) : (
-                        <div />
-                      )
-                    }
-                  </LineItemsCount>
-                </div>
+
               </PageHeader>
             }
             main={<Summary listTypes={["bundles", "skus", "gift_cards"]} />}

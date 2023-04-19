@@ -32,7 +32,7 @@ export const PageHeader: FC<Props> = ({ isLoading, children }) => {
       <div className="py-8 border-b border-b-gray-200">
         <CompanyLogo />
       </div>
-      <div className="flex justify-between items-center py-11 border-b border-b-gray-200">
+      <div className="flex justify-between items-center py-11">
         {isLoading ? (
           <>
             <SkeletonItem className="w-1/12 h-[36px]" />
