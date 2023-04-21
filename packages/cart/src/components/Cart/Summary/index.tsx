@@ -56,7 +56,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
               <LineItemImage className="w-1/2 self-start md:self-center object-contain" />
             </div>
             <div className="flex-1 flex flex-col min-h-[150px]">
-              <div className="flex justify-between items-center gap-1">
+              <div className="flex justify-between items-start gap-1">
                 <LineItemField attribute="metadata" tagElement="div">
                   {({ attributeValue }: any) => {
                     return (
@@ -88,8 +88,8 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                     )
                   }}
                 </LineItemField>
-
                 <ButtonRemoveItem />
+
               </div>
 
               <LineItemOptions />
