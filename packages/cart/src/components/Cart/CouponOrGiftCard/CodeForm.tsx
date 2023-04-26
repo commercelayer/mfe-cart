@@ -20,7 +20,7 @@ export const CodeForm: FC = () => {
         }}
       >
         <div className="flex w-full items-center justify-between jus pt-1 pb-4">
-          <div className="flex items-center space-x-5">
+          <div className="flex items-center space-x-2">
           <div>
             <svg
               width="24"
@@ -61,7 +61,7 @@ export const CodeForm: FC = () => {
           <GiftCardOrCouponInput
             id="code-input"
             className={cn(
-              "font-normal leading-3 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+              "leading-3 text-sm font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
               {
                 "-error ": couponError,
               }

@@ -16,14 +16,16 @@ export const Totals: FC = () => {
   return (
     <div>
       <div className="pb-4">
-        <span className="text-xxs leading-5 text-gray-700`">{"Coupons"}</span>
+        <span className="text-xs font-semibold leading-5 text-gray-700`">
+          {"Coupons"}
+        </span>
       </div>
       <div>
         <CouponOrGiftCard />
       </div>
 
       <div className="pb-4">
-        <span className="font-normal text-sm leading-5 text-gray-700">
+        <span className="font-semibold text-sm leading-5 text-gray-700">
           {"Price Details"}
         </span>
         <span className="pl-1 font-normal text-xs leading-5 text-gray-400">
@@ -49,13 +51,13 @@ export const Totals: FC = () => {
           Items total
         </div>
         <div className="font-normal text-sm leading-7 text-gray-500">
-          <TotalAmount>
+          <SubTotalAmount>
             {({ priceCents, price }) => (
-              <span data-test-id="total-amount" data-amount={priceCents}>
+              <span data-amount={priceCents} data-test-id="subtotal-amount">
                 {price}
               </span>
             )}
-          </TotalAmount>
+          </SubTotalAmount>
         </div>
       </div>
       <div className="pb-2">
@@ -87,7 +89,6 @@ export const Totals: FC = () => {
             {({ priceCents, price }) =>
               priceCents ? (
                 <div className="text-black mb-2 flex justify-between">
-                  <div className="text-gray-500">{t("general.discount")}</div>
                   <div
                     className="font-semibold"
                     data-test-id="discount-amount"
@@ -105,15 +106,16 @@ export const Totals: FC = () => {
       </div>
       <div className="mt-2 mb-4 divider-line-cart"></div>
       <div className="pb-4 pt-4 flex items-center justify-between">
-        <div className="font-normal text-sm leading-5">Subtotal</div>
+        <div className="font-semibold text-sm leading-5">Subtotal</div>
+
         <div className="font-normal text-sm leading-5">
-          <SubTotalAmount>
+          <TotalAmount>
             {({ priceCents, price }) => (
-              <span data-amount={priceCents} data-test-id="subtotal-amount">
+              <span data-test-id="total-amount" data-amount={priceCents}>
                 {price}
               </span>
             )}
-          </SubTotalAmount>
+          </TotalAmount>
         </div>
       </div>
 

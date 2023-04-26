@@ -28,9 +28,9 @@
       "coupon_code": "Coupon code"
     },
     "error": {
-      "gift_card_or_coupon_code": "Please enter a valid gift card or coupon",
-      "gift_card_code": "Please enter a valid gift card",
-      "coupon_code": "Please enter a valid coupon"
+      "gift_card_or_coupon_code": "Invalid Voucher/Promo Code!",
+      "gift_card_code": "Invalid Voucher/Promo Code!",
+      "coupon_code": "Invalid Voucher/Promo Code!"
     }
   }
 }

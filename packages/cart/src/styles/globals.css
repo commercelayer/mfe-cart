@@ -57,3 +57,12 @@
   background: #e2242d;
   border-radius: 4px;
 }
+.cart-brandname {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  color: #4d4d4d;
+  opacity: 0.5;
+  text-transform: uppercase;
+}

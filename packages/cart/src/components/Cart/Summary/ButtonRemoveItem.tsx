@@ -39,7 +39,7 @@ export const ButtonRemoveItem: FC = () => {
                           {/*body*/}
                           <div className="relative p-2 ml-4 mr-4 flex-auto">
                             <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                              Are you sure you want to delete?.
+                              Are you sure you want to delete?
                             </p>
                           </div>
                           {/*footer*/}

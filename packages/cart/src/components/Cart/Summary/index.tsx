@@ -22,7 +22,6 @@ type Props = {
 }
 
 export const Summary: FC<Props> = ({ listTypes }) => {
-
   const { t } = useTranslation()
   const { settings } = useSettings()
 
@@ -32,7 +31,10 @@ export const Summary: FC<Props> = ({ listTypes }) => {
 
   const ContinueShopping = () => {
     return (
-      <div onClick={goContinueShopping} className="flex items-center space-x-1 cursor-pointer">
+      <div
+        onClick={goContinueShopping}
+        className="flex items-center space-x-1 cursor-pointer"
+      >
         <div>
           <svg
             width="16"
@@ -51,8 +53,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
             />
           </svg>
         </div>
-        <div
-          className="font-normal text-sm leading-5 text-gray-400 cursor-pointer">
+        <div className="font-normal text-sm leading-5 text-gray-400 cursor-pointer hover:text-gray-700">
           {"Continue shopping"}
         </div>
       </div>
@@ -91,7 +92,13 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                   {({ attributeValue }: any) => {
                     return (
                       <div className="flex-col">
-                        <div className="font-normal text-sm leading-5 text-gray-700">
+                        {attributeValue?.brandName && (
+                          <div className="cart-brandname">
+                            {attributeValue?.brandName}
+                          </div>
+                        )}
+
+                        <div className="font-semibold text-sm leading-5 text-gray-700 opacity-80">
                           {attributeValue?.skuDisplayName}
                         </div>
                         {attributeValue?.frame_size && (
@@ -152,8 +159,10 @@ export const Summary: FC<Props> = ({ listTypes }) => {
           </div>
         </LineItem>
       ))}
-      <div>
-        <ContinueShopping />
+      <div className="w-40">
+        <LineItemsCount>
+          {({ quantity }) => (quantity ? <ContinueShopping /> : <div />)}
+        </LineItemsCount>
       </div>
 
       {/* Empty cart */}
