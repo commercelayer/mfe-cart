@@ -1,0 +1,22 @@
+@media (min-width: 768px) {
+  .cart-summary-mobile {
+    display: none;
+  }
+  .cart-summary-desktop {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-summary-mobile {
+    display: block;
+  }
+  .cart-summary-desktop {
+    display: none;
+  }
+  .card-image-container {
+    width: 77px;
+    height: 66px;
+    padding-top: 20px;
+  }
+}
