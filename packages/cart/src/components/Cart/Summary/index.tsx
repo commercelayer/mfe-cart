@@ -10,7 +10,11 @@ import {
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
 import { ButtonRemoveItem } from "./ButtonRemoveItem"
-import { LineItemOptions, LineItemOptionsAtributes , LineItemOptionsRespone} from "./LineItemOptions"
+import {
+  LineItemOptions,
+  LineItemOptionsAtributes,
+  LineItemOptionsRespone,
+} from "./LineItemOptions"
 import { QuantitySelector } from "./QuantitySelector"
 import { EmptyCartMessage } from "#components/atoms/EmptyCartMessage"
 import { useSettings } from "#components/SettingsProvider"
@@ -182,7 +186,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
           <LineItem key={type} type={type}>
             <div className="gap-5 pb-8 mb-8 border-b border-b-gray-100 space-y-5">
               <div
-                className="flex space-x-8"
+                className="flex space-x-8 w-full"
                 data-test-id={`line-item-${type}`}
               >
                 <div className="w-1/5 card-image-container">
@@ -244,18 +248,28 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                 </div>
                 <div className="w-1/5">
                   <div className="flex flex-col space-y-6">
-                    <div style={{ marginLeft: "144px" }}>
+                    <div className="flex justify-end">
                       <ButtonRemoveItem />
                     </div>
                     <div>
                       <div className="flex pt-2 items-center justify-end space-x-5 mt-auto">
                         <div>
-                          {type === "gift_cards" ? (
+                          {/* {type === "gift_cards" ? (
                             <div />
                           ) : (
                             <QuantitySelector />
-                          )}
+                          )} */}
+                          <LineItemField attribute="metadata" tagElement="div">
+                            {({ attributeValue }: any) => {
+                              return (
+                                <>
+                                  <QuantitySelector />
+                                </>
+                              )
+                            }}
+                          </LineItemField>
                         </div>
+
                         <div>
                           <LineItemAmount className="font-normal text-sm text-right text-gray-700" />
                         </div>

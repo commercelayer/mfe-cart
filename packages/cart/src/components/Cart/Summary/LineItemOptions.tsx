@@ -74,7 +74,7 @@ export const LineItemOptions: FC = () => {
             <div className="flex items-start">
               <div className="w-28">
                 <span className="font-normal text-xxs leading-5 text-gray-400">
-                  {"Left Eye (OD)"}
+                  {"Left Eye (OS)"}
                 </span>
               </div>
 
@@ -125,7 +125,7 @@ export const LineItemOptions: FC = () => {
               <div className="flex items-start">
                 <div className="w-28">
                   <span className="font-normal text-xxs leading-5 text-gray-400">
-                    {"Left Eye (OD)"}
+                    {"Left Eye (OS)"}
                   </span>
                 </div>
 
@@ -177,7 +177,7 @@ export const LineItemOptions: FC = () => {
               <div className="flex items-start">
                 <div className="w-28">
                   <span className="font-normal text-xxs leading-5 text-gray-400">
-                    {"Left Eye (OD)"}
+                    {"Left Eye (OS)"}
                   </span>
                 </div>
 
@@ -280,7 +280,7 @@ export const LineItemOptionsRespone: FC = () => {
                   style={{ fontSize: "10px" }}
                   className="font-normal leading-5 text-gray-400"
                 >
-                  {"Left Eye (OD)"}
+                  {"Left Eye (OS)"}
                 </span>
               </div>
               <div style={{ width: "70%" }}>
