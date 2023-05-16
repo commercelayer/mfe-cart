@@ -26,6 +26,18 @@ export const Summary: FC<Props> = ({ listTypes }) => {
   const { t } = useTranslation()
   const { settings } = useSettings()
 
+  const hasReturnUrl =
+    settings.isValid &&
+    settings.returnUrl &&
+    settings.returnUrl !== window.parent.location.href // no need to show return url is the same as current url
+
+  // allow to send close message to parent window when embedded in same page of returnUrl
+  const isEmbeddedMiniCart =
+    isEmbedded() &&
+    settings.isValid &&
+    settings.returnUrl === window.parent.location.href &&
+    window.parent.location.href !== window.location.href
+
   return (
     <>
       {listTypes.map((type) => (
@@ -81,18 +93,27 @@ export const Summary: FC<Props> = ({ listTypes }) => {
       </LineItemsEmpty>
 
       {/* Return Url */}
-      {settings.isValid && settings.returnUrl ? (
-        <div className="pt-2 pb-8">
+      <div className="pt-2 pb-8">
+        {hasReturnUrl ? (
           <a
             data-test-id="return-url"
             href={settings.returnUrl}
             className="link-base text-xs font-bold"
-            target={isEmbedded() ? "_top" : undefined}
+            target={isEmbedded() ? "_top" : undefined} // if embedded, open in parent window
           >
             &lt; {t("general.returnUrlLabel")}
           </a>
-        </div>
-      ) : null}
+        ) : isEmbeddedMiniCart ? (
+          <button
+            className="link-base text-xs font-bold"
+            onClick={() => {
+              window.parentIFrame?.sendMessage({ type: "close" }, "*")
+            }}
+          >
+            &lt; {t("general.returnUrlLabel")}
+          </button>
+        ) : null}
+      </div>
     </>
   )
 }
