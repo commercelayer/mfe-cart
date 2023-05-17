@@ -33,6 +33,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
     window.location.href = "https://odoo.ezcontacts.com/"
   }
 
+
   const ContinueShopping = () => {
     return (
       <div
@@ -289,6 +290,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
             {({ quantity }) => (quantity ? <ContinueShopping /> : <div />)}
           </LineItemsCount>
         </div>
+
 
         {/* Empty cart */}
         <LineItemsEmpty>

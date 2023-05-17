@@ -6,8 +6,9 @@ import { ButtonCheckoutDisabled } from "#components/atoms/ButtonCheckoutDisabled
 import { isEmbedded } from "#utils/isEmbedded"
 import { useSettings } from "#components/SettingsProvider"
 import { navigate } from "wouter/use-location"
-
+import { getLogedinStatus } from "#utils/getLogedinStatus"
 export const ButtonCheckout: FC = () => {
+  const islogged = getLogedinStatus()
   const { settings } = useSettings()
   const { t } = useTranslation()
   const label = t("general.gotToCheckoutCta")
@@ -17,6 +18,25 @@ export const ButtonCheckout: FC = () => {
   }
 
   const onProceedCheckout = async () => {
+    if(Number(islogged)===1)
+    {
+      if (settings.orderId) {
+        let paymentToken = await getPaymentToken(settings.orderId)
+        window.open(
+          `https://ezcontacts-stage-checkout.netlify.app/${settings.orderId}?accessToken=${settings.accessToken}&paymentToken=${paymentToken}`,
+          "_self"
+        )
+    }
+
+    }
+    else{
+      window.location.href = "https://odoo.ezcontacts.com/account/sign-in"
+    }
+  }
+
+
+  const onProceedCheckoutAsGuest = async () => {
+
     if (settings.orderId) {
       let paymentToken = await getPaymentToken(settings.orderId)
       window.open(
@@ -64,12 +84,34 @@ export const ButtonCheckout: FC = () => {
       <LineItemsCount>
         {({ quantity }) =>
           quantity ? (
-            <div
-              className="button-checkout text-center text-white py-2 px-4 rounded"
-              onClick={onProceedCheckout}
-            >
-              {"PROCEED TO CHECKOUT"}
-            </div>
+            <>
+              {Number(islogged) === 0 ? (
+                <div className="flex flex-col space-y-3">
+                  <div
+                    className="button-checkout cursor-pointer text-center text-white py-2 px-4 rounded"
+                    onClick={onProceedCheckout}
+                  >
+                    {"PROCEED TO CHECKOUT"}
+                  </div>
+
+                  <div
+                    className="checkout-as-guest text-center cursor-pointer not-italic font-semibold text-xs leading-5 py-2 px-4 uppercase text-gray-700"
+                    onClick={onProceedCheckoutAsGuest}
+                  >
+                    {"CHECKOUT AS GUEST"}
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div
+                    className="button-checkout cursor-pointer text-center text-white py-2 px-4 rounded"
+                    onClick={onProceedCheckout}
+                  >
+                    {"PROCEED TO CHECKOUT"}
+                  </div>
+                </div>
+              )}
+            </>
           ) : (
             <ButtonCheckoutDisabled />
           )
