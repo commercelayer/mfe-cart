@@ -95,6 +95,7 @@ export const LineItemOptions: FC = () => {
             </div>
           </div>
         )
+
       case "Contact Lens Prescription":
         return (
           <div className="pt-2 space-y-2">

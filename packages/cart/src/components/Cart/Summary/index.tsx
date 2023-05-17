@@ -189,8 +189,8 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                 className="flex space-x-8 w-full"
                 data-test-id={`line-item-${type}`}
               >
-                <div className="w-1/5 card-image-container">
-                  <LineItemImage className="w-1/2 self-start md:self-center object-contain" />
+                <div className="w-3/6 card-image-container">
+                  <LineItemImage className="w-3/4 self-start md:self-center object-contain" />
                 </div>
                 <div className="w-4/5">
                   <div className="flex-1 flex flex-col">
