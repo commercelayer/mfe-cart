@@ -1,11 +1,17 @@
+import { Order } from "@commercelayer/sdk"
 import { IFrameObject as IframeResizerObject } from "iframe-resizer"
 
 type IframeEvent = "update" | "close" | "blur"
 type IframeReceivedEvent = "update"
 
-type IframeMessagePayload = {
-  type: IframeEvent
-}
+type IframeMessagePayload =
+  | {
+      type: Exclude<IframeEvent, "update">
+    }
+  | {
+      type: "update"
+      payload?: Order
+    }
 
 type IFrameObject = Omit<IframeResizerObject, "sendMessage"> & {
   sendMessage: (message: IframeMessagePayload, targetOrigin: string) => void

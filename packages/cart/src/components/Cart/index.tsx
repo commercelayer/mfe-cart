@@ -33,9 +33,12 @@ const Cart: FC = () => {
         attributes={{
           cart_url: settings.cartUrl || window.location.href,
         }}
-        fetchOrder={() => {
+        fetchOrder={(order) => {
           // send update event to parent iframe if iframe-resizer is enabled
-          window.parentIFrame?.sendMessage({ type: "update" }, "*")
+          window.parentIFrame?.sendMessage(
+            { type: "update", payload: order },
+            "*"
+          )
         }}
       >
         <EmbeddedCapabilities.OrderRefresher />
