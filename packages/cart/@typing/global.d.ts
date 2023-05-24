@@ -6,11 +6,14 @@ type IframeReceivedEvent = "update"
 
 type IframeMessagePayload =
   | {
-      type: Exclude<IframeEvent, "update">
-    }
-  | {
       type: "update"
       payload?: Order
+    }
+  | {
+      type: "close"
+    }
+  | {
+      type: "blur"
     }
 
 type IFrameObject = Omit<IframeResizerObject, "sendMessage"> & {
