@@ -30,7 +30,7 @@ export const ButtonCheckout: FC = () => {
 
     }
     else{
-      window.location.href = "https://odoo.ezcontacts.com/account/sign-in"
+      window.location.href = `https://odoo.ezcontacts.com/account/sign-in?cart-login=${islogged}`
     }
   }
 

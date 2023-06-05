@@ -33,7 +33,6 @@ export const Summary: FC<Props> = ({ listTypes }) => {
     window.location.href = "https://odoo.ezcontacts.com/"
   }
 
-
   const ContinueShopping = () => {
     return (
       <div
@@ -70,7 +69,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
       <LineItemsCount>
         {({ quantity }) =>
           quantity ? (
-            <span data-test-id="items-count"> Shopping Cart( {quantity} )</span>
+            <span data-test-id="items-count"> Shopping Cart ({quantity})</span>
           ) : (
             <div />
           )
@@ -196,11 +195,11 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                 <div className="w-4/5">
                   <div className="flex-1 flex flex-col">
                     <div className="flex justify-between items-start gap-1">
-                      <div className="flex flex-col">
-                        <div>
-                          <LineItemField attribute="metadata" tagElement="div">
-                            {({ attributeValue }: any) => {
-                              return (
+                      <LineItemField attribute="metadata" tagElement="div">
+                        {({ attributeValue }: any) => {
+                          return (
+                            <div className="flex flex-col">
+                              <div>
                                 <div className="flex-col">
                                   {attributeValue?.brandName && (
                                     <div className="cart-brandname">
@@ -236,14 +235,14 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                                     </div>
                                   )}
                                 </div>
-                              )
-                            }}
-                          </LineItemField>
-                        </div>
-                        <div>
-                          <LineItemOptions />
-                        </div>
-                      </div>
+                              </div>
+                              <div>
+                                <LineItemOptions LineItem={attributeValue} />
+                              </div>
+                            </div>
+                          )
+                        }}
+                      </LineItemField>
                     </div>
                   </div>
                 </div>
@@ -290,7 +289,6 @@ export const Summary: FC<Props> = ({ listTypes }) => {
             {({ quantity }) => (quantity ? <ContinueShopping /> : <div />)}
           </LineItemsCount>
         </div>
-
 
         {/* Empty cart */}
         <LineItemsEmpty>

@@ -42,10 +42,11 @@ export const LineItemOptionsAtributes: FC = () => {
   )
 }
 
-export const LineItemOptions: FC = () => {
+export const LineItemOptions = ({ LineItem }: any) => {
   const LineItemOptionsAtributes = ({ lineItemOption }: any) => {
     const { name, metadata } = lineItemOption
     const { Left, Right } = metadata
+
     switch (name) {
       case "Progressive / Bifocal":
         return (
