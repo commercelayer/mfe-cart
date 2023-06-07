@@ -47,161 +47,213 @@ export const LineItemOptions = ({ LineItem }: any) => {
     const { name, metadata } = lineItemOption
     const { Left, Right } = metadata
 
-    switch (name) {
-      case "Progressive / Bifocal":
-        return (
-          <div className="pt-2 space-y-2">
-            <div className="flex items-start">
-              <div className="w-28">
-                <span className="font-normal text-xxs leading-5 text-gray-400">
-                  {"Right Eye (OD)"}
-                </span>
-              </div>
-              <div className="flex justify-start  w-9/12 flex-wrap">
-                {Object.keys(Right).map((oneKey, i) => {
-                  return (
-                    <div key={i} className="pl-4">
-                      <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
-                        {oneKey}:{" "}
-                      </span>
-                      <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                        {Right[oneKey]}
-                      </span>
-                    </div>
-                  )
-                })}
-              </div>
+    return (
+      <div className="pt-2 space-y-2">
+        {Right && (
+          <div className="flex items-start">
+            <div className="w-28">
+              <span className="font-normal text-xxs leading-5 text-gray-400">
+                {"Right Eye (OD)"}
+              </span>
             </div>
-            <div className="flex items-start">
-              <div className="w-28">
-                <span className="font-normal text-xxs leading-5 text-gray-400">
-                  {"Left Eye (OS)"}
-                </span>
-              </div>
-
-              <div className="flex w-9/12 flex-wrap">
-                {Object.keys(Left).map((oneKey, i) => {
-                  return (
-                    <div key={i} className="pl-4">
-                      <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
-                        {oneKey}:{" "}
-                      </span>
-                      <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                        {Left[oneKey]}
-                      </span>
-                    </div>
-                  )
-                })}
-              </div>
+            <div className="flex justify-start  w-9/12 flex-wrap">
+              {Object.keys(Right).map((oneKey, i) => {
+                return (
+                  <div key={i} className="pl-4">
+                    <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
+                      {oneKey}:{" "}
+                    </span>
+                    <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+                      {Right[oneKey]}
+                    </span>
+                  </div>
+                )
+              })}
             </div>
           </div>
-        )
+        )}
+        {Left && (
+          <div className="flex items-start">
+            <div className="w-28">
+              <span className="font-normal text-xxs leading-5 text-gray-400">
+                {"Left Eye (OS)"}
+              </span>
+            </div>
 
-      case "Contact Lens Prescription":
-        return (
-          <div className="pt-2 space-y-2">
-            {Right && (
-              <div className="flex items-start">
-                <div className="w-28">
-                  <span className="font-normal text-xxs leading-5 text-gray-400">
-                    {"Right Eye (OD)"}
-                  </span>
-                </div>
-                <div className="flex justify-start  w-9/12 flex-wrap">
-                  {Object.keys(Right).map((oneKey, i) => {
-                    return (
-                      <div key={i} className="pl-4">
-                        <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
-                          {oneKey}:{" "}
-                        </span>
-                        <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                          {Right[oneKey]}
-                        </span>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
-            {Left && (
-              <div className="flex items-start">
-                <div className="w-28">
-                  <span className="font-normal text-xxs leading-5 text-gray-400">
-                    {"Left Eye (OS)"}
-                  </span>
-                </div>
-
-                <div className="flex w-9/12 flex-wrap">
-                  {Object.keys(Left).map((oneKey, i) => {
-                    return (
-                      <div key={i} className="pl-4">
-                        <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
-                          {oneKey}:{" "}
-                        </span>
-                        <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                          {Left[oneKey]}
-                        </span>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
+            <div className="flex w-9/12 flex-wrap">
+              {Object.keys(Left).map((oneKey, i) => {
+                return (
+                  <div key={i} className="pl-4">
+                    <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
+                      {oneKey}:{" "}
+                    </span>
+                    <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+                      {Left[oneKey]}
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
           </div>
-        )
-      default:
-        return (
-          <div className="pt-2 space-y-2">
-            {Right && (
-              <div className="flex items-start">
-                <div className="w-28">
-                  <span className="font-normal text-xxs leading-5 text-gray-400">
-                    {"Right Eye (OD)"}
-                  </span>
-                </div>
-                <div className="flex justify-start  w-9/12 flex-wrap">
-                  {Object.keys(Right).map((oneKey, i) => {
-                    return (
-                      <div key={i} className="pl-4">
-                        <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
-                          {oneKey}:{" "}
-                        </span>
-                        <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                          {Right[oneKey]}
-                        </span>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
-            {Left && (
-              <div className="flex items-start">
-                <div className="w-28">
-                  <span className="font-normal text-xxs leading-5 text-gray-400">
-                    {"Left Eye (OS)"}
-                  </span>
-                </div>
+        )}
+      </div>
+    )
 
-                <div className="flex w-9/12 flex-wrap">
-                  {Object.keys(Left).map((oneKey, i) => {
-                    return (
-                      <div key={i} className="pl-4">
-                        <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
-                          {oneKey}:{" "}
-                        </span>
-                        <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
-                          {Left[oneKey]}
-                        </span>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
-          </div>
-        )
-    }
+    // switch (name) {
+    //   case "Progressive / Bifocal":
+    //     return (
+    //       <div className="pt-2 space-y-2">
+    //         <div className="flex items-start">
+    //           <div className="w-28">
+    //             <span className="font-normal text-xxs leading-5 text-gray-400">
+    //               {"Right Eye (OD)"}
+    //             </span>
+    //           </div>
+    //           <div className="flex justify-start  w-9/12 flex-wrap">
+    //             {Object.keys(Right).map((oneKey, i) => {
+    //               return (
+    //                 <div key={i} className="pl-4">
+    //                   <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
+    //                     {oneKey}:{" "}
+    //                   </span>
+    //                   <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+    //                     {Right[oneKey]}
+    //                   </span>
+    //                 </div>
+    //               )
+    //             })}
+    //           </div>
+    //         </div>
+    //         <div className="flex items-start">
+    //           <div className="w-28">
+    //             <span className="font-normal text-xxs leading-5 text-gray-400">
+    //               {"Left Eye (OS)"}
+    //             </span>
+    //           </div>
+
+    //           <div className="flex w-9/12 flex-wrap">
+    //             {Object.keys(Left).map((oneKey, i) => {
+    //               return (
+    //                 <div key={i} className="pl-4">
+    //                   <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
+    //                     {oneKey}:{" "}
+    //                   </span>
+    //                   <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+    //                     {Left[oneKey]}
+    //                   </span>
+    //                 </div>
+    //               )
+    //             })}
+    //           </div>
+    //         </div>
+    //       </div>
+    //     )
+
+    //   case "Contact Lens Prescription":
+    //     return (
+    //       <div className="pt-2 space-y-2">
+    //         {Right && (
+    //           <div className="flex items-start">
+    //             <div className="w-28">
+    //               <span className="font-normal text-xxs leading-5 text-gray-400">
+    //                 {"Right Eye (OD)"}
+    //               </span>
+    //             </div>
+    //             <div className="flex justify-start  w-9/12 flex-wrap">
+    //               {Object.keys(Right).map((oneKey, i) => {
+    //                 return (
+    //                   <div key={i} className="pl-4">
+    //                     <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
+    //                       {oneKey}:{" "}
+    //                     </span>
+    //                     <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+    //                       {Right[oneKey]}
+    //                     </span>
+    //                   </div>
+    //                 )
+    //               })}
+    //             </div>
+    //           </div>
+    //         )}
+    //         {Left && (
+    //           <div className="flex items-start">
+    //             <div className="w-28">
+    //               <span className="font-normal text-xxs leading-5 text-gray-400">
+    //                 {"Left Eye (OS)"}
+    //               </span>
+    //             </div>
+
+    //             <div className="flex w-9/12 flex-wrap">
+    //               {Object.keys(Left).map((oneKey, i) => {
+    //                 return (
+    //                   <div key={i} className="pl-4">
+    //                     <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
+    //                       {oneKey}:{" "}
+    //                     </span>
+    //                     <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+    //                       {Left[oneKey]}
+    //                     </span>
+    //                   </div>
+    //                 )
+    //               })}
+    //             </div>
+    //           </div>
+    //         )}
+    //       </div>
+    //     )
+    //   default:
+    //     return (
+    //       <div className="pt-2 space-y-2">
+    //         {Right && (
+    //           <div className="flex items-start">
+    //             <div className="w-28">
+    //               <span className="font-normal text-xxs leading-5 text-gray-400">
+    //                 {"Right Eye (OD)"}
+    //               </span>
+    //             </div>
+    //             <div className="flex justify-start  w-9/12 flex-wrap">
+    //               {Object.keys(Right).map((oneKey, i) => {
+    //                 return (
+    //                   <div key={i} className="pl-4">
+    //                     <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
+    //                       {oneKey}:{" "}
+    //                     </span>
+    //                     <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+    //                       {Right[oneKey]}
+    //                     </span>
+    //                   </div>
+    //                 )
+    //               })}
+    //             </div>
+    //           </div>
+    //         )}
+    //         {Left && (
+    //           <div className="flex items-start">
+    //             <div className="w-28">
+    //               <span className="font-normal text-xxs leading-5 text-gray-400">
+    //                 {"Left Eye (OS)"}
+    //               </span>
+    //             </div>
+
+    //             <div className="flex w-9/12 flex-wrap">
+    //               {Object.keys(Left).map((oneKey, i) => {
+    //                 return (
+    //                   <div key={i} className="pl-4">
+    //                     <span className="font-semibold uppercase text-xxs leading-5 text-gray-700">
+    //                       {oneKey}:{" "}
+    //                     </span>
+    //                     <span className="pl-2 font-normal text-xs leading-5 text-gray-400">
+    //                       {Left[oneKey]}
+    //                     </span>
+    //                   </div>
+    //                 )
+    //               })}
+    //             </div>
+    //           </div>
+    //         )}
+    //       </div>
+    //     )
+    // }
   }
 
   return (

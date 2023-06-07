@@ -18,25 +18,20 @@ export const ButtonCheckout: FC = () => {
   }
 
   const onProceedCheckout = async () => {
-    if(Number(islogged)===1)
-    {
+    if (Number(islogged) === 1) {
       if (settings.orderId) {
         let paymentToken = await getPaymentToken(settings.orderId)
         window.open(
           `https://ezcontacts-stage-checkout.netlify.app/${settings.orderId}?accessToken=${settings.accessToken}&paymentToken=${paymentToken}`,
           "_self"
         )
-    }
-
-    }
-    else{
-      window.location.href = `https://odoo.ezcontacts.com/account/sign-in?cart-login=${islogged}`
+      }
+    } else {
+      window.location.href = `https://odoo.ezcontacts.com/account/sign-in?cart-login=1`
     }
   }
 
-
   const onProceedCheckoutAsGuest = async () => {
-
     if (settings.orderId) {
       let paymentToken = await getPaymentToken(settings.orderId)
       window.open(
