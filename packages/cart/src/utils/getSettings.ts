@@ -31,7 +31,7 @@ const makeInvalidSettings = ({
 }): InvalidSettings => ({
   ...defaultSettings,
   retryable: !!retryable,
-  logoUrl: organization?.logo_url,
+  logoUrl: organization?.logo_url ?? undefined,
   companyName: organization?.name || defaultSettings.companyName,
   primaryColor: organization?.primary_color || defaultSettings.primaryColor,
   faviconUrl: organization?.favicon_url || defaultSettings.faviconUrl,
@@ -125,14 +125,15 @@ export const getSettings = async ({
     endpoint: `https://${slug}.${domain}`,
     orderId: order.id,
     itemsCount: (order.line_items || []).length,
-    logoUrl: organization.logo_url,
+    logoUrl: organization.logo_url ?? undefined,
     companyName: organization.name || defaultSettings.companyName,
     language: order.language_code || defaultSettings.language,
     primaryColor: organization.primary_color || defaultSettings.primaryColor,
     faviconUrl: organization.favicon_url || defaultSettings.faviconUrl,
-    gtmId: isTest ? organization.gtm_id_test : organization.gtm_id,
-    returnUrl: order.return_url,
-    cartUrl: order.cart_url,
+    gtmId:
+      (isTest ? organization.gtm_id_test : organization.gtm_id) ?? undefined,
+    returnUrl: order.return_url ?? undefined,
+    cartUrl: order.cart_url ?? undefined,
     isValid: true,
   }
 }
