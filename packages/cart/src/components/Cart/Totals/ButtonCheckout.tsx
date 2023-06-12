@@ -17,14 +17,9 @@ export const ButtonCheckout: FC = () => {
   const label = t("general.gotToCheckoutCta")
   const { order } = useOrderContainer()
 
-  const showExpressPayment =
-    !isEmbedded() &&
-    order?.total_amount_cents != null &&
-    order.total_amount_cents > 0
-
   return (
     <>
-      {showExpressPayment ? (
+      {!isEmbedded() ? (
         <div key={order?.total_amount_cents}>
           <PaymentMethodsContainer>
             <PaymentMethod expressPayments className="mb-4">
