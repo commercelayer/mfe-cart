@@ -25,9 +25,11 @@ export const defaultSettings: InvalidSettings = {
 const makeInvalidSettings = ({
   retryable,
   organization,
+  redirectTo,
 }: {
   retryable?: boolean
   organization?: Organization
+  redirectTo?: string
 }): InvalidSettings => ({
   ...defaultSettings,
   retryable: !!retryable,
@@ -35,6 +37,7 @@ const makeInvalidSettings = ({
   companyName: organization?.name || defaultSettings.companyName,
   primaryColor: organization?.primary_color || defaultSettings.primaryColor,
   faviconUrl: organization?.favicon_url || defaultSettings.faviconUrl,
+  redirectTo,
 })
 
 /**
@@ -113,8 +116,10 @@ export const getSettings = async ({
   }
 
   if (!isValidStatus(order.status)) {
+    // invalid status means is a checkout page or thankyou page
     return makeInvalidSettings({
       organization,
+      redirectTo: `${window.location.origin}/checkout/${orderId}?accessToken=${accessToken}`,
     })
   }
 

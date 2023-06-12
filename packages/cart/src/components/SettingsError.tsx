@@ -13,16 +13,21 @@ type Props = {
    */
   retryable?: boolean
   isEmbedded?: boolean
+  redirectTo?: string
 }
 
-export const SettingsError: FC<Props> = ({ retryable, isEmbedded }) => {
+export const SettingsError: FC<Props> = ({
+  retryable,
+  isEmbedded,
+  redirectTo,
+}) => {
   const { base } = useRouter()
   const { t } = useTranslation()
 
   useEffect(() => {
     if (!retryable && !isEmbedded) {
       // router.push won't work here since we need a genuine 404 HTTP response status code
-      window.location.href = `${base}/404`
+      window.location.href = redirectTo ?? `${base}/404`
     }
   }, [retryable])
 
