@@ -54,7 +54,7 @@ export const ButtonCheckout: FC = () => {
         },
       }
       return fetch(
-        `https://odoo.ezcontacts.com/cl/order/payment/v1/payment-token`,
+        `https://preprod.ezcontacts.com/cl/order/payment/v1/payment-token`,
         {
           headers: {
             Accept: "application/json",
