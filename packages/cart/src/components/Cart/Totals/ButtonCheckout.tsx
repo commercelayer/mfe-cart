@@ -22,7 +22,7 @@ export const ButtonCheckout: FC = () => {
       if (settings.orderId) {
         let paymentToken = await getPaymentToken(settings.orderId)
         window.open(
-          `https://ezcontacts-stage-checkout.netlify.app/${settings.orderId}?accessToken=${settings.accessToken}&paymentToken=${paymentToken}`,
+          `https://ezcontacts-pre-prod-checkout.netlify.app/${settings.orderId}?accessToken=${settings.accessToken}&paymentToken=${paymentToken}`,
           "_self"
         )
       }
@@ -35,7 +35,7 @@ export const ButtonCheckout: FC = () => {
     if (settings.orderId) {
       let paymentToken = await getPaymentToken(settings.orderId)
       window.open(
-        `https://ezcontacts-stage-checkout.netlify.app/${settings.orderId}?accessToken=${settings.accessToken}&paymentToken=${paymentToken}`,
+        `https://ezcontacts-pre-prod-checkout.netlify.app/${settings.orderId}?accessToken=${settings.accessToken}&paymentToken=${paymentToken}`,
         "_self"
       )
     }
