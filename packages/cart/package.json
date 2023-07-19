@@ -1,5 +1,5 @@
 {
-  "name": "commercelayer-cart",
+  "name": "mfe-cart",
   "version": "3.1.3",
   "private": true,
   "author": {
@@ -9,11 +9,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/commercelayer/commercelayer-cart.git"
+    "url": "git+https://github.com/commercelayer/mfe-cart.git"
   },
-  "homepage": "https://github.com/commercelayer/commercelayer-cart#readme",
+  "homepage": "https://github.com/commercelayer/mfe-cart#readme",
   "bugs": {
-    "url": "https://github.com/commercelayer/commercelayer-cart/issues"
+    "url": "https://github.com/commercelayer/mfe-cart/issues"
   },
   "keywords": [
     "reactjs",

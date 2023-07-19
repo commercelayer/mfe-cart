@@ -1,7 +1,7 @@
 spec:
- name: commercelayer-cart
- services:
- - name: commercelayer-cart
-   git:
-     branch: master
-     repo_clone_url: https://github.com/commercelayer/commercelayer-cart.git
+    name: mfe-cart
+    services:
+        - name: mfe-cart
+          git:
+              branch: master
+              repo_clone_url: https://github.com/commercelayer/mfe-cart.git

@@ -34,7 +34,7 @@ window.clAppConfig = {
 
 3. Deploy the forked repository to your preferred hosting service or host it yourself. You can deploy with one click below:
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" height="35">](https://app.netlify.com/start/deploy?repository=https://github.com/commercelayer/commercelayer-cart) [<img src="https://vercel.com/button" alt="Deploy to Vercel" height="35">](https://vercel.com/new/clone?repository-url=https://github.com/commercelayer/commercelayer-cart) [<img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" height="35">](https://heroku.com/deploy?template=https://github.com/commercelayer/commercelayer-cart) [<img src="https://www.deploytodo.com/do-btn-blue.svg" alt="Deploy to Digital Ocean" height="35">](https://cloud.digitalocean.com/apps/new?repo=https://github.com/commercelayer/commercelayer-cart/tree/master)
+[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" height="35">](https://app.netlify.com/start/deploy?repository=https://github.com/commercelayer/mfe-cart) [<img src="https://vercel.com/button" alt="Deploy to Vercel" height="35">](https://vercel.com/new/clone?repository-url=https://github.com/commercelayer/mfe-cart) [<img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" height="35">](https://heroku.com/deploy?template=https://github.com/commercelayer/mfe-cart) [<img src="https://www.deploytodo.com/do-btn-blue.svg" alt="Deploy to Digital Ocean" height="35">](https://cloud.digitalocean.com/apps/new?repo=https://github.com/commercelayer/mfe-cart/tree/master)
 
 4. Build your sales channel with your favorite technologies and frameworks by leveraging our [developer resources](https://commercelayer.io/developers) and [documentation](https://docs.commercelayer.io/api).
 
@@ -76,12 +76,12 @@ The cart can be embedded in your application or website by loading the hosted UR
 
 ## Contributors guide
 
-1. Fork [this repository](https://github.com/commercelayer/commercelayer-cart) (you can learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
+1. Fork [this repository](https://github.com/commercelayer/mfe-cart) (you can learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
 
 2. Clone the forked repository like so:
 
 ```bash
-git clone https://github.com/<your username>/commercelayer-cart.git && cd commercelayer-cart
+git clone https://github.com/<your username>/mfe-cart.git && cd mfe-cart
 ```
 
 3. First, install dependencies and run the development server:
@@ -103,7 +103,7 @@ pnpm dev
 
 1. Join [Commerce Layer's Slack community](https://slack.commercelayer.app).
 
-2. Create an [issue](https://github.com/commercelayer/commercelayer-cart/issues) in this repository.
+2. Create an [issue](https://github.com/commercelayer/mfe-cart/issues) in this repository.
 
 3. Ping us [on Twitter](https://twitter.com/commercelayer).
 
