@@ -32,7 +32,9 @@ window.clAppConfig = {
 }
 ```
 
-3. Deploy the forked repository to your preferred hosting service.
+3. Deploy the forked repository to your preferred hosting service. You can deploy with one click below:
+
+[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" height="35">](https://app.netlify.com/start/deploy?repository=https://github.com/commercelayer/mfe-cart#PUBLIC_SELF_HOSTED_SLUG) [<img src="https://vercel.com/button" alt="Deploy to Vercel" height="35">](https://vercel.com/new/clone?repository-url=https://github.com/commercelayer/mfe-cart&build-command=pnpm%20build&output-directory=packages%2Fcart%2Fbuild&env=PUBLIC_SELF_HOSTED_SLUG&envDescription=your%20organization%20slug) 
 
 4. Build your sales channel with your favorite technologies and frameworks by leveraging our [developer resources](https://commercelayer.io/developers) and [documentation](https://docs.commercelayer.io/api).
 

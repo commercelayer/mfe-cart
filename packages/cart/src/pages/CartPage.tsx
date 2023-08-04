@@ -19,13 +19,21 @@ function CartPage(): JSX.Element {
   const { t } = useTranslation()
   const orderId = params?.orderId
 
+  const config = {
+    ...window.clAppConfig,
+    selfHostedSlug:
+      // local config is always overwritten by ENV var, if present
+      import.meta.env.PUBLIC_SELF_HOSTED_SLUG ??
+      window.clAppConfig.selfHostedSlug,
+  }
+
   if (!orderId) {
     // first render
     return <Skeleton />
   }
 
   return (
-    <SettingsProvider orderId={orderId} config={window.clAppConfig}>
+    <SettingsProvider orderId={orderId} config={config}>
       {({ settings, isLoading }) => (
         <GlobalStylesProvider primaryColor={settings.primaryColor}>
           {isLoading ? (
