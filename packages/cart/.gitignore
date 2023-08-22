@@ -45,3 +45,6 @@ yarn-error.log*
 /playwright-report/
 /playwright/.cache/
 /dist-pw/
+
+
+/public/.well-known

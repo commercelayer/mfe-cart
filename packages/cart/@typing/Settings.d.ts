@@ -78,5 +78,9 @@ declare module "HostedApp" {
      * and the user can manually retry by refreshing browser tab.
      */
     retryable: boolean
+    /**
+     * When set, instead of showing cart 404 page, the user will be redirected to the given URL.
+     */
+    redirectTo?: string
   }
 }
