@@ -1,4 +1,4 @@
-import jwtDecode from "jwt-decode"
+import { jwtDecode } from "jwt-decode"
 
 type JWTProps = {
   /**
@@ -25,7 +25,7 @@ type JWTProps = {
  * Decodes a JWT string in order to retrive some required organization info.
  *
  * @param accessToken - The Bearer JWT token used to authenticate Commerce Layer API request.
- * @returns an object of type `JWTProps` or an empy object in case of failure.
+ * @returns an object of type `JWTProps` or an empty object in case of failure.
  *
  */
 export const getInfoFromJwt = (accessToken: string) => {
