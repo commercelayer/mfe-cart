@@ -1,8 +1,4 @@
-import {
-  Errors,
-  LineItemField,
-  LineItemQuantity,
-} from "@commercelayer/react-components"
+import { Errors, LineItemQuantity } from "@commercelayer/react-components"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
 
@@ -17,27 +13,18 @@ export const QuantitySelector: FC<Props> = () => {
 
   return (
     <div className="relative w-full">
-      <LineItemField attribute="metadata" tagElement="div">
-        {(childrenProps: any) => {
-          const hasExternalPrice =
-            childrenProps.attributeValue?.cart_external_price != null
-
+      <LineItemQuantity>
+        {({ quantity, handleChange }) => {
           return (
-            <LineItemQuantity hasExternalPrice={hasExternalPrice}>
-              {({ quantity, handleChange }) => {
-                return (
-                  <InputSpinner
-                    data-test-id="quantity-selector"
-                    quantity={quantity}
-                    handleChange={handleChange}
-                    debounceMs={600}
-                  />
-                )
-              }}
-            </LineItemQuantity>
+            <InputSpinner
+              data-test-id="quantity-selector"
+              quantity={quantity}
+              handleChange={handleChange}
+              debounceMs={600}
+            />
           )
         }}
-      </LineItemField>
+      </LineItemQuantity>
 
       <Errors
         resource="line_items"
