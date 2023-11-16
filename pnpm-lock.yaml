@@ -21,8 +21,8 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0
       '@commercelayer/react-components':
-        specifier: ^4.7.7-beta.0
-        version: 4.7.7-beta.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^4.7.11
+        version: 4.7.11(react-dom@18.2.0)(react@18.2.0)
       '@commercelayer/react-utils':
         specifier: 1.0.0-beta.3
         version: 1.0.0-beta.3(@semantic-release/changelog@6.0.2)(@semantic-release/commit-analyzer@9.0.2)(@semantic-release/git@10.0.1)(@semantic-release/github@8.0.7)(@semantic-release/npm@9.0.1)(@semantic-release/release-notes-generator@10.0.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(semantic-release@19.0.5)(tailwindcss@3.3.5)
@@ -157,16 +157,6 @@ packages:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
     dev: true
-
-  /@ac-dev/countries-service@1.2.0:
-    resolution: {integrity: sha512-9+LUUTALFa17EKL7l93ExcjYgHdkcHWlOyvAqMdrVWie6/105eGryQqaba0yIwM4rBYfvs/b/KJHkbcAdSFD2Q==}
-    engines: {node: '>=10'}
-    dev: false
-
-  /@ac-dev/states-service@1.1.1:
-    resolution: {integrity: sha512-a4oOWncXicfEMT4E9RSzZ4uzSSa8GYcCGNReoD15m5Upz7brL+8UKBg6/DjTfPTQ5Rwh7PDVcyigBm8FsnVHYA==}
-    engines: {node: '>=10'}
-    dev: false
 
   /@adyen/adyen-web@5.53.2:
     resolution: {integrity: sha512-hnOphMNTaauu9+cLvPVD4jxFxKZZV+DJJsKfRoldaafBt2Z/0zH0iol3ZnA9FjwWJjxBw8Qh4JXwu0lcx+uwIw==}
@@ -615,20 +605,18 @@ packages:
     engines: {node: '>=18.0.0'}
     dev: false
 
-  /@commercelayer/react-components@4.7.7-beta.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-VOas+O4UJ04VTz3b6tIT2084RSwcOIew62ewIX9nR+T8CHQEbZnSGuON6EO7/Z1YwkcTzVLs6EttWOiLytSDug==}
+  /@commercelayer/react-components@4.7.11(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Jf7DMV13euAVfn1qvTWeiLpqAcJl3L3E2TRGy0C8Hd0m0JpoEsmR0xyxkBhWrWAi1U4xF7PAS6Oho0+3P+Jbuw==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
-      '@ac-dev/countries-service': 1.2.0
-      '@ac-dev/states-service': 1.1.1
       '@adyen/adyen-web': 5.53.2
       '@commercelayer/sdk': 5.19.2
       '@stripe/react-stripe-js': 2.3.1(@stripe/stripe-js@2.1.10)(react-dom@18.2.0)(react@18.2.0)
       '@stripe/stripe-js': 2.1.10
       '@tanstack/react-table': 8.10.7(react-dom@18.2.0)(react@18.2.0)
       '@types/iframe-resizer': 3.5.11
-      axios: 1.6.0
+      axios: 1.6.2
       braintree-web: 3.97.3
       frames-react: 1.1.0(react@18.2.0)
       iframe-resizer: 4.3.7
@@ -2417,6 +2405,17 @@ packages:
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
+    dev: true
+
+  /axios@1.6.2:
+    resolution: {integrity: sha512-7i24Ri4pmDRfJTR7LDBhsOTtcm+9kjX5WiY1X3wIisx6G9So3pfMkEiU7emUBe46oceVImccTEM3k6C5dbVW8A==}
+    dependencies:
+      follow-redirects: 1.15.2
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /babel-plugin-styled-components@2.0.7(styled-components@5.3.6):
     resolution: {integrity: sha512-i7YhvPgVqRKfoQ66toiZ06jPNA3p6ierpfUuEWxNF+fV27Uv5gxBkf8KZLHUCc1nFA9j6+80pYoIpqCeyW3/bA==}
