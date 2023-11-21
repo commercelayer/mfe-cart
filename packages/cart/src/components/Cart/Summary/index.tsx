@@ -10,6 +10,7 @@ import { FC } from "react"
 import { useTranslation } from "react-i18next"
 
 import { ButtonRemoveItem } from "./ButtonRemoveItem"
+import { LineItemFrequency } from "./LineItemFrequency"
 import { LineItemOptions } from "./LineItemOptions"
 import { QuantitySelector } from "./QuantitySelector"
 
@@ -58,7 +59,12 @@ export const Summary: FC<Props> = ({ listTypes }) => {
 
               <div className="flex justify-between items-center mt-auto">
                 {type === "gift_cards" ? <div /> : <QuantitySelector />}
+
                 <LineItemAmount className="text-lg font-semibold" />
+              </div>
+
+              <div className="flex justify-end">
+                <LineItemFrequency />
               </div>
             </div>
           </div>

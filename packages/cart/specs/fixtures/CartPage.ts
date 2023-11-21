@@ -118,6 +118,14 @@ export class CartPage {
     )
   }
 
+  async checkLineItemFrequency(frequency: string) {
+    await expect(
+      this.page.locator("[data-test-id=frequency]", {
+        hasText: frequency,
+      })
+    ).toBeVisible()
+  }
+
   async addCouponOrGiftCard(code: string) {
     await this.page.locator("data-test-id=coupon-input").fill(code)
     await this.page.locator("data-test-id=coupon-submit").click()
