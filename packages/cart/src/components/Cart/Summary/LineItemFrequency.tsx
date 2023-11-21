@@ -25,7 +25,7 @@ export const LineItemFrequency: FC = () => {
 
         return (
           <div
-            className="mt-2 md:mt-0 flex bg-white border border-primary text-primary text-xs max-w-max py-1 px-2.5 rounded font-bold lowercase"
+            className="mt-2 flex bg-white border border-primary text-primary text-xs max-w-max py-1 px-2.5 rounded font-bold lowercase"
             data-test-id="frequency"
           >
             <IconRepeat className="mr-1.5" />
