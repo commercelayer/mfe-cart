@@ -17,6 +17,23 @@
         "retryableErrorCode": "Problemi di connessione",
         "retryableErrorDescription": "Prova a ricaricare la pagina"
     },
+    "item": {
+        "frequency": {
+            "hourly": "Orario",
+            "daily": "Giornaliero",
+            "weekly": "Settimanale",
+            "monthly": "Mensile",
+            "two-months": "Ogni due mesi",
+            "two-month": "Ogni due mesi",
+            "three-months": "Ogni tre mesi",
+            "three-month": "Ogni tre mesi",
+            "four-months": "Ogni quattro mesi",
+            "four-month": "Ogni quattro mesi",
+            "six-months": "Ogni sei mesi",
+            "six-month": "Ogni sei mesi",
+            "yearly": "Annuale"
+        }
+    },
     "couponOrGift": {
         "label": "Hai un codice da usare?",
         "submit": "Applica",
@@ -25,7 +42,7 @@
             "gift_card_code": "Codice gift card",
             "coupon_code": "Codice coupon"
         },
-         "error": {
+        "error": {
             "gift_card_or_coupon_code": "Non corrisponde ad alcuna carta regalo o coupon attivo",
             "gift_card_code": "Non corrisponde ad una carta regalo attiva",
             "coupon_code": "Non corrisponde ad un coupon attivo"

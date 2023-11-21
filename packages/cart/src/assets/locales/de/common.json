@@ -17,6 +17,23 @@
     "retryableErrorCode": "Verbindungsprobleme",
     "retryableErrorDescription": "Bitte lade die Seite einmal neu"
   },
+  "item": {
+    "frequency": {
+      "hourly": "Hourly",
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "two-months": "Every two months",
+      "two-month": "Every two months",
+      "three-months": "Every three months",
+      "three-month": "Every three months",
+      "four-months": "Every four months",
+      "four-month": "Every four months",
+      "six-months": "Every six months",
+      "six-month": "Every six months",
+      "yearly": "Yearly"
+    }
+  },
   "couponOrGift": {
     "label": "Rabattcode vorhanden?",
     "submit": "Anwenden",

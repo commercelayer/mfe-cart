@@ -15,6 +15,7 @@ export type BaseLineItemObject = {
 
 export type SkuItem = BaseLineItemObject & {
   sku_code: string
+  frequency?: string
 }
 
 export type BundleItem = BaseLineItemObject & {

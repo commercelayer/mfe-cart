@@ -17,6 +17,23 @@
         "retryableErrorCode": "Connectivity issues",
         "retryableErrorDescription": "Try to reload the page"
     },
+    "item": {
+        "frequency": {
+            "hourly": "Hourly",
+            "daily": "Daily",
+            "weekly": "Weekly",
+            "monthly": "Monthly",
+            "two-months": "Every two months",
+            "two-month": "Every two months",
+            "three-months": "Every three months",
+            "three-month": "Every three months",
+            "four-months": "Every four months",
+            "four-month": "Every four months",
+            "six-months": "Every six months",
+            "six-month": "Every six months",
+            "yearly": "Yearly"
+        }
+    },
     "couponOrGift": {
         "label": "Have a promo code?",
         "submit": "Apply",
@@ -25,7 +42,7 @@
             "gift_card_code": "Gift card",
             "coupon_code": "Coupon code"
         },
-         "error": {
+        "error": {
             "gift_card_or_coupon_code": "Please enter a valid gift card or coupon",
             "gift_card_code": "Please enter a valid gift card",
             "coupon_code": "Please enter a valid coupon"
