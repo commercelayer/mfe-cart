@@ -94,24 +94,39 @@ export function InputSpinner({
   return (
     <div
       {...rest}
-      className={cn("inline-flex  rounded overflow-hidden", css.inputSpinner, {
-        "opacity-50 pointer-events-none": isDisabled,
-      })}
+      className={cn(
+        "inline-flex  rounded overflow-hidden border border-gray-200 focus-within:ring-1",
+        css.inputSpinner,
+        {
+          "opacity-50 pointer-events-none": isDisabled,
+        }
+      )}
     >
       <button
         data-test-id="input-spinner-btn-decrement"
-        className="button-base bg-primary text-contrast px-3"
+        className="button-base px-3 py-[10px]"
         onClick={() => {
           handleButtonClick("decrement")
         }}
         disabled={isDisabled}
       >
-        -
+        {/* icon minus */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="none"
+        >
+          <path
+            fill="#101111"
+            d="M17.5 10a.624.624 0 0 1-.625.625H3.125a.625.625 0 1 1 0-1.25h13.75A.625.625 0 0 1 17.5 10Z"
+          />
+        </svg>
       </button>
       <input
         ref={inputEl}
         data-test-id="input-spinner-element"
-        className="input-base -small border-gray-200 w-12 text-center"
+        className="input-base w-12 text-center !border-none font-bold text-md !ring-0"
         type="number"
         min="0"
         step="1"
@@ -126,7 +141,7 @@ export function InputSpinner({
       />
       <button
         data-test-id="input-spinner-btn-increment"
-        className={cn("button-base bg-primary text-contrast px-3", {
+        className={cn("button-base px-3 hover:enabled:bg-gray-5", {
           "!opacity-50": !canIncrease,
         })}
         onClick={() => {
@@ -134,7 +149,18 @@ export function InputSpinner({
         }}
         disabled={isDisabled || !canIncrease}
       >
-        +
+        {/* icon plus */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="none"
+        >
+          <path
+            fill="#101111"
+            d="M17.5 10a.624.624 0 0 1-.625.625h-6.25v6.25a.624.624 0 1 1-1.25 0v-6.25h-6.25a.625.625 0 1 1 0-1.25h6.25v-6.25a.625.625 0 0 1 1.25 0v6.25h6.25A.625.625 0 0 1 17.5 10Z"
+          />
+        </svg>
       </button>
     </div>
   )

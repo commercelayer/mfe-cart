@@ -1,11 +1,11 @@
 {
     "general": {
-        "title": "Your Cart",
+        "title": "Cart",
         "item": "item",
         "item_other": "items",
         "emptyCart": "Your cart is empty",
         "remove": "Remove",
-        "price": "Price",
+        "price": "Unit price",
         "finalPriceInCheckoutText": "Tax included and shipping calculated at checkout",
         "subtotal": "Subtotal",
         "discount": "Discount",

@@ -1,4 +1,4 @@
-import { VFC, ReactNode } from "react"
+import { FC, ReactNode } from "react"
 
 import { Footer } from "#components/Footer"
 import { isEmbedded } from "#utils/isEmbedded"
@@ -7,7 +7,7 @@ type Props = {
   top?: ReactNode
 } & InnerProps
 
-export const PageLayout: VFC<Props> = ({ top, main, aside }) => {
+export const PageLayout: FC<Props> = ({ top, main, aside }) => {
   return isEmbedded() ? (
     <Inner main={main} aside={aside} />
   ) : (
@@ -25,7 +25,7 @@ type InnerProps = {
   main: ReactNode
   aside: ReactNode
 }
-const Inner: VFC<InnerProps> = ({ main, aside }) => {
+const Inner: FC<InnerProps> = ({ main, aside }) => {
   return (
     <div className="flex flex-col md:flex-row md:gap-8 xl:gap-36 pt-8 items-start">
       <main className="w-full md:w-7/12">{main}</main>

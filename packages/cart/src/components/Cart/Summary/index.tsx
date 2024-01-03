@@ -6,6 +6,7 @@ import {
   TLineItem,
   LineItemsEmpty,
   useOrderContainer,
+  LineItemCode,
 } from "@commercelayer/react-components"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
@@ -34,35 +35,29 @@ export const Summary: FC<Props> = ({ listTypes }) => {
       {listTypes.map((type) => (
         <LineItem key={type} type={type}>
           <div
-            className="flex gap-5 pb-8 mb-8 border-b border-b-gray-300"
+            className="flex gap-5 pb-8 mb-8 border-b border-dashed border-b-gray-300"
             data-test-id={`line-item-${type}`}
           >
             <LineItemImage
               width={170}
-              className="w-1/4 self-start md:self-center max-h-32 object-contain"
+              className="w-[58px] max-h-[58px] object-contain"
             />
 
             <div className="flex-1 flex flex-col min-h-[150px]">
-              <div className="flex justify-between items-center gap-1">
-                <LineItemName className="font-bold" />
-                <ButtonRemoveItem />
+              <LineItemCode className="text-xs text-gray-400" />
+              <div className="flex gap-1 justify-between">
+                <LineItemName className="font-bold text-lg mb-2" />
+                <LineItemAmount className="font-bold" />
               </div>
-
               <LineItemOptions />
-
-              <div className="pt-2">
-                <div className="flex gap-1 text-sm">
-                  <div className="text-gray-400 font-semibold">
-                    {t("general.price")}:
-                  </div>
-                  <LineItemAmount type="unit" />
-                </div>
+              <div className="flex gap-1 text-xs font-bold text-gray-500 py-1 px-2 leading-none mb-8">
+                {t("general.price")}
+                <LineItemAmount type="unit" />
               </div>
 
               <div className="flex justify-between items-center mt-auto">
                 {type === "gift_cards" ? <div /> : <QuantitySelector />}
-
-                <LineItemAmount className="text-lg font-semibold" />
+                <ButtonRemoveItem />
               </div>
 
               <div className="flex justify-end">

@@ -1,11 +1,11 @@
 {
     "general": {
-        "title": "Il tuo carrello",
+        "title": "Carrello",
         "item": "prodotto",
         "item_other": "prodotti",
         "emptyCart": "Il tuo carrello è vuoto",
         "remove": "Rimuovi",
-        "price": "Prezzo",
+        "price": "Prezzo unitario",
         "finalPriceInCheckoutText": "Il totale incluse tasse e costi di spedizione sarà calcolato nella schermata successiva",
         "subtotal": "Totale parziale",
         "discount": "Sconti",

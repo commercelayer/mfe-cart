@@ -29,10 +29,10 @@ export const PageHeader: FC<Props> = ({ isLoading, children }) => {
       })}
       data-test-id="cart-header"
     >
-      <div className="py-8 border-b border-b-gray-200">
+      <div className="py-12 border-b border-b-gray-200">
         <CompanyLogo />
       </div>
-      <div className="flex justify-between items-center py-11 border-b border-b-gray-200">
+      <div className="flex justify-between items-center py-12 border-b border-b-gray-200 mb-16">
         {isLoading ? (
           <>
             <SkeletonItem className="w-1/12 h-[36px]" />

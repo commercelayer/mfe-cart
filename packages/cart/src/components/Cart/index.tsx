@@ -57,7 +57,7 @@ const Cart: FC = () => {
                 <LineItemsCount>
                   {({ quantity }) =>
                     quantity ? (
-                      <div className="text-sm text-gray-500 font-semibold">
+                      <div className="text-sm text-gray-400 font-semibold">
                         <span data-test-id="items-count">{quantity}</span>{" "}
                         {t("general.item", { count: quantity })}
                       </div>
