@@ -17,7 +17,7 @@ export const SubTotal: FC<Props> = ({ price, priceCents }) => {
       <div
         data-amount={priceCents}
         data-test-id="subtotal-amount"
-        className="font-semibold"
+        className="font-semibold text-lg"
       >
         {price}
       </div>
