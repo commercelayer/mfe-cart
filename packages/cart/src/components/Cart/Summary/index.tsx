@@ -5,6 +5,7 @@ import {
   LineItem,
   TLineItem,
   LineItemsEmpty,
+  useOrderContainer,
 } from "@commercelayer/react-components"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
@@ -26,6 +27,7 @@ type Props = {
 export const Summary: FC<Props> = ({ listTypes }) => {
   const { t } = useTranslation()
   const { settings } = useSettings()
+  const { order } = useOrderContainer()
 
   return (
     <>
@@ -74,7 +76,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
       {/* Empty cart */}
       <LineItemsEmpty>
         {({ quantity }) => {
-          if (quantity === undefined) {
+          if (quantity === undefined || order === undefined) {
             return <LineItemsSkeleton />
           }
 
