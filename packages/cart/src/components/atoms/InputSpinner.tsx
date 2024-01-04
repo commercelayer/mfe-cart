@@ -104,11 +104,11 @@ export function InputSpinner({
     >
       <button
         data-test-id="input-spinner-btn-decrement"
-        className="button-base px-3 py-[10px]"
+        className="button-base px-3 py-[10px] hover:enabled:bg-gray-50"
         onClick={() => {
           handleButtonClick("decrement")
         }}
-        disabled={isDisabled}
+        disabled={isDisabled || internalValue === 1}
       >
         {/* icon minus */}
         <svg
