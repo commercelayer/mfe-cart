@@ -50,9 +50,12 @@ export const Summary: FC<Props> = ({ listTypes }) => {
                 <LineItemAmount className="font-bold" />
               </div>
               <LineItemOptions />
-              <div className="flex gap-1 text-xs font-bold text-gray-500 py-1 px-2 leading-none mb-8">
-                {t("general.price")}
-                <LineItemAmount type="unit" />
+
+              <div>
+                <div className="inline-flex gap-1 text-xs font-bold text-gray-500 bg-gray-50 rounded py-1 px-2 leading-none mb-8">
+                  {t("general.price")}
+                  <LineItemAmount type="unit" />
+                </div>
               </div>
 
               <div className="flex justify-between items-center mt-auto">
