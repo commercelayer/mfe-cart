@@ -51,20 +51,17 @@ export const Summary: FC<Props> = ({ listTypes }) => {
               </div>
               <LineItemOptions />
 
-              <div>
-                <div className="inline-flex gap-1 text-xs font-bold text-gray-500 bg-gray-50 rounded py-1 px-2 leading-none mb-8">
+              <div className="flex justify-between items-start mb-8">
+                <div className="flex gap-1 text-xs font-bold text-gray-500 bg-gray-50 rounded py-1 px-2 leading-none">
                   {t("general.price")}
                   <LineItemAmount type="unit" />
                 </div>
+                <LineItemFrequency />
               </div>
 
               <div className="flex justify-between items-center mt-auto">
                 {type === "gift_cards" ? <div /> : <QuantitySelector />}
                 <ButtonRemoveItem />
-              </div>
-
-              <div className="flex justify-end">
-                <LineItemFrequency />
               </div>
             </div>
           </div>
