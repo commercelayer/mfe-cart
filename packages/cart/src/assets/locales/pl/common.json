@@ -6,7 +6,7 @@
         "emptyCart": "Twój koszyk jest pusty",
         "remove": "Usuń",
         "price": "Cena",
-        "finalPriceInCheckoutText": "Wliczony podatek oraz wysyłka zostaną wyliczone w następnym kroku \"Checkout\"",
+        "finalPriceInCheckoutText": "Podatki oraz opłaty za dostawę zostaną wyliczone podczas \"Checkout\"u",
         "subtotal": "Zakupy",
         "discount": "Zniżka",
         "giftCard": "Karta podarunkowa",
