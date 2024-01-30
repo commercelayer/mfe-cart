@@ -2,7 +2,7 @@ import "react-i18next"
 import commonEn from "#assets/locales/en/common.json"
 
 declare module "react-i18next" {
-  export type AllowedLocaleKeys = "en" | "it" | "de"
+  export type AllowedLocaleKeys = "en" | "it" | "de" | "pl"
 
   type AppResources = {
     common: typeof commonEn

@@ -8,6 +8,7 @@ import {
 import commonDe from "#assets/locales/de/common.json"
 import commonEn from "#assets/locales/en/common.json"
 import commonIt from "#assets/locales/it/common.json"
+import commonPl from "#assets/locales/pl/common.json"
 
 const resources: Record<AllowedLocaleKeys, AppResources> = {
   en: {
@@ -18,6 +19,9 @@ const resources: Record<AllowedLocaleKeys, AppResources> = {
   },
   de: {
     common: commonDe,
+  },
+  pl: {
+    common: commonPl,
   },
 }
 

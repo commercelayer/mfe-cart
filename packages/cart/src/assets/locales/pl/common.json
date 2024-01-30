@@ -1,0 +1,51 @@
+{
+    "general": {
+        "title": "Twój koszyk",
+        "item": "produkt",
+        "item_other": "produkty/ów",
+        "emptyCart": "Twój koszyk jest pusty",
+        "remove": "Usuń",
+        "price": "Cena",
+        "finalPriceInCheckoutText": "Podatki oraz opłaty za dostawę zostaną wyliczone podczas \"Checkout\"u",
+        "subtotal": "Zakupy",
+        "discount": "Zniżka",
+        "giftCard": "Karta podarunkowa",
+        "total": "Suma",
+        "gotToCheckoutCta": "Checkout",
+        "returnUrlLabel": "Wróć do zakupów",
+        "quantityNotAvailable": "Wybrana ilość nie jest dostępna na magazynie",
+        "retryableErrorCode": "Wystąpił problem z połączeniem internetowym",
+        "retryableErrorDescription": "Spróbuj odświeżyć stronę"
+    },
+    "item": {
+        "frequency": {
+            "hourly": "Co godzinę",
+            "daily": "Codziennie",
+            "weekly": "Co tydzień",
+            "monthly": "Co miesiąc",
+            "two-months": "Co dwa miesiące",
+            "two-month": "Co dwa miesiące",
+            "three-months": "Co trzy miesiące",
+            "three-month": "Co trzy miesiące",
+            "four-months": "Co cztery miesiące",
+            "four-month": "Co cztery miesiące",
+            "six-months": "Co sześć miesięcy",
+            "six-month": "Co sześć miesięcy",
+            "yearly": "Co roku"
+        }
+    },
+    "couponOrGift": {
+        "label": "Masz kod promocyjny?",
+        "submit": "Wprowadź",
+        "placeholder": {
+            "gift_card_or_coupon_code": "Kod karty podarunkowej lub kuponu",
+            "gift_card_code": "Kod karty podarunkowej",
+            "coupon_code": "Kod kuponu"
+        },
+        "error": {
+            "gift_card_or_coupon_code": "Proszę podaj prawidłowy kod kuponu lub karty podarunkowej",
+            "gift_card_code": "Proszę podaj prawidłowy kod karty podarunkowej",
+            "coupon_code": "Proszę podaj prawidłowy kod kuponu"
+        }
+    }
+}
