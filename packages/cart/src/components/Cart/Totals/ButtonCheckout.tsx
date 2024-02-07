@@ -19,15 +19,13 @@ export const ButtonCheckout: FC = () => {
 
   return (
     <>
-      {!isEmbedded() ? (
-        <div key={order?.total_amount_cents}>
-          <PaymentMethodsContainer>
-            <PaymentMethod expressPayments className="mb-4" loader={<div />}>
-              <PaymentSource loader={<div />} />
-            </PaymentMethod>
-          </PaymentMethodsContainer>
-        </div>
-      ) : null}
+      <div key={order?.total_amount_cents}>
+        <PaymentMethodsContainer>
+          <PaymentMethod expressPayments className="mb-4" loader={<div />}>
+            <PaymentSource loader={<div />} />
+          </PaymentMethod>
+        </PaymentMethodsContainer>
+      </div>
       <LineItemsCount>
         {({ quantity }) =>
           quantity ? (

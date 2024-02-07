@@ -22,7 +22,10 @@ jobs:
       - checkout
       - <<: *setup
       - run:
-          name: Test 
+          name: Audit
+          command: pnpm audit --audit-level high --ignore-registry-errors
+      - run:
+          name: Test
           command: pnpm test
   build:
     <<: *image
@@ -41,7 +44,6 @@ jobs:
           to: "s3://$S3_ASSETS_BUCKET/team/fe-static-apps/$PUBLIC_PROJECT_PATH/<<pipeline.git.tag>>"
 
 workflows:
-
   run-tests:
     jobs:
       - test:
@@ -49,7 +51,7 @@ workflows:
           filters:
             tags:
               ignore: /v.*/
-  
+
   test-build-and-push:
     jobs:
       - test:
