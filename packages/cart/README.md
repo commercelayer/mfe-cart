@@ -13,7 +13,7 @@ The Commerce Layer Cart application (React) provides you with a production-ready
 - [Getting started](#getting-started)
 - [Hosted version](#hosted-version)
 - [Embedding the cart](#embedding-the-cart)
-- [Express payments](#express-payments)
+- [Express checkout](#express-checkout)
 - [Contributors guide](#contributors-guide)
 - [Running on Windows](#running-on-windows)
 - [Help and support](#need-help)
@@ -76,7 +76,7 @@ The cart can be embedded in your application or website by loading the hosted UR
 
 > You can either set your iFrame to a fixed height or keep it responsive using the [iFrame Resizer](https://github.com/davidjbradshaw/iframe-resizer) library — the Cart app already includes the `iframeResizer.contentWindow` scripts, so you only need to add it to your parent app.
 
-## Express payments
+## Express checkout
 
 The cart supports express checkout buttons for both Apple Pay and Google Pay via Stripe. To enable this feature, you need to activate the `auto_payments` option on your Commerce Layer [Stripe gateway](https://docs.commercelayer.io/core/v/api-reference/stripe_gateways) and configure the necessary settings in your Stripe dashboard.
 
