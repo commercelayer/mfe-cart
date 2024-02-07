@@ -2,7 +2,7 @@
 
 The Commerce Layer Cart application (React) provides you with a production-ready shopping cart powered by Commerce Layer APIs. You can fork this repository and deploy it to any hosting service or use it as a reference application to build your own. A hosted version is also available.
 
-![Commerce Layer Cart demo](https://user-images.githubusercontent.com/30926550/207573087-39ed2ad5-1ab6-49ef-9bb5-013452b06d7f.png)
+![Commerce Layer Cart demo](https://github.com/commercelayer/mfe-cart/assets/55532244/aae6ac71-f37d-40c5-9c6b-30fa3dc8a262)
 
 ## What is Commerce Layer?
 
