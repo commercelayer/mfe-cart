@@ -75,6 +75,10 @@ The cart can be embedded in your application or website by loading the hosted UR
 
 > You can either set your iFrame to a fixed height or keep it responsive using the [iFrame Resizer](https://github.com/davidjbradshaw/iframe-resizer) library — the Cart app already includes the `iframeResizer.contentWindow` scripts, so you only need to add it to your parent app.
 
+## Express payments
+
+The cart supports express checkout buttons for both Apple Pay and Google Pay via Stripe. To enable this feature, you need to activate the `auto_payments` option on your Commerce Layer [Stripe gateway](https://docs.commercelayer.io/core/v/api-reference/stripe_gateways) and configure the necessary settings in your Stripe dashboard.
+
 ## Contributors guide
 
 1. Fork [this repository](https://github.com/commercelayer/mfe-cart) (you can learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
