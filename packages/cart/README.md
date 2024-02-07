@@ -13,6 +13,7 @@ The Commerce Layer Cart application (React) provides you with a production-ready
 - [Getting started](#getting-started)
 - [Hosted version](#hosted-version)
 - [Embedding the cart](#embedding-the-cart)
+- [Express payments](#express-payments)
 - [Contributors guide](#contributors-guide)
 - [Running on Windows](#running-on-windows)
 - [Help and support](#need-help)
