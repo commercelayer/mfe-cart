@@ -42,7 +42,7 @@ export const CodeForm: FC = () => {
             data-test-id="coupon-input"
           />
           <GiftCardOrCouponSubmit
-            className="button-base bg-primary text-contrast px-4 rounded-md rounded-tl-none rounded-bl-none"
+            className="button-base bg-primary text-contrast px-8 rounded-md rounded-tl-none rounded-bl-none"
             label={t("couponOrGift.submit")}
             data-test-id="coupon-submit"
           />

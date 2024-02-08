@@ -1,8 +1,6 @@
 import cn from "classnames"
 import { FC, ReactNode } from "react"
 
-import { IconShoppingBag } from "./atoms/IconShoppingBag"
-
 import { CompanyLogo } from "#components/CompanyLogo"
 import { SkeletonItem } from "#components/Skeleton/Item"
 import { isEmbedded } from "#utils/isEmbedded"
@@ -31,15 +29,14 @@ export const PageHeader: FC<Props> = ({ isLoading, children }) => {
       })}
       data-test-id="cart-header"
     >
-      <div className="py-12 border-b border-b-gray-200 flex justify-between items-center">
+      <div className="pt-12 pb-10 flex">
         <CompanyLogo />
-        {!isLoading && <IconShoppingBag />}
       </div>
-      <div className="flex justify-between items-center py-12 border-b border-b-gray-200 mb-16">
+      <div className="flex flex-col mb-12">
         {isLoading ? (
           <>
-            <SkeletonItem className="w-1/12 h-[36px]" />
-            <SkeletonItem className="w-1/12 h-[20px]" />
+            <SkeletonItem className="w-4/12 h-[36px mb-4" />
+            <SkeletonItem className="w-6/12 h-[18px]" />
           </>
         ) : (
           children

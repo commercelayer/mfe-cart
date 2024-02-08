@@ -3,20 +3,14 @@ import { FC, ReactNode } from "react"
 import { Footer } from "#components/Footer"
 import { isEmbedded } from "#utils/isEmbedded"
 
-type Props = {
-  top?: ReactNode
-} & InnerProps
+type Props = InnerProps
 
 export const PageLayout: FC<Props> = ({ top, main, aside }) => {
   return isEmbedded() ? (
     <Inner main={main} aside={aside} />
   ) : (
-    <div className="container max-w-[1248px] mx-auto">
-      <div className="px-5 flex flex-col min-h-screen">
-        {top && <div>{top}</div>}
-        <Inner main={main} aside={aside} />
-        <Footer />
-      </div>
+    <div className="container 2xl:max-w-screen-2xl 2xl:mx-auto h-full">
+      <Inner top={top} main={main} aside={aside} />
     </div>
   )
 }
@@ -24,15 +18,18 @@ export const PageLayout: FC<Props> = ({ top, main, aside }) => {
 type InnerProps = {
   main: ReactNode
   aside: ReactNode
+  top?: ReactNode
 }
-const Inner: FC<InnerProps> = ({ main, aside }) => {
+const Inner: FC<InnerProps> = ({ top, main, aside }) => {
   return (
-    <div className="flex flex-col md:flex-row md:gap-8 xl:gap-48 pt-8 items-start">
-      <main className="w-full md:flex-1">{main}</main>
-      <aside className="w-full md:w-5/12 xl:w-4/12">
-        <div className="md:bg-gray-50 pb-5 md:py-10 md:px-7 rounded-md w-full">
-          {aside}
-        </div>
+    <div className="flex flex-col md:flex-row min-h-screen">
+      <main className="w-full md:flex-1 px-24">
+        {top && <div>{top}</div>}
+        {main}
+        <Footer />
+      </main>
+      <aside className="w-full md:flex-1 px-24 md:bg-gray-50">
+        <div className="pt-12">{aside}</div>
       </aside>
     </div>
   )

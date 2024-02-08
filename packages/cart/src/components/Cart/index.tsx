@@ -49,16 +49,18 @@ const Cart: FC = () => {
                 <h1
                   data-test-id="page-title"
                   data-cart-id={settings.orderId}
-                  className="text-black font-semibold text-xl md:text-3xl"
+                  className="text-black font-semibold text-xl"
                 >
-                  {t("general.title")}
+                  Your items
                 </h1>
 
                 <LineItemsCount>
                   {({ quantity }) =>
                     quantity ? (
-                      <div className="text-sm text-gray-400 font-semibold">
-                        <span data-test-id="items-count">{quantity}</span>{" "}
+                      <div className="text-gray-400">
+                        <span data-test-id="items-count">
+                          Your shopping cart contains {quantity}
+                        </span>{" "}
                         {t("general.item", { count: quantity })}
                       </div>
                     ) : (

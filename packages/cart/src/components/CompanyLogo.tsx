@@ -17,7 +17,7 @@ export const CompanyLogo: FC = () => {
           <img
             src={settings.logoUrl}
             alt={settings.companyName}
-            className="h-[40px]"
+            className="w-60 max-w-full"
           />
         </ReturnLink>
       ) : settings.companyName ? (
