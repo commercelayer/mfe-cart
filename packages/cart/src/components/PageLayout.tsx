@@ -3,7 +3,11 @@ import { FC, ReactNode } from "react"
 import { Footer } from "#components/Footer"
 import { isEmbedded } from "#utils/isEmbedded"
 
-type Props = InnerProps
+type Props = {
+  main: ReactNode
+  aside: ReactNode
+  top?: ReactNode
+}
 
 export const PageLayout: FC<Props> = ({ top, main, aside }) => {
   return isEmbedded() ? (
@@ -15,12 +19,7 @@ export const PageLayout: FC<Props> = ({ top, main, aside }) => {
   )
 }
 
-type InnerProps = {
-  main: ReactNode
-  aside: ReactNode
-  top?: ReactNode
-}
-const Inner: FC<InnerProps> = ({ top, main, aside }) => {
+const Inner: FC<Props> = ({ top, main, aside }) => {
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
       <main className="w-full md:flex-1 px-24">

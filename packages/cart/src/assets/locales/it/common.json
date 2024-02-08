@@ -1,6 +1,8 @@
 {
     "general": {
         "title": "Carrello",
+        "itemsTitle": "I tuoi prodotti",
+        "cartContains": "Il tuo carrello contiene",
         "item": "prodotto",
         "item_other": "prodotti",
         "emptyCart": "Il tuo carrello è vuoto",

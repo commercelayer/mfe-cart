@@ -1,6 +1,8 @@
 {
   "general": {
     "title": "Dein Warenkorb",
+    "itemsTitle": "Ihre Artikel",
+    "cartContains": "Ihr Warenkorb enthält",
     "item": "Artikel",
     "item_other": "Artikel",
     "emptyCart": "Dein Warenkorb ist leer",

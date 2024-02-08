@@ -51,7 +51,7 @@ const Cart: FC = () => {
                   data-cart-id={settings.orderId}
                   className="text-black font-semibold text-xl"
                 >
-                  Your items
+                  {t("general.itemsTitle")}
                 </h1>
 
                 <LineItemsCount>
@@ -59,7 +59,7 @@ const Cart: FC = () => {
                     quantity ? (
                       <div className="text-gray-400">
                         <span data-test-id="items-count">
-                          Your shopping cart contains {quantity}
+                          {t("general.cartContains")} {quantity}
                         </span>{" "}
                         {t("general.item", { count: quantity })}
                       </div>

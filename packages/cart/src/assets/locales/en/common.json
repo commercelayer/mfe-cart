@@ -1,6 +1,8 @@
 {
     "general": {
         "title": "Cart",
+        "itemsTitle": "Your items",
+        "cartContains": "Your shopping cart contains",
         "item": "item",
         "item_other": "items",
         "emptyCart": "Your cart is empty",

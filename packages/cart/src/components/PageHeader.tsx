@@ -35,7 +35,7 @@ export const PageHeader: FC<Props> = ({ isLoading, children }) => {
       <div className="flex flex-col mb-12">
         {isLoading ? (
           <>
-            <SkeletonItem className="w-4/12 h-[36px mb-4" />
+            <SkeletonItem className="w-4/12 h-[36px] mb-4" />
             <SkeletonItem className="w-6/12 h-[18px]" />
           </>
         ) : (
