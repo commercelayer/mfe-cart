@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 .input-base {
   @apply 
@@ -12,10 +16,6 @@
 
 .input-base:not(.-small) {
   @apply p-3
-}
-
-.input-base.-small {
-  @apply p-1
 }
 
 .input-base:not(.-error) {
@@ -29,7 +29,7 @@
 }
 
 .button-base {
-  @apply text-center text-sm font-semibold transition-bg duration-500 hover:opacity-80 focus:outline-none
+  @apply text-center text-sm font-semibold transition-bg duration-500 hover:opacity-80
 }
 
 .link-base {
