@@ -12,6 +12,8 @@
         "subtotal": "Subtotal",
         "discount": "Discount",
         "giftCard": "Gift Card",
+        "shippingAmount": "Shipping",
+        "paymentMethodAmount": "Payment method",
         "total": "Total",
         "gotToCheckoutCta": "Checkout",
         "returnUrlLabel": "Continue shopping",

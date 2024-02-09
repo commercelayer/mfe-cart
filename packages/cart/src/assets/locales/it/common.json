@@ -12,6 +12,8 @@
         "subtotal": "Totale parziale",
         "discount": "Sconti",
         "giftCard": "Carta regalo",
+        "shippingAmount": "Spedizione",
+        "paymentMethodAmount": "Metodo di pagamento",
         "total": "Totale",
         "gotToCheckoutCta": "Checkout",
         "returnUrlLabel": "Continua ad acquistare",

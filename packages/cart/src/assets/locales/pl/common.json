@@ -12,6 +12,8 @@
         "subtotal": "Zakupy",
         "discount": "Zniżka",
         "giftCard": "Karta podarunkowa",
+        "shippingAmount": "Wysyłka",
+        "paymentMethodAmount": "Metoda płatności",
         "total": "Suma",
         "gotToCheckoutCta": "Checkout",
         "returnUrlLabel": "Wróć do zakupów",

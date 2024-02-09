@@ -12,6 +12,8 @@
     "subtotal": "Zwischensumme",
     "discount": "Rabatt",
     "giftCard": "Geschenkgutschein",
+    "shippingAmount": "Versandkosten",
+    "paymentMethodAmount": "Zahlungsmethode",
     "total": "Gesamtsumme",
     "gotToCheckoutCta": "Zur Kasse",
     "returnUrlLabel": "Weiter einkaufen",
