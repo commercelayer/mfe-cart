@@ -33,14 +33,12 @@
     "packages/*"
   ],
   "devDependencies": {
-    "husky": "^9.0.10",
+    "husky": "^9.0.11",
     "lerna": "^8.1.2",
     "lint-staged": "^15.2.2",
-    "npm-check-updates": "^16.14.14"
+    "npm-check-updates": "^16.14.15"
   },
   "resolutions": {
-    "@babel/traverse": "^7.23.7",
-    "follow-redirects": "^1.15.5",
-    "semver": "^7.5.4"
+    "ip": "^2.0.1"
   }
 }
