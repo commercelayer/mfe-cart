@@ -1,0 +1,51 @@
+{
+    "general": {
+        "title": "Kosár",
+        "item": "elem",
+        "item_other": "elemek",
+        "emptyCart": "Az ön kosara üres",
+        "remove": "Eltávolítás",
+        "price": "Ár",
+        "finalPriceInCheckoutText": "Adóval, a szállítási költség kiszámítása a fizetésnél történik",
+        "subtotal": "Részösszeg",
+        "discount": "Kedvezmény",
+        "giftCard": "Ajándékkártya",
+        "total": "Összesen",
+        "gotToCheckoutCta": "Pénztárhoz",
+        "returnUrlLabel": "Vásárlás folytatása",
+        "quantityNotAvailable": "A kiválasztott mennyiség nem elérhető",
+        "retryableErrorCode": "Kapcsolódási hibák",
+        "retryableErrorDescription": "Próbálja meg újratölteni az oldalt"
+    },
+    "item": {
+        "frequency": {
+            "hourly": "Óránként",
+            "daily": "Naponta",
+            "weekly": "Hetente",
+            "monthly": "Havonta",
+            "two-months": "Kéthavonta",
+            "two-month": "Kéthavonta",
+            "three-months": "Háromhavonta",
+            "three-month": "Háromhavonta",
+            "four-months": "Négyhavonta",
+            "four-month": "Négyhavonta",
+            "six-months": "Félévente",
+            "six-month": "Félévente",
+            "yearly": "Évente"
+        }
+    },
+    "couponOrGift": {
+        "label": "Rendelkezik promóciós kóddal?",
+        "submit": "Elküldés",
+        "placeholder": {
+            "gift_card_or_coupon_code": "Ajándékkártya vagy kuponkód",
+            "gift_card_code": "Ajándékkártya",
+            "coupon_code": "Kuponkód"
+        },
+        "error": {
+            "gift_card_or_coupon_code": "Kérem adjon meg egy érvényes ajándékkártyát vagy kuponkódot",
+            "gift_card_code": "Kérem adjon meg egy érvényes ajándékkártyát",
+            "coupon_code": "Kérem adjon meg egy érvényes kupont"
+        }
+    }
+}
