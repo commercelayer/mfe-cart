@@ -110,7 +110,8 @@ test.describe("Manually applying and removing gift card and coupon", () => {
     await expect(
       CartPage.page.locator("text=Please enter a valid gift card")
     ).not.toBeVisible()
-    await CartPage.page.locator("data-test-id=coupon-submit").click()
+    // await CartPage.page.locator("data-test-id=coupon-submit").click()
+    await CartPage.addCouponOrGiftCard("PROMOTEST10")
     await CartPage.checkForAppliedCoupon()
 
     // add gift card
