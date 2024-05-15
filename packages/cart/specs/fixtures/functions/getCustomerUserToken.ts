@@ -1,4 +1,4 @@
-import authentication from "@commercelayer/js-auth"
+import { authenticate } from "@commercelayer/js-auth"
 
 import { getClient } from "./getClient"
 import { getSuperToken } from "./getSuperToken"
@@ -14,7 +14,6 @@ export const getCustomerUserToken = async ({
 }: GetUserTokenParams) => {
   const {
     E2E_SALES_CHANNEL_CLIENT_ID: clientId,
-    E2E_ORGANIZATION: slug,
     E2E_DOMAIN: domain,
     E2E_MARKET_ID: scope,
   } = process.env as Record<string, string>
@@ -31,9 +30,8 @@ export const getCustomerUserToken = async ({
     await cl.customers.create({ email, password })
   }
 
-  const authResponse = await authentication("password", {
+  const authResponse = await authenticate("password", {
     clientId,
-    slug,
     domain,
     scope,
     username: email,
