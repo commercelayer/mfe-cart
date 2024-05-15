@@ -36,8 +36,8 @@ importers:
         specifier: 1.0.0-beta.3
         version: 1.0.0-beta.3(@semantic-release/changelog@6.0.2(semantic-release@19.0.5(encoding@0.1.13)))(@semantic-release/commit-analyzer@9.0.2(semantic-release@19.0.5(encoding@0.1.13)))(@semantic-release/git@10.0.1(semantic-release@19.0.5(encoding@0.1.13)))(@semantic-release/github@8.0.7(encoding@0.1.13)(semantic-release@19.0.5(encoding@0.1.13)))(@semantic-release/npm@9.0.1(semantic-release@19.0.5(encoding@0.1.13)))(@semantic-release/release-notes-generator@10.0.3(semantic-release@19.0.5(encoding@0.1.13)))(react-dom@18.3.1(react@18.3.1))(react-is@18.2.0)(react@18.3.1)(semantic-release@19.0.5(encoding@0.1.13))(tailwindcss@3.4.3)
       '@commercelayer/sdk':
-        specifier: 5.37.0
-        version: 5.37.0
+        specifier: 6.0.2
+        version: 6.0.2
       '@playwright/test':
         specifier: ^1.44.0
         version: 1.44.0
@@ -382,10 +382,6 @@ packages:
       '@semantic-release/release-notes-generator': ^10.0.3
       react: '*'
       semantic-release: ^19.0.2
-
-  '@commercelayer/sdk@5.37.0':
-    resolution: {integrity: sha512-fx3KUKlb34f1U4OvxlaYaI/R64Jm+Ruh5NpuKqRvu/HE5C967q4jqII36ZXst3YfYz8wrxK2rFl6UZc8jX4W1A==}
-    engines: {node: '>=16 || ^14.17'}
 
   '@commercelayer/sdk@6.0.2':
     resolution: {integrity: sha512-iHdZWb/Lfy3OFUkggeW800155yF464bcIIPrUNV6HTE9NZAbkzvB3K8Z8UGnm4QqskzaByrX36zAVrbI9aUWYQ==}
@@ -5762,12 +5758,6 @@ snapshots:
       - react-dom
       - react-is
       - tailwindcss
-
-  '@commercelayer/sdk@5.37.0':
-    dependencies:
-      axios: 1.6.7
-    transitivePeerDependencies:
-      - debug
 
   '@commercelayer/sdk@6.0.2': {}
 

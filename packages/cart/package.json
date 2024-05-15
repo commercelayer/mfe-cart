@@ -40,7 +40,7 @@
     "@commercelayer/js-auth": "^6.2.1",
     "@commercelayer/react-components": "^4.13.3",
     "@commercelayer/react-utils": "1.0.0-beta.3",
-    "@commercelayer/sdk": "5.37.0",
+    "@commercelayer/sdk": "6.0.2",
     "@playwright/test": "^1.44.0",
     "@types/async-retry": "1.4.8",
     "@types/iframe-resizer": "^3.5.13",
