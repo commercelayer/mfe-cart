@@ -1,6 +1,8 @@
 {
     "general": {
         "title": "Twój koszyk",
+        "itemsTitle": "Twoje przedmioty",
+        "cartContains": "Twój koszyk zawiera",
         "item": "produkt",
         "item_other": "produkty/ów",
         "emptyCart": "Twój koszyk jest pusty",
@@ -10,6 +12,8 @@
         "subtotal": "Zakupy",
         "discount": "Zniżka",
         "giftCard": "Karta podarunkowa",
+        "shippingAmount": "Wysyłka",
+        "paymentMethodAmount": "Metoda płatności",
         "total": "Suma",
         "gotToCheckoutCta": "Checkout",
         "returnUrlLabel": "Wróć do zakupów",

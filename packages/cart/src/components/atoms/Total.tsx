@@ -15,7 +15,7 @@ export const Total: FC<Props> = ({ price, priceCents }) => {
       <div
         data-test-id="total-amount"
         data-amount={priceCents}
-        className="font-semibold text-xl"
+        className="font-semibold text-2xl"
       >
         {price}
       </div>
