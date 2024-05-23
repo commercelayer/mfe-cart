@@ -22,6 +22,10 @@ interface Props {
    * input is disabled
    */
   disabled?: boolean
+  /*
+   * availability value returned from current item inventory
+   */
+  availability?: number
 }
 
 export function InputSpinner({
@@ -29,6 +33,7 @@ export function InputSpinner({
   handleChange,
   debounceMs = 0,
   disabled = false,
+  availability,
   ...rest
 }: Props): JSX.Element {
   const [internalValue, setInternalValue] = useState<number>(quantity)
@@ -36,6 +41,7 @@ export function InputSpinner({
   const { debouncedValue } = useDebounce(internalValue, debounceMs)
   const inputEl = useRef<HTMLInputElement | null>(null)
   const isDisabled = disabled || internalDisabled
+  const canIncrease = availability == null || internalValue < availability
   const isInternalValueSynched = quantity === internalValue
 
   const handleButtonClick = useCallback((action: "increment" | "decrement") => {
@@ -112,7 +118,7 @@ export function InputSpinner({
         value={internalValue}
         onChange={(event) => {
           const value = parseInt(event.currentTarget.value, 10)
-          if (value >= 1) {
+          if (value >= 1 && (availability == null || value <= availability)) {
             setInternalValue(value)
           }
         }}
@@ -120,11 +126,13 @@ export function InputSpinner({
       />
       <button
         data-test-id="input-spinner-btn-increment"
-        className="button-base bg-primary text-contrast px-3"
+        className={cn("button-base bg-primary text-contrast px-3", {
+          "!opacity-50": !canIncrease,
+        })}
         onClick={() => {
           handleButtonClick("increment")
         }}
-        disabled={isDisabled}
+        disabled={isDisabled || !canIncrease}
       >
         +
       </button>

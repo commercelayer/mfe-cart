@@ -13,14 +13,24 @@ test.describe("Quantity not available", () => {
     },
   })
 
-  test("should see an error when selecting non available quantity", async ({
+  test("should not be able to update a quantity not available", async ({
     CartPage,
   }) => {
     await CartPage.checkItemQuantity(2)
-    await CartPage.quantitySelectorInput.fill("10")
-    await CartPage.checkItemQuantity(2)
+    await CartPage.quantitySelectorInput.fill("5") // max available quantity is 5
+    await CartPage.checkItemQuantity(5)
+
+    await CartPage.quantitySelectorInput.fill("6")
+
+    await CartPage.checkItemQuantity(5)
+
     await expect(
-      CartPage.page.locator("text=The selected quantity is not available")
-    ).toBeVisible()
+      CartPage.page.locator("[data-test-id=input-spinner-btn-increment]")
+    ).toBeDisabled()
+
+    await CartPage.quantitySelectorInput.fill("3")
+    await expect(
+      CartPage.page.locator("[data-test-id=input-spinner-btn-increment]")
+    ).toBeEnabled()
   })
 })
