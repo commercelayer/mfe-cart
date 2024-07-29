@@ -1,4 +1,4 @@
-import { Order } from "@commercelayer/sdk"
+import type { Order } from "@commercelayer/sdk"
 import { IFrameObject as IframeResizerObject } from "iframe-resizer"
 
 type IframeEvent = "update" | "close" | "blur"

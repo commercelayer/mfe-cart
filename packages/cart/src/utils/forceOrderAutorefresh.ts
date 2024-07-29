@@ -1,4 +1,4 @@
-import { CommerceLayerClient, Order } from "@commercelayer/sdk"
+import type { CommerceLayerClient, Order } from "@commercelayer/sdk"
 
 type ForceOrderAutorefreshConfig = {
   /**
