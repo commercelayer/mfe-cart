@@ -34,8 +34,6 @@ const getAsyncOrder = async (client: CommerceLayerClient, orderId: string) => {
         "number",
         "guest",
         "language_code",
-        "terms_url",
-        "privacy_url",
         "return_url",
         "cart_url",
         "line_items",

@@ -1,3 +1,4 @@
+import { getConfig } from "@commercelayer/organization-config"
 import CommerceLayer, { Organization } from "@commercelayer/sdk"
 import { Settings, InvalidSettings } from "HostedApp"
 
@@ -9,6 +10,7 @@ import { isValidHost } from "./isValidHost"
 import { isValidStatus } from "./isValidStatus"
 
 import { isValidOrderIdFormat } from "#utils/isValidOrderIdFormat"
+import { updateAccessTokenInUrl } from "#utils/updateAccessTokenInUrl"
 
 // default settings are by their nature not valid to show a full cart
 // they will be used as fallback for errors or 404 page
@@ -53,14 +55,14 @@ const makeInvalidSettings = ({
 export const getSettings = async ({
   accessToken,
   orderId,
-  config,
+  appConfig,
 }: {
   accessToken: string
   orderId: string
-  config: CommerceLayerAppConfig
+  appConfig: CommerceLayerAppConfig
 }): Promise<Settings | InvalidSettings> => {
-  const domain = config.domain || "commercelayer.io"
-  const { slug, isTest } = getInfoFromJwt(accessToken)
+  const domain = appConfig.domain || "commercelayer.io"
+  const { slug, isTest, market } = getInfoFromJwt(accessToken)
 
   if (!slug) {
     return makeInvalidSettings({})
@@ -72,7 +74,7 @@ export const getSettings = async ({
     !isValidHost({
       hostname,
       accessToken,
-      selfHostedSlug: config.selfHostedSlug,
+      selfHostedSlug: appConfig.selfHostedSlug,
     })
   ) {
     return makeInvalidSettings({})
@@ -125,6 +127,24 @@ export const getSettings = async ({
 
   await forceOrderAutorefresh({ client, order })
 
+  const organizationConfig = getConfig({
+    jsonConfig: organization.config ?? {},
+    market: market.id.length === 1 ? `market:id:${market.id[0]}` : undefined,
+    params: {
+      lang: order.language_code,
+      orderId: order.id,
+      accessToken,
+    },
+  })
+
+  const cartUrl =
+    order.cart_url != null && order.cart_url !== ""
+      ? updateAccessTokenInUrl({
+          cartUrl: order.cart_url,
+          accessToken,
+        })
+      : organizationConfig?.links?.cart
+
   return {
     accessToken,
     endpoint: `https://${slug}.${domain}`,
@@ -138,7 +158,8 @@ export const getSettings = async ({
     gtmId:
       (isTest ? organization.gtm_id_test : organization.gtm_id) ?? undefined,
     returnUrl: order.return_url ?? undefined,
-    cartUrl: order.cart_url ?? undefined,
+    cartUrl,
     isValid: true,
+    organizationConfig,
   }
 }

@@ -1,4 +1,6 @@
 declare module "HostedApp" {
+  import { DefaultConfig } from "@commercelayer/organization-config"
+
   export type Settings = {
     /**
      * Access Token for a sales channel API credentials to be used to authenticate all Commerce Layer API requests.
@@ -63,6 +65,10 @@ declare module "HostedApp" {
      * Total items found in current order.
      */
     itemsCount: number
+    /**
+     * The organization configuration object that overrides the default settings by market and language.
+     */
+    organizationConfig: DefaultConfig | null
   }
 
   export type InvalidSettings = Pick<

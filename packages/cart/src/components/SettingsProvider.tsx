@@ -39,7 +39,7 @@ type SettingsProviderProps = {
   /**
    * App config served locally from public/config.js
    */
-  config: CommerceLayerAppConfig
+  appConfig: CommerceLayerAppConfig
   /**
    * If needed, context value can be also accessed using a function as a child.
    *
@@ -72,7 +72,7 @@ export const useSettings = (): SettingsProviderValue => {
 export const SettingsProvider: FC<SettingsProviderProps> = ({
   orderId,
   children,
-  config,
+  appConfig,
 }) => {
   const [settings, setSettings] = useState<Settings | InvalidSettings>(
     defaultSettings
@@ -84,7 +84,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({
     setIsLoading(!!accessToken)
 
     if (accessToken) {
-      getSettings({ orderId, accessToken, config })
+      getSettings({ orderId, accessToken, appConfig })
         .then(setSettings)
         .finally(() => {
           setIsLoading(false)

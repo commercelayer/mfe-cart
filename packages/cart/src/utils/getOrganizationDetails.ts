@@ -31,6 +31,7 @@ const getAsyncOrganization = async (client: CommerceLayerClient) => {
         "favicon_url",
         "gtm_id",
         "gtm_id_test",
+        "config",
       ],
     },
   })

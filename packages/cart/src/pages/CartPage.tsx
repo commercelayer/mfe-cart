@@ -19,7 +19,7 @@ function CartPage(): JSX.Element {
   const { t } = useTranslation()
   const orderId = params?.orderId
 
-  const config = {
+  const appConfig = {
     ...window.clAppConfig,
     selfHostedSlug:
       // local config is always overwritten by ENV var, if present
@@ -33,7 +33,7 @@ function CartPage(): JSX.Element {
   }
 
   return (
-    <SettingsProvider orderId={orderId} config={config}>
+    <SettingsProvider orderId={orderId} appConfig={appConfig}>
       {({ settings, isLoading }) => (
         <GlobalStylesProvider primaryColor={settings.primaryColor}>
           {isLoading ? (
