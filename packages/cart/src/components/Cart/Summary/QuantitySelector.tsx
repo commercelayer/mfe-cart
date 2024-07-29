@@ -1,6 +1,6 @@
 import { LineItemQuantity } from "@commercelayer/react-components"
-import { LineItem } from "@commercelayer/sdk"
-import { FC } from "react"
+import type { LineItem } from "@commercelayer/sdk"
+import type { FC } from "react"
 
 import { InputSpinner } from "#components/atoms/InputSpinner"
 

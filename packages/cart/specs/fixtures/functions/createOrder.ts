@@ -1,4 +1,4 @@
-import { CommerceLayerClient } from "@commercelayer/sdk"
+import type { CommerceLayerClient } from "@commercelayer/sdk"
 
 import { createAndPurchaseGiftCard } from "./createAndPurchaseGiftCard"
 import { createLineItems } from "./createLineItems"
