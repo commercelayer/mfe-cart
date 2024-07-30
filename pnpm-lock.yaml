@@ -30,8 +30,8 @@ importers:
         specifier: ^1.4.8
         version: 1.4.8(eslint@8.57.0)(typescript@5.5.4)
       '@commercelayer/react-components':
-        specifier: ^4.15.1
-        version: 4.15.1(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.4)
+        specifier: ^4.15.3
+        version: 4.15.3(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.4)
       '@commercelayer/react-utils':
         specifier: 1.0.0-beta.3
         version: 1.0.0-beta.3(@semantic-release/changelog@6.0.2(semantic-release@19.0.5(encoding@0.1.13)))(@semantic-release/commit-analyzer@9.0.2(semantic-release@19.0.5(encoding@0.1.13)))(@semantic-release/git@10.0.1(semantic-release@19.0.5(encoding@0.1.13)))(@semantic-release/github@8.0.7(encoding@0.1.13)(semantic-release@19.0.5(encoding@0.1.13)))(@semantic-release/npm@9.0.1(semantic-release@19.0.5(encoding@0.1.13)))(@semantic-release/release-notes-generator@10.0.3(semantic-release@19.0.5(encoding@0.1.13)))(react-dom@18.3.1(react@18.3.1))(react-is@18.2.0)(react@18.3.1)(semantic-release@19.0.5(encoding@0.1.13))(tailwindcss@3.4.7)
@@ -407,8 +407,8 @@ packages:
       eslint: '>=8.0'
       typescript: '>=5.0'
 
-  '@commercelayer/react-components@4.15.1':
-    resolution: {integrity: sha512-i/e6rK2xLbdp9KK+tRXznGaFsqHMgO44Ctqa+IReIyafH4bzXVRdQheLu9a2KizmJ6ll1T6QKnk1q6DDdTP4Xw==}
+  '@commercelayer/react-components@4.15.3':
+    resolution: {integrity: sha512-NqN+79kR/fbMHGTwAFYt3G0PkNv7ZjNl0/i3S7bTbOKQQUpUMZODmeQrU2VTJz3wH734xVLeOP0b2X57uyQ3Qg==}
     peerDependencies:
       react: '>=18.0.0'
 
@@ -5705,7 +5705,7 @@ snapshots:
 
   '@adyen/adyen-web@5.67.0':
     dependencies:
-      '@babel/runtime': 7.23.9
+      '@babel/runtime': 7.25.0
       '@babel/runtime-corejs3': 7.20.6
       '@types/applepayjs': 14.0.6
       '@types/googlepay': 0.7.6
@@ -5981,7 +5981,7 @@ snapshots:
       merge-anything: 5.1.7
       typescript: 5.5.4
 
-  '@commercelayer/react-components@4.15.1(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.4)':
+  '@commercelayer/react-components@4.15.3(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.4)':
     dependencies:
       '@adyen/adyen-web': 5.67.0
       '@commercelayer/organization-config': 1.4.8(eslint@8.57.0)(typescript@5.5.4)
