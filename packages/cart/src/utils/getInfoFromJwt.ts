@@ -15,6 +15,9 @@ type JWTProps = {
   application: {
     kind: string
   }
+  market: {
+    id: string[]
+  }
   /**
    * If `true` it means the  Organization is working in test mode and live mode is not enabled.
    */
@@ -34,9 +37,9 @@ export const getInfoFromJwt = (accessToken: string) => {
       organization: { slug },
       application: { kind },
       test,
+      market,
     } = jwtDecode(accessToken) as JWTProps
-
-    return { slug, kind, isTest: test }
+    return { slug, kind, isTest: test, market }
   } catch (e) {
     return {}
   }
