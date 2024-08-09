@@ -33,9 +33,9 @@
     "packages/*"
   ],
   "devDependencies": {
-    "husky": "^9.1.3",
-    "lerna": "^8.1.7",
-    "lint-staged": "^15.2.7",
-    "npm-check-updates": "^16.14.20"
+    "husky": "^9.1.4",
+    "lerna": "^8.1.8",
+    "lint-staged": "^15.2.8",
+    "npm-check-updates": "^17.0.6"
   }
 }
