@@ -1,7 +1,7 @@
 window.clAppConfig = Object.assign(
   {
-    domain: "commercelayer.io",
-    selfHostedSlug: null,
+    domain: "netlify.app",
+    selfHostedSlug: "master--brilliant-custard-06fc9a",
   },
   window.clAppConfig
 )
