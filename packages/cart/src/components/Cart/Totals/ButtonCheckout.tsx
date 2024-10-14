@@ -45,7 +45,6 @@ export const ButtonCheckout: FC = () => {
         {({ quantity }) =>
           quantity ? (
             <CheckoutLink
-              hostedCheckout
               data-test-id="button-checkout"
               aria-disabled="false"
               className={
