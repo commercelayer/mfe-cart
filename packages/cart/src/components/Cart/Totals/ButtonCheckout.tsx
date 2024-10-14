@@ -45,10 +45,11 @@ export const ButtonCheckout: FC = () => {
         {({ quantity }) =>
           quantity ? (
             <CheckoutLink
+              hostedCheckout={false}
               data-test-id="button-checkout"
               aria-disabled="false"
               className={
-                "button-base bg-primary-500 hover:bg-primary-800 text-white text-contrast block rounded-md py-3 px-3"
+                "button-base bg-primary text-contrast block rounded-md py-3 px-3"
               }
               label={label}
               target={isEmbedded() ? "_top" : undefined}
