@@ -6,7 +6,7 @@ export function isValidCronExpression(
   try {
     parseExpression(cronExpression)
     return true
-  } catch (e) {
+  } catch {
     return false
   }
 }

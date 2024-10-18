@@ -10,10 +10,8 @@
     "test": "pnpm -r test",
     "test:watch": "pnpm -r test:watch",
     "test:e2e": "pnpm -r test:e2e",
-    "dep:upgrade:major": "pnpm -r exec npm-check-updates -u",
-    "dep:upgrade:minor": "pnpm dep:upgrade:major -t minor",
-    "dep:self-upgrade:major": "pnpm exec npm-check-updates -u",
-    "dep:self-upgrade:minor": "pnpm dep:self-upgrade:major -t minor"
+    "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
+    "dep:minor": "pnpm dep:major -t minor"
   },
   "keywords": [],
   "author": {
@@ -33,9 +31,9 @@
     "packages/*"
   ],
   "devDependencies": {
-    "husky": "^9.1.4",
+    "husky": "^9.1.6",
     "lerna": "^8.1.8",
-    "lint-staged": "^15.2.8",
-    "npm-check-updates": "^17.0.6"
+    "lint-staged": "^15.2.10",
+    "npm-check-updates": "^17.1.4"
   }
 }

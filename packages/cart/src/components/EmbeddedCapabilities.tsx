@@ -44,7 +44,7 @@ const IframeResizerInit: FC = () => {
           if (type === "update") {
             // `reloadOrderCallback` will be create insider `<OrderRefresher>` component
             // since we need to access order context that will be available later
-            window.reloadOrderCallback && window.reloadOrderCallback()
+            window.reloadOrderCallback?.()
           }
         },
       }
