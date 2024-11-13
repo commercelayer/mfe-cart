@@ -41,7 +41,7 @@ export type TestOrderOptions = {
     password: string
   }
   attributes?: {
-    language_code?: "en" | "it"
+    language_code?: "en" | "it" | "pt" | "de" | "pl" | "hu"
     return_url?: string
   }
   organization?: Record<string, unknown>

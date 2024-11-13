@@ -25,3 +25,55 @@ test.describe("Cart in Italian", () => {
     await CartPage.checkOrderLanguage("it")
   })
 })
+
+test.describe("Cart in German", () => {
+  test.use({
+    options: {
+      orderType: "plain",
+      attributes: { language_code: "de" },
+    },
+  })
+
+  test("should open a cart with texts in German", async ({ CartPage }) => {
+    await CartPage.checkOrderLanguage("de")
+  })
+})
+
+test.describe("Cart in Hungarian", () => {
+  test.use({
+    options: {
+      orderType: "plain",
+      attributes: { language_code: "hu" },
+    },
+  })
+
+  test("should open a cart with texts in Hungarian", async ({ CartPage }) => {
+    await CartPage.checkOrderLanguage("hu")
+  })
+})
+
+test.describe("Cart in Polish", () => {
+  test.use({
+    options: {
+      orderType: "plain",
+      attributes: { language_code: "pl" },
+    },
+  })
+
+  test("should open a cart with texts in Polish", async ({ CartPage }) => {
+    await CartPage.checkOrderLanguage("pl")
+  })
+})
+
+test.describe("Cart in Portuguese", () => {
+  test.use({
+    options: {
+      orderType: "plain",
+      attributes: { language_code: "pt" },
+    },
+  })
+
+  test("should open a cart with texts in Portuguese", async ({ CartPage }) => {
+    await CartPage.checkOrderLanguage("pt")
+  })
+})
