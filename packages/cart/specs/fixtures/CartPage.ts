@@ -1,7 +1,11 @@
 import { Page, expect, Locator } from "@playwright/test"
 
+import commonDe from "#assets/locales/de/common.json"
 import commonEn from "#assets/locales/en/common.json"
+import commonHu from "#assets/locales/hu/common.json"
 import commonIt from "#assets/locales/it/common.json"
+import commonPl from "#assets/locales/pl/common.json"
+import commonPt from "#assets/locales/pt/common.json"
 
 type GoToProps = {
   orderId: string
@@ -55,10 +59,14 @@ export class CartPage {
     await expect(el).toBeVisible()
   }
 
-  async checkOrderLanguage(language: "en" | "it") {
+  async checkOrderLanguage(language: "en" | "it" | "de" | "hu" | "pl" | "pt") {
     const translations = {
       it: commonIt,
       en: commonEn,
+      de: commonDe,
+      hu: commonHu,
+      pl: commonPl,
+      pt: commonPt,
     }
     const currentLang = translations[language]
     await expect(
