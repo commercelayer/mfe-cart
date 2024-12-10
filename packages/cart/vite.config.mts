@@ -29,7 +29,6 @@ export default defineConfig(({ mode }) => {
             vendor: [
               "react",
               "react-dom",
-              "react-helmet-async",
               "wouter",
               "react-gtm-module",
               "react-i18next",
