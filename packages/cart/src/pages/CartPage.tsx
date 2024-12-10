@@ -1,5 +1,5 @@
 import { GlobalStylesProvider } from "@commercelayer/react-utils"
-import { lazy, Suspense } from "react"
+import { FC, lazy, Suspense } from "react"
 import { useTranslation } from "react-i18next"
 import { useRoute } from "wouter"
 
@@ -12,7 +12,7 @@ import { isEmbedded } from "#utils/isEmbedded"
 
 const LazyCart = lazy(() => import("#components/Cart"))
 
-function CartPage(): JSX.Element {
+const CartPage: FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [match, params] = useRoute("/:orderId")
 

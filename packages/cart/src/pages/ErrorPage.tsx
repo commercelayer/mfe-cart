@@ -1,6 +1,8 @@
+import { FC } from "react"
+
 import { PageErrorLayout } from "#components/PageErrorLayout"
 
-function ErrorPage(): JSX.Element {
+const ErrorPage: FC = () => {
   return (
     <PageErrorLayout statusCode={404} message="This order is not accessible." />
   )

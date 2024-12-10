@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { useCallback, useEffect, useRef, useState } from "react"
+import { FC, useCallback, useEffect, useRef, useState } from "react"
 
 import css from "./InputSpinner.module.css"
 
@@ -28,14 +28,14 @@ interface Props {
   availability?: number
 }
 
-export function InputSpinner({
+export const InputSpinner: FC<Props> = ({
   quantity,
   handleChange,
   debounceMs = 0,
   disabled = false,
   availability,
   ...rest
-}: Props): JSX.Element {
+}) => {
   const [internalValue, setInternalValue] = useState<number>(quantity)
   const [internalDisabled, setInternalDisabled] = useState(disabled)
   const { debouncedValue } = useDebounce(internalValue, debounceMs)

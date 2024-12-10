@@ -6,6 +6,7 @@ import { defineConfig } from "vitest/config"
 import { resolve } from "path"
 
 // https://vitejs.dev/config/
+// @ts-expect-error - vite types are not up to date
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "")
   const analyzeBundle = env.ANALYZE_BUNDLE === "true"
@@ -59,7 +60,11 @@ export default defineConfig(({ mode }) => {
   }
 })
 
-function preparePlugins({ analyzeBundle }: { analyzeBundle: boolean }) {
+function preparePlugins({
+  analyzeBundle,
+}: {
+  analyzeBundle: boolean
+}): PluginOption[] {
   const plugins: PluginOption[] = [
     react(),
     analyzeBundle &&

@@ -1,6 +1,5 @@
 import useOrderContainer from "@commercelayer/react-components/hooks/useOrderContainer"
 import { FC, useEffect, useLayoutEffect } from "react"
-import { Helmet } from "react-helmet-async"
 
 import { isEmbedded } from "#utils/isEmbedded"
 
@@ -57,13 +56,11 @@ const IframeResizerInit: FC = () => {
   }
 
   return (
-    <Helmet>
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"
-        data-test-id="iframe-resizer-script"
-        type="text/javascript"
-      />
-    </Helmet>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"
+      data-test-id="iframe-resizer-script"
+      type="text/javascript"
+    />
   )
 }
 

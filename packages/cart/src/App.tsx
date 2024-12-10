@@ -1,4 +1,3 @@
-import { HelmetProvider } from "react-helmet-async"
 import { Router, Route, Switch } from "wouter"
 
 import CartPage from "./pages/CartPage"
@@ -6,14 +5,14 @@ import ErrorPage from "./pages/ErrorPage"
 
 import { EmbeddedCapabilities } from "#components/EmbeddedCapabilities"
 
-function App(): JSX.Element {
+const App = () => {
   const basePath =
     import.meta.env.PUBLIC_PROJECT_PATH != null
       ? `/${import.meta.env.PUBLIC_PROJECT_PATH}`
       : undefined
 
   return (
-    <HelmetProvider>
+    <>
       <EmbeddedCapabilities.IframeResizerInit />
       <Router base={basePath}>
         <Switch>
@@ -28,7 +27,7 @@ function App(): JSX.Element {
           </Route>
         </Switch>
       </Router>
-    </HelmetProvider>
+    </>
   )
 }
 
