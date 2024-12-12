@@ -23,7 +23,7 @@ export const getOrganizationsDetails = async ({
 const getAsyncOrganization = async (client: CommerceLayerClient) => {
   return await client.organization.retrieve({
     fields: {
-      organization: [
+      organizations: [
         "id",
         "logo_url",
         "name",
