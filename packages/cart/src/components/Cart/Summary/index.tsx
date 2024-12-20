@@ -89,13 +89,12 @@ export const Summary: FC<Props> = ({ listTypes }) => {
       </LineItemsEmpty>
 
       {/* Return Url */}
-      {settings.isValid && settings.returnUrl ? (
+      {settings.isValid && settings.returnUrl && !isEmbedded() ? (
         <div className="pt-2 pb-8">
           <a
             data-test-id="return-url"
             href={settings.returnUrl}
             className="link-base text-xs font-bold"
-            target={isEmbedded() ? "_top" : undefined}
           >
             &lt; {t("general.returnUrlLabel")}
           </a>
