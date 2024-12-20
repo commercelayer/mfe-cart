@@ -18,8 +18,8 @@ test.describe("Enter the page as embedded", () => {
 
   test("should have iframe capabilities", async ({ CartPage }) => {
     await expect(
-      CartPage.page.locator(`[data-test-id=return-url][target=_top]`)
-    ).toBeVisible()
+      CartPage.page.locator(`[data-test-id=return-url]`)
+    ).not.toBeVisible()
     await expect(
       CartPage.page.locator(`[data-test-id=button-checkout][target=_top]`)
     ).toBeVisible()
