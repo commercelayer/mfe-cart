@@ -1,6 +1,8 @@
 {
     "general": {
         "title": "Kosár",
+        "itemsTitle": "Az Ön tételei",
+        "cartContains": "Az Ön kosara tartalmaz",
         "item": "elem",
         "item_other": "elemek",
         "emptyCart": "Az ön kosara üres",
@@ -10,6 +12,8 @@
         "subtotal": "Részösszeg",
         "discount": "Kedvezmény",
         "giftCard": "Ajándékkártya",
+        "shippingAmount": "Szállítás",
+        "paymentMethodAmount": "Fizetési mód",
         "total": "Összesen",
         "gotToCheckoutCta": "Pénztárhoz",
         "returnUrlLabel": "Vásárlás folytatása",

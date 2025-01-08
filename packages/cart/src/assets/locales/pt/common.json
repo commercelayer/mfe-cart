@@ -1,8 +1,10 @@
 {
     "general": {
         "title": "O Seu Carrinho",
+        "itemsTitle": "Seus itens",
+        "cartContains": "Seu carrinho de compras contém",
         "item": "item",
-        "item_other": "items",
+        "item_other": "Itens",
         "emptyCart": "O seu carrinho está vazio",
         "remove": "Remover",
         "price": "Preço",
@@ -10,6 +12,8 @@
         "subtotal": "Subtotal",
         "discount": "Desconto",
         "giftCard": "Cartão-presente",
+        "shippingAmount": "Envio",
+        "paymentMethodAmount": "Método de pagamento",
         "total": "Total",
         "gotToCheckoutCta": "Checkout",
         "returnUrlLabel": "Continuar a comprar",
