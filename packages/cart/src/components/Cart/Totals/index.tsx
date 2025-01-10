@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next"
 
 import { ButtonCheckout } from "./ButtonCheckout"
 
+import { CartTitle } from "#components/atoms/CartTitle"
 import { FinalPriceDisclaimer } from "#components/atoms/FinalPriceDisclaimer"
 import { SubTotal } from "#components/atoms/SubTotal"
 import { Total } from "#components/atoms/Total"
@@ -22,6 +23,7 @@ export const Totals: FC = () => {
   return (
     <>
       <div className="mb-6">
+        <CartTitle className="hidden md:flex" />
         <SubTotalAmount>
           {({ priceCents, price }) => (
             <SubTotal priceCents={priceCents} price={price} />

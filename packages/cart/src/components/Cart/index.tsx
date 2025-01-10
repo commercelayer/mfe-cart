@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next"
 
 import { Totals } from "./Totals"
 
+import { CartTitle } from "#components/atoms/CartTitle"
 import { Summary } from "#components/Cart/Summary"
 import { EmbeddedCapabilities } from "#components/EmbeddedCapabilities"
 import { PageHeader } from "#components/PageHeader"
@@ -46,28 +47,31 @@ const Cart: FC = () => {
           <PageLayout
             top={
               <PageHeader>
-                <h1
-                  data-test-id="page-title"
-                  data-cart-id={settings.orderId}
-                  className="text-black font-semibold text-xl"
-                >
-                  {t("general.itemsTitle")}
-                </h1>
+                <div className="hidden md:block">
+                  <h1
+                    data-test-id="page-title"
+                    data-cart-id={settings.orderId}
+                    className="text-black font-semibold text-xl"
+                  >
+                    {t("general.itemsTitle")}
+                  </h1>
 
-                <LineItemsCount>
-                  {({ quantity }) =>
-                    quantity ? (
-                      <div className="text-gray-400">
-                        <span data-test-id="items-count">
-                          {t("general.cartContains")} {quantity}
-                        </span>{" "}
-                        {t("general.item", { count: quantity })}
-                      </div>
-                    ) : (
-                      <div />
-                    )
-                  }
-                </LineItemsCount>
+                  <LineItemsCount>
+                    {({ quantity }) =>
+                      quantity ? (
+                        <div className="text-gray-400">
+                          <span data-test-id="items-count">
+                            {t("general.cartContains")} {quantity}
+                          </span>{" "}
+                          {t("general.item", { count: quantity })}
+                        </div>
+                      ) : (
+                        <div />
+                      )
+                    }
+                  </LineItemsCount>
+                </div>
+                <CartTitle className="md:hidden" />
               </PageHeader>
             }
             main={<Summary listTypes={["bundles", "skus", "gift_cards"]} />}
