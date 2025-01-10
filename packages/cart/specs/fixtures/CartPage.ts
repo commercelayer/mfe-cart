@@ -55,7 +55,7 @@ export class CartPage {
   }
 
   async expectAppTitle() {
-    const el = this.page.locator("[data-test-id=page-title]")
+    const el = this.page.locator("[data-test-id=page-title]:visible")
     await expect(el).toBeVisible()
   }
 
@@ -71,7 +71,7 @@ export class CartPage {
     const currentLang = translations[language]
     await expect(
       this.page.locator(
-        `[data-test-id=page-title] >> text=${currentLang.general.title}`
+        `[data-test-id=page-title]:visible >> text=${currentLang.general.title}`
       )
     ).toBeVisible()
 
@@ -89,9 +89,7 @@ export class CartPage {
   }
 
   async checkCartId(id: string) {
-    const el = this.page.locator(
-      `[data-test-id=page-title][data-cart-id=${id}]`
-    )
+    const el = this.page.locator(`[data-cart-id=${id}]`)
     await expect(el).toBeVisible()
   }
 
@@ -188,7 +186,7 @@ export class CartPage {
         this.page.locator("[data-test-id=cart-header]")
       ).toBeVisible()
       await expect(
-        this.page.locator("[data-test-id=cart-footer]")
+        this.page.locator("[data-test-id=cart-footer]:visible")
       ).toBeVisible()
     }
   }

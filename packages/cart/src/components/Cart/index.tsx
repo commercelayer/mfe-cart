@@ -49,7 +49,6 @@ const Cart: FC = () => {
               <PageHeader>
                 <div className="hidden md:block">
                   <h1
-                    data-test-id="page-title"
                     data-cart-id={settings.orderId}
                     className="text-black font-semibold text-xl"
                   >
@@ -60,9 +59,8 @@ const Cart: FC = () => {
                     {({ quantity }) =>
                       quantity ? (
                         <div className="text-gray-400">
-                          <span data-test-id="items-count">
-                            {t("general.cartContains")} {quantity}
-                          </span>{" "}
+                          {t("general.cartContains")}{" "}
+                          <span data-test-id="items-count">{quantity}</span>{" "}
                           {t("general.item", { count: quantity })}
                         </div>
                       ) : (

@@ -13,7 +13,10 @@ export const CartTitle: FC<{ className?: string }> = ({ className }) => {
         className
       )}
     >
-      <h2 className="text-black font-semibold text-xl md:text-3xl">
+      <h2
+        className="text-black font-semibold text-xl md:text-3xl"
+        data-test-id="page-title"
+      >
         {t("general.title")}
       </h2>
       <LineItemsCount>
