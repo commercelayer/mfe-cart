@@ -49,7 +49,7 @@ export const ButtonCheckout: FC = () => {
               data-test-id="button-checkout"
               aria-disabled="false"
               className={
-                "button-base bg-primary text-contrast block rounded-md py-3 px-3"
+                "button-base bg-primary text-contrast block rounded-md py-3 px-3 !text-xs md:!text-base"
               }
               label={label}
               target={isEmbedded() ? "_top" : undefined}
