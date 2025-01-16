@@ -23,7 +23,7 @@ export const PageLayout: FC<Props> = ({ top, main, aside }) => {
 const Inner: FC<Props> = ({ top, main, aside }) => {
   return (
     <div
-      className={cn("flex flex-col md:flex-row ", {
+      className={cn("flex flex-col md:flex-row md:bg-gray-50", {
         "min-h-screen": !isEmbedded(),
       })}
     >
@@ -37,11 +37,11 @@ const Inner: FC<Props> = ({ top, main, aside }) => {
         {!isEmbedded() && <Footer className="hidden" />}
       </main>
       <aside
-        className={cn("w-full md:flex-1  md:bg-gray-50", {
+        className={cn("w-full md:flex-1 bg-white", {
           "md:px-5 lg:px-24": !isEmbedded(),
         })}
       >
-        <div className="bg-gray-50 px-5 py-6 md:px-0 md:pb-0 md:pt-12">
+        <div className="bg-gray-50 md:bg-white px-5 py-6 md:px-0 md:pb-0 md:pt-12">
           {aside}
         </div>
         {!isEmbedded() && <Footer className="py-2 md:py-6 md:my-0 md:hidden" />}

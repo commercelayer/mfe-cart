@@ -104,7 +104,7 @@ export function InputSpinner({
     >
       <button
         data-test-id="input-spinner-btn-decrement"
-        className="button-base px-3 py-[10px] hover:enabled:bg-gray-50"
+        className="button-base px-3 py-[10px] bg-white hover:enabled:bg-gray-50"
         onClick={() => {
           handleButtonClick("decrement")
         }}
@@ -141,7 +141,7 @@ export function InputSpinner({
       />
       <button
         data-test-id="input-spinner-btn-increment"
-        className={cn("button-base px-3 hover:enabled:bg-gray-5", {
+        className={cn("button-base px-3 bg-white hover:enabled:bg-gray-5", {
           "!opacity-50": !canIncrease,
         })}
         onClick={() => {
