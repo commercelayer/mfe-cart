@@ -32,7 +32,7 @@ export const PageHeader: FC<Props> = ({ isLoading, children }) => {
       <div className="pt-12 pb-10 flex">
         <CompanyLogo />
       </div>
-      <div className="flex flex-col mb-12">
+      <div className="flex flex-col">
         {isLoading ? (
           <>
             <SkeletonItem className="w-4/12 h-[36px] mb-4" />

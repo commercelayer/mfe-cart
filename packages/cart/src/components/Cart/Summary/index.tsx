@@ -7,6 +7,7 @@ import {
   LineItemsEmpty,
   useOrderContainer,
   LineItemCode,
+  LineItemsContainer,
 } from "@commercelayer/react-components"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
@@ -16,6 +17,7 @@ import { LineItemFrequency } from "./LineItemFrequency"
 import { LineItemOptions } from "./LineItemOptions"
 import { QuantitySelector } from "./QuantitySelector"
 
+import { CartTitle } from "#components/atoms/CartTitle"
 import { EmptyCartMessage } from "#components/atoms/EmptyCartMessage"
 import { useSettings } from "#components/SettingsProvider"
 import { LineItemsSkeleton } from "#components/Skeleton/LineItems"
@@ -32,6 +34,9 @@ export const Summary: FC<Props> = ({ listTypes }) => {
 
   return (
     <>
+      <LineItemsContainer>
+        <CartTitle className="md:hidden mb-12" />
+      </LineItemsContainer>
       {listTypes.map((type) => (
         <LineItem key={type} type={type}>
           <div

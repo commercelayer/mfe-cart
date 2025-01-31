@@ -29,6 +29,7 @@ const Inner: FC<Props> = ({ top, main, aside }) => {
     >
       <main
         className={cn("w-full md:flex-1", {
+          "md:pt-12 md:px-8": isEmbedded(),
           "px-5 lg:px-24": !isEmbedded(),
         })}
       >
@@ -38,6 +39,7 @@ const Inner: FC<Props> = ({ top, main, aside }) => {
       </main>
       <aside
         className={cn("w-full md:flex-1 bg-white", {
+          "md:px-8": isEmbedded(),
           "md:px-5 lg:px-24": !isEmbedded(),
         })}
       >

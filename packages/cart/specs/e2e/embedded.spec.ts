@@ -16,6 +16,10 @@ test.describe("Enter the page as embedded", () => {
     await CartPage.checkHeaderAndFooter({ embedded: true })
   })
 
+  test("should see page title", async ({ CartPage }) => {
+    await CartPage.expectAppTitle()
+  })
+
   test("should have iframe capabilities", async ({ CartPage }) => {
     await expect(
       CartPage.page.locator(`[data-test-id=return-url]`)
