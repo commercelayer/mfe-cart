@@ -3,14 +3,19 @@ import cn from "classnames"
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
 
+import { isEmbedded } from "#utils/isEmbedded"
+
 export const CartTitle: FC<{ className?: string }> = ({ className }) => {
   const { t } = useTranslation()
 
   return (
     <div
       className={cn(
-        "border-t md:border-t-0 border-b flex justify-between items-center flex-row py-4 md:pt-0 md:mb-12 md:pb-2",
-        className
+        "border-b flex justify-between items-center flex-row py-4 md:pt-0 md:mb-12 md:pb-2",
+        className,
+        {
+          "border-t md:border-t-0": !isEmbedded(),
+        }
       )}
     >
       <h2
