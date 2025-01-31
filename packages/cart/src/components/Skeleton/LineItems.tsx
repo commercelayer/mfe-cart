@@ -5,6 +5,14 @@ import { SkeletonItem } from "./Item"
 export const LineItemsSkeleton: FC = () => {
   return (
     <div className="animate-pulse">
+      <>
+        <div className="md:hidden mb-12">
+          <div className="border-b flex justify-between items-center flex-row py-4 md:pt-0 md:mb-12 md:pb-2">
+            <SkeletonItem className="w-12 h-[28px]" />
+            <SkeletonItem className="w-10 h-[28px]" />
+          </div>
+        </div>
+      </>
       {["item1", "item2"].map((item) => (
         <div
           key={item}
