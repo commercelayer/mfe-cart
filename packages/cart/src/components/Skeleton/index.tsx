@@ -1,4 +1,4 @@
-import { FC } from "react"
+import type { FC } from "react"
 
 import { SkeletonItem } from "./Item"
 import { LineItemsSkeleton } from "./LineItems"
@@ -42,6 +42,6 @@ export const Skeleton: FC = () => {
           </div>
         </div>
       }
-    ></PageLayout>
+    />
   )
 }

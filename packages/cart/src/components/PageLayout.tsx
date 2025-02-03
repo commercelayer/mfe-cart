@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { FC, ReactNode } from "react"
+import type { FC, ReactNode } from "react"
 
 import { Footer } from "#components/Footer"
 import { isEmbedded } from "#utils/isEmbedded"

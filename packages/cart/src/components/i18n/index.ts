@@ -1,8 +1,8 @@
 import i18n, { use } from "i18next"
 import {
+  type AllowedLocaleKeys,
+  type AppResources,
   initReactI18next,
-  AllowedLocaleKeys,
-  AppResources,
 } from "react-i18next"
 
 import commonDe from "#assets/locales/de/common.json"

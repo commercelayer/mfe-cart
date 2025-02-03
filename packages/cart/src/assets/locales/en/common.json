@@ -1,55 +1,55 @@
 {
-    "general": {
-        "title": "Cart",
-        "itemsTitle": "Your items",
-        "cartContains": "Your shopping cart contains",
-        "item": "item",
-        "item_other": "items",
-        "emptyCart": "Your cart is empty",
-        "remove": "Remove",
-        "price": "Unit price",
-        "finalPriceInCheckoutText": "Tax included and shipping calculated at checkout",
-        "subtotal": "Subtotal",
-        "discount": "Discount",
-        "giftCard": "Gift Card",
-        "shippingAmount": "Shipping",
-        "paymentMethodAmount": "Payment method",
-        "total": "Total",
-        "gotToCheckoutCta": "Checkout",
-        "returnUrlLabel": "Continue shopping",
-        "quantityNotAvailable": "The selected quantity is not available",
-        "retryableErrorCode": "Connectivity issues",
-        "retryableErrorDescription": "Try to reload the page"
-    },
-    "item": {
-        "frequency": {
-            "hourly": "Hourly",
-            "daily": "Daily",
-            "weekly": "Weekly",
-            "monthly": "Monthly",
-            "two-months": "Every two months",
-            "two-month": "Every two months",
-            "three-months": "Every three months",
-            "three-month": "Every three months",
-            "four-months": "Every four months",
-            "four-month": "Every four months",
-            "six-months": "Every six months",
-            "six-month": "Every six months",
-            "yearly": "Yearly"
-        }
-    },
-    "couponOrGift": {
-        "label": "Have a promo code?",
-        "submit": "Apply",
-        "placeholder": {
-            "gift_card_or_coupon_code": "Gift card or coupon code",
-            "gift_card_code": "Gift card",
-            "coupon_code": "Coupon code"
-        },
-        "error": {
-            "gift_card_or_coupon_code": "Please enter a valid gift card or coupon",
-            "gift_card_code": "Please enter a valid gift card",
-            "coupon_code": "Please enter a valid coupon"
-        }
+  "general": {
+    "title": "Cart",
+    "itemsTitle": "Your items",
+    "cartContains": "Your shopping cart contains",
+    "item": "item",
+    "item_other": "items",
+    "emptyCart": "Your cart is empty",
+    "remove": "Remove",
+    "price": "Unit price",
+    "finalPriceInCheckoutText": "Tax included and shipping calculated at checkout",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "giftCard": "Gift Card",
+    "shippingAmount": "Shipping",
+    "paymentMethodAmount": "Payment method",
+    "total": "Total",
+    "gotToCheckoutCta": "Checkout",
+    "returnUrlLabel": "Continue shopping",
+    "quantityNotAvailable": "The selected quantity is not available",
+    "retryableErrorCode": "Connectivity issues",
+    "retryableErrorDescription": "Try to reload the page"
+  },
+  "item": {
+    "frequency": {
+      "hourly": "Hourly",
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "two-months": "Every two months",
+      "two-month": "Every two months",
+      "three-months": "Every three months",
+      "three-month": "Every three months",
+      "four-months": "Every four months",
+      "four-month": "Every four months",
+      "six-months": "Every six months",
+      "six-month": "Every six months",
+      "yearly": "Yearly"
     }
+  },
+  "couponOrGift": {
+    "label": "Have a promo code?",
+    "submit": "Apply",
+    "placeholder": {
+      "gift_card_or_coupon_code": "Gift card or coupon code",
+      "gift_card_code": "Gift card",
+      "coupon_code": "Coupon code"
+    },
+    "error": {
+      "gift_card_or_coupon_code": "Please enter a valid gift card or coupon",
+      "gift_card_code": "Please enter a valid gift card",
+      "coupon_code": "Please enter a valid coupon"
+    }
+  }
 }

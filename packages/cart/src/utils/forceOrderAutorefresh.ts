@@ -17,7 +17,7 @@ type ForceOrderAutorefreshConfig = {
  * @returns a Promise that resolves with updated `Order` object.
  */
 export const forceOrderAutorefresh = async (
-  config: ForceOrderAutorefreshConfig
+  config: ForceOrderAutorefreshConfig,
 ) => {
   const { client, order } = config
   if (order.autorefresh) {

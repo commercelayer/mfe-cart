@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { FC, ReactNode } from "react"
+import type { FC, ReactNode } from "react"
 
 import { CompanyLogo } from "#components/CompanyLogo"
 import { SkeletonItem } from "#components/Skeleton/Item"

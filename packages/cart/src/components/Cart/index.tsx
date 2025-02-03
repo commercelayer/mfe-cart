@@ -4,7 +4,7 @@ import {
   LineItemsCount,
   OrderContainer,
 } from "@commercelayer/react-components"
-import { FC } from "react"
+import type { FC } from "react"
 import { useTranslation } from "react-i18next"
 
 import { Totals } from "./Totals"
@@ -37,7 +37,7 @@ const Cart: FC = () => {
           // send update event to parent iframe if iframe-resizer is enabled
           window.parentIFrame?.sendMessage(
             { type: "update", payload: order },
-            "*"
+            "*",
           )
         }}
       >

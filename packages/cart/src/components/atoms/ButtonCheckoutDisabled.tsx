@@ -5,6 +5,7 @@ export const ButtonCheckoutDisabled = () => {
 
   return (
     <button
+      type="button"
       data-test-id="button-checkout"
       disabled
       aria-disabled="true"

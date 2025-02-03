@@ -6,16 +6,16 @@ import {
   SubTotalAmount,
   TotalAmount,
 } from "@commercelayer/react-components"
-import { FC } from "react"
+import type { FC } from "react"
 import { useTranslation } from "react-i18next"
 
 import { ButtonCheckout } from "./ButtonCheckout"
 
+import { CouponOrGiftCard } from "#components/Cart/CouponOrGiftCard"
 import { CartTitle } from "#components/atoms/CartTitle"
 import { FinalPriceDisclaimer } from "#components/atoms/FinalPriceDisclaimer"
 import { SubTotal } from "#components/atoms/SubTotal"
 import { Total } from "#components/atoms/Total"
-import { CouponOrGiftCard } from "#components/Cart/CouponOrGiftCard"
 
 export const Totals: FC = () => {
   const { t } = useTranslation()

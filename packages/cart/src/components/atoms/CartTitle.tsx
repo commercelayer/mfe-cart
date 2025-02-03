@@ -1,6 +1,6 @@
 import { LineItemsCount } from "@commercelayer/react-components"
 import cn from "classnames"
-import { FC } from "react"
+import type { FC } from "react"
 import { useTranslation } from "react-i18next"
 
 import { isEmbedded } from "#utils/isEmbedded"
@@ -15,7 +15,7 @@ export const CartTitle: FC<{ className?: string }> = ({ className }) => {
         className,
         {
           "border-t md:border-t-0": !isEmbedded(),
-        }
+        },
       )}
     >
       <h2

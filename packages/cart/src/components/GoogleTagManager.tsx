@@ -1,5 +1,5 @@
-import { Settings } from "HostedApp"
-import { FC, useEffect } from "react"
+import type { Settings } from "HostedApp"
+import { type FC, useEffect } from "react"
 import TagManager from "react-gtm-module"
 
 type Props = Pick<Settings, "gtmId">

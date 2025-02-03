@@ -13,7 +13,7 @@ describe("Get info from JWT", () => {
 
   test("Parsing a malformed token", () => {
     const { isTest, kind, slug } = getInfoFromJwt(
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
     )
     expect(isTest).toBe(undefined)
     expect(kind).toBe(undefined)

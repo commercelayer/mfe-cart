@@ -1,5 +1,5 @@
 import { LineItemsCount } from "@commercelayer/react-components"
-import { FC } from "react"
+import type { FC } from "react"
 
 export const IconShoppingBag: FC = () => {
   return (
@@ -14,6 +14,7 @@ export const IconShoppingBag: FC = () => {
                 height="33"
                 fill="none"
               >
+                <title>shopping bag</title>
                 <path
                   stroke="#101111"
                   strokeLinecap="round"

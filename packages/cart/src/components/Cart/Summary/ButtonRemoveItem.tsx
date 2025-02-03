@@ -1,5 +1,5 @@
 import { LineItemRemoveLink } from "@commercelayer/react-components"
-import { FC } from "react"
+import type { FC } from "react"
 import { useTranslation } from "react-i18next"
 
 export const ButtonRemoveItem: FC = () => {
@@ -9,7 +9,9 @@ export const ButtonRemoveItem: FC = () => {
   return (
     <LineItemRemoveLink>
       {({ handleRemove }) => (
-        <a
+        <button
+          type="button"
+          // @ts-expect-error react-components are expecting an onClick event from an anchor not a button
           onClick={handleRemove}
           className="cursor-pointer hover:text-red-500"
           title={title}
@@ -22,6 +24,7 @@ export const ButtonRemoveItem: FC = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <title>remove</title>
             <path
               d="M27 7H5"
               stroke="currentColor"
@@ -58,7 +61,7 @@ export const ButtonRemoveItem: FC = () => {
               strokeLinejoin="round"
             />
           </svg>
-        </a>
+        </button>
       )}
     </LineItemRemoveLink>
   )

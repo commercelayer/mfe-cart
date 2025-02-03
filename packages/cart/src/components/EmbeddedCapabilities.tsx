@@ -1,5 +1,5 @@
 import useOrderContainer from "@commercelayer/react-components/hooks/useOrderContainer"
-import { FC, useEffect, useLayoutEffect } from "react"
+import { type FC, useEffect, useLayoutEffect } from "react"
 import { Helmet } from "react-helmet-async"
 
 import { isEmbedded } from "#utils/isEmbedded"
@@ -30,7 +30,7 @@ const IframeResizerInit: FC = () => {
         window.removeEventListener("blur", sendEventBlur)
       }
     },
-    [embedded]
+    [embedded],
   )
 
   useLayoutEffect(
@@ -49,7 +49,7 @@ const IframeResizerInit: FC = () => {
         },
       }
     },
-    [embedded]
+    [embedded],
   )
 
   if (!embedded) {
@@ -76,7 +76,7 @@ const OrderRefresher: FC = () => {
     window.reloadOrderCallback = () => {
       reloadOrder()
     }
-  }, [order])
+  })
 
   return null
 }

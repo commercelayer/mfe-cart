@@ -1,5 +1,5 @@
-import { Settings } from "HostedApp"
-import { FC } from "react"
+import type { Settings } from "HostedApp"
+import type { FC } from "react"
 import { Helmet } from "react-helmet-async"
 import { useTranslation } from "react-i18next"
 

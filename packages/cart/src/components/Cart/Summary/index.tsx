@@ -1,15 +1,15 @@
 import {
+  LineItem,
+  LineItemAmount,
+  LineItemCode,
   LineItemImage,
   LineItemName,
-  LineItemAmount,
-  LineItem,
-  TLineItem,
-  LineItemsEmpty,
-  useOrderContainer,
-  LineItemCode,
   LineItemsContainer,
+  LineItemsEmpty,
+  type TLineItem,
+  useOrderContainer,
 } from "@commercelayer/react-components"
-import { FC } from "react"
+import type { FC } from "react"
 import { useTranslation } from "react-i18next"
 
 import { ButtonRemoveItem } from "./ButtonRemoveItem"
@@ -17,10 +17,10 @@ import { LineItemFrequency } from "./LineItemFrequency"
 import { LineItemOptions } from "./LineItemOptions"
 import { QuantitySelector } from "./QuantitySelector"
 
-import { CartTitle } from "#components/atoms/CartTitle"
-import { EmptyCartMessage } from "#components/atoms/EmptyCartMessage"
 import { useSettings } from "#components/SettingsProvider"
 import { LineItemsSkeleton } from "#components/Skeleton/LineItems"
+import { CartTitle } from "#components/atoms/CartTitle"
+import { EmptyCartMessage } from "#components/atoms/EmptyCartMessage"
 import { isEmbedded } from "#utils/isEmbedded"
 
 type Props = {

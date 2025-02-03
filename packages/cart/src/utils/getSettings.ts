@@ -1,6 +1,6 @@
 import { getConfig } from "@commercelayer/organization-config"
-import CommerceLayer, { Organization } from "@commercelayer/sdk"
-import { Settings, InvalidSettings } from "HostedApp"
+import CommerceLayer, { type Organization } from "@commercelayer/sdk"
+import type { InvalidSettings, Settings } from "HostedApp"
 
 import { forceOrderAutorefresh } from "./forceOrderAutorefresh"
 import { getInfoFromJwt } from "./getInfoFromJwt"

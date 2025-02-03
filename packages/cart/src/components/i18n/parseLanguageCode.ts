@@ -1,4 +1,4 @@
-import { AllowedLocaleKeys } from "react-i18next"
+import type { AllowedLocaleKeys } from "react-i18next"
 
 type ApiLanguageCode = "en" | "it" | "de" | "pl" | "hu" | "pt"
 

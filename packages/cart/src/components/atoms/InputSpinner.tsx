@@ -51,6 +51,7 @@ export function InputSpinner({
     })
   }, [])
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function dispatchDebouncedHandleChange() {
       if (isInternalValueSynched) {
@@ -66,9 +67,10 @@ export function InputSpinner({
         setInternalDisabled(true)
       }
     },
-    [debouncedValue]
+    [debouncedValue],
   )
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function syncInternalStateWithOrderQuantity() {
       setInternalDisabled(false)
@@ -76,9 +78,10 @@ export function InputSpinner({
         setInternalValue(quantity)
       }
     },
-    [quantity]
+    [quantity],
   )
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function preventOutOfStockToPermanentlyDisableUi() {
       if (internalDisabled) {
@@ -88,7 +91,7 @@ export function InputSpinner({
         }, debounceMs + 10)
       }
     },
-    [internalDisabled]
+    [internalDisabled],
   )
 
   return (
@@ -99,10 +102,11 @@ export function InputSpinner({
         css.inputSpinner,
         {
           "opacity-50 pointer-events-none": isDisabled,
-        }
+        },
       )}
     >
       <button
+        type="button"
         data-test-id="input-spinner-btn-decrement"
         className="button-base px-3 py-[10px] bg-white hover:enabled:bg-gray-50"
         onClick={() => {
@@ -117,6 +121,7 @@ export function InputSpinner({
           height="20"
           fill="none"
         >
+          <title>Minus</title>
           <path
             fill="#101111"
             d="M17.5 10a.624.624 0 0 1-.625.625H3.125a.625.625 0 1 1 0-1.25h13.75A.625.625 0 0 1 17.5 10Z"
@@ -132,7 +137,7 @@ export function InputSpinner({
         step="1"
         value={internalValue}
         onChange={(event) => {
-          const value = parseInt(event.currentTarget.value, 10)
+          const value = Number.parseInt(event.currentTarget.value, 10)
           if (value >= 1 && (availability == null || value <= availability)) {
             setInternalValue(value)
           }
@@ -140,6 +145,7 @@ export function InputSpinner({
         disabled={isDisabled}
       />
       <button
+        type="button"
         data-test-id="input-spinner-btn-increment"
         className={cn("button-base px-3 bg-white hover:enabled:bg-gray-5", {
           "!opacity-50": !canIncrease,
@@ -156,6 +162,7 @@ export function InputSpinner({
           height="20"
           fill="none"
         >
+          <title>Plus</title>
           <path
             fill="#101111"
             d="M17.5 10a.624.624 0 0 1-.625.625h-6.25v6.25a.624.624 0 1 1-1.25 0v-6.25h-6.25a.625.625 0 1 1 0-1.25h6.25v-6.25a.625.625 0 0 1 1.25 0v6.25h6.25A.625.625 0 0 1 17.5 10Z"

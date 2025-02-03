@@ -1,55 +1,55 @@
 {
-    "general": {
-        "title": "Carrello",
-        "itemsTitle": "I tuoi prodotti",
-        "cartContains": "Il tuo carrello contiene",
-        "item": "prodotto",
-        "item_other": "prodotti",
-        "emptyCart": "Il tuo carrello è vuoto",
-        "remove": "Rimuovi",
-        "price": "Prezzo unitario",
-        "finalPriceInCheckoutText": "Il totale incluse tasse e costi di spedizione sarà calcolato nella schermata successiva",
-        "subtotal": "Totale parziale",
-        "discount": "Sconti",
-        "giftCard": "Carta regalo",
-        "shippingAmount": "Spedizione",
-        "paymentMethodAmount": "Metodo di pagamento",
-        "total": "Totale",
-        "gotToCheckoutCta": "Checkout",
-        "returnUrlLabel": "Continua ad acquistare",
-        "quantityNotAvailable": "La quantità selezionata non è disponibile",
-        "retryableErrorCode": "Problemi di connessione",
-        "retryableErrorDescription": "Prova a ricaricare la pagina"
-    },
-    "item": {
-        "frequency": {
-            "hourly": "Orario",
-            "daily": "Giornaliero",
-            "weekly": "Settimanale",
-            "monthly": "Mensile",
-            "two-months": "Ogni due mesi",
-            "two-month": "Ogni due mesi",
-            "three-months": "Ogni tre mesi",
-            "three-month": "Ogni tre mesi",
-            "four-months": "Ogni quattro mesi",
-            "four-month": "Ogni quattro mesi",
-            "six-months": "Ogni sei mesi",
-            "six-month": "Ogni sei mesi",
-            "yearly": "Annuale"
-        }
-    },
-    "couponOrGift": {
-        "label": "Hai un codice da usare?",
-        "submit": "Applica",
-        "placeholder": {
-            "gift_card_or_coupon_code": "Codice gift card o coupon",
-            "gift_card_code": "Codice gift card",
-            "coupon_code": "Codice coupon"
-        },
-        "error": {
-            "gift_card_or_coupon_code": "Non corrisponde ad alcuna carta regalo o coupon attivo",
-            "gift_card_code": "Non corrisponde ad una carta regalo attiva",
-            "coupon_code": "Non corrisponde ad un coupon attivo"
-        }
+  "general": {
+    "title": "Carrello",
+    "itemsTitle": "I tuoi prodotti",
+    "cartContains": "Il tuo carrello contiene",
+    "item": "prodotto",
+    "item_other": "prodotti",
+    "emptyCart": "Il tuo carrello è vuoto",
+    "remove": "Rimuovi",
+    "price": "Prezzo unitario",
+    "finalPriceInCheckoutText": "Il totale incluse tasse e costi di spedizione sarà calcolato nella schermata successiva",
+    "subtotal": "Totale parziale",
+    "discount": "Sconti",
+    "giftCard": "Carta regalo",
+    "shippingAmount": "Spedizione",
+    "paymentMethodAmount": "Metodo di pagamento",
+    "total": "Totale",
+    "gotToCheckoutCta": "Checkout",
+    "returnUrlLabel": "Continua ad acquistare",
+    "quantityNotAvailable": "La quantità selezionata non è disponibile",
+    "retryableErrorCode": "Problemi di connessione",
+    "retryableErrorDescription": "Prova a ricaricare la pagina"
+  },
+  "item": {
+    "frequency": {
+      "hourly": "Orario",
+      "daily": "Giornaliero",
+      "weekly": "Settimanale",
+      "monthly": "Mensile",
+      "two-months": "Ogni due mesi",
+      "two-month": "Ogni due mesi",
+      "three-months": "Ogni tre mesi",
+      "three-month": "Ogni tre mesi",
+      "four-months": "Ogni quattro mesi",
+      "four-month": "Ogni quattro mesi",
+      "six-months": "Ogni sei mesi",
+      "six-month": "Ogni sei mesi",
+      "yearly": "Annuale"
     }
+  },
+  "couponOrGift": {
+    "label": "Hai un codice da usare?",
+    "submit": "Applica",
+    "placeholder": {
+      "gift_card_or_coupon_code": "Codice gift card o coupon",
+      "gift_card_code": "Codice gift card",
+      "coupon_code": "Codice coupon"
+    },
+    "error": {
+      "gift_card_or_coupon_code": "Non corrisponde ad alcuna carta regalo o coupon attivo",
+      "gift_card_code": "Non corrisponde ad una carta regalo attiva",
+      "coupon_code": "Non corrisponde ad un coupon attivo"
+    }
+  }
 }

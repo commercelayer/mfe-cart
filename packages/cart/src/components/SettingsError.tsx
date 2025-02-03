@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react"
+import { type FC, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { useRouter } from "wouter"
 
@@ -29,7 +29,7 @@ export const SettingsError: FC<Props> = ({
       // router.push won't work here since we need a genuine 404 HTTP response status code
       window.location.href = redirectTo ?? `${base}/404`
     }
-  }, [retryable])
+  }, [retryable, redirectTo, isEmbedded, base])
 
   const statusCode = t("general.retryableErrorCode")
 

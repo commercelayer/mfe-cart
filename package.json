@@ -31,6 +31,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "husky": "^9.1.7",
     "lerna": "^8.1.9",
     "lint-staged": "^15.2.11",
