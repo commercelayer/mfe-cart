@@ -8,19 +8,26 @@ type Props = {
   main: ReactNode
   aside: ReactNode
   top?: ReactNode
+  isLoading?: boolean
 }
 
-export const PageLayout: FC<Props> = ({ top, main, aside }) => {
+export const PageLayout: FC<Props> = ({
+  top,
+  main,
+  aside,
+  isLoading = false,
+}) => {
   return isEmbedded() ? (
-    <Inner main={main} aside={aside} />
+    <Inner main={main} aside={aside} isLoading={isLoading} />
   ) : (
     <div className="container 2xl:max-w-screen-2xl 2xl:mx-auto h-full">
-      <Inner top={top} main={main} aside={aside} />
+      <Inner top={top} main={main} aside={aside} isLoading={isLoading} />
     </div>
   )
 }
 
-const Inner: FC<Props> = ({ top, main, aside }) => {
+const Inner: FC<Props> = ({ top, main, aside, isLoading }) => {
+  const showFooter = !isEmbedded() && !isLoading
   return (
     <div
       className={cn("flex flex-col md:flex-row md:bg-gray-50", {
@@ -35,7 +42,7 @@ const Inner: FC<Props> = ({ top, main, aside }) => {
       >
         {top && <div>{top}</div>}
         {main}
-        {!isEmbedded() && <Footer className="hidden" />}
+        {showFooter && <Footer className="hidden" />}
       </main>
       <aside
         className={cn("w-full md:flex-1 bg-white", {
@@ -46,7 +53,7 @@ const Inner: FC<Props> = ({ top, main, aside }) => {
         <div className="bg-gray-50 md:bg-white px-5 py-6 md:px-0 md:pb-0 md:pt-12">
           {aside}
         </div>
-        {!isEmbedded() && <Footer className="py-2 md:py-6 md:my-0 md:hidden" />}
+        {showFooter && <Footer className="py-2 md:py-6 md:my-0 md:hidden" />}
       </aside>
     </div>
   )
