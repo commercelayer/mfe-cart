@@ -1,6 +1,6 @@
 import { LineItemField } from "@commercelayer/react-components"
 import { toString as cronsToString } from "cronstrue"
-import { FC } from "react"
+import type { FC } from "react"
 import { useTranslation } from "react-i18next"
 
 import { IconRepeat } from "#components/atoms/IconRepeat"
@@ -25,7 +25,7 @@ export const LineItemFrequency: FC = () => {
 
         return (
           <div
-            className="mt-2 flex bg-white border border-primary text-primary text-xs max-w-max py-1 px-2.5 rounded font-bold lowercase"
+            className="flex bg-white border border-primary text-primary text-xs max-w-max py-1 px-2.5 rounded font-bold lowercase"
             data-test-id="frequency"
           >
             <IconRepeat className="mr-1.5" />

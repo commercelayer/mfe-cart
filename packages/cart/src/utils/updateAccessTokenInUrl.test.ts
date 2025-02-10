@@ -17,7 +17,7 @@ describe("updateAccessTokenInUrl", () => {
     })
 
     expect(result).toBe(
-      "https://example.com/cart?foo=bar&accessToken=newAccessToken&user=123"
+      "https://example.com/cart?foo=bar&accessToken=newAccessToken&user=123",
     )
   })
 
@@ -35,14 +35,14 @@ describe("updateAccessTokenInUrl", () => {
       updateAccessTokenInUrl({
         cartUrl: "http//broken-url?accessToken=123",
         accessToken: "",
-      })
+      }),
     ).toBe(undefined)
 
     expect(
       updateAccessTokenInUrl({
         cartUrl: "",
         accessToken: "abc",
-      })
+      }),
     ).toBe(undefined)
   })
 })

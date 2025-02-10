@@ -1,8 +1,6 @@
-/* eslint-disable camelcase */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { CommerceLayerClient } from "@commercelayer/sdk"
 
-import { LineItemObject } from "#specs/types"
+import type { LineItemObject } from "#specs/types"
 
 export const createLineItems = async ({
   cl,
@@ -37,7 +35,7 @@ export const createLineItems = async ({
 
       return sku_options.map(({ name, value }) => {
         const matchedOption = allAvailableSkuOptions.find(
-          (so) => so.name === name
+          (so) => so.name === name,
         )
         return matchedOption
           ? cl.line_item_options.create({
@@ -51,7 +49,7 @@ export const createLineItems = async ({
     })
 
     await Promise.all(
-      lineItemsOptions.filter((item) => item !== undefined).flat(2)
+      lineItemsOptions.filter((item) => item !== undefined).flat(2),
     )
   } catch (e) {
     console.log(e)

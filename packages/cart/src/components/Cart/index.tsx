@@ -4,7 +4,7 @@ import {
   LineItemsCount,
   OrderContainer,
 } from "@commercelayer/react-components"
-import { FC } from "react"
+import type { FC } from "react"
 import { useTranslation } from "react-i18next"
 
 import { Totals } from "./Totals"
@@ -37,7 +37,7 @@ const Cart: FC = () => {
           // send update event to parent iframe if iframe-resizer is enabled
           window.parentIFrame?.sendMessage(
             { type: "update", payload: order },
-            "*"
+            "*",
           )
         }}
       >
@@ -46,26 +46,28 @@ const Cart: FC = () => {
           <PageLayout
             top={
               <PageHeader>
-                <h1
-                  data-test-id="page-title"
-                  data-cart-id={settings.orderId}
-                  className="text-black font-semibold text-xl md:text-3xl"
-                >
-                  {t("general.title")}
-                </h1>
+                <div className="hidden md:block mb-12">
+                  <h1
+                    data-cart-id={settings.orderId}
+                    className="text-black font-semibold text-xl"
+                  >
+                    {t("general.itemsTitle")}
+                  </h1>
 
-                <LineItemsCount>
-                  {({ quantity }) =>
-                    quantity ? (
-                      <div className="text-sm text-gray-500 font-semibold">
-                        <span data-test-id="items-count">{quantity}</span>{" "}
-                        {t("general.item", { count: quantity })}
-                      </div>
-                    ) : (
-                      <div />
-                    )
-                  }
-                </LineItemsCount>
+                  <LineItemsCount>
+                    {({ quantity }) =>
+                      quantity ? (
+                        <div className="text-gray-400">
+                          {t("general.cartContains")}{" "}
+                          <span data-test-id="items-count">{quantity}</span>{" "}
+                          {t("general.item", { count: quantity })}
+                        </div>
+                      ) : (
+                        <div />
+                      )
+                    }
+                  </LineItemsCount>
+                </div>
               </PageHeader>
             }
             main={<Summary listTypes={["bundles", "skus", "gift_cards"]} />}

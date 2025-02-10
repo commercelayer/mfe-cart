@@ -12,9 +12,9 @@
 }
 
 .skuOptions li:not(span) {
-  @apply font-medium
+  @apply font-medium;
 }
 
 .skuOptions li:last-of-type {
-  @apply mb-4
+  @apply mb-4;
 }

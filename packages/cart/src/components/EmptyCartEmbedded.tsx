@@ -1,7 +1,7 @@
-import { FC } from "react"
+import type { FC } from "react"
 
-import { ButtonCheckoutDisabled } from "./atoms/ButtonCheckoutDisabled"
 import { PageLayout } from "./PageLayout"
+import { ButtonCheckoutDisabled } from "./atoms/ButtonCheckoutDisabled"
 
 import { EmptyCartMessage } from "#components/atoms/EmptyCartMessage"
 import { FinalPriceDisclaimer } from "#components/atoms/FinalPriceDisclaimer"

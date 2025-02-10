@@ -1,51 +1,55 @@
 {
-    "general": {
-        "title": "O Seu Carrinho",
-        "item": "item",
-        "item_other": "items",
-        "emptyCart": "O seu carrinho está vazio",
-        "remove": "Remover",
-        "price": "Preço",
-        "finalPriceInCheckoutText": "Taxas e custos de envio calculados no passo de checkout",
-        "subtotal": "Subtotal",
-        "discount": "Desconto",
-        "giftCard": "Cartão-presente",
-        "total": "Total",
-        "gotToCheckoutCta": "Checkout",
-        "returnUrlLabel": "Continuar a comprar",
-        "quantityNotAvailable": "A quantidade selecionada não está disponível",
-        "retryableErrorCode": "Problemas na conexão",
-        "retryableErrorDescription": "Experimente recarregar a página"
-    },
-    "item": {
-        "frequency": {
-            "hourly": "À hora",
-            "daily": "Ao dia",
-            "weekly": "À semana",
-            "monthly": "Ao mês",
-            "two-months": "A cada dois meses",
-            "two-month": "A cada dois meses",
-            "three-months": "A cada três meses",
-            "three-month": "A cada três meses",
-            "four-months": "A cada quatro meses",
-            "four-month": "A cada quatro meses",
-            "six-months": "A cada seis meses",
-            "six-month": "A cada seis meses",
-            "yearly": "Anual"
-        }
-    },
-    "couponOrGift": {
-        "label": "Tem um código de promoção?",
-        "submit": "Aplicar",
-        "placeholder": {
-            "gift_card_or_coupon_code": "Cartão-presente ou código de cupão",
-            "gift_card_code": "Cartão-presente",
-            "coupon_code": "Código de cupão"
-        },
-        "error": {
-            "gift_card_or_coupon_code": "Por favor, insira um código válido de cartão-presenteou cupão",
-            "gift_card_code": "Por favor, insira cartão-presente válido",
-            "coupon_code": "Por favor, insira cupão válido"
-        }
+  "general": {
+    "title": "O Seu Carrinho",
+    "itemsTitle": "Seus itens",
+    "cartContains": "Seu carrinho de compras contém",
+    "item": "item",
+    "item_other": "Itens",
+    "emptyCart": "O seu carrinho está vazio",
+    "remove": "Remover",
+    "price": "Preço",
+    "finalPriceInCheckoutText": "Taxas e custos de envio calculados no passo de checkout",
+    "subtotal": "Subtotal",
+    "discount": "Desconto",
+    "giftCard": "Cartão-presente",
+    "shippingAmount": "Envio",
+    "paymentMethodAmount": "Método de pagamento",
+    "total": "Total",
+    "gotToCheckoutCta": "Checkout",
+    "returnUrlLabel": "Continuar a comprar",
+    "quantityNotAvailable": "A quantidade selecionada não está disponível",
+    "retryableErrorCode": "Problemas na conexão",
+    "retryableErrorDescription": "Experimente recarregar a página"
+  },
+  "item": {
+    "frequency": {
+      "hourly": "À hora",
+      "daily": "Ao dia",
+      "weekly": "À semana",
+      "monthly": "Ao mês",
+      "two-months": "A cada dois meses",
+      "two-month": "A cada dois meses",
+      "three-months": "A cada três meses",
+      "three-month": "A cada três meses",
+      "four-months": "A cada quatro meses",
+      "four-month": "A cada quatro meses",
+      "six-months": "A cada seis meses",
+      "six-month": "A cada seis meses",
+      "yearly": "Anual"
     }
+  },
+  "couponOrGift": {
+    "label": "Tem um código de promoção?",
+    "submit": "Aplicar",
+    "placeholder": {
+      "gift_card_or_coupon_code": "Cartão-presente ou código de cupão",
+      "gift_card_code": "Cartão-presente",
+      "coupon_code": "Código de cupão"
+    },
+    "error": {
+      "gift_card_or_coupon_code": "Por favor, insira um código válido de cartão-presenteou cupão",
+      "gift_card_code": "Por favor, insira cartão-presente válido",
+      "coupon_code": "Por favor, insira cupão válido"
+    }
+  }
 }

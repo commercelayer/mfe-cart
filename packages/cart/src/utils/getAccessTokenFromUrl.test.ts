@@ -3,7 +3,10 @@ import { getAccessTokenFromUrl } from "./getAccessTokenFromUrl"
 describe("Read JWT from URL", () => {
   const { location } = window
   beforeAll(function clearLocation() {
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    // biome-ignore lint/performance/noDelete: <explanation>
     delete (window as any).location
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     ;(window as any).location = {
       ...location,
       href: "http://domain.com",
@@ -11,7 +14,7 @@ describe("Read JWT from URL", () => {
     }
   })
   afterAll(function resetLocation() {
-    window.location = location
+    window.location = location as string & Location
   })
 
   test("accessToken is in URL query string", () => {

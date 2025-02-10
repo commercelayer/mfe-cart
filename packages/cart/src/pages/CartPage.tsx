@@ -1,8 +1,7 @@
 import { GlobalStylesProvider } from "@commercelayer/react-utils"
-import { lazy, Suspense } from "react"
+import { Suspense, lazy } from "react"
 import { useTranslation } from "react-i18next"
 import { useRoute } from "wouter"
-
 import { GoogleTagManager } from "#components/GoogleTagManager"
 import { PageHead } from "#components/PageHead"
 import { SettingsError } from "#components/SettingsError"
@@ -13,8 +12,7 @@ import { isEmbedded } from "#utils/isEmbedded"
 const LazyCart = lazy(() => import("#components/Cart"))
 
 function CartPage(): JSX.Element {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [match, params] = useRoute("/:orderId")
+  const [, params] = useRoute("/:orderId")
 
   const { t } = useTranslation()
   const orderId = params?.orderId

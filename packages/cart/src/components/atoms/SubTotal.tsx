@@ -1,4 +1,4 @@
-import { FC } from "react"
+import type { FC } from "react"
 import { useTranslation } from "react-i18next"
 
 type Props = {
@@ -17,7 +17,7 @@ export const SubTotal: FC<Props> = ({ price, priceCents }) => {
       <div
         data-amount={priceCents}
         data-test-id="subtotal-amount"
-        className="font-semibold"
+        className="font-semibold text-lg"
       >
         {price}
       </div>

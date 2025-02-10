@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { FC, ReactNode } from "react"
+import type { FC, ReactNode } from "react"
 
 import { CompanyLogo } from "#components/CompanyLogo"
 import { SkeletonItem } from "#components/Skeleton/Item"
@@ -29,15 +29,15 @@ export const PageHeader: FC<Props> = ({ isLoading, children }) => {
       })}
       data-test-id="cart-header"
     >
-      <div className="py-8 border-b border-b-gray-200">
+      <div className="pt-12 pb-10 flex">
         <CompanyLogo />
       </div>
-      <div className="flex justify-between items-center py-11 border-b border-b-gray-200">
+      <div className="flex flex-col">
         {isLoading ? (
-          <>
-            <SkeletonItem className="w-1/12 h-[36px]" />
-            <SkeletonItem className="w-1/12 h-[20px]" />
-          </>
+          <div className="border-b flex justify-between items-center flex-row md:flex-col md:items-start py-4 md:py-0 md:pt-0 md:mb-11 mb-12 border-t md:border-t-0">
+            <SkeletonItem className="w-[70px] md:w-[120px] h-[27px] md:mb-1" />
+            <SkeletonItem className="w-[70px] md:w-[250px] h-[22px]" />
+          </div>
         ) : (
           children
         )}

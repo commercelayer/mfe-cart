@@ -1,11 +1,11 @@
 import {
+  Errors,
   GiftCardOrCouponForm,
   GiftCardOrCouponInput,
   GiftCardOrCouponSubmit,
-  Errors,
 } from "@commercelayer/react-components"
 import cn from "classnames"
-import { FC, useState } from "react"
+import { type FC, useState } from "react"
 import { useTranslation } from "react-i18next"
 
 export const CodeForm: FC = () => {
@@ -33,7 +33,7 @@ export const CodeForm: FC = () => {
               "input-base flex-1 rounded-md rounded-tr-none rounded-br-none",
               {
                 "-error ": couponError,
-              }
+              },
             )}
             placeholderTranslation={(codeType) =>
               t(`couponOrGift.placeholder.${codeType}`)
@@ -42,7 +42,7 @@ export const CodeForm: FC = () => {
             data-test-id="coupon-input"
           />
           <GiftCardOrCouponSubmit
-            className="button-base bg-primary text-contrast px-4 rounded-md rounded-tl-none rounded-bl-none"
+            className="button-base bg-primary text-contrast px-4 md:px-8 rounded-md rounded-tl-none rounded-bl-none"
             label={t("couponOrGift.submit")}
             data-test-id="coupon-submit"
           />

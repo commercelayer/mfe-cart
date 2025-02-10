@@ -24,7 +24,7 @@ const retries = 3
  * @returns the `FetchResource<T>` object containing the resolved data and the status of requests.
  */
 export const retryCall = async <T>(
-  f: () => Promise<T>
+  f: () => Promise<T>,
 ): Promise<FetchResource<T> | undefined> => {
   return await retry(
     async (_, attempt) => {
@@ -33,6 +33,7 @@ export const retryCall = async <T>(
           object: await f(),
           success: true,
         }
+        // biome-ignore lint/suspicious/noExplicitAny: I don't know what the error object is
       } catch (error: any) {
         // sdk return sa structured object in case of api error
         // we assume we hit a not-retriable error when the error object returned has no keys
@@ -58,6 +59,6 @@ export const retryCall = async <T>(
     },
     {
       retries,
-    }
+    },
   )
 }

@@ -1,8 +1,8 @@
 import {
-  LineItemOptions as LineItemOptionsComponent,
   LineItemOption,
+  LineItemOptions as LineItemOptionsComponent,
 } from "@commercelayer/react-components"
-import { FC } from "react"
+import type { FC } from "react"
 
 import css from "./LineItemOptions.module.css"
 

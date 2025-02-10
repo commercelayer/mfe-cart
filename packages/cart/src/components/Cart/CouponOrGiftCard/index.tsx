@@ -1,11 +1,11 @@
-import { FC } from "react"
+import type { FC } from "react"
 
 import { CodeForm } from "./CodeForm"
 import { CodeRecap } from "./CodeRecap"
 
 export const CouponOrGiftCard: FC = () => {
   return (
-    <div className="border-t border-t-gray-100 border-b border-b-gray-400 py-6 mb-6">
+    <div className="border-t border-t-gray-100 border-b border-b-gray-300 py-6 mb-6">
       <CodeForm />
       <CodeRecap />
     </div>

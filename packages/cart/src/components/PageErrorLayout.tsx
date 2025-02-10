@@ -1,5 +1,5 @@
 import { LogoCL } from "@commercelayer/react-utils"
-import { FC } from "react"
+import type { FC } from "react"
 
 import { Footer } from "#components/Footer"
 import { PageHead } from "#components/PageHead"

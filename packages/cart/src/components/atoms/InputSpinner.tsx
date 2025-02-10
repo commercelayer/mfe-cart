@@ -51,6 +51,7 @@ export function InputSpinner({
     })
   }, [])
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function dispatchDebouncedHandleChange() {
       if (isInternalValueSynched) {
@@ -66,9 +67,10 @@ export function InputSpinner({
         setInternalDisabled(true)
       }
     },
-    [debouncedValue]
+    [debouncedValue],
   )
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function syncInternalStateWithOrderQuantity() {
       setInternalDisabled(false)
@@ -76,9 +78,10 @@ export function InputSpinner({
         setInternalValue(quantity)
       }
     },
-    [quantity]
+    [quantity],
   )
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function preventOutOfStockToPermanentlyDisableUi() {
       if (internalDisabled) {
@@ -88,36 +91,53 @@ export function InputSpinner({
         }, debounceMs + 10)
       }
     },
-    [internalDisabled]
+    [internalDisabled],
   )
 
   return (
     <div
       {...rest}
-      className={cn("inline-flex  rounded overflow-hidden", css.inputSpinner, {
-        "opacity-50 pointer-events-none": isDisabled,
-      })}
+      className={cn(
+        "inline-flex  rounded overflow-hidden border border-gray-200 focus-within:ring-1",
+        css.inputSpinner,
+        {
+          "opacity-50 pointer-events-none": isDisabled,
+        },
+      )}
     >
       <button
+        type="button"
         data-test-id="input-spinner-btn-decrement"
-        className="button-base bg-primary text-contrast px-3"
+        className="button-base px-3 py-[10px] bg-white hover:enabled:bg-gray-50"
         onClick={() => {
           handleButtonClick("decrement")
         }}
-        disabled={isDisabled}
+        disabled={isDisabled || internalValue === 1}
       >
-        -
+        {/* icon minus */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="none"
+        >
+          <title>Minus</title>
+          <path
+            fill="#101111"
+            d="M17.5 10a.624.624 0 0 1-.625.625H3.125a.625.625 0 1 1 0-1.25h13.75A.625.625 0 0 1 17.5 10Z"
+          />
+        </svg>
       </button>
       <input
         ref={inputEl}
         data-test-id="input-spinner-element"
-        className="input-base -small border-gray-200 w-12 text-center"
+        className="input-base w-12 text-center !border-none font-bold text-md !ring-0"
         type="number"
         min="0"
         step="1"
         value={internalValue}
         onChange={(event) => {
-          const value = parseInt(event.currentTarget.value, 10)
+          const value = Number.parseInt(event.currentTarget.value, 10)
           if (value >= 1 && (availability == null || value <= availability)) {
             setInternalValue(value)
           }
@@ -125,8 +145,9 @@ export function InputSpinner({
         disabled={isDisabled}
       />
       <button
+        type="button"
         data-test-id="input-spinner-btn-increment"
-        className={cn("button-base bg-primary text-contrast px-3", {
+        className={cn("button-base px-3 bg-white hover:enabled:bg-gray-5", {
           "!opacity-50": !canIncrease,
         })}
         onClick={() => {
@@ -134,7 +155,19 @@ export function InputSpinner({
         }}
         disabled={isDisabled || !canIncrease}
       >
-        +
+        {/* icon plus */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="none"
+        >
+          <title>Plus</title>
+          <path
+            fill="#101111"
+            d="M17.5 10a.624.624 0 0 1-.625.625h-6.25v6.25a.624.624 0 1 1-1.25 0v-6.25h-6.25a.625.625 0 1 1 0-1.25h6.25v-6.25a.625.625 0 0 1 1.25 0v6.25h6.25A.625.625 0 0 1 17.5 10Z"
+          />
+        </svg>
       </button>
     </div>
   )

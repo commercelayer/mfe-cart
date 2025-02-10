@@ -1,5 +1,5 @@
 import { LogoCL } from "@commercelayer/react-utils"
-import { FC, ReactNode } from "react"
+import type { FC, ReactNode } from "react"
 
 import { useSettings } from "./SettingsProvider"
 import { SkeletonItem } from "./Skeleton/Item"
@@ -17,7 +17,7 @@ export const CompanyLogo: FC = () => {
           <img
             src={settings.logoUrl}
             alt={settings.companyName}
-            className="h-[40px]"
+            className="w-60 max-w-full"
           />
         </ReturnLink>
       ) : settings.companyName ? (

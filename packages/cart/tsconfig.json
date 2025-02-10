@@ -51,7 +51,6 @@
     "public/*.js",
     "*.config.js",
     "*.config.mts",
-    ".eslintrc.cjs",
     "@typing/**/*.d.ts"
   ],
   "references": [

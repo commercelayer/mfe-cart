@@ -1,9 +1,9 @@
-import { InvalidSettings, Settings } from "HostedApp"
+import type { InvalidSettings, Settings } from "HostedApp"
 import { changeLanguage } from "i18next"
 import {
+  type FC,
+  type ReactNode,
   createContext,
-  FC,
-  ReactNode,
   useContext,
   useEffect,
   useState,
@@ -75,7 +75,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({
   appConfig,
 }) => {
   const [settings, setSettings] = useState<Settings | InvalidSettings>(
-    defaultSettings
+    defaultSettings,
   )
   const [isLoading, setIsLoading] = useState(true)
   const accessToken = getAccessTokenFromUrl()
@@ -90,7 +90,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({
           setIsLoading(false)
         })
     }
-  }, [accessToken])
+  }, [accessToken, orderId, appConfig])
 
   // keep i18n in sync
   useEffect(() => {

@@ -1,38 +1,59 @@
-import { VFC, ReactNode } from "react"
+import cn from "classnames"
+import type { FC, ReactNode } from "react"
 
 import { Footer } from "#components/Footer"
 import { isEmbedded } from "#utils/isEmbedded"
 
 type Props = {
+  main: ReactNode
+  aside: ReactNode
   top?: ReactNode
-} & InnerProps
+  isLoading?: boolean
+}
 
-export const PageLayout: VFC<Props> = ({ top, main, aside }) => {
+export const PageLayout: FC<Props> = ({
+  top,
+  main,
+  aside,
+  isLoading = false,
+}) => {
   return isEmbedded() ? (
-    <Inner main={main} aside={aside} />
+    <Inner main={main} aside={aside} isLoading={isLoading} />
   ) : (
-    <div className="container">
-      <div className="px-5 lg:px-20 xl:px-48 flex flex-col min-h-screen">
-        {top && <div>{top}</div>}
-        <Inner main={main} aside={aside} />
-        <Footer />
-      </div>
+    <div className="container 2xl:max-w-screen-2xl 2xl:mx-auto h-full">
+      <Inner top={top} main={main} aside={aside} isLoading={isLoading} />
     </div>
   )
 }
 
-type InnerProps = {
-  main: ReactNode
-  aside: ReactNode
-}
-const Inner: VFC<InnerProps> = ({ main, aside }) => {
+const Inner: FC<Props> = ({ top, main, aside, isLoading }) => {
+  const showFooter = !isEmbedded() && !isLoading
   return (
-    <div className="flex flex-col md:flex-row md:gap-8 xl:gap-36 pt-8 items-start">
-      <main className="w-full md:w-7/12">{main}</main>
-      <aside className="w-full md:w-5/12">
-        <div className="md:bg-gray-50 pb-5 md:py-10 md:px-7 rounded-md w-full">
+    <div
+      className={cn("flex flex-col md:flex-row md:bg-gray-50", {
+        "min-h-screen": !isEmbedded(),
+      })}
+    >
+      <main
+        className={cn("w-full md:flex-1", {
+          "md:pt-12 md:px-8": isEmbedded(),
+          "px-5 lg:px-24": !isEmbedded(),
+        })}
+      >
+        {top && <div>{top}</div>}
+        {main}
+        {showFooter && <Footer className="hidden" />}
+      </main>
+      <aside
+        className={cn("w-full md:flex-1 bg-white", {
+          "md:px-8": isEmbedded(),
+          "md:px-5 lg:px-24": !isEmbedded(),
+        })}
+      >
+        <div className="bg-gray-50 md:bg-white px-5 py-6 md:px-0 md:pb-0 md:pt-12">
           {aside}
         </div>
+        {showFooter && <Footer className="py-2 md:py-6 md:my-0 md:hidden" />}
       </aside>
     </div>
   )

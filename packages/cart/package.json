@@ -29,8 +29,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
+    "lint": "pnpm biome check src",
+    "lint:fix": "pnpm biome check src --write",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
@@ -72,20 +72,7 @@
     "wouter": "^3.3.5"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.18.0",
-    "@typescript-eslint/parser": "^8.18.0",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-import-resolver-typescript": "^3.7.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-n": "^17.15.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-promise": "^7.2.1",
-    "eslint-plugin-react": "^7.37.2",
-    "jsdom": "^25.0.1",
-    "prettier": "^3.4.2"
+    "jsdom": "^25.0.1"
   },
   "engines": {
     "node": ">=18"
