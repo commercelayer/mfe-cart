@@ -1,12 +1,10 @@
+import { resolve } from "node:path"
 import react from "@vitejs/plugin-react"
 import { visualizer } from "rollup-plugin-visualizer"
-import { loadEnv, PluginOption } from "vite"
+import { type PluginOption, loadEnv } from "vite"
 import { defineConfig } from "vitest/config"
 
-import { resolve } from "path"
-
 // https://vitejs.dev/config/
-// @ts-expect-error mismatched types from vite and vitest
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "")
   const analyzeBundle = env.ANALYZE_BUNDLE === "true"

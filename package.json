@@ -27,14 +27,12 @@
     "node": ">=18",
     "pnpm": ">=7"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "husky": "^9.1.7",
     "lerna": "^8.1.9",
-    "lint-staged": "^15.2.11",
-    "npm-check-updates": "^17.1.11"
+    "lint-staged": "^15.4.3",
+    "npm-check-updates": "^17.1.14"
   }
 }
