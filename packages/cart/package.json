@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@commercelayer/js-auth": "^6.7.1",
-    "@commercelayer/organization-config": "^1.4.12",
+    "@commercelayer/organization-config": "^2.1.0",
     "@commercelayer/react-components": "4.19.0",
     "@commercelayer/react-utils": "1.0.0-beta.3",
     "@commercelayer/sdk": "6.32.0",

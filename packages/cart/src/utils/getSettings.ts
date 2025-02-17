@@ -1,4 +1,4 @@
-import { getConfig } from "@commercelayer/organization-config"
+import { getMfeConfig } from "@commercelayer/organization-config"
 import CommerceLayer, { type Organization } from "@commercelayer/sdk"
 import type { InvalidSettings, Settings } from "HostedApp"
 
@@ -17,7 +17,7 @@ import { updateAccessTokenInUrl } from "#utils/updateAccessTokenInUrl"
 export const defaultSettings: InvalidSettings = {
   isValid: false,
   primaryColor: "#000000",
-  language: "en",
+  language: getBrowserLanguage(),
   faviconUrl:
     "https://data.commercelayer.app/assets/images/favicons/favicon-32x32.png",
   companyName: "Commerce Layer",
@@ -28,19 +28,31 @@ const makeInvalidSettings = ({
   retryable,
   organization,
   redirectTo,
+  marketId,
 }: {
   retryable?: boolean
   organization?: Organization
   redirectTo?: string
-}): InvalidSettings => ({
-  ...defaultSettings,
-  retryable: !!retryable,
-  logoUrl: organization?.logo_url ?? undefined,
-  companyName: organization?.name || defaultSettings.companyName,
-  primaryColor: organization?.primary_color || defaultSettings.primaryColor,
-  faviconUrl: organization?.favicon_url || defaultSettings.faviconUrl,
-  redirectTo,
-})
+  marketId?: string
+}): InvalidSettings => {
+  const organizationConfig =
+    organization != null
+      ? getMfeConfig({
+          jsonConfig: organization.config ?? {},
+          market: marketId != null ? `market:id:${marketId}` : undefined,
+        })
+      : null
+  return {
+    ...defaultSettings,
+    retryable: !!retryable,
+    logoUrl: organization?.logo_url ?? undefined,
+    companyName: organization?.name || defaultSettings.companyName,
+    primaryColor: organization?.primary_color || defaultSettings.primaryColor,
+    faviconUrl: organization?.favicon_url || defaultSettings.faviconUrl,
+    language: getDefaultLanguage(organizationConfig),
+    redirectTo,
+  }
+}
 
 /**
  * Retrieves a list of `Settings` required to show the cart page
@@ -63,6 +75,7 @@ export const getSettings = async ({
 }): Promise<Settings | InvalidSettings> => {
   const domain = appConfig.domain || "commercelayer.io"
   const { slug, isTest, market } = getInfoFromJwt(accessToken)
+  const marketId = market?.id.length === 1 ? market.id[0] : undefined
 
   if (!slug) {
     return makeInvalidSettings({})
@@ -93,7 +106,7 @@ export const getSettings = async ({
       client,
     })
     const organization = organizationResponse?.object
-    return makeInvalidSettings({ organization })
+    return makeInvalidSettings({ organization, marketId })
   }
 
   const [organizationResponse, orderResponse] = await Promise.all([
@@ -108,13 +121,19 @@ export const getSettings = async ({
   if (!organization) {
     return makeInvalidSettings({
       retryable: !organizationResponse?.bailed,
+      marketId,
     })
   }
 
-  // validating order
   const order = orderResponse?.object
+
+  // validating order
   if (!order) {
-    return makeInvalidSettings({ retryable: !orderResponse?.bailed })
+    return makeInvalidSettings({
+      retryable: !orderResponse?.bailed,
+      organization,
+      marketId,
+    })
   }
 
   if (!isValidStatus(order.status)) {
@@ -125,17 +144,17 @@ export const getSettings = async ({
     })
   }
 
-  await forceOrderAutorefresh({ client, order })
-
-  const organizationConfig = getConfig({
+  const organizationConfig = getMfeConfig({
     jsonConfig: organization.config ?? {},
-    market: market.id.length === 1 ? `market:id:${market.id[0]}` : undefined,
+    market: marketId != null ? `market:id:${marketId}` : undefined,
     params: {
-      lang: order.language_code,
-      orderId: order.id,
+      lang: order?.language_code,
+      orderId: order?.id,
       accessToken,
     },
   })
+
+  await forceOrderAutorefresh({ client, order })
 
   const cartUrl =
     order.cart_url != null && order.cart_url !== ""
@@ -145,6 +164,9 @@ export const getSettings = async ({
         })
       : organizationConfig?.links?.cart
 
+  // order is: order language > organization config language > default browser language
+  const language = order.language_code ?? getDefaultLanguage(organizationConfig)
+
   return {
     accessToken,
     endpoint: `https://${slug}.${domain}`,
@@ -152,7 +174,7 @@ export const getSettings = async ({
     itemsCount: (order.line_items || []).length,
     logoUrl: organization.logo_url ?? undefined,
     companyName: organization.name || defaultSettings.companyName,
-    language: order.language_code || defaultSettings.language,
+    language,
     primaryColor: organization.primary_color || defaultSettings.primaryColor,
     faviconUrl: organization.favicon_url || defaultSettings.faviconUrl,
     gtmId:
@@ -162,4 +184,32 @@ export const getSettings = async ({
     isValid: true,
     organizationConfig,
   }
+}
+
+/**
+ * Retrieves the default language from the organization configuration.
+ * If the organization configuration does not have a language set, it will fallback to the browser language.
+ * If the browser language is not available, it will fallback to English.
+ */
+function getDefaultLanguage(
+  organizationConfig: ReturnType<typeof getMfeConfig>,
+) {
+  if (
+    organizationConfig?.language != null &&
+    organizationConfig.language.trim() !== ""
+  ) {
+    return organizationConfig.language.split("-")[0]
+  }
+
+  return getBrowserLanguage()
+}
+
+/**
+ * Retrieves the browser language code or fallback to English
+ */
+function getBrowserLanguage() {
+  return typeof window !== "undefined" &&
+    typeof window.navigator !== "undefined"
+    ? window.navigator.language?.split("-")[0]
+    : "en"
 }

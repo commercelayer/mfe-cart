@@ -1,5 +1,5 @@
 declare module "HostedApp" {
-  import { DefaultConfig } from "@commercelayer/organization-config"
+  import type { DefaultConfig } from "@commercelayer/organization-config"
 
   export type Settings = {
     /**
