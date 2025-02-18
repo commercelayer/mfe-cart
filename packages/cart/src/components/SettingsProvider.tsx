@@ -79,6 +79,7 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({
   )
   const [isLoading, setIsLoading] = useState(true)
   const accessToken = getAccessTokenFromUrl()
+  const language = settings.language
 
   useEffect(() => {
     setIsLoading(!!accessToken)
@@ -94,10 +95,10 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({
 
   // keep i18n in sync
   useEffect(() => {
-    if (settings.language) {
-      changeLanguage(parseLanguageCode(settings.language))
+    if (language) {
+      changeLanguage(parseLanguageCode(language))
     }
-  }, [settings.language])
+  }, [language])
 
   const value = { settings, isLoading }
   return (
