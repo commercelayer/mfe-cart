@@ -9,7 +9,6 @@ import {
 } from "@commercelayer/react-components"
 import type { FC } from "react"
 import { useTranslation } from "react-i18next"
-
 import { ButtonCheckoutDisabled } from "#components/atoms/ButtonCheckoutDisabled"
 import { isEmbedded } from "#utils/isEmbedded"
 
@@ -22,7 +21,15 @@ export const ButtonCheckout: FC = () => {
     <>
       <div key={order?.total_amount_cents}>
         <PaymentMethodsContainer>
-          <PaymentMethod expressPayments className="mb-4" loader={<div />}>
+          <PaymentMethod
+            expressPayments
+            className="mb-4"
+            loader={<div />}
+            hide={({ payment_source_type }) => {
+              // only show stripe payments
+              return payment_source_type === "stripe_payments"
+            }}
+          >
             <PaymentSource loader={<div />} />
           </PaymentMethod>
         </PaymentMethodsContainer>
