@@ -38,14 +38,14 @@
   },
   "dependencies": {
     "@commercelayer/js-auth": "^6.7.1",
-    "@commercelayer/organization-config": "^2.1.0",
-    "@commercelayer/react-components": "4.19.0",
+    "@commercelayer/organization-config": "^2.2.0",
+    "@commercelayer/react-components": "4.20.0",
     "@commercelayer/react-utils": "1.0.0-beta.3",
-    "@commercelayer/sdk": "6.32.0",
+    "@commercelayer/sdk": "6.34.0",
     "@playwright/test": "^1.50.1",
     "@types/async-retry": "1.4.9",
     "@types/iframe-resizer": "^3.5.13",
-    "@types/node": "22.13.4",
+    "@types/node": "22.13.9",
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
     "@types/react-gtm-module": "^2.0.4",
@@ -58,21 +58,21 @@
     "dotenv": "^16.4.7",
     "i18next": "^24.2.2",
     "jwt-decode": "^4.0.0",
-    "postcss": "^8.5.2",
+    "postcss": "^8.5.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-gtm-module": "^2.0.11",
     "react-helmet-async": "^2.0.5",
-    "react-i18next": "^15.4.0",
+    "react-i18next": "^15.4.1",
     "rollup-plugin-visualizer": "^5.14.0",
     "tailwindcss": "^3.4.17",
-    "typescript": "5.7.3",
-    "vite": "^6.1.0",
-    "vitest": "^3.0.5",
+    "typescript": "5.8.2",
+    "vite": "^6.2.0",
+    "vitest": "^3.0.7",
     "wouter": "^3.6.0"
   },
   "devDependencies": {
-    "jsdom": "^25.0.1"
+    "jsdom": "^26.0.0"
   },
   "engines": {
     "node": ">=18"
