@@ -1,8 +1,7 @@
-import { LogoCL } from "@commercelayer/react-utils"
 import type { FC, ReactNode } from "react"
-
 import { useSettings } from "./SettingsProvider"
 import { SkeletonItem } from "./Skeleton/Item"
+import { LogoCL } from "./atoms/LogoCl"
 
 export const CompanyLogo: FC = () => {
   const { isLoading, settings } = useSettings()

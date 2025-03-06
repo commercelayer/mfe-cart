@@ -1,9 +1,8 @@
-import { LogoCL } from "@commercelayer/react-utils"
 import type { FC } from "react"
-
 import { Footer } from "#components/Footer"
 import { PageHead } from "#components/PageHead"
 import { isEmbedded } from "#utils/isEmbedded"
+import { LogoCL } from "./atoms/LogoCl"
 
 type Props = {
   /**

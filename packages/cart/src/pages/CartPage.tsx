@@ -1,8 +1,8 @@
-import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import { Suspense, lazy } from "react"
 import { useTranslation } from "react-i18next"
 import { useRoute } from "wouter"
 import { GoogleTagManager } from "#components/GoogleTagManager"
+import { InjectCssCustomProperties } from "#components/InjectCssCustomProperties/index"
 import { PageHead } from "#components/PageHead"
 import { SettingsError } from "#components/SettingsError"
 import { SettingsProvider } from "#components/SettingsProvider"
@@ -33,7 +33,8 @@ function CartPage(): JSX.Element {
   return (
     <SettingsProvider orderId={orderId} appConfig={appConfig}>
       {({ settings, isLoading }) => (
-        <GlobalStylesProvider primaryColor={settings.primaryColor}>
+        <>
+          <InjectCssCustomProperties primaryColor={settings.primaryColor} />
           {isLoading ? (
             <Skeleton />
           ) : !settings.isValid ? (
@@ -54,7 +55,7 @@ function CartPage(): JSX.Element {
               </Suspense>
             </>
           )}
-        </GlobalStylesProvider>
+        </>
       )}
     </SettingsProvider>
   )

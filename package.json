@@ -37,8 +37,6 @@
     "npm-check-updates": "^17.1.15"
   },
   "resolutions": {
-    "@octokit/request-error": "^5.1.1",
-    "@octokit/request": "^9.2.1",
-    "@octokit/plugin-paginate-rest": "^11.4.1"
+    "@octokit/request": "^9.2.1"
   }
 }
