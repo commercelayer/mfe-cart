@@ -35,8 +35,5 @@
     "lerna": "^8.2.1",
     "lint-staged": "^15.4.3",
     "npm-check-updates": "^17.1.15"
-  },
-  "resolutions": {
-    "@octokit/request": "^9.2.1"
   }
 }
