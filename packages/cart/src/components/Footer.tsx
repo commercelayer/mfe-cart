@@ -1,6 +1,6 @@
-import { LogoCL } from "@commercelayer/react-utils"
 import cn from "classnames"
 import type { FC } from "react"
+import { LogoCL } from "./atoms/LogoCl"
 
 export const Footer: FC<{ className?: string }> = ({ className }) => {
   return (
