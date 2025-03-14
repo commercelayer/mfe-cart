@@ -15,7 +15,7 @@
     "shippingAmount": "Spedizione",
     "paymentMethodAmount": "Metodo di pagamento",
     "total": "Totale",
-    "gotToCheckoutCta": "Checkout",
+    "gotToCheckoutCta": "Procedi con l'ordine",
     "returnUrlLabel": "Continua ad acquistare",
     "quantityNotAvailable": "La quantità selezionata non è disponibile",
     "retryableErrorCode": "Problemi di connessione",
