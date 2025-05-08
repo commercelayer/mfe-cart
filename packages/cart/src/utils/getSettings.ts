@@ -144,11 +144,13 @@ export const getSettings = async ({
     })
   }
 
+  const orderLanguage = order?.language_code?.split("-")[0]
+
   const organizationConfig = getMfeConfig({
     jsonConfig: organization.config ?? {},
     market: marketId != null ? `market:id:${marketId}` : undefined,
     params: {
-      lang: order?.language_code,
+      lang: orderLanguage,
       orderId: order?.id,
       accessToken,
     },
@@ -165,7 +167,7 @@ export const getSettings = async ({
       : organizationConfig?.links?.cart
 
   // order is: order language > organization config language > default browser language
-  const language = order.language_code ?? getDefaultLanguage(organizationConfig)
+  const language = orderLanguage ?? getDefaultLanguage(organizationConfig)
 
   return {
     accessToken,
