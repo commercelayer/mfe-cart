@@ -1,4 +1,4 @@
-import { Page, expect, Locator } from "@playwright/test"
+import { type Locator, type Page, expect } from "@playwright/test"
 
 import commonDe from "#assets/locales/de/common.json"
 import commonEn from "#assets/locales/en/common.json"
@@ -27,13 +27,13 @@ export class CartPage {
       .locator("[data-test-id=quantity-selector]")
       .first()
     this.quantitySelectorInput = this.quantitySelector.locator(
-      "[data-test-id=input-spinner-element]"
+      "[data-test-id=input-spinner-element]",
     )
     this.quantitySelectorBtnDecrement = this.quantitySelector.locator(
-      "[data-test-id=input-spinner-btn-decrement]"
+      "[data-test-id=input-spinner-btn-decrement]",
     )
     this.quantitySelectorBtnIncrement = this.quantitySelector.locator(
-      "[data-test-id=input-spinner-btn-increment]"
+      "[data-test-id=input-spinner-btn-increment]",
     )
     this.itemsCount = this.page.locator("[data-test-id=items-count]").first()
   }
@@ -71,20 +71,20 @@ export class CartPage {
     const currentLang = translations[language]
     await expect(
       this.page.locator(
-        `[data-test-id=page-title]:visible >> text=${currentLang.general.title}`
-      )
+        `[data-test-id=page-title]:visible >> text=${currentLang.general.title}`,
+      ),
     ).toBeVisible()
 
     await expect(
       this.page.locator(
-        `[data-test-id=label-subtotal] >> text=${currentLang.general.subtotal}`
-      )
+        `[data-test-id=label-subtotal] >> text=${currentLang.general.subtotal}`,
+      ),
     ).toBeVisible()
 
     await expect(
       this.page.locator(
-        `[data-test-id=label-total] >> text=${currentLang.general.total}`
-      )
+        `[data-test-id=label-total] >> text=${currentLang.general.total}`,
+      ),
     ).toBeVisible()
   }
 
@@ -103,24 +103,24 @@ export class CartPage {
 
   async checkForBundle() {
     await expect(
-      this.page.locator("[data-test-id=line-item-bundles]").first()
+      this.page.locator("[data-test-id=line-item-bundles]").first(),
     ).toBeVisible()
   }
 
   async checkForSku() {
     await expect(
-      this.page.locator("[data-test-id=line-item-skus]").first()
+      this.page.locator("[data-test-id=line-item-skus]").first(),
     ).toBeVisible()
   }
 
   async checkForSkuOptions(options: string[]) {
     await expect(
-      this.page.locator("[data-test-id=line-item-options]")
+      this.page.locator("[data-test-id=line-item-options]"),
     ).toHaveCount(options.length)
     await Promise.all(
       options.map((opt) =>
-        expect(this.page.locator(`text=${opt}`)).toBeVisible()
-      )
+        expect(this.page.locator(`text=${opt}`)).toBeVisible(),
+      ),
     )
   }
 
@@ -128,7 +128,7 @@ export class CartPage {
     await expect(
       this.page.locator("[data-test-id=frequency]", {
         hasText: frequency,
-      })
+      }),
     ).toBeVisible()
   }
 
@@ -143,13 +143,13 @@ export class CartPage {
 
   async checkForAppliedGiftCard() {
     await expect(
-      this.page.locator("[data-test-id=applied-gift_card]")
+      this.page.locator("[data-test-id=applied-gift_card]"),
     ).toBeVisible()
   }
 
   async checkForAppliedCoupon() {
     await expect(
-      this.page.locator("[data-test-id=applied-coupon]")
+      this.page.locator("[data-test-id=applied-coupon]"),
     ).toBeVisible()
   }
 
@@ -164,16 +164,16 @@ export class CartPage {
 
   async checkReturnUrlLink(href: string) {
     await expect(
-      this.page.locator(`[data-test-id=return-url][href='${href}']`)
+      this.page.locator(`[data-test-id=return-url][href='${href}']`),
     ).toBeVisible()
     await expect(
-      this.page.locator(`[data-test-id=return-url-logo][href='${href}']`)
+      this.page.locator(`[data-test-id=return-url-logo][href='${href}']`),
     ).toBeVisible()
   }
 
   async checkCartTotal(amount: string) {
     await expect(this.page.locator("[data-test-id=total-amount]")).toHaveText(
-      amount
+      amount,
     )
   }
 
@@ -183,10 +183,10 @@ export class CartPage {
       await expect(this.page.locator("[data-test-id=cart-footer]")).toBeHidden()
     } else {
       await expect(
-        this.page.locator("[data-test-id=cart-header]")
+        this.page.locator("[data-test-id=cart-header]"),
       ).toBeVisible()
       await expect(
-        this.page.locator("[data-test-id=cart-footer]:visible")
+        this.page.locator("[data-test-id=cart-footer]:visible"),
       ).toBeVisible()
     }
   }
@@ -213,7 +213,7 @@ export class CartPage {
 
   async expectErrorPage() {
     await expect(
-      this.page.locator("text=This order is not accessible")
+      this.page.locator("text=This order is not accessible"),
     ).toBeVisible()
   }
 }
@@ -221,5 +221,5 @@ export class CartPage {
 const getAttributeAmount = async (page: Page, attributeName: string) => {
   const element = await page.locator(`[data-test-id=${attributeName}]`)
   const value = (await element.getAttribute("data-amount")) || "0"
-  return parseInt(value, 10)
+  return Number.parseInt(value, 10)
 }

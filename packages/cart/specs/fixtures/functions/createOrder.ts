@@ -6,11 +6,11 @@ import { createSingleLineItem } from "./createSingleLineItem"
 import { getClient } from "./getClient"
 import { getSuperToken } from "./getSuperToken"
 
-import { TestOrderOptions } from "#specs/types"
+import type { TestOrderOptions } from "#specs/types"
 
 export const createOrder = async (
   cl: CommerceLayerClient,
-  options: TestOrderOptions
+  options: TestOrderOptions,
 ) => {
   const {
     attributes,
