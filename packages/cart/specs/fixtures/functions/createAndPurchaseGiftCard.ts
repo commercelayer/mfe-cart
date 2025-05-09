@@ -1,10 +1,10 @@
 import type { CommerceLayerClient } from "@commercelayer/sdk"
 
-import { GiftCardOptions } from "#specs/types"
+import type { GiftCardOptions } from "#specs/types"
 
 export const createAndPurchaseGiftCard = async (
   cl: CommerceLayerClient,
-  options?: GiftCardOptions
+  options?: GiftCardOptions,
 ) => {
   const card = await cl.gift_cards.create({
     currency_code: options?.currency_code ? options.currency_code : "USD",

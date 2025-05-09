@@ -6,7 +6,7 @@ import { getClient } from "./functions/getClient"
 import { getCustomerUserToken } from "./functions/getCustomerUserToken"
 import { getSalesChannelToken } from "./functions/getSalesChannelToken"
 
-import { TestOrderOptions } from "#specs/types"
+import type { TestOrderOptions } from "#specs/types"
 
 type FixtureType = {
   CartPage: CartPage

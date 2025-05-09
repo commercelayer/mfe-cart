@@ -26,6 +26,19 @@ test.describe("Cart in Italian", () => {
   })
 })
 
+test.describe("Cart in Italian using locale as language code", () => {
+  test.use({
+    options: {
+      orderType: "plain",
+      attributes: { language_code: "it-IT" },
+    },
+  })
+
+  test("should open a cart with texts in Italian", async ({ CartPage }) => {
+    await CartPage.checkOrderLanguage("it")
+  })
+})
+
 test.describe("Cart in German", () => {
   test.use({
     options: {

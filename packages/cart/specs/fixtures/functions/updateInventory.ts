@@ -1,11 +1,11 @@
 import type { CommerceLayerClient } from "@commercelayer/sdk"
 
-import { SkuItem } from "#specs/types"
+import type { SkuItem } from "#specs/types"
 
 export const updateInventory = async (
   cl: CommerceLayerClient,
   lineItems: SkuItem[],
-  quantity: "quantity" | "inventory"
+  quantity: "quantity" | "inventory",
 ) => {
   const skus = await cl.skus.list({
     include: ["stock_items"],
@@ -14,7 +14,7 @@ export const updateInventory = async (
     },
   })
   const promises = skus.map((sku) => {
-    if (sku && sku.stock_items) {
+    if (sku?.stock_items) {
       const lineItem = lineItems.find((li) => li.sku_code === sku.code)
       if (lineItem) {
         return cl.stock_items.update({
