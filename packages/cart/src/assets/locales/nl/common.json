@@ -1,0 +1,55 @@
+{
+  "general": {
+    "title": "Winkelwagen",
+    "itemsTitle": "Jouw artikelen",
+    "cartContains": "Je winkelwagen bevat",
+    "item": "artikel",
+    "item_other": "artikelen",
+    "emptyCart": "Je winkelwagen is leeg",
+    "remove": "Verwijderen",
+    "price": "Stukprijs",
+    "finalPriceInCheckoutText": "Inclusief BTW en verzendkosten worden berekend bij het afrekenen",
+    "subtotal": "Subtotaal",
+    "discount": "Korting",
+    "giftCard": "Cadeaubon",
+    "shippingAmount": "Verzending",
+    "paymentMethodAmount": "Betaalmethode",
+    "total": "Totaal",
+    "gotToCheckoutCta": "Afrekenen",
+    "returnUrlLabel": "Verder winkelen",
+    "quantityNotAvailable": "De geselecteerde hoeveelheid is niet beschikbaar",
+    "retryableErrorCode": "Verbindingsproblemen",
+    "retryableErrorDescription": "Probeer de pagina opnieuw te laden"
+  },
+  "item": {
+    "frequency": {
+      "hourly": "Per uur",
+      "daily": "Dagelijks",
+      "weekly": "Wekelijks",
+      "monthly": "Maandelijks",
+      "two-months": "Elke twee maanden",
+      "two-month": "Elke twee maanden",
+      "three-months": "Elke drie maanden",
+      "three-month": "Elke drie maanden",
+      "four-months": "Elke vier maanden",
+      "four-month": "Elke vier maanden",
+      "six-months": "Elke zes maanden",
+      "six-month": "Elke zes maanden",
+      "yearly": "Jaarlijks"
+    }
+  },
+  "couponOrGift": {
+    "label": "Heb je een promotiecode?",
+    "submit": "Toepassen",
+    "placeholder": {
+      "gift_card_or_coupon_code": "Cadeaubon of kortingscode",
+      "gift_card_code": "Cadeaubon",
+      "coupon_code": "Kortingscode"
+    },
+    "error": {
+      "gift_card_or_coupon_code": "Voer een geldige cadeaubon of kortingscode in",
+      "gift_card_code": "Voer een geldige cadeaubon in",
+      "coupon_code": "Voer een geldige kortingscode in"
+    }
+  }
+}
