@@ -90,3 +90,16 @@ test.describe("Cart in Portuguese", () => {
     await CartPage.checkOrderLanguage("pt")
   })
 })
+
+test.describe("Cart in Dutch", () => {
+  test.use({
+    options: {
+      orderType: "plain",
+      attributes: { language_code: "nl" },
+    },
+  })
+
+  test("should open a cart with texts in Dutch", async ({ CartPage }) => {
+    await CartPage.checkOrderLanguage("nl")
+  })
+})
