@@ -8,7 +8,7 @@
     "emptyCart": "Your cart is empty",
     "remove": "Remove",
     "price": "Unit price",
-    "finalPriceInCheckoutText": "Tax included and shipping calculated at checkout",
+    "finalPriceInCheckoutText": "Any applicable taxes and shipping costs calculated at checkout",
     "subtotal": "Subtotal",
     "discount": "Discount",
     "giftCard": "Gift Card",
