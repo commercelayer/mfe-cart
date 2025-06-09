@@ -19,11 +19,11 @@ body {
 
 .input-base:not(.-error) {
   @apply border-gray-300  
-    focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary-light focus:ring-opacity-50;
+    focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary-light;
 }
 
 .input-base.-error {
-  @apply border-red-400 placeholder-red-400 focus:ring-red-500 focus:border-red-500 focus:ring-opacity-50;
+  @apply border-red-400 placeholder-red-400 focus:ring-red-500 focus:border-red-500;
 }
 
 .button-base {
