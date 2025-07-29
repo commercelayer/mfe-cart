@@ -1,7 +1,7 @@
 import { resolve } from "node:path"
 import react from "@vitejs/plugin-react"
 import { visualizer } from "rollup-plugin-visualizer"
-import { type PluginOption, loadEnv } from "vite"
+import { loadEnv, type PluginOption } from "vite"
 import { defineConfig } from "vitest/config"
 
 // https://vitejs.dev/config/

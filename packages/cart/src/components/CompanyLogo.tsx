@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react"
+import { LogoCL } from "./atoms/LogoCl"
 import { useSettings } from "./SettingsProvider"
 import { SkeletonItem } from "./Skeleton/Item"
-import { LogoCL } from "./atoms/LogoCl"
 
 export const CompanyLogo: FC = () => {
   const { isLoading, settings } = useSettings()
@@ -43,6 +43,6 @@ const ReturnLink: FC<{ url?: string; children: ReactNode }> = ({
       {children}
     </a>
   ) : (
-    <>{children}</>
+    children
   )
 }

@@ -6,14 +6,12 @@ import {
 } from "@commercelayer/react-components"
 import type { FC } from "react"
 import { useTranslation } from "react-i18next"
-
-import { Totals } from "./Totals"
-
 import { Summary } from "#components/Cart/Summary"
 import { EmbeddedCapabilities } from "#components/EmbeddedCapabilities"
 import { PageHeader } from "#components/PageHeader"
 import { PageLayout } from "#components/PageLayout"
 import { useSettings } from "#components/SettingsProvider"
+import { Totals } from "./Totals"
 
 const Cart: FC = () => {
   const { settings } = useSettings()

@@ -1,9 +1,7 @@
 import cn from "classnames"
 import { useCallback, useEffect, useRef, useState } from "react"
-
-import css from "./InputSpinner.module.css"
-
 import { useDebounce } from "#hooks/debounce"
+import css from "./InputSpinner.module.css"
 
 interface Props {
   /*
@@ -51,7 +49,6 @@ export function InputSpinner({
     })
   }, [])
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function dispatchDebouncedHandleChange() {
       if (isInternalValueSynched) {
@@ -70,7 +67,6 @@ export function InputSpinner({
     [debouncedValue],
   )
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function syncInternalStateWithOrderQuantity() {
       setInternalDisabled(false)
@@ -81,7 +77,6 @@ export function InputSpinner({
     [quantity],
   )
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function preventOutOfStockToPermanentlyDisableUi() {
       if (internalDisabled) {

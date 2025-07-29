@@ -1,11 +1,9 @@
 import type { FC } from "react"
-
-import { SkeletonItem } from "./Item"
-import { LineItemsSkeleton } from "./LineItems"
-
 import { PageHead } from "#components/PageHead"
 import { PageHeader } from "#components/PageHeader"
 import { PageLayout } from "#components/PageLayout"
+import { SkeletonItem } from "./Item"
+import { LineItemsSkeleton } from "./LineItems"
 
 export const Skeleton: FC = () => {
   return (

@@ -11,17 +11,15 @@ import {
 } from "@commercelayer/react-components"
 import type { FC } from "react"
 import { useTranslation } from "react-i18next"
-
+import { CartTitle } from "#components/atoms/CartTitle"
+import { EmptyCartMessage } from "#components/atoms/EmptyCartMessage"
+import { useSettings } from "#components/SettingsProvider"
+import { LineItemsSkeleton } from "#components/Skeleton/LineItems"
+import { isEmbedded } from "#utils/isEmbedded"
 import { ButtonRemoveItem } from "./ButtonRemoveItem"
 import { LineItemFrequency } from "./LineItemFrequency"
 import { LineItemOptions } from "./LineItemOptions"
 import { QuantitySelector } from "./QuantitySelector"
-
-import { useSettings } from "#components/SettingsProvider"
-import { LineItemsSkeleton } from "#components/Skeleton/LineItems"
-import { CartTitle } from "#components/atoms/CartTitle"
-import { EmptyCartMessage } from "#components/atoms/EmptyCartMessage"
-import { isEmbedded } from "#utils/isEmbedded"
 
 type Props = {
   listTypes: TLineItem[]

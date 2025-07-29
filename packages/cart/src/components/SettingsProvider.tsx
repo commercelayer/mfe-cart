@@ -1,18 +1,16 @@
 import type { InvalidSettings, Settings } from "HostedApp"
 import { changeLanguage } from "i18next"
 import {
+  createContext,
   type FC,
   type ReactNode,
-  createContext,
   useContext,
   useEffect,
   useState,
 } from "react"
-
-import { parseLanguageCode } from "./i18n/parseLanguageCode"
-
 import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
 import { defaultSettings, getSettings } from "#utils/getSettings"
+import { parseLanguageCode } from "./i18n/parseLanguageCode"
 
 type SettingsProviderValue = {
   /**

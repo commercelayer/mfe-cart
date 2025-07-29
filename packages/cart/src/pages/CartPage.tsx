@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react"
+import { lazy, Suspense } from "react"
 import { useTranslation } from "react-i18next"
 import { useRoute } from "wouter"
 import { GoogleTagManager } from "#components/GoogleTagManager"
