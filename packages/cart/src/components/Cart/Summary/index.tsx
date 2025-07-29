@@ -11,17 +11,15 @@ import {
 } from "@commercelayer/react-components"
 import type { FC } from "react"
 import { useTranslation } from "react-i18next"
-
+import { CartTitle } from "#components/atoms/CartTitle"
+import { EmptyCartMessage } from "#components/atoms/EmptyCartMessage"
+import { useSettings } from "#components/SettingsProvider"
+import { LineItemsSkeleton } from "#components/Skeleton/LineItems"
+import { isEmbedded } from "#utils/isEmbedded"
 import { ButtonRemoveItem } from "./ButtonRemoveItem"
 import { LineItemFrequency } from "./LineItemFrequency"
 import { LineItemOptions } from "./LineItemOptions"
 import { QuantitySelector } from "./QuantitySelector"
-
-import { useSettings } from "#components/SettingsProvider"
-import { LineItemsSkeleton } from "#components/Skeleton/LineItems"
-import { CartTitle } from "#components/atoms/CartTitle"
-import { EmptyCartMessage } from "#components/atoms/EmptyCartMessage"
-import { isEmbedded } from "#utils/isEmbedded"
 
 type Props = {
   listTypes: TLineItem[]
@@ -57,7 +55,7 @@ export const Summary: FC<Props> = ({ listTypes }) => {
               <LineItemOptions />
 
               <div className="flex justify-between items-start mb-8">
-                <div className="flex gap-1 text-xs font-bold text-gray-500 bg-gray-50 md:bg-gray-100 rounded py-1 px-2 leading-none">
+                <div className="flex gap-1 text-xs font-bold text-gray-500 bg-gray-50 md:bg-gray-100 rounded-sm py-1 px-2 leading-none">
                   {t("general.price")}
                   <LineItemAmount type="unit" />
                 </div>

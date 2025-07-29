@@ -1,4 +1,4 @@
-import { type Locator, type Page, expect } from "@playwright/test"
+import { expect, type Locator, type Page } from "@playwright/test"
 
 import commonDe from "#assets/locales/de/common.json"
 import commonEn from "#assets/locales/en/common.json"
@@ -60,7 +60,9 @@ export class CartPage {
     await expect(el).toBeVisible()
   }
 
-  async checkOrderLanguage(language: "en" | "it" | "de" | "hu" | "pl" | "pt" | "nl") {
+  async checkOrderLanguage(
+    language: "en" | "it" | "de" | "hu" | "pl" | "pt" | "nl",
+  ) {
     const translations = {
       it: commonIt,
       en: commonEn,

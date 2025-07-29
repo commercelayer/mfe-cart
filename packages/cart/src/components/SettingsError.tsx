@@ -1,10 +1,8 @@
 import { type FC, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { useRouter } from "wouter"
-
-import { PageErrorLayout } from "./PageErrorLayout"
-
 import { EmptyCartEmbedded } from "#components/EmptyCartEmbedded"
+import { PageErrorLayout } from "./PageErrorLayout"
 
 type Props = {
   /**

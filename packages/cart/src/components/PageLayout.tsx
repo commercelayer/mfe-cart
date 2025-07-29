@@ -20,7 +20,7 @@ export const PageLayout: FC<Props> = ({
   return isEmbedded() ? (
     <Inner main={main} aside={aside} isLoading={isLoading} />
   ) : (
-    <div className="container 2xl:max-w-screen-2xl 2xl:mx-auto h-full">
+    <div className="container 2xl:max-w-(--breakpoint-2xl) 2xl:mx-auto h-full">
       <Inner top={top} main={main} aside={aside} isLoading={isLoading} />
     </div>
   )

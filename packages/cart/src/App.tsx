@@ -1,10 +1,8 @@
 import { HelmetProvider } from "react-helmet-async"
 import { Route, Router, Switch } from "wouter"
-
+import { EmbeddedCapabilities } from "#components/EmbeddedCapabilities"
 import CartPage from "./pages/CartPage"
 import ErrorPage from "./pages/ErrorPage"
-
-import { EmbeddedCapabilities } from "#components/EmbeddedCapabilities"
 
 function App(): JSX.Element {
   const basePath =

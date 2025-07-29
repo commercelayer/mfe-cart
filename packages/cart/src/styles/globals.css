@@ -1,6 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@config '../../tailwind.config.js';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #e6e7e7;
+  }
+}
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -8,8 +26,8 @@ body {
 }
 
 .input-base {
-  @apply text-black text-sm
-    border outline-none
+  @apply text-black text-sm bg-white
+    border outline-hidden
     transition duration-500 ease-in-out;
 }
 
@@ -19,11 +37,11 @@ body {
 
 .input-base:not(.-error) {
   @apply border-gray-300  
-    focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary-light focus:ring-opacity-50;
+    focus:border-primary focus:ring-3 focus:ring-offset-0 focus:ring-primary-light;
 }
 
 .input-base.-error {
-  @apply border-red-400 placeholder-red-400 focus:ring-red-500 focus:border-red-500 focus:ring-opacity-50;
+  @apply border-red-400 placeholder-red-400 focus:ring-red-500 focus:border-red-500;
 }
 
 .button-base {
@@ -32,4 +50,26 @@ body {
 
 .link-base {
   @apply border-b transition ease-in duration-200 hover:text-primary-dark;
+}
+
+/* Styles for `LineItemOptions.txt` component */
+.skuOptions h6 {
+  @apply font-bold text-xs text-gray-600 mt-2 bg-no-repeat pl-5;
+  background-image: url("data:image/svg+xml;utf8;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJoLTUgdy01IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9ImN1cnJlbnRDb2xvciI+CiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTAuMjkzIDUuMjkzYTEgMSAwIDAxMS40MTQgMGw0IDRhMSAxIDAgMDEwIDEuNDE0bC00IDRhMSAxIDAgMDEtMS40MTQtMS40MTRMMTIuNTg2IDExSDVhMSAxIDAgMTEwLTJoNy41ODZsLTIuMjkzLTIuMjkzYTEgMSAwIDAxMC0xLjQxNHoiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz4KPC9zdmc+");
+}
+
+.skuOptions li {
+  @apply text-gray-400 text-xs flex font-medium capitalize pl-5 pt-1;
+}
+
+.skuOptions li span {
+  @apply font-bold text-gray-500 ml-1 line-clamp-3 md:line-clamp-6;
+}
+
+.skuOptions li:not(span) {
+  @apply font-medium;
+}
+
+.skuOptions li:last-of-type {
+  @apply mb-4;
 }

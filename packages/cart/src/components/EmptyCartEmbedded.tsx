@@ -1,12 +1,10 @@
 import type { FC } from "react"
-
-import { PageLayout } from "./PageLayout"
-import { ButtonCheckoutDisabled } from "./atoms/ButtonCheckoutDisabled"
-
 import { EmptyCartMessage } from "#components/atoms/EmptyCartMessage"
 import { FinalPriceDisclaimer } from "#components/atoms/FinalPriceDisclaimer"
 import { SubTotal } from "#components/atoms/SubTotal"
 import { Total } from "#components/atoms/Total"
+import { ButtonCheckoutDisabled } from "./atoms/ButtonCheckoutDisabled"
+import { PageLayout } from "./PageLayout"
 
 export const EmptyCartEmbedded: FC = () => {
   return (

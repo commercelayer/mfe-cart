@@ -7,7 +7,7 @@ export const Footer: FC<{ className?: string }> = ({ className }) => {
     <div
       data-test-id="cart-footer"
       className={cn(
-        "w-full bottom-0 justify-start items-center border-t px-5 text-xs bg-gray-50 text-gray-400 z-30 md:flex md:bottom-0 md:sticky mfd:p-0 md:py-3 md:m-0 md:mt-20 before:hidden before:md:block before:md:absolute before:md:top-0 before:md:left-0 before:md:w-full before:md:z-10 before:md:h-2 before:md:shadow-[0px_-4px_1px_0px_rgb(0,0,0,0.025)] before:md:content-['']",
+        "w-full bottom-0 justify-start items-center border-t px-5 text-xs bg-gray-50 text-gray-400 z-30 md:flex md:bottom-0 md:sticky mfd:p-0 md:py-3 md:m-0 md:mt-20 before:hidden md:before:block md:before:absolute md:before:top-0 md:before:left-0 md:before:w-full md:before:z-10 md:before:h-2 md:before:shadow-top md:before:content-['']",
         className,
       )}
     >

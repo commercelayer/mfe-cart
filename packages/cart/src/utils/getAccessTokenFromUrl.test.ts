@@ -3,11 +3,9 @@ import { getAccessTokenFromUrl } from "./getAccessTokenFromUrl"
 describe("Read JWT from URL", () => {
   const { location } = window
   beforeAll(function clearLocation() {
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    // biome-ignore lint/performance/noDelete: <explanation>
+    // biome-ignore lint/suspicious/noExplicitAny: wee need it for testing
     delete (window as any).location
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    ;(window as any).location = {
+    ;(window as typeof globalThis).location = {
       ...location,
       href: "http://domain.com",
       search: "",

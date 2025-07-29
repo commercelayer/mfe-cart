@@ -1,9 +1,7 @@
 import cn from "classnames"
 import { useCallback, useEffect, useRef, useState } from "react"
-
-import css from "./InputSpinner.module.css"
-
 import { useDebounce } from "#hooks/debounce"
+import css from "./InputSpinner.module.css"
 
 interface Props {
   /*
@@ -51,7 +49,6 @@ export function InputSpinner({
     })
   }, [])
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function dispatchDebouncedHandleChange() {
       if (isInternalValueSynched) {
@@ -70,7 +67,6 @@ export function InputSpinner({
     [debouncedValue],
   )
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function syncInternalStateWithOrderQuantity() {
       setInternalDisabled(false)
@@ -81,7 +77,6 @@ export function InputSpinner({
     [quantity],
   )
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(
     function preventOutOfStockToPermanentlyDisableUi() {
       if (internalDisabled) {
@@ -98,7 +93,7 @@ export function InputSpinner({
     <div
       {...rest}
       className={cn(
-        "inline-flex  rounded overflow-hidden border border-gray-200 focus-within:ring-1",
+        "inline-flex  rounded-sm overflow-hidden border border-gray-200 focus-within:ring-1",
         css.inputSpinner,
         {
           "opacity-50 pointer-events-none": isDisabled,
@@ -131,7 +126,7 @@ export function InputSpinner({
       <input
         ref={inputEl}
         data-test-id="input-spinner-element"
-        className="input-base w-12 text-center !border-none font-bold text-md !ring-0"
+        className="input-base w-12 text-center border-none! font-bold text-md ring-0!"
         type="number"
         min="0"
         step="1"
@@ -148,7 +143,7 @@ export function InputSpinner({
         type="button"
         data-test-id="input-spinner-btn-increment"
         className={cn("button-base px-3 bg-white hover:enabled:bg-gray-5", {
-          "!opacity-50": !canIncrease,
+          "opacity-50!": !canIncrease,
         })}
         onClick={() => {
           handleButtonClick("increment")

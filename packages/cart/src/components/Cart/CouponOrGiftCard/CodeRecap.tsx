@@ -23,7 +23,7 @@ export const CodeRecap: FC = () => {
                 </div>
                 <GiftCardOrCouponRemoveButton
                   type={type}
-                  className="font-bold text-primary border-b leading-none border-black border-opacity-10 md: transition ease-in duration-200 hover:border-opacity-50 hover:text-primary-dark focus:outline-none"
+                  className="font-bold text-primary border-b leading-none border-black border-opacity-10 md: transition ease-in duration-200 hover:border-opacity-50 hover:text-primary-dark focus:outline-hidden"
                   label={t("general.remove")}
                   data-test-id={`button-remove-${type}`}
                 />

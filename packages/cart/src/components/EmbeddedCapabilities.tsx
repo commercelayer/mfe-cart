@@ -70,7 +70,7 @@ const IframeResizerInit: FC = () => {
 // This component is only responsible to inject in globalWindow the `reloadOrderCallback` function
 // that will be used in the `onMessage` method initialized from iFrameResizer
 const OrderRefresher: FC = () => {
-  const { order, reloadOrder } = useOrderContainer()
+  const { reloadOrder } = useOrderContainer()
 
   useLayoutEffect(() => {
     window.reloadOrderCallback = () => {
