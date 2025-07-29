@@ -182,7 +182,7 @@ export const getSettings = async ({
     returnUrl: order.return_url ?? undefined,
     cartUrl,
     isValid: true,
-    organizationConfig,
+    hideItemCodes: organizationConfig?.cart?.hide_item_codes ?? false,
   }
 }
 

@@ -47,7 +47,9 @@ export const Summary: FC<Props> = ({ listTypes }) => {
             />
 
             <div className="flex-1 flex flex-col min-h-[150px]">
-              <LineItemCode className="text-xs text-gray-400" />
+              {settings.isValid && settings.hideItemCodes ? null : (
+                <LineItemCode className="text-xs text-gray-400" />
+              )}
               <div className="flex gap-1 justify-between">
                 <LineItemName className="font-bold text-normal mb-2" />
                 <LineItemAmount className="font-bold" />
