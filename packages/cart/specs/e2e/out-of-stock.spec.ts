@@ -1,4 +1,4 @@
-import { test, expect } from "../fixtures/tokenizedPage"
+import { expect, test } from "../fixtures/tokenizedPage"
 
 test.describe("Quantity not available", () => {
   test.use({
@@ -25,12 +25,12 @@ test.describe("Quantity not available", () => {
     await CartPage.checkItemQuantity(5)
 
     await expect(
-      CartPage.page.locator("[data-test-id=input-spinner-btn-increment]")
+      CartPage.page.locator("[data-test-id=input-spinner-btn-increment]"),
     ).toBeDisabled()
 
     await CartPage.quantitySelectorInput.fill("3")
     await expect(
-      CartPage.page.locator("[data-test-id=input-spinner-btn-increment]")
+      CartPage.page.locator("[data-test-id=input-spinner-btn-increment]"),
     ).toBeEnabled()
   })
 })

@@ -12,6 +12,7 @@ export const createLineItems = async ({
   items: Array<LineItemObject>
 }) => {
   const lineItems = items.map((item) => {
+    // biome-ignore lint/correctness/noUnusedVariables: destructure unused properties
     const { sku_options, inventory, ...cleanItem } = item
 
     return cl.line_items.create({

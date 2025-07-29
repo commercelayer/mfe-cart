@@ -2,7 +2,7 @@ import type { CommerceLayerClient } from "@commercelayer/sdk"
 
 export const createSingleLineItem = async (
   cl: CommerceLayerClient,
-  orderId: string
+  orderId: string,
 ) => {
   const skus = await cl.skus.list()
 

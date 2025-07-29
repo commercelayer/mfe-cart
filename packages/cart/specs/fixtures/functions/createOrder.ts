@@ -1,12 +1,10 @@
 import type { CommerceLayerClient } from "@commercelayer/sdk"
-
+import type { TestOrderOptions } from "#specs/types"
 import { createAndPurchaseGiftCard } from "./createAndPurchaseGiftCard"
 import { createLineItems } from "./createLineItems"
 import { createSingleLineItem } from "./createSingleLineItem"
 import { getClient } from "./getClient"
 import { getSuperToken } from "./getSuperToken"
-
-import type { TestOrderOptions } from "#specs/types"
 
 export const createOrder = async (
   cl: CommerceLayerClient,

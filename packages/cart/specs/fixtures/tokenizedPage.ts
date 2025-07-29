@@ -1,12 +1,10 @@
 import { test as base } from "@playwright/test"
-
+import type { TestOrderOptions } from "#specs/types"
 import { CartPage } from "./CartPage"
 import { createOrder } from "./functions/createOrder"
 import { getClient } from "./functions/getClient"
 import { getCustomerUserToken } from "./functions/getCustomerUserToken"
 import { getSalesChannelToken } from "./functions/getSalesChannelToken"
-
-import type { TestOrderOptions } from "#specs/types"
 
 type FixtureType = {
   CartPage: CartPage

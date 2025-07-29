@@ -1,4 +1,4 @@
-import { test, expect } from "../fixtures/tokenizedPage"
+import { expect, test } from "../fixtures/tokenizedPage"
 
 test.describe("Check for ability to purchase only one gift card", () => {
   test.use({
@@ -102,13 +102,13 @@ test.describe("Manually applying and removing gift card and coupon", () => {
     // try to add another coupon
     await CartPage.addCouponOrGiftCard("PROMOTEST10")
     await expect(
-      CartPage.page.locator("text=Please enter a valid gift card")
+      CartPage.page.locator("text=Please enter a valid gift card"),
     ).toBeVisible()
 
     // remove coupon
     await CartPage.removeCouponOrGiftCard("coupon")
     await expect(
-      CartPage.page.locator("text=Please enter a valid gift card")
+      CartPage.page.locator("text=Please enter a valid gift card"),
     ).not.toBeVisible()
     // await CartPage.page.locator("data-test-id=coupon-submit").click()
     await CartPage.addCouponOrGiftCard("PROMOTEST10")
@@ -120,18 +120,18 @@ test.describe("Manually applying and removing gift card and coupon", () => {
 
     // once both coupon and gift card are applied, input is hidden
     await expect(
-      CartPage.page.locator("data-test-id=coupon-input")
+      CartPage.page.locator("data-test-id=coupon-input"),
     ).not.toBeVisible()
 
     // remove gift card, add an invalid one, then add a good one
     await CartPage.removeCouponOrGiftCard("gift_card")
     await CartPage.addCouponOrGiftCard("hello-i-am-an-invalid-gift-card")
     await expect(
-      CartPage.page.locator("text=Please enter a valid gift card")
+      CartPage.page.locator("text=Please enter a valid gift card"),
     ).toBeVisible()
     await CartPage.addCouponOrGiftCard("11323995-790a-4ef3-9887-2a0489c53284")
     await expect(
-      CartPage.page.locator("text=Please enter a valid gift card")
+      CartPage.page.locator("text=Please enter a valid gift card"),
     ).not.toBeVisible()
     await CartPage.checkForAppliedGiftCard()
 
@@ -139,13 +139,13 @@ test.describe("Manually applying and removing gift card and coupon", () => {
     await CartPage.removeCouponOrGiftCard("coupon")
     await CartPage.addCouponOrGiftCard("hello-i-am-an-invalid-code")
     await expect(
-      CartPage.page.locator("text=Please enter a valid coupon")
+      CartPage.page.locator("text=Please enter a valid coupon"),
     ).toBeVisible()
 
     // finally we add again the current one
     await CartPage.addCouponOrGiftCard("PROMOTEST10")
     await expect(
-      CartPage.page.locator("text=Please enter a valid gift card")
+      CartPage.page.locator("text=Please enter a valid gift card"),
     ).not.toBeVisible()
     await CartPage.checkForAppliedCoupon()
 

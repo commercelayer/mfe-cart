@@ -1,4 +1,4 @@
-import { test, expect } from "../fixtures/tokenizedPage"
+import { expect, test } from "../fixtures/tokenizedPage"
 
 test.describe("Enter the page as embedded", () => {
   test.use({
@@ -22,19 +22,19 @@ test.describe("Enter the page as embedded", () => {
 
   test("should have iframe capabilities", async ({ CartPage }) => {
     await expect(
-      CartPage.page.locator(`[data-test-id=return-url]`)
+      CartPage.page.locator(`[data-test-id=return-url]`),
     ).not.toBeVisible()
     await expect(
-      CartPage.page.locator(`[data-test-id=button-checkout][target=_top]`)
+      CartPage.page.locator(`[data-test-id=button-checkout][target=_top]`),
     ).toBeVisible()
   })
 
   test("should have iframe resizer script", async ({ CartPage }) => {
     await expect(
-      CartPage.page.locator(`script[data-test-id=iframe-resizer-script]`)
+      CartPage.page.locator(`script[data-test-id=iframe-resizer-script]`),
     ).toHaveAttribute(
       "src",
-      "https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"
+      "https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js",
     )
   })
 })

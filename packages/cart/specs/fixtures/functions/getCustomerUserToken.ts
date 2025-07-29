@@ -1,5 +1,4 @@
 import { authenticate } from "@commercelayer/js-auth"
-
 import { getClient } from "./getClient"
 import { getSuperToken } from "./getSuperToken"
 
