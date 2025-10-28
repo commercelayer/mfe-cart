@@ -1,4 +1,4 @@
-import type { CommerceLayerClient } from "@commercelayer/sdk"
+import type { CommerceLayerBundle } from "@commercelayer/sdk/bundle"
 import type { TestOrderOptions } from "#specs/types"
 import { createAndPurchaseGiftCard } from "./createAndPurchaseGiftCard"
 import { createLineItems } from "./createLineItems"
@@ -7,7 +7,7 @@ import { getClient } from "./getClient"
 import { getSuperToken } from "./getSuperToken"
 
 export const createOrder = async (
-  cl: CommerceLayerClient,
+  cl: CommerceLayerBundle,
   options: TestOrderOptions,
 ) => {
   const {

@@ -1,4 +1,4 @@
-import CommerceLayer from "@commercelayer/sdk"
+import { CommerceLayer } from "@commercelayer/sdk/bundle"
 
 export const getClient = async (token: string) => {
   return CommerceLayer({

@@ -5,11 +5,8 @@ module.exports = {
   ],
   theme: {
     container: {
-      screens: {
-        sm: "100%",
-        md: "100%",
-        lg: "100%",
-      },
+      // disabling responsive container rules, always full width
+      screens: {},
     },
     colors: {
       primary: {

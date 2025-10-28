@@ -1,6 +1,7 @@
 import type { InvalidSettings, Settings } from "HostedApp"
 import { getMfeConfig } from "@commercelayer/organization-config"
-import CommerceLayer, { type Organization } from "@commercelayer/sdk"
+import type { Organization } from "@commercelayer/sdk"
+import { CommerceLayer } from "@commercelayer/sdk/bundle"
 import { isValidOrderIdFormat } from "#utils/isValidOrderIdFormat"
 import { updateAccessTokenInUrl } from "#utils/updateAccessTokenInUrl"
 import { forceOrderAutorefresh } from "./forceOrderAutorefresh"
