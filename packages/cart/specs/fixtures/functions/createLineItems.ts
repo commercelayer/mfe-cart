@@ -1,5 +1,4 @@
-import type { CommerceLayerClient } from "@commercelayer/sdk"
-
+import type { CommerceLayerBundle } from "@commercelayer/sdk/bundle"
 import type { LineItemObject } from "#specs/types"
 
 export const createLineItems = async ({
@@ -7,7 +6,7 @@ export const createLineItems = async ({
   orderId,
   items,
 }: {
-  cl: CommerceLayerClient
+  cl: CommerceLayerBundle
   orderId: string
   items: Array<LineItemObject>
 }) => {

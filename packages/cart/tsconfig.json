@@ -1,15 +1,8 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
-    "types": [
-      "vitest/globals",
-      "vite/client",
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["vitest/globals", "vite/client"],
     "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,30 +11,17 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "baseUrl": "./",
     "paths": {
-      "#styles/*": [
-        "src/styles/*"
-      ],
-      "#components/*": [
-        "src/components/*"
-      ],
-      "#hooks/*": [
-        "src/hooks/*"
-      ],
-      "#assets/*": [
-        "src/assets/*"
-      ],
-      "#utils/*": [
-        "src/utils/*"
-      ],
-      "#specs/*": [
-        "specs/*"
-      ]
+      "#styles/*": ["./src/styles/*"],
+      "#components/*": ["./src/components/*"],
+      "#hooks/*": ["./src/hooks/*"],
+      "#assets/*": ["./src/assets/*"],
+      "#utils/*": ["./src/utils/*"],
+      "#specs/*": ["./specs/*"]
     },
     "incremental": true
   },

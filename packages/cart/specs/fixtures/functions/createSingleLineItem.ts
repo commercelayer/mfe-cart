@@ -1,7 +1,7 @@
-import type { CommerceLayerClient } from "@commercelayer/sdk"
+import type { CommerceLayerBundle } from "@commercelayer/sdk/bundle"
 
 export const createSingleLineItem = async (
-  cl: CommerceLayerClient,
+  cl: CommerceLayerBundle,
   orderId: string,
 ) => {
   const skus = await cl.skus.list()

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@config '../../tailwind.config.js';
+@config "../../tailwind.config.js";
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -26,9 +26,7 @@ body {
 }
 
 .input-base {
-  @apply text-black text-sm bg-white
-    border outline-hidden
-    transition duration-500 ease-in-out;
+  @apply text-black text-sm bg-white border outline-hidden transition duration-500 ease-in-out;
 }
 
 .input-base:not(.-small) {
@@ -36,8 +34,7 @@ body {
 }
 
 .input-base:not(.-error) {
-  @apply border-gray-300  
-    focus:border-primary focus:ring-3 focus:ring-offset-0 focus:ring-primary-light;
+  @apply border-gray-300 focus:border-primary focus:ring-3 focus:ring-offset-0 focus:ring-primary-light;
 }
 
 .input-base.-error {

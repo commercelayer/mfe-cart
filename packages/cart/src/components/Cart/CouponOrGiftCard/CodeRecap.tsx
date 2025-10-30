@@ -2,11 +2,10 @@ import {
   GiftCardOrCouponCode,
   GiftCardOrCouponRemoveButton,
 } from "@commercelayer/react-components"
-import type { CodeType } from "@commercelayer/react-components/lib/esm/reducers/OrderReducer"
 import type { FC } from "react"
 import { useTranslation } from "react-i18next"
 
-const allowedCodeTypes: CodeType[] = ["coupon", "gift_card"]
+const allowedCodeTypes = ["coupon", "gift_card"] as const
 
 export const CodeRecap: FC = () => {
   const { t } = useTranslation()

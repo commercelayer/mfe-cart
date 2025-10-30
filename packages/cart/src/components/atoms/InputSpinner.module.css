@@ -3,6 +3,7 @@
 .inputSpinner > input[type="number"] {
   -webkit-appearance: none;
   margin: 0;
+  /* biome-ignore lint/complexity/noImportantStyles: we need to override defaults */
   -moz-appearance: textfield !important;
   border-radius: 0; /* prevent safari to display native status when appearance is none */
 }
