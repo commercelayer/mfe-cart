@@ -13,10 +13,12 @@ import { FinalPriceDisclaimer } from "#components/atoms/FinalPriceDisclaimer"
 import { SubTotal } from "#components/atoms/SubTotal"
 import { Total } from "#components/atoms/Total"
 import { CouponOrGiftCard } from "#components/Cart/CouponOrGiftCard"
+import { useSettings } from "#components/SettingsProvider"
 import { ButtonCheckout } from "./ButtonCheckout"
 
 export const Totals: FC = () => {
   const { t } = useTranslation()
+  const { settings } = useSettings()
 
   return (
     <>
@@ -29,7 +31,7 @@ export const Totals: FC = () => {
         </SubTotalAmount>
       </div>
 
-      <CouponOrGiftCard />
+      {settings.isValid && !settings.hidePromoCode && <CouponOrGiftCard />}
 
       <DiscountAmount>
         {({ priceCents, price }) => (

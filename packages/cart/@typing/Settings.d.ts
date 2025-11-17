@@ -67,6 +67,10 @@ declare module "HostedApp" {
      * Whether to hide item codes in the cart summary.
      */
     hideItemCodes: boolean
+    /**
+     * Whether to hide promo code input (coupon/gift card form).
+     */
+    hidePromoCode: boolean
   }
 
   export type InvalidSettings = Pick<
