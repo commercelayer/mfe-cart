@@ -15,7 +15,7 @@ import { Total } from "#components/atoms/Total"
 import { CouponOrGiftCard } from "#components/Cart/CouponOrGiftCard"
 import { ButtonCheckout } from "./ButtonCheckout"
 
-export const Totals: FC = () => {
+export const Totals: FC<{ hidePromoCode: boolean }> = ({ hidePromoCode }) => {
   const { t } = useTranslation()
 
   return (
@@ -29,7 +29,11 @@ export const Totals: FC = () => {
         </SubTotalAmount>
       </div>
 
-      <CouponOrGiftCard />
+      {hidePromoCode ? (
+        <div className="border-b border-b-gray-300 mb-6" />
+      ) : (
+        <CouponOrGiftCard />
+      )}
 
       <DiscountAmount>
         {({ priceCents, price }) => (

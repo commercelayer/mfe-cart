@@ -69,7 +69,7 @@ const Cart: FC = () => {
               </PageHeader>
             }
             main={<Summary listTypes={["bundles", "skus", "gift_cards"]} />}
-            aside={<Totals />}
+            aside={<Totals hidePromoCode={settings.hidePromoCode} />}
           />
         </LineItemsContainer>
       </OrderContainer>
