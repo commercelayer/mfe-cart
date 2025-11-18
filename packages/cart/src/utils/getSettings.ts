@@ -184,6 +184,7 @@ export const getSettings = async ({
     cartUrl,
     isValid: true,
     hideItemCodes: organizationConfig?.cart?.hide_item_codes ?? false,
+    hidePromoCode: organizationConfig?.cart?.hide_promo_code ?? false,
   }
 }
 
