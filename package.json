@@ -39,8 +39,6 @@
     "npm-check-updates": "^19.1.2"
   },
   "resolutions": {
-    "js-yaml": ">=4.1.1",
-    "tar": ">=7.5.2",
-    "glob": ">=11.1.0"
+    "js-yaml": "^4.1.1"
   }
 }
