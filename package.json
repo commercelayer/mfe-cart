@@ -32,13 +32,10 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^2.4.4",
+    "@biomejs/biome": "^2.4.6",
     "husky": "^9.1.7",
-    "lerna": "^9.0.4",
-    "lint-staged": "^16.2.7",
-    "npm-check-updates": "^19.5.0"
-  },
-  "resolutions": {
-    "tar": "^7.5.8"
+    "lerna": "^9.0.6",
+    "lint-staged": "^16.3.3",
+    "npm-check-updates": "^19.6.3"
   }
 }
