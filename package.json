@@ -12,7 +12,7 @@
     "test:watch": "pnpm -r test:watch",
     "test:e2e": "pnpm -r test:e2e",
     "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
-    "dep:minor": "pnpm dep:major -t minor",
+    "dep:semver": "pnpm dlx npm-check-updates --packageFile '**/package.json' -t semver -u",
     "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml"
   },
   "keywords": [],
@@ -26,17 +26,17 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=7"
+    "node": ">=24",
+    "pnpm": ">=10"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^2.4.6",
+    "@biomejs/biome": "^2.4.11",
     "husky": "^9.1.7",
-    "lerna": "^9.0.6",
-    "lint-staged": "^16.3.3",
-    "npm-check-updates": "^19.6.3"
+    "lerna": "^9.0.7",
+    "lint-staged": "^16.4.0",
+    "npm-check-updates": "^19.6.6"
   }
 }

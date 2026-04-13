@@ -17,7 +17,7 @@ const Cart: FC = () => {
   const { settings } = useSettings()
   const { t } = useTranslation()
 
-  if (!settings || !settings.isValid) {
+  if (!settings?.isValid) {
     return null
   }
 
