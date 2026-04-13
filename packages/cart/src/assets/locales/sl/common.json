@@ -1,0 +1,55 @@
+{
+  "general": {
+    "title": "Košarica",
+    "itemsTitle": "Vaši izdelki",
+    "cartContains": "Vaša košarica vsebuje",
+    "item": "izdelek",
+    "item_other": "izdelkov",
+    "emptyCart": "Vaša košarica je prazna",
+    "remove": "Odstrani",
+    "price": "Cena na enoto",
+    "finalPriceInCheckoutText": "Vsi veljavni davki in stroški dostave bodo izračunani ob blagajni",
+    "subtotal": "Delna vsota",
+    "discount": "Popust",
+    "giftCard": "Darilna kartica",
+    "shippingAmount": "Dostava",
+    "paymentMethodAmount": "Način plačila",
+    "total": "Skupaj",
+    "gotToCheckoutCta": "Blagajna",
+    "returnUrlLabel": "Nadaljuj z nakupovanjem",
+    "quantityNotAvailable": "Izbrana količina ni na voljo",
+    "retryableErrorCode": "Težave s povezavo",
+    "retryableErrorDescription": "Poskusite znova naložiti stran"
+  },
+  "item": {
+    "frequency": {
+      "hourly": "Vsako uro",
+      "daily": "Dnevno",
+      "weekly": "Tedensko",
+      "monthly": "Mesečno",
+      "two-months": "Vsaka dva meseca",
+      "two-month": "Vsaka dva meseca",
+      "three-months": "Vsake tri mesece",
+      "three-month": "Vsake tri mesece",
+      "four-months": "Vsake štiri mesece",
+      "four-month": "Vsake štiri mesece",
+      "six-months": "Vsakih šest mesecev",
+      "six-month": "Vsakih šest mesecev",
+      "yearly": "Letno"
+    }
+  },
+  "couponOrGift": {
+    "label": "Imate promocijsko kodo?",
+    "submit": "Uporabi",
+    "placeholder": {
+      "gift_card_or_coupon_code": "Koda darilne kartice ali kupona",
+      "gift_card_code": "Koda darilne kartice",
+      "coupon_code": "Koda kupona"
+    },
+    "error": {
+      "gift_card_or_coupon_code": "Vnesite veljavno darilno kartico ali kupon",
+      "gift_card_code": "Vnesite veljavno darilno kartico",
+      "coupon_code": "Vnesite veljaven kupon"
+    }
+  }
+}

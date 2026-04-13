@@ -1,0 +1,55 @@
+{
+  "general": {
+    "title": "Carrito",
+    "itemsTitle": "Tus artículos",
+    "cartContains": "Tu carrito de compras contiene",
+    "item": "artículo",
+    "item_other": "artículos",
+    "emptyCart": "Tu carrito está vacío",
+    "remove": "Eliminar",
+    "price": "Precio unitario",
+    "finalPriceInCheckoutText": "Los impuestos y gastos de envío aplicables se calcularán en el checkout",
+    "subtotal": "Subtotal",
+    "discount": "Descuento",
+    "giftCard": "Tarjeta de regalo",
+    "shippingAmount": "Envío",
+    "paymentMethodAmount": "Método de pago",
+    "total": "Total",
+    "gotToCheckoutCta": "Pago",
+    "returnUrlLabel": "Continuar comprando",
+    "quantityNotAvailable": "La cantidad seleccionada no está disponible",
+    "retryableErrorCode": "Problemas de conectividad",
+    "retryableErrorDescription": "Intenta recargar la página"
+  },
+  "item": {
+    "frequency": {
+      "hourly": "Cada hora",
+      "daily": "Diario",
+      "weekly": "Semanal",
+      "monthly": "Mensual",
+      "two-months": "Cada dos meses",
+      "two-month": "Cada dos meses",
+      "three-months": "Cada tres meses",
+      "three-month": "Cada tres meses",
+      "four-months": "Cada cuatro meses",
+      "four-month": "Cada cuatro meses",
+      "six-months": "Cada seis meses",
+      "six-month": "Cada seis meses",
+      "yearly": "Anual"
+    }
+  },
+  "couponOrGift": {
+    "label": "¿Tienes un código promocional?",
+    "submit": "Aplicar",
+    "placeholder": {
+      "gift_card_or_coupon_code": "Código de tarjeta de regalo o cupón",
+      "gift_card_code": "Tarjeta de regalo",
+      "coupon_code": "Código de cupón"
+    },
+    "error": {
+      "gift_card_or_coupon_code": "Por favor, introduce un cupón o tarjeta de regalo válidos",
+      "gift_card_code": "Por favor, introduce una tarjeta de regalo válida",
+      "coupon_code": "Por favor, introduce un cupón válido"
+    }
+  }
+}

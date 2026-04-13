@@ -1,0 +1,55 @@
+{
+  "general": {
+    "title": "Panier",
+    "itemsTitle": "Vos articles",
+    "cartContains": "Votre panier contient",
+    "item": "article",
+    "item_other": "articles",
+    "emptyCart": "Votre panier est vide",
+    "remove": "Supprimer",
+    "price": "Prix unitaire",
+    "finalPriceInCheckoutText": "Les taxes et frais de livraison applicables seront calculés lors du paiement",
+    "subtotal": "Sous-total",
+    "discount": "Réduction",
+    "giftCard": "Carte cadeau",
+    "shippingAmount": "Livraison",
+    "paymentMethodAmount": "Mode de paiement",
+    "total": "Total",
+    "gotToCheckoutCta": "Commander",
+    "returnUrlLabel": "Poursuivre ses achats",
+    "quantityNotAvailable": "La quantité sélectionnée n'est pas disponible",
+    "retryableErrorCode": "Problème de connexion",
+    "retryableErrorDescription": "Essayez de recharger la page"
+  },
+  "item": {
+    "frequency": {
+      "hourly": "Chaque heure",
+      "daily": "Chaque jour",
+      "weekly": "Chaque semaine",
+      "monthly": "Chaque mois",
+      "two-months": "Tous les deux mois",
+      "two-month": "Tous les deux mois",
+      "three-months": "Tous les trois mois",
+      "three-month": "Tous les trois mois",
+      "four-months": "Tous les quatre mois",
+      "four-month": "Tous les quatre mois",
+      "six-months": "Tous les six mois",
+      "six-month": "Tous les six mois",
+      "yearly": "Chaque année"
+    }
+  },
+  "couponOrGift": {
+    "label": "Vous avez un code promo ?",
+    "submit": "Appliquer",
+    "placeholder": {
+      "gift_card_or_coupon_code": "Carte cadeau ou code promo",
+      "gift_card_code": "Code carte cadeau",
+      "coupon_code": "Code promotionnel"
+    },
+    "error": {
+      "gift_card_or_coupon_code": "Veuillez saisir une carte cadeau ou un bon de réduction valide",
+      "gift_card_code": "Veuillez saisir une carte cadeau valide",
+      "coupon_code": "Veuillez saisir un bon de réduction valide"
+    }
+  }
+}

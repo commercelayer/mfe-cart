@@ -1,0 +1,55 @@
+{
+  "general": {
+    "title": "Košarica",
+    "itemsTitle": "Vaši artikli",
+    "cartContains": "Vaša košarica sadrži",
+    "item": "artikl",
+    "item_other": "artikala",
+    "emptyCart": "Vaša košarica je prazna",
+    "remove": "Ukloni",
+    "price": "Jedinična cijena",
+    "finalPriceInCheckoutText": "Sve primjenjive poreze i troškove dostave izračunat ćemo na blagajni",
+    "subtotal": "Međuzbroj",
+    "discount": "Popust",
+    "giftCard": "Poklon kartica",
+    "shippingAmount": "Dostava",
+    "paymentMethodAmount": "Način plaćanja",
+    "total": "Ukupno",
+    "gotToCheckoutCta": "Blagajna",
+    "returnUrlLabel": "Nastavi s kupnjom",
+    "quantityNotAvailable": "Odabrana količina nije dostupna",
+    "retryableErrorCode": "Problemi s povezivanjem",
+    "retryableErrorDescription": "Pokušajte ponovno učitati stranicu"
+  },
+  "item": {
+    "frequency": {
+      "hourly": "Svakog sata",
+      "daily": "Dnevno",
+      "weekly": "Tjedno",
+      "monthly": "Mjesečno",
+      "two-months": "Svakih dva mjeseca",
+      "two-month": "Svakih dva mjeseca",
+      "three-months": "Svakih tri mjeseca",
+      "three-month": "Svakih tri mjeseca",
+      "four-months": "Svakih četiri mjeseca",
+      "four-month": "Svakih četiri mjeseca",
+      "six-months": "Svakih šest mjeseci",
+      "six-month": "Svakih šest mjeseci",
+      "yearly": "Godišnje"
+    }
+  },
+  "couponOrGift": {
+    "label": "Imate promotivni kod?",
+    "submit": "Primijeni",
+    "placeholder": {
+      "gift_card_or_coupon_code": "Kod poklon kartice ili kupona",
+      "gift_card_code": "Kod poklon kartice",
+      "coupon_code": "Kod kupona"
+    },
+    "error": {
+      "gift_card_or_coupon_code": "Unesite valjanu poklon karticu ili kupon",
+      "gift_card_code": "Unesite valjanu poklon karticu",
+      "coupon_code": "Unesite valjani kupon"
+    }
+  }
+}

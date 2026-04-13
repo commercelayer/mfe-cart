@@ -7,11 +7,15 @@ import {
 
 import commonDe from "#assets/locales/de/common.json"
 import commonEn from "#assets/locales/en/common.json"
+import commonEs from "#assets/locales/es/common.json"
+import commonFr from "#assets/locales/fr/common.json"
+import commonHr from "#assets/locales/hr/common.json"
 import commonHu from "#assets/locales/hu/common.json"
 import commonIt from "#assets/locales/it/common.json"
 import commonNl from "#assets/locales/nl/common.json"
 import commonPl from "#assets/locales/pl/common.json"
 import commonPt from "#assets/locales/pt/common.json"
+import commonSl from "#assets/locales/sl/common.json"
 
 const resources: Record<AllowedLocaleKeys, AppResources> = {
   en: {
@@ -34,6 +38,18 @@ const resources: Record<AllowedLocaleKeys, AppResources> = {
   },
   nl: {
     common: commonNl,
+  },
+  es: {
+    common: commonEs,
+  },
+  fr: {
+    common: commonFr,
+  },
+  hr: {
+    common: commonHr,
+  },
+  sl: {
+    common: commonSl,
   },
 }
 
