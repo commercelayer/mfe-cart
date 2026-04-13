@@ -3,7 +3,6 @@
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "types": ["vitest/globals", "vite/client"],
-    "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
