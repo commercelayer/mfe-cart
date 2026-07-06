@@ -1,6 +1,17 @@
 import type { AllowedLocaleKeys } from "react-i18next"
 
-type ApiLanguageCode = "en" | "it" | "de" | "pl" | "hu" | "pt" | "nl" | "es" | "fr" | "hr" | "sl"
+type ApiLanguageCode =
+  | "en"
+  | "it"
+  | "de"
+  | "pl"
+  | "hu"
+  | "pt"
+  | "nl"
+  | "es"
+  | "fr"
+  | "hr"
+  | "sl"
 
 const langs: Record<ApiLanguageCode, AllowedLocaleKeys> = {
   en: "en",
