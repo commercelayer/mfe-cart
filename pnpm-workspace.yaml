@@ -6,14 +6,7 @@ allowBuilds:
   iframe-resizer: true
   nx: true
 minimumReleaseAgeExclude:
-  - '@vitest/expect@4.1.10'
-  - '@vitest/mocker@4.1.10'
-  - '@vitest/pretty-format@4.1.10'
-  - '@vitest/runner@4.1.10'
-  - '@vitest/snapshot@4.1.10'
-  - '@vitest/spy@4.1.10'
-  - '@vitest/utils@4.1.10'
-  - vitest@4.1.10
+  - cronstrue@3.27.0
 overrides:
   # Force patched versions of vulnerable transitive deps (all via lerna)
   tar: '>=7.5.22'

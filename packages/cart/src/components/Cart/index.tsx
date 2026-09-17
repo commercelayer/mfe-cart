@@ -1,8 +1,8 @@
 import {
   CommerceLayer,
-  LineItemsContainer,
+  LineItems,
   LineItemsCount,
-  OrderContainer,
+  Order,
 } from "@commercelayer/react-components"
 import type { FC } from "react"
 import { useTranslation } from "react-i18next"
@@ -22,11 +22,8 @@ const Cart: FC = () => {
   }
 
   return (
-    <CommerceLayer
-      accessToken={settings.accessToken}
-      endpoint={settings.endpoint}
-    >
-      <OrderContainer
+    <CommerceLayer accessToken={settings.accessToken}>
+      <Order
         orderId={settings.orderId}
         attributes={{
           cart_url: settings.cartUrl || window.location.href,
@@ -40,7 +37,7 @@ const Cart: FC = () => {
         }}
       >
         <EmbeddedCapabilities.OrderRefresher />
-        <LineItemsContainer>
+        <LineItems>
           <PageLayout
             top={
               <PageHeader>
@@ -71,8 +68,8 @@ const Cart: FC = () => {
             main={<Summary listTypes={["bundles", "skus", "gift_cards"]} />}
             aside={<Totals hidePromoCode={settings.hidePromoCode} />}
           />
-        </LineItemsContainer>
-      </OrderContainer>
+        </LineItems>
+      </Order>
     </CommerceLayer>
   )
 }
