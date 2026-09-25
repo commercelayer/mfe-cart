@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  tar: '>=7.5.22'
-  js-yaml: '>=4.3.1 <5'
-  brace-expansion: '>=5.0.9'
-
 importers:
 
   .:
@@ -254,10 +249,6 @@ packages:
   '@commercelayer/js-auth@8.0.1':
     resolution: {integrity: sha512-5lt18iBdvvSsjIgLXvfkdEWGyW/f92ulTFu8y8MzkUSdBQS5wjXyHRexpZeDd4/UTn9jBp4znjqPiHOPi9g+FQ==}
     engines: {node: '>=20.0.0'}
-
-  '@commercelayer/organization-config@2.8.4':
-    resolution: {integrity: sha512-ZlgIhQx7vu89ZD3eOCSkCe7kNb5LgEGy0p4Gayi75sxfHfJRXKkoX2NC+nkp2pFosi4SBYhlQFcd/EtzStAQGw==}
-    engines: {node: '>=18', pnpm: '>=7'}
 
   '@commercelayer/organization-config@2.8.5':
     resolution: {integrity: sha512-qGdC9JnxLdris2ux/HFRL+yl4uZlXGN0cdclZnU5OeLkCydqrZx/ld4zR4xqyhznq/QSfnXcTN6YOeXe7eIHFA==}
@@ -1894,11 +1885,6 @@ snapshots:
 
   '@commercelayer/js-auth@8.0.1': {}
 
-  '@commercelayer/organization-config@2.8.4':
-    dependencies:
-      '@commercelayer/js-auth': 7.4.2
-      merge-anything: 5.1.7
-
   '@commercelayer/organization-config@2.8.5':
     dependencies:
       '@commercelayer/js-auth': 7.4.2
@@ -1908,7 +1894,7 @@ snapshots:
     dependencies:
       '@adyen/adyen-web': 6.44.0
       '@commercelayer/core-components': 5.0.4
-      '@commercelayer/organization-config': 2.8.4
+      '@commercelayer/organization-config': 2.8.5
       '@commercelayer/react-hooks-components': 5.0.4(react@19.3.0)
       '@commercelayer/sdk': 8.0.0-beta.11
       '@stripe/react-stripe-js': 6.10.0(@stripe/stripe-js@9.16.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
