@@ -11,7 +11,6 @@ export const ButtonRemoveItem: FC = () => {
       {({ handleRemove }) => (
         <button
           type="button"
-          // @ts-expect-error react-components are expecting an onClick event from an anchor not a button
           onClick={handleRemove}
           className="cursor-pointer hover:text-red-500"
           title={title}

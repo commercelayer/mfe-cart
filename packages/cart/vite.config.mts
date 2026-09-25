@@ -23,31 +23,18 @@ export default defineConfig(({ mode }) => {
       outDir: "build",
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: [
-              "react",
-              "react-dom",
-              "react-helmet-async",
-              "wouter",
-              "react-gtm-module",
-              "react-i18next",
-            ],
-            commercelayer: [
-              "@commercelayer/sdk",
-              "@commercelayer/react-components",
-            ],
-          },
+          manualChunks,
         },
       },
     },
     resolve: {
       alias: {
-        "#styles": resolve(__dirname, "./src/styles"),
-        "#components": resolve(__dirname, "./src/components"),
-        "#hooks": resolve(__dirname, "./src/hooks"),
-        "#assets": resolve(__dirname, "./src/assets"),
-        "#utils": resolve(__dirname, "./src/utils"),
-        "#specs": resolve(__dirname, "./specs"),
+        "#styles": resolve(import.meta.dirname, "./src/styles"),
+        "#components": resolve(import.meta.dirname, "./src/components"),
+        "#hooks": resolve(import.meta.dirname, "./src/hooks"),
+        "#assets": resolve(import.meta.dirname, "./src/assets"),
+        "#utils": resolve(import.meta.dirname, "./src/utils"),
+        "#specs": resolve(import.meta.dirname, "./specs"),
       },
     },
     test: {
@@ -63,11 +50,39 @@ function preparePlugins({ analyzeBundle }: { analyzeBundle: boolean }) {
     react(),
     analyzeBundle &&
       visualizer({
-        filename: resolve(__dirname, "./build/stats.html"),
+        filename: resolve(import.meta.dirname, "./build/stats.html"),
         open: true,
         title: "Bundle Stats",
       }),
   ].filter(Boolean)
 
   return plugins
+}
+
+// Rollup 5 (Vite 8) dropped the object form of `manualChunks`, so the same
+// grouping is expressed as a matcher over the resolved module id.
+const chunkGroups: Record<string, string[]> = {
+  vendor: [
+    "react",
+    "react-dom",
+    "react-helmet-async",
+    "wouter",
+    "react-gtm-module",
+    "react-i18next",
+  ],
+  commercelayer: ["@commercelayer/sdk", "@commercelayer/react-components"],
+}
+
+function manualChunks(id: string): string | undefined {
+  if (!id.includes("node_modules")) {
+    return undefined
+  }
+
+  for (const [chunk, packages] of Object.entries(chunkGroups)) {
+    if (packages.some((name) => id.includes(`node_modules/${name}/`))) {
+      return chunk
+    }
+  }
+
+  return undefined
 }
