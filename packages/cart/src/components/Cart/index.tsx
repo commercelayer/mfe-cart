@@ -11,6 +11,7 @@ import { EmbeddedCapabilities } from "#components/EmbeddedCapabilities"
 import { PageHeader } from "#components/PageHeader"
 import { PageLayout } from "#components/PageLayout"
 import { useSettings } from "#components/SettingsProvider"
+import { Skeleton } from "#components/Skeleton"
 import { Totals } from "./Totals"
 
 const Cart: FC = () => {
@@ -37,7 +38,7 @@ const Cart: FC = () => {
         }}
       >
         <EmbeddedCapabilities.OrderRefresher />
-        <LineItems>
+        <LineItems loader={<Skeleton />}>
           <PageLayout
             top={
               <PageHeader>
