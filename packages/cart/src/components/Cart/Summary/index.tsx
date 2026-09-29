@@ -4,7 +4,7 @@ import {
   LineItemCode,
   LineItemImage,
   LineItemName,
-  LineItemsContainer,
+  LineItems,
   LineItemsEmpty,
   type TLineItem,
   useOrderContainer,
@@ -32,9 +32,9 @@ export const Summary: FC<Props> = ({ listTypes }) => {
 
   return (
     <>
-      <LineItemsContainer>
+      <LineItems>
         <CartTitle className="md:hidden mb-12" />
-      </LineItemsContainer>
+      </LineItems>
       {listTypes.map((type) => (
         <LineItem key={type} type={type}>
           <div

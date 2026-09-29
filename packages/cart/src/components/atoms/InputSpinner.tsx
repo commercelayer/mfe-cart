@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { useCallback, useEffect, useRef, useState } from "react"
+import { type JSX, useCallback, useEffect, useRef, useState } from "react"
 import { useDebounce } from "#hooks/debounce"
 import css from "./InputSpinner.module.css"
 

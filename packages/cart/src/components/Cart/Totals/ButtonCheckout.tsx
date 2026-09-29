@@ -3,7 +3,6 @@ import {
   Errors,
   LineItemsCount,
   PaymentMethod,
-  PaymentMethodsContainer,
   PaymentSource,
   useOrderContainer,
 } from "@commercelayer/react-components"
@@ -52,19 +51,17 @@ export const ButtonCheckout: FC = () => {
       </LineItemsCount>
 
       <div key={order?.total_amount_cents}>
-        <PaymentMethodsContainer>
-          <PaymentMethod
-            expressPayments
-            className="mt-4"
-            loader={<div />}
-            hide={({ payment_source_type }) => {
-              // only show stripe payments
-              return payment_source_type === "stripe_payments"
-            }}
-          >
-            <PaymentSource loader={<div />} />
-          </PaymentMethod>
-        </PaymentMethodsContainer>
+        <PaymentMethod
+          expressPayments
+          className="mt-4"
+          loader={<div />}
+          hide={({ payment_source_type }) => {
+            // only show stripe payments
+            return payment_source_type === "stripe_payments"
+          }}
+        >
+          <PaymentSource loader={<div />} />
+        </PaymentMethod>
       </div>
     </>
   )

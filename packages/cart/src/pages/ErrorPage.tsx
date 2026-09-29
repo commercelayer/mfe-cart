@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 import { PageErrorLayout } from "#components/PageErrorLayout"
 
 function ErrorPage(): JSX.Element {

@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 import { HelmetProvider } from "react-helmet-async"
 import { Route, Router, Switch } from "wouter"
 import { EmbeddedCapabilities } from "#components/EmbeddedCapabilities"

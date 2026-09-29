@@ -13,7 +13,8 @@
     "test:e2e": "pnpm -r test:e2e",
     "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
     "dep:semver": "pnpm dlx npm-check-updates --packageFile '**/package.json' -t semver -u",
-    "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml"
+    "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml",
+    "lerna": "pnpm dlx lerna@10.0.1"
   },
   "keywords": [],
   "author": {
@@ -33,10 +34,9 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^2.5.9",
+    "@biomejs/biome": "^2.5.14",
     "husky": "^9.1.7",
-    "lerna": "^9.0.7",
-    "lint-staged": "^16.4.0",
-    "npm-check-updates": "^19.6.6"
+    "lint-staged": "^17.5.1",
+    "npm-check-updates": "^23.1.0"
   }
 }
