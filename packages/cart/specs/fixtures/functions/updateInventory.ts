@@ -1,8 +1,8 @@
-import type { CommerceLayerBundle } from "@commercelayer/sdk/bundle"
+import type { CommerceLayerClient } from "@commercelayer/sdk"
 import type { SkuItem } from "#specs/types"
 
 export const updateInventory = async (
-  cl: CommerceLayerBundle,
+  cl: CommerceLayerClient,
   lineItems: SkuItem[],
   quantity: "quantity" | "inventory",
 ) => {

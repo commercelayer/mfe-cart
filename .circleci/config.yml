@@ -1,40 +1,73 @@
 version: 2.1
 
 orbs:
-  aws-cli: circleci/aws-cli@5.4.1
+  aws-cli: circleci/aws-cli@5.4.2
   aws-s3: circleci/aws-s3@4.1.3
 
-image: &image
-  docker:
-    - image: cimg/node:24.14.1
-  resource_class: medium+
-
-setup: &setup
-  - run:
-      name: Setup
-      command: |
-        sudo npm install -g pnpm
-        pnpm install
 
 jobs:
   test:
-    <<: *image
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.63.0-noble
+    resource_class: medium+
     steps:
       - checkout
-      - <<: *setup
+      - run:
+          name: Setup
+          # Playwright noble image runs as root and ships without sudo
+          command: |
+            npm install -g pnpm@11
+            pnpm install
       - run:
           name: Audit
           command: pnpm audit || exit 0
       - run:
           name: Test
           command: pnpm test
+  e2e:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.63.0-noble
+    resource_class: medium+
+    # kept low: each test authenticates against the org and the auth
+    # endpoint throttles (429) when hit by many concurrent runners
+    parallelism: 2
+    steps:
+      - checkout
+      - run:
+          name: Setup
+          command: |
+            npm install -g pnpm@11
+            pnpm install
+      - run:
+          name: App config
+          # point the dev server at the same API domain as the E2E credentials
+          command: |
+            echo "window.clAppConfig = { domain: \"$E2E_DOMAIN\" }" > packages/cart/public/config.local.js
+      - run:
+          name: E2E tests
+          working_directory: packages/cart
+          command: pnpm exec playwright test --shard=$((CIRCLE_NODE_INDEX + 1))/$CIRCLE_NODE_TOTAL
+      - store_test_results:
+          path: packages/cart/test-results/junit.xml
+      - store_artifacts:
+          path: packages/cart/playwright-report
+          destination: playwright-report
+      - store_artifacts:
+          path: packages/cart/test-results
+          destination: test-results
   build:
-    <<: *image
+    docker:
+      - image: cimg/node:24.14.1
+    resource_class: medium+
     environment:
       PUBLIC_PROJECT_PATH: cart
     steps:
       - checkout
-      - <<: *setup
+      - run:
+          name: Setup
+          command: |
+            sudo npm install -g pnpm
+            pnpm install
       - run:
           name: Build
           command: pnpm build
@@ -53,6 +86,11 @@ workflows:
           filters:
             tags:
               ignore: /v.*/
+      - e2e:
+          context: commercelayer
+          filters:
+            tags:
+              ignore: /v.*/
 
   test-build-and-push:
     jobs:
@@ -63,9 +101,17 @@ workflows:
               only: /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*).*/
             branches:
               ignore: /.*/
+      - e2e:
+          context: commercelayer
+          filters:
+            tags:
+              only: /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*).*/
+            branches:
+              ignore: /.*/
       - build:
           requires:
             - test
+            - e2e
           context: commercelayer
           filters:
             tags:

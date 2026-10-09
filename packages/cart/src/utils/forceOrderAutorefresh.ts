@@ -1,11 +1,10 @@
-import type { Order } from "@commercelayer/sdk"
-import type { CommerceLayerBundle } from "@commercelayer/sdk/bundle"
+import type { CommerceLayerClient, Order } from "@commercelayer/sdk"
 
 type ForceOrderAutorefreshConfig = {
   /**
    *  The signed Commerce Layer SDK client
    */
-  client: CommerceLayerBundle
+  client: CommerceLayerClient
   /**
    *  The fetched `Order` object
    */

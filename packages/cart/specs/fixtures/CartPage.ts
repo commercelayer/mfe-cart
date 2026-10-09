@@ -1,4 +1,9 @@
-import { expect, type Locator, type Page } from "@playwright/test"
+import {
+  expect,
+  type Locator,
+  type Page,
+  type Request,
+} from "@playwright/test"
 
 import commonDe from "#assets/locales/de/common.json"
 import commonEn from "#assets/locales/en/common.json"
@@ -54,9 +59,36 @@ export class CartPage {
       console.log("tested url: ", `http://localhost:3000${url}`)
     }
 
-    await this.page.goto(url, {
-      waitUntil: "networkidle",
-    })
+    // not using "networkidle": third-party scripts (e.g. Stripe express
+    // payments) keep sending beacons, so the network never goes idle.
+    // We wait instead for Commerce Layer requests to settle.
+    const inflight = new Set<Request>()
+    const isCommerceLayer = (req: Request) =>
+      new URL(req.url()).hostname.includes(".commercelayer.")
+    const onRequest = (req: Request) => {
+      if (isCommerceLayer(req)) inflight.add(req)
+    }
+    const onDone = (req: Request) => inflight.delete(req)
+    this.page.on("request", onRequest)
+    this.page.on("requestfinished", onDone)
+    this.page.on("requestfailed", onDone)
+
+    await this.page.goto(url, { waitUntil: "load" })
+    await this.page
+      .locator("[data-test-id=page-title]")
+      .first()
+      .waitFor({ state: "attached" })
+
+    const idleMs = 500
+    let quietSince = Date.now()
+    while (Date.now() - quietSince < idleMs) {
+      if (inflight.size > 0) quietSince = Date.now()
+      await this.page.waitForTimeout(50)
+    }
+
+    this.page.off("request", onRequest)
+    this.page.off("requestfinished", onDone)
+    this.page.off("requestfailed", onDone)
   }
 
   async expectAppTitle() {
@@ -65,7 +97,18 @@ export class CartPage {
   }
 
   async checkOrderLanguage(
-    language: "en" | "it" | "de" | "hu" | "pl" | "pt" | "nl" | "es" | "fr" | "hr" | "sl",
+    language:
+      | "en"
+      | "it"
+      | "de"
+      | "hu"
+      | "pl"
+      | "pt"
+      | "nl"
+      | "es"
+      | "fr"
+      | "hr"
+      | "sl",
   ) {
     const translations = {
       it: commonIt,
@@ -183,6 +226,42 @@ export class CartPage {
     ).toBeVisible()
   }
 
+  async getAmounts() {
+    await expect(this.page.locator("[data-test-id=total-amount]")).toBeVisible()
+    return {
+      subtotal: await getAttributeAmount(this.page, "subtotal-amount"),
+      total: await getAttributeAmount(this.page, "total-amount"),
+    }
+  }
+
+  async checkAmounts({ subtotal, total }: { subtotal: number; total: number }) {
+    await expect(
+      this.page.locator("[data-test-id=subtotal-amount]"),
+    ).toHaveAttribute("data-amount", `${subtotal}`)
+    await expect(
+      this.page.locator("[data-test-id=total-amount]"),
+    ).toHaveAttribute("data-amount", `${total}`)
+  }
+
+  async checkQuantityAndAmounts(
+    quantity: number,
+    unitAmounts: { subtotal: number; total: number },
+  ) {
+    // fixed costs (e.g. payment method fee) don't scale with quantity
+    const fixedCosts = unitAmounts.total - unitAmounts.subtotal
+    await this.checkItemQuantity(quantity)
+    await this.checkAmounts({
+      subtotal: unitAmounts.subtotal * quantity,
+      total: unitAmounts.subtotal * quantity + fixedCosts,
+    })
+  }
+
+  async checkCartSubtotal(amount: string) {
+    await expect(
+      this.page.locator("[data-test-id=subtotal-amount]"),
+    ).toHaveText(amount)
+  }
+
   async checkCartTotal(amount: string) {
     await expect(this.page.locator("[data-test-id=total-amount]")).toHaveText(
       amount,
@@ -218,8 +297,15 @@ export class CartPage {
     const giftcard = giftCardApplied
       ? await getAttributeAmount(this.page, "gift-card-amount")
       : 0
+    // payment method row is rendered only when the method has a price
+    const paymentMethod =
+      (await this.page
+        .locator("[data-test-id=payment-method-amount]")
+        .count()) > 0
+        ? await getAttributeAmount(this.page, "payment-method-amount")
+        : 0
 
-    const computedTotal = subtotal + discount + giftcard
+    const computedTotal = subtotal + discount + giftcard + paymentMethod
     expect(computedTotal).toBe(total)
   }
 

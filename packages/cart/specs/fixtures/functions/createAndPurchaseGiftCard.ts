@@ -1,8 +1,8 @@
-import type { CommerceLayerBundle } from "@commercelayer/sdk/bundle"
+import type { CommerceLayerClient } from "@commercelayer/sdk"
 import type { GiftCardOptions } from "#specs/types"
 
 export const createAndPurchaseGiftCard = async (
-  cl: CommerceLayerBundle,
+  cl: CommerceLayerClient,
   options?: GiftCardOptions,
 ) => {
   const card = await cl.gift_cards.create({

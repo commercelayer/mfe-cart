@@ -24,18 +24,32 @@ test.describe("Check basic cart features", () => {
   test("Should be able to increment quantity with button", async ({
     CartPage,
   }) => {
+    // Known bug: subtotal/total aren't refreshed after a quantity change
+    // (items count is, and a page reload shows the right amounts).
+    // Remove once fixed upstream: https://github.com/commercelayer/commercelayer-react-components/issues/867
+    test.fail(true, "Totals not refreshed after quantity change")
     await CartPage.checkItemQuantity(1)
+    const unitAmounts = await CartPage.getAmounts()
     await CartPage.quantitySelectorBtnIncrement.click()
+    await CartPage.checkQuantityAndAmounts(2, unitAmounts)
     await CartPage.quantitySelectorBtnIncrement.click()
-    await CartPage.checkItemQuantity(3)
+    await CartPage.checkQuantityAndAmounts(3, unitAmounts)
   })
 
   test("Should be able to decrement quantity with button", async ({
     CartPage,
   }) => {
+    // Known bug: subtotal/total aren't refreshed after a quantity change
+    // (items count is, and a page reload shows the right amounts).
+    // Remove once fixed upstream: https://github.com/commercelayer/commercelayer-react-components/issues/867
+    test.fail(true, "Totals not refreshed after quantity change")
     await CartPage.checkItemQuantity(1)
+    const unitAmounts = await CartPage.getAmounts()
     await CartPage.quantitySelectorInput.fill("3")
+    await CartPage.checkQuantityAndAmounts(3, unitAmounts)
     await CartPage.quantitySelectorBtnDecrement.click()
-    await CartPage.checkItemQuantity(2)
+    await CartPage.checkQuantityAndAmounts(2, unitAmounts)
+    await CartPage.quantitySelectorBtnDecrement.click()
+    await CartPage.checkQuantityAndAmounts(1, unitAmounts)
   })
 })

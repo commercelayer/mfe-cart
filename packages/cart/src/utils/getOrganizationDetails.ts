@@ -1,4 +1,4 @@
-import type { CommerceLayerBundle } from "@commercelayer/sdk/bundle"
+import type { CommerceLayerClient } from "@commercelayer/sdk"
 
 import { retryCall } from "./retryCall"
 
@@ -6,7 +6,7 @@ type GetOrganizationsDetailsConfig = {
   /**
    * The signed Commerce Layer SDK client
    */
-  client: CommerceLayerBundle
+  client: CommerceLayerClient
 }
 
 /**
@@ -20,7 +20,7 @@ export const getOrganizationsDetails = async ({
 }: GetOrganizationsDetailsConfig) =>
   retryCall(() => getAsyncOrganization(client))
 
-const getAsyncOrganization = async (client: CommerceLayerBundle) => {
+const getAsyncOrganization = async (client: CommerceLayerClient) => {
   return await client.organization.retrieve({
     fields: {
       organizations: [

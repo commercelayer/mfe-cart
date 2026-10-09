@@ -1,7 +1,7 @@
 import type { InvalidSettings, Settings } from "HostedApp"
 import { getMfeConfig } from "@commercelayer/organization-config"
 import type { Organization } from "@commercelayer/sdk"
-import { CommerceLayer } from "@commercelayer/sdk/bundle"
+import { CommerceLayer } from "@commercelayer/sdk"
 import { isValidOrderIdFormat } from "#utils/isValidOrderIdFormat"
 import { updateAccessTokenInUrl } from "#utils/updateAccessTokenInUrl"
 import { forceOrderAutorefresh } from "./forceOrderAutorefresh"
@@ -93,11 +93,11 @@ export const getSettings = async ({
   }
 
   const client = CommerceLayer({
-    organization: slug,
     accessToken,
     domain,
+    apiVersion: "2026-05",
   })
-
+  console.log(domain)
   // check order id format, to avoid calling api with a wrong id in url
   // we can still try to get organization info to display proper branding
   if (!isValidOrderIdFormat(orderId)) {
