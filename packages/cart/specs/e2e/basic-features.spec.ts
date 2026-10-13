@@ -25,17 +25,23 @@ test.describe("Check basic cart features", () => {
     CartPage,
   }) => {
     await CartPage.checkItemQuantity(1)
+    const unitAmounts = await CartPage.getAmounts()
     await CartPage.quantitySelectorBtnIncrement.click()
+    await CartPage.checkQuantityAndAmounts(2, unitAmounts)
     await CartPage.quantitySelectorBtnIncrement.click()
-    await CartPage.checkItemQuantity(3)
+    await CartPage.checkQuantityAndAmounts(3, unitAmounts)
   })
 
   test("Should be able to decrement quantity with button", async ({
     CartPage,
   }) => {
     await CartPage.checkItemQuantity(1)
+    const unitAmounts = await CartPage.getAmounts()
     await CartPage.quantitySelectorInput.fill("3")
+    await CartPage.checkQuantityAndAmounts(3, unitAmounts)
     await CartPage.quantitySelectorBtnDecrement.click()
-    await CartPage.checkItemQuantity(2)
+    await CartPage.checkQuantityAndAmounts(2, unitAmounts)
+    await CartPage.quantitySelectorBtnDecrement.click()
+    await CartPage.checkQuantityAndAmounts(1, unitAmounts)
   })
 })

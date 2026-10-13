@@ -15,7 +15,11 @@ test.describe("Check for ability to purchase only one gift card", () => {
 
   test("Should see a gift card to be purchased", async ({ CartPage }) => {
     await CartPage.expectAppTitle()
-    await CartPage.checkCartTotal("$10.00")
+    await CartPage.checkCartSubtotal("$10.00")
+    await CartPage.checkForTotalsToBeProperlyCalculated({
+      couponApplied: false,
+      giftCardApplied: false,
+    })
     await CartPage.checkItemQuantity(1)
     await expect(CartPage.quantitySelector).toBeHidden()
     await CartPage.checkButtonCheckout({ toBeActive: true })

@@ -5,3 +5,8 @@ allowBuilds:
   esbuild: true
   iframe-resizer: true
   nx: true
+minimumReleaseAgeExclude:
+  - '@commercelayer/core-components'
+  - '@commercelayer/react-components'
+  - '@commercelayer/react-hooks-components'
+  - '@commercelayer/sdk'

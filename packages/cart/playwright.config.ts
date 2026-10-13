@@ -1,8 +1,7 @@
+import path from "node:path"
 import type { PlaywrightTestConfig } from "@playwright/test"
 import { devices } from "@playwright/test"
 import * as dotenv from "dotenv"
-
-import path from "path"
 
 /**
  * Read environment variables from file.
@@ -31,14 +30,20 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: process.env.CI
+    ? [
+        ["list"],
+        ["html", { open: "never" }],
+        ["junit", { outputFile: "test-results/junit.xml" }],
+      ]
+    : "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 
   // Run your local dev server before starting the tests:
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
   webServer: {
-    command: "pnpm dev",
-    port: 3000,
+    command: "pnpm dev --port 4000",
+    port: 4000,
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
   },
@@ -47,7 +52,7 @@ const config: PlaywrightTestConfig = {
     // Retry a test if its failing with enabled tracing. This allows you to analyse the DOM, console logs, network traffic etc.
     // More information: https://playwright.dev/docs/trace-viewer
     trace: "retry-with-trace",
-    headless: false,
+    headless: !!process.env.CI,
     viewport: { width: 1280, height: 900 },
     ignoreHTTPSErrors: true,
     // Artifacts
