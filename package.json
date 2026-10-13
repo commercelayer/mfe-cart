@@ -8,6 +8,7 @@
     "check": "pnpm lint",
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint:fix",
+    "ts:check": "pnpm -r ts:check",
     "test": "pnpm -r test",
     "test:watch": "pnpm -r test:watch",
     "test:e2e": "pnpm -r test:e2e",
