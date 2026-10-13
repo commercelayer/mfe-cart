@@ -14,7 +14,7 @@
     "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
     "dep:semver": "pnpm dlx npm-check-updates --packageFile '**/package.json' -t semver -u",
     "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml",
-    "lerna": "pnpm dlx lerna@10.0.1"
+    "lerna": "pnpm dlx --allow-build=nx lerna@10.0.1"
   },
   "keywords": [],
   "author": {
