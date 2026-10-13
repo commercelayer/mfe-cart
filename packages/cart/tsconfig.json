@@ -32,10 +32,5 @@
     "*.config.mts",
     "@typing/**/*.d.ts"
   ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ],
   "compileOnSave": false
 }

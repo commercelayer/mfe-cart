@@ -8,13 +8,14 @@
     "check": "pnpm lint",
     "lint": "pnpm -r lint",
     "lint:fix": "pnpm -r lint:fix",
+    "ts:check": "pnpm -r ts:check",
     "test": "pnpm -r test",
     "test:watch": "pnpm -r test:watch",
     "test:e2e": "pnpm -r test:e2e",
     "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
     "dep:semver": "pnpm dlx npm-check-updates --packageFile '**/package.json' -t semver -u",
     "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml",
-    "lerna": "pnpm dlx lerna@10.0.1"
+    "lerna": "pnpm dlx --allow-build=nx lerna@10.0.1"
   },
   "keywords": [],
   "author": {
