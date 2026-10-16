@@ -1,9 +1,10 @@
+import { ENV } from "varlock/env"
 import { CartPage } from "../fixtures/CartPage"
 import { test } from "../fixtures/tokenizedPage"
 
 test.describe("Check not valid entry points", () => {
-  const basePath = process.env.PUBLIC_PROJECT_PATH
-    ? `/${process.env.PUBLIC_PROJECT_PATH}/`
+  const basePath = ENV.PUBLIC_PROJECT_PATH
+    ? `/${ENV.PUBLIC_PROJECT_PATH}/`
     : "/"
 
   test("should navigate to the 404 page with wrong orderId, no token", async ({

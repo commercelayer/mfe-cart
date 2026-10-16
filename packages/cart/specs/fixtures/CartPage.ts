@@ -1,9 +1,5 @@
-import {
-  expect,
-  type Locator,
-  type Page,
-  type Request,
-} from "@playwright/test"
+import { expect, type Locator, type Page, type Request } from "@playwright/test"
+import { ENV } from "varlock/env"
 
 import commonDe from "#assets/locales/de/common.json"
 import commonEn from "#assets/locales/en/common.json"
@@ -49,13 +45,11 @@ export class CartPage {
   }
 
   async goto({ orderId, accessToken, embed }: GoToProps) {
-    const baseUrl = process.env.PUBLIC_PROJECT_PATH
-      ? `/${process.env.PUBLIC_PROJECT_PATH}`
-      : ""
+    const baseUrl = ENV.PUBLIC_PROJECT_PATH ? `/${ENV.PUBLIC_PROJECT_PATH}` : ""
     const embedQuery = embed ? "&embed=true" : ""
     const url = `${baseUrl}/${orderId}?accessToken=${accessToken}${embedQuery}`
 
-    if (process.env.E2E_DEBUG === "true") {
+    if (ENV.E2E_DEBUG) {
       console.log("tested url: ", `http://localhost:3000${url}`)
     }
 
