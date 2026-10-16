@@ -1,5 +1,6 @@
 import type { CommerceLayerClient } from "@commercelayer/sdk"
 import { expect, type Page, test } from "@playwright/test"
+import { ENV } from "varlock/env"
 import { createOrder } from "../fixtures/functions/createOrder"
 import { getClient } from "../fixtures/functions/getClient"
 import { getSalesChannelToken } from "../fixtures/functions/getSalesChannelToken"
@@ -49,8 +50,8 @@ const mountEmbeddedCart = async ({
   orderId: string
   accessToken: string
 }) => {
-  const projectPath = process.env.PUBLIC_PROJECT_PATH
-    ? `/${process.env.PUBLIC_PROJECT_PATH}`
+  const projectPath = ENV.PUBLIC_PROJECT_PATH
+    ? `/${ENV.PUBLIC_PROJECT_PATH}`
     : ""
   const cartUrl = `${baseURL}${projectPath}/${orderId}?accessToken=${accessToken}`
 

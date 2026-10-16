@@ -1,4 +1,5 @@
 import { authenticate } from "@commercelayer/js-auth"
+import { ENV } from "varlock/env"
 
 export const getSuperToken = async () => {
   const {
@@ -6,7 +7,7 @@ export const getSuperToken = async () => {
     E2E_INTEGRATION_CLIENT_SECRET: clientSecret,
     E2E_DOMAIN: domain,
     E2E_MARKET_ID: scope,
-  } = process.env as Record<string, string>
+  } = ENV
 
   const authResponse = await authenticate("client_credentials", {
     clientId,

@@ -77,9 +77,6 @@ importers:
       cronstrue:
         specifier: ^3.27.0
         version: 3.32.0
-      dotenv:
-        specifier: ^17.4.2
-        version: 17.4.2
       i18next:
         specifier: ^26.4.2
         version: 26.4.4(typescript@5.9.3)
@@ -123,9 +120,15 @@ importers:
         specifier: ^3.11.1
         version: 3.13.0(react@19.3.0)
     devDependencies:
+      '@varlock/aws-secrets-plugin':
+        specifier: ^1.2.5
+        version: 1.2.5(varlock@1.23.0)
       jsdom:
         specifier: ^30.1.1
         version: 30.1.2
+      varlock:
+        specifier: ^1.23.0
+        version: 1.23.0
 
 packages:
 
@@ -599,6 +602,30 @@ packages:
   '@types/retry@0.12.5':
     resolution: {integrity: sha512-3xSjTp3v03X/lSQLkczaN9UIEwJMoMCA1+Nb5HfbJEQWogdeQIyVtTvxPXDQjZ5zws8rFQfVfRdz03ARihPJgw==}
 
+  '@varlock/aws-secrets-plugin@1.2.5':
+    resolution: {integrity: sha512-BEApTDQ9T6vU7OesgcKL0QdwF3Nvb5c/1VmDvdmINEtA73qwBpeNgYLvk3G4sJs6C54v0AqRDCe4mxmVWYO7Pw==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      varlock: ^1.22.0
+
+  '@varlock/native-helper-darwin@1.23.0':
+    resolution: {integrity: sha512-BdDfoQvsfDOiMMneU8NjIsPA0d6vfkSXl9F1qHtiL0Cht1Qn5u4EWKhK5atDF4iYDwI/IXjaWVZ9xIKqQb1XOA==}
+    os: [darwin]
+
+  '@varlock/native-helper-linux-arm64@1.23.0':
+    resolution: {integrity: sha512-+9bDk8ql64DLA8mPejpbDP7kezk43E+RZK6/tsfQenj/LeW0pziP7XwsJZ8WhLVkrRDyZ6DJfKTjxB06vxu0jg==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@varlock/native-helper-linux-x64@1.23.0':
+    resolution: {integrity: sha512-gIWpGcXfHgo5Pci2aMRUxPN73QvkR0iwEOpBkdA+WINAl428cszkj5lt1fetjL889V29U4+S41XvC4Vk7u2ujQ==}
+    cpu: [x64]
+    os: [linux]
+
+  '@varlock/native-helper-win32-x64@1.23.0':
+    resolution: {integrity: sha512-X55fq6Q6Fj3DHwEz1R87WiMEhG6vOCqwZp5D/gy/vqPmmC0ujOWxUItkK32jhn4BspXu5vHtv3j25GfL4/toGQ==}
+    os: [win32, linux]
+
   '@vitejs/plugin-react@6.1.2':
     resolution: {integrity: sha512-fhJNGUdscQa4HkI0xFxwonWyhnVReCPDbXI7FH7jmzpnVCrFQI7PRrhWecO263610vOrs9tr2Y4xcf8uAdFxbw==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -745,10 +772,6 @@ packages:
 
   dijkstrajs@1.0.3:
     resolution: {integrity: sha512-qiSlmBq9+BCdCA/L46dw8Uy93mloxsPSbwnm5yrKn2vMPiy8KyAskTF6zuV/j5BMsmOGZDPs7KjU+mjb670kfA==}
-
-  dotenv@17.4.2:
-    resolution: {integrity: sha512-nI4U3TottKAcAD9LLud4Cb7b2QztQMUEfHbvhTH09bqXTxnSie8WnjPALV/WMCrJZ6UV/qHJ6L03OqO3LcdYZw==}
-    engines: {node: '>=12'}
 
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
@@ -1390,6 +1413,11 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
+  varlock@1.23.0:
+    resolution: {integrity: sha512-eHJ6PxWJJqBq/+Ki2Uc9HNClpRS4JDLZ9YCL6vJ1f9eGSJxrUOPeDdVpmYcrmjms+RRtEVheiDvYHJJ1WrE3kg==}
+    engines: {bun: '>=1.3.3', node: '>=22.3.0'}
+    hasBin: true
+
   vite@8.3.4:
     resolution: {integrity: sha512-IftLE8phJhdNRIGNEV4JCCvfNScoZQVfcXaN8TQropWGJtOHcu+iAB9pHcuGvmEb/kddw0LBe/jS8ztdC6xdiQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -1918,6 +1946,22 @@ snapshots:
 
   '@types/retry@0.12.5': {}
 
+  '@varlock/aws-secrets-plugin@1.2.5(varlock@1.23.0)':
+    dependencies:
+      varlock: 1.23.0
+
+  '@varlock/native-helper-darwin@1.23.0':
+    optional: true
+
+  '@varlock/native-helper-linux-arm64@1.23.0':
+    optional: true
+
+  '@varlock/native-helper-linux-x64@1.23.0':
+    optional: true
+
+  '@varlock/native-helper-win32-x64@1.23.0':
+    optional: true
+
   '@vitejs/plugin-react@6.1.2(vite@8.3.4(@types/node@25.5.0)(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
@@ -2047,8 +2091,6 @@ snapshots:
   detectincognitojs@1.6.0: {}
 
   dijkstrajs@1.0.3: {}
-
-  dotenv@17.4.2: {}
 
   emoji-regex@10.6.0: {}
 
@@ -2558,6 +2600,13 @@ snapshots:
   use-sync-external-store@1.7.0(react@19.3.0):
     dependencies:
       react: 19.3.0
+
+  varlock@1.23.0:
+    optionalDependencies:
+      '@varlock/native-helper-darwin': 1.23.0
+      '@varlock/native-helper-linux-arm64': 1.23.0
+      '@varlock/native-helper-linux-x64': 1.23.0
+      '@varlock/native-helper-win32-x64': 1.23.0
 
   vite@8.3.4(@types/node@25.5.0)(jiti@2.7.0)(yaml@2.9.1):
     dependencies:
