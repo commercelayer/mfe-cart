@@ -28,7 +28,8 @@ export const CartTitle: FC<{ className?: string }> = ({ className }) => {
         {({ quantity }) =>
           quantity ? (
             <p className="text-gray-400 font-semibold">
-              {quantity} {t("general.item", { count: quantity })}
+              <span data-test-id="cart-title-items-count">{quantity}</span>{" "}
+              {t("general.item", { count: quantity })}
             </p>
           ) : (
             <p />
