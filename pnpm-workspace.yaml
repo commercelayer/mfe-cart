@@ -11,7 +11,7 @@ minimumReleaseAgeExclude:
   - '@commercelayer/react-hooks-components'
   - '@commercelayer/sdk'
 overrides:
-  '@commercelayer/core-components': 'https://pkg.pr.new/@commercelayer/core-components@e49637c'
-  '@commercelayer/react-components': 'https://pkg.pr.new/@commercelayer/react-components@e49637c'
-  '@commercelayer/react-hooks-components': 'https://pkg.pr.new/@commercelayer/react-hooks-components@e49637c'
+  '@commercelayer/core-components': 'https://pkg.pr.new/@commercelayer/core-components@be856bb'
+  '@commercelayer/react-components': 'https://pkg.pr.new/@commercelayer/react-components@be856bb'
+  '@commercelayer/react-hooks-components': 'https://pkg.pr.new/@commercelayer/react-hooks-components@be856bb'
 blockExoticSubdeps: false
