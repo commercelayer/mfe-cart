@@ -35,9 +35,9 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^2.5.14",
+    "@biomejs/biome": "^2.6.7",
     "husky": "^9.1.7",
-    "lint-staged": "^17.5.1",
-    "npm-check-updates": "^23.1.0"
+    "lint-staged": "^17.6.0",
+    "npm-check-updates": "^23.1.1"
   }
 }
